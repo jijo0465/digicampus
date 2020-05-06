@@ -1,17 +1,26 @@
 package com.monkmind.digicampus.models;
 
-import javax.persistence.Entity;
+import lombok.*;
 
+import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+import java.util.HashSet;
+import java.util.Set;
+
+@Getter
+@Setter
+@ToString
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 public class Student extends Person{
 
-    public Long getStudentId() {
-        return studentId;
-    }
+    private String registerNumber;
+    private Double height;
+    private Double weight;
+    private String grade;
 
-    public void setStudentId(Long studentId) {
-        this.studentId = studentId;
-    }
+    @ManyToOne
+    private Parent parent;
 
-    private Long studentId;
 }
