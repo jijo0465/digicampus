@@ -14,29 +14,29 @@ public class AuthController {
         this.userService = userService;
     }
 
-    @RequestMapping("/login/{user}")
-    public String getLoginPage(@PathVariable String user,Model model){
+    @RequestMapping("/login")
+    public String getLoginPage(Model model){
 
         return "login";
     }
 
     @PostMapping
-    @RequestMapping(value = "/validate")
-    public String validateLogin(@ModelAttribute User user, Model model){
-        User dbUser = userService.getUserByUsername(user.getLoginId());
-        User dbUser2 = userService.getUserByUsernameAndPassword(user.getLoginId(),user.getPassword());
-        if (dbUser2==null){
-            System.out.println("Username and Password Mismatch");
-        }
+    @RequestMapping(value = "/{userType}/validate")
+    public String validateLogin(@PathVariable String userType,@ModelAttribute User user, Model model){
+        System.out.println(userType);
+        User dbUser = userService.getUserByLoginId(user.getLoginId());
 
         if (dbUser!=null) {
             if (dbUser.getPassword().compareTo(user.getPassword()) == 0){
-                return "Success";
+                model.addAttribute("userType",userType);
+                return "index";
             }else{
-                return "Incorrect Password";
+                model.addAttribute("message","Invalid Password");
+                return "login";
             }
         }else{
-            return "Incorrect Username";
+            model.addAttribute("message","Invalid UserId");
+            return "login";
         }
 
     }

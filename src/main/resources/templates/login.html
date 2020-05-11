@@ -9,12 +9,13 @@
         <img src="/images/digicampus.png" style="width:500px;height:600px;"/>
     </div>
 
-    <form action="#" th:action="@{/validate}" method="post">
-        <label for="username">Username</label>
-        <input type="text" id="username" name="username"/><br/>
+    <form action="#" th:action="@{/teacher/validate}" method="post">
+        <label for="loginId">Username</label>
+        <input type="text" id="loginId" name="loginId"/><br/>
         <label for="password">Password</label>
         <input type="text" id="password" name="password"/><br/>
         <input type="submit" name="login" value="Login"/>
     </form>
+    <h6 th:text="${message}"></h6>
 </body>
 </html>

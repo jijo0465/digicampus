@@ -10,16 +10,8 @@ import javax.persistence.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class User {
-
-    @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private Long uid;
-
-    @Column(unique = true, name = "user_id")
+public class User extends BaseEntity{
+    @Column(unique = true, name = "login_id")
     private String loginId;
-
     private String password;
-
-
 }

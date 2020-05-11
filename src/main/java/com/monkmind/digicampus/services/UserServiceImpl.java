@@ -13,17 +13,9 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User getUserById(Long id) {
-        return userRepository.findById(id).orElse(null);
+    public User getUserByLoginId(String id) {
+        return userRepository.findByLoginId(id).orElse(null);
     }
 
-    @Override
-    public User getUserByUsername(String username) {
-        return userRepository.findByUsername(username).orElse(null);
-    }
 
-    @Override
-    public User getUserByUsernameAndPassword(String username, String password) {
-        return userRepository.findByUsernameAndPassword(username,password).orElse(null);
-    }
 }

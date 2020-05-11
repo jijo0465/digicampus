@@ -32,7 +32,7 @@ public class TeacherTimeTable extends BaseEntity{
 	@Column(name = "day")
     private WeekDay day;
 	
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "teacherTT")
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "teacherTimeTable")
     Set<Period> periods = new HashSet<>();
 	
 	@OneToOne
