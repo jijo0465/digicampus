@@ -17,7 +17,7 @@ public class AuthController {
     @RequestMapping("/login")
     public String getLoginPage(Model model){
 
-        return "login";
+        return "user";
     }
 
     @PostMapping
