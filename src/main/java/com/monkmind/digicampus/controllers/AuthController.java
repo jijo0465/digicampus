@@ -6,8 +6,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Optional;
-
 @Controller
 public class AuthController {
     private final UserService userService;
@@ -16,18 +14,17 @@ public class AuthController {
         this.userService = userService;
     }
 
-    @RequestMapping("/login")
-    public String getLoginPage(){
-        return "login-page";
+    @RequestMapping("/login/{user}")
+    public String getLoginPage(@PathVariable String user,Model model){
+
+        return "login";
     }
 
-    @ResponseBody
     @PostMapping
     @RequestMapping(value = "/validate")
     public String validateLogin(@ModelAttribute User user, Model model){
-        User dbUser = userService.getUserByUsername(user.getUsername());
-        User dbUser2 = userService.getUserByUsernameAndPassword(user.getUsername(),user.getPassword());
-
+        User dbUser = userService.getUserByUsername(user.getLoginId());
+        User dbUser2 = userService.getUserByUsernameAndPassword(user.getLoginId(),user.getPassword());
         if (dbUser2==null){
             System.out.println("Username and Password Mismatch");
         }

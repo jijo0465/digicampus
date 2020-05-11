@@ -6,10 +6,11 @@ import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-
-import org.mindrot.jbcrypt.BCrypt;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -22,24 +23,18 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-@Table(name = "parent")
+@Table(name = "student_time_table")
 @Entity
 
-public class Parent extends Person{
-	
-	@Column(name = "parent_id")
-	private Long parentId;
-	
-	@Column(name = "password")
-	private String hashPassword(String plainTextPassword){
-		return BCrypt.hashpw(plainTextPassword, BCrypt.gensalt());
-	}
-	
-	@Column(name = "occupation")
-	private String occupation;
-	
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "parent")
-    Set<Student> students = new HashSet<>();
-	
-}
+public class StudentTimeTable extends BaseEntity{
 
+	@Enumerated(EnumType.STRING)
+	@Column(name = "day")
+    private WeekDay day;
+	
+	@ManyToOne
+	private Grade grade;
+	
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "studentTT")
+    Set<Period> periods = new HashSet<>();
+}

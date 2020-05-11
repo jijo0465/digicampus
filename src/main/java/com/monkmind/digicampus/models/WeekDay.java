@@ -1,0 +1,11 @@
+package com.monkmind.digicampus.models;
+
+public enum WeekDay {
+	MONDAY,
+	TUESDAY,
+	WEDNESDAY,
+	THURSDAY,
+	FRIDAY,
+	SATURDAY,
+	SUNDAY
+}

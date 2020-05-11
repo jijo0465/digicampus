@@ -1,15 +1,15 @@
 package com.monkmind.digicampus.models;
 
+import java.sql.Time;
 import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-
-import org.mindrot.jbcrypt.BCrypt;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -22,24 +22,24 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-@Table(name = "parent")
+@Table(name = "period")
 @Entity
 
-public class Parent extends Person{
+public class Period extends BaseEntity{
 	
-	@Column(name = "parent_id")
-	private Long parentId;
+	@Column(name = "starting_time")
+	private Time startngTime;
 	
-	@Column(name = "password")
-	private String hashPassword(String plainTextPassword){
-		return BCrypt.hashpw(plainTextPassword, BCrypt.gensalt());
-	}
+	@Column(name = "ending_time")
+	private Time endingTime;
 	
-	@Column(name = "occupation")
-	private String occupation;
+	@ManyToOne
+	private StudentTimeTable studentTimeTable;
 	
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "parent")
-    Set<Student> students = new HashSet<>();
+	@ManyToOne
+	private TeacherTimeTable teacherTimeTable;
 	
-}
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "period")
+    Set<Subject> subjects = new HashSet<>();
 
+}

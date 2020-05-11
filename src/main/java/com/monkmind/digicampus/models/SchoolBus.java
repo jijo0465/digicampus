@@ -7,9 +7,8 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
-
-import org.mindrot.jbcrypt.BCrypt;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -22,24 +21,28 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-@Table(name = "parent")
+@Table(name = "school_bus")
 @Entity
 
-public class Parent extends Person{
+public class SchoolBus extends BaseEntity{
 	
-	@Column(name = "parent_id")
-	private Long parentId;
+	@Column(name = "bus_number")
+	private Long busNumber;
 	
-	@Column(name = "password")
-	private String hashPassword(String plainTextPassword){
-		return BCrypt.hashpw(plainTextPassword, BCrypt.gensalt());
-	}
 	
-	@Column(name = "occupation")
-	private String occupation;
+	@Column(name = "registration")
+	private String registration;
 	
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "parent")
+	@Column(name = "driver")
+	private String driver;
+	
+	@Column(name = "helper")
+	private String helper;
+	
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "schoolBus")
     Set<Student> students = new HashSet<>();
 	
+	@OneToOne(mappedBy = "schoolBus")
+    private Route route;
+	
 }
-
