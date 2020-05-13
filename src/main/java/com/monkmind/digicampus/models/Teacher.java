@@ -28,7 +28,7 @@ import lombok.ToString;
 
 public class Teacher extends Person{
 	@Column(name = "teacher_id")
-	private Long teacherId;
+	private String teacherId;
 	
 	@Column(name = "password")
 	private String hashPassword(String plainTextPassword){

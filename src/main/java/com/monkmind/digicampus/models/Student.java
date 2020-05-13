@@ -25,8 +25,8 @@ import lombok.ToString;
 @Entity
 public class Student extends Person{
 	
-	@Column(name = "register_number")
-	private String registerNumber;
+	@Column(name = "Student_id")
+	private String studentId;
 	
 	@Column(name = "height")
     private Double height;

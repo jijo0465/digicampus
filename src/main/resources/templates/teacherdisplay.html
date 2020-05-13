@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html  lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>TEACHER LIST</title>
+</head>
+<body>
+<h1> TEACHER HOME</h1>
+<table><tr>
+<th>teacherid</th>
+<th>alternate_phone</th>
+<th>name</th>
+<th>address</th>
+</tr>
+
+<tr th:each="teacher : ${teacher}">
+			<td th:text="${teacher.teacherId}">
+      		<td th:text="${teacher.altPhone}">
+      		<td th:text="${teacher.name}">
+      		<td th:text="${teacher.address}">
+      		
+      	</tr>
+</table>
+
+</body>
+</html>

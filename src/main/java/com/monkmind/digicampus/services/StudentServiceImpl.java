@@ -23,4 +23,10 @@ public class StudentServiceImpl implements StudentService {
     public void addParent(Parent parent){
         parentRepository.save(parent);
     }
+
+    @Override
+	public Student getStudentByStudentId(String student) {
+		// TODO Auto-generated method stub
+		return studentRepository.findByStudentId(student).orElse(null);
+	}
 }
