@@ -1,15 +1,14 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="UTF-8" xmlns:th="http://www.thymeleaf.org">
+<meta charset="UTF-8" >
 <title>Grade</title>
 </head>
 <body bgcolor="#a8b5ac">
+<form action="#" th:action="@{/gradeinsert}" th:object="${grade}" method="post">
 <h1 align="center">Grade Creation Form</h1>
-<div id="form" class="grade" align="justify">
-<form action="" id="" method="post">
 <label for="std">Standard :</label>
-<select id = "std">
+<select th:field="*{standard}" >
                <option value = "99">L K G</option>
                <option value = "98">U K G</option>
                <option value = "1">First</option>
@@ -28,7 +27,7 @@
 <br>
 <br>
 <label for="std">Division:</label>
-<select id="division">
+<select th:field="*{division}">
 		<option value="1">A</option>
 		<option value="2">B</option>
 		<option value="3">C</option>
@@ -37,12 +36,12 @@
 <br>
 <br>
 <label for="strength">Max Strength:</label>
-<input type="text" id="strength">
+<input type="text" th:field="*{strength}">
 <br>
 <br>
-<button type="button" >Save</button>
+<input type="submit" value="Submit" />
 
 </form>
-</div>
+
 </body>
 </html>

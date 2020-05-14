@@ -36,8 +36,8 @@ public class Grade extends BaseEntity{
 	@Column(name = "strength")
     private Double strength;
 	
-	@Column(name = "max_strength")
-    private Double max_strength;
+	//@Column(name = "max_strength")
+    //private Double max_strength;
 	
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "grade")
     private Set<StudentTimeTable> studentTimeTable = new HashSet<>();
