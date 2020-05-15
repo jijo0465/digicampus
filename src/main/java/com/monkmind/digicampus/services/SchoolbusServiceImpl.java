@@ -8,6 +8,9 @@ import com.monkmind.digicampus.repositories.SchoolbusRepository;
 
 import lombok.AllArgsConstructor;
 
+/*author:shijina
+created date:14/5/2020
+*/
 @Service
 @AllArgsConstructor
 public class SchoolbusServiceImpl implements SchoolbusService {

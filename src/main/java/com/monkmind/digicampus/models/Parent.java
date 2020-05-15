@@ -31,9 +31,7 @@ public class Parent extends Person{
 	private Long parentId;
 	
 	@Column(name = "password")
-	private String hashPassword(String plainTextPassword){
-		return BCrypt.hashpw(plainTextPassword, BCrypt.gensalt());
-	}
+	private String Password;
 	
 	@Column(name = "occupation")
 	private String occupation;

@@ -11,6 +11,7 @@ public enum BloodGroup {
 	AB_POS("AB+"),
 	AB_NEG("AB-"),
 	NO_ANSWER("NA");
+	//NO_ANSWER("NA");
 
 	private String group;
 
