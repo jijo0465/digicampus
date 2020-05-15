@@ -9,9 +9,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.monkmind.digicampus.models.Grade;
 import com.monkmind.digicampus.models.Parent;
 import com.monkmind.digicampus.models.SchoolBus;
+import com.monkmind.digicampus.models.Student;
 import com.monkmind.digicampus.services.GradeService;
 import com.monkmind.digicampus.services.ParentService;
 import com.monkmind.digicampus.services.SchoolbusService;
+import com.monkmind.digicampus.services.StudentService;
 
 //import com.example.demo.Model.Category;
 
@@ -24,13 +26,16 @@ public class InsertionController {
 	private final GradeService gradeService;
 	private final SchoolbusService schoolbusService;
 	private final ParentService parentService;
+	private final StudentService studentService;
 	
 	
-	public InsertionController(GradeService gradeService,SchoolbusService schoolbusService,ParentService parentService) {
+	public InsertionController(GradeService gradeService,SchoolbusService schoolbusService,
+			ParentService parentService,StudentService studentService) {
 		//super();
 		this.gradeService = gradeService;
 		this.schoolbusService= schoolbusService;
 		this.parentService= parentService;
+		this.studentService= studentService;
 	}
 
 	@RequestMapping("/grade_form")
@@ -71,8 +76,21 @@ public class InsertionController {
 
 	@PostMapping
 	@RequestMapping("/parentinsert")
-	public String createStudent(@ModelAttribute Parent parent,Model model) {
+	public String createParent(@ModelAttribute Parent parent,Model model) {
 	    parentService.save(parent);
+	    return "index";
+	}
+	
+	@RequestMapping("/studentform")
+	public String studentForm(Model model) {
+	    model.addAttribute("student", new Student());
+	    return "student_form";
+	}
+
+	@PostMapping
+	@RequestMapping("/studentinsert")
+	public String createStudent(@ModelAttribute Student student,Model model) {
+	    studentService.save(student);
 	    return "index";
 	}
 
