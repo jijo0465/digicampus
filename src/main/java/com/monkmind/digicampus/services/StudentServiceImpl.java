@@ -1,7 +1,7 @@
 package com.monkmind.digicampus.services;
 
 import com.monkmind.digicampus.models.Parent;
-import com.monkmind.digicampus.models.Person;
+
 import com.monkmind.digicampus.models.Student;
 import com.monkmind.digicampus.repositories.ParentRepository;
 import com.monkmind.digicampus.repositories.StudentRepository;
@@ -28,5 +28,11 @@ public class StudentServiceImpl implements StudentService {
 	public Student getStudentByStudentId(String student) {
 		// TODO Auto-generated method stub
 		return studentRepository.findByStudentId(student).orElse(null);
+	}
+
+	@Override
+	public void save(Student student) {
+		// TODO Auto-generated method stub
+		studentRepository.save(student);
 	}
 }

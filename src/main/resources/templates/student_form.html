@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8" >
 <title>Student Form</title>
@@ -21,29 +21,29 @@
 	<br>
 	<br>
 <label for="alt_phone">Alternative Phone:</label>
-	<input type="number" id="altphone" th:field="*{alternative_phone}">
+	<input type="number" id="altphone" th:field="*{altPhone}">
 	<br>
 	<br>
 <label for="bloodgroup">Blood Group:</label>
-<select id="bgp"   name="bloodgroup" th:field="*{blodd_group}">
-	<option value = "A+ve">A+ve</option>
-	<option value = "A-ve">A-ve</option>
-	<option value = "B+ve">B+ve</option>
-	<option value = "B-ve">B-ve</option>
-	<option value = "O+ve">O+ve</option>
-	<option value = "O-ve">O-ve</option>
-	<option value = "AB+ve">AB+ve</option>
-	<option value = "AB-ve">AB-ve</option>
-</select> 
+<select th:field="*{bloodGroup}">
+	<option value = "A_POS">A+ve</option>
+	<option value = "A_NEG">A-ve</option>
+	<option value = "B_POS">B+ve</option>
+	<option value = "B_NEG">B-ve</option>
+	<option value = "O_POS">O+ve</option>
+	<option value = "O_NEG">O-ve</option>
+	<option value = "AB_POS">AB+ve</option>
+	<option value = "AB_NEG">AB-ve</option>
+</select>
 	<br>
 	<br>
 <label for="dob">Date of Birth:</label> 
-	<input type="date" id="dob" th:field="*{date_of_birth}"> 
+	<input type="date" id="dob" th:field="*{dateOfBirth}"> 
 	<br>
 	<br>
-<label for="gender">Gender</label>
-	<input type="radio" id="male" value="male" th:field="*{gender}">
-	<input type="radio" id="female" value="female" th:field="*{gender}">
+<label for="gender">Gender:</label>
+<input type="radio" value="MALE" th:field="*{gender}">male
+<input type="radio" value="FEMALE" th:field="*{gender}">Female
 	<br>
 	<br>
 <label for="height">Height</label>
@@ -54,24 +54,28 @@
 	<input type="number" id="wgt" th:field="*{weight}">
 	<br>
 	<br>
+<label for="image">Image:</label>
+	<input type="file" th:field="*{displayImage}">
+	<br>
+	<br>
 <label for="student_id">Studentid</label>
-	<input type="text" id="stdid" th:field="*{student_id}">
+	<input type="text" id="stdid" th:field="*{studentId}">
 	<br>
 	<br>
 
 <label for="grade_id">Gradeid</label>
-	<input type="text" id="grdeid" th:field="*{grade_id}">
+	<input type="text" id="grdeid" th:field="*{Id}">
 	<br>
 	<br>
 <label for="parent_id">Parent id</label>
-	<input type="text" id="pid" th:field="*{parent_id}">
+	<input type="text" id="pid" th:field="*{parent}">
 	<br>
 	<br>
 <label for="schoolbus_id">Schoolbusid</label>
-	<input type="text" id="busid" th:field="*{school_bus_id}">
+	<input type="text" id="busid" th:field="*{Id}">
 	<br>
 	<br>
-<input type="submit" value="Submit"> 
+<input type="submit" value="Submit"/> 
 </form>
 </body>
 </html>
