@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>TeachingAttendance</title>
+</head>
+<body>
+<form action="#" th:action="@{/teachingattendance}" th:object="${teacherattendance}" method="post">
+<label for="date">Date:</label>
+<input type="date" th:field="*{date}">
+<br>
+<br>
+<label for="attendance">Attendance:</label>
+<input type="radio" th:field="*{attendance}" value="yes">Yes
+<input type="radio" th:field="*{attendance}" value="no">No
+<br>
+<br>
+<label for="non_teaching_id">Teaching Id:</label>
+<input type="date" th:field="*{teacher_id}">
+<br>
+<br>
+<input type="submit" value="Submit" />
+</form>
+</body>
+</html>
