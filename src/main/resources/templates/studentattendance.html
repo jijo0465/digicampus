@@ -2,10 +2,10 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>TeachingAttendance</title>
+<title>StudenAttendance</title>
 </head>
 <body>
-<form action="#" th:action="@{/teachingattendance}" th:object="${teacherattendance}" method="post">
+<form action="#" th:action="@{/studentattendance}" th:object="${studentattendance}" method="post">
 <label for="date">Date:</label>
 <input type="date" th:field="*{date}">
 <br>
@@ -15,8 +15,8 @@
 <input type="radio" th:field="*{attendance}" value="no">No
 <br>
 <br>
-<label for="non_teaching_id">Teaching Id:</label>
-<input type="text" th:field="*{teacher_id}">
+<label for="studentid">student Id:</label>
+<input type="text" th:field="*{student_id}">
 <br>
 <br>
 <input type="submit" value="Submit" />
