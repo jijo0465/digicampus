@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html  lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<form action="#" th:action="@{/subject}" th:object="${subject}" method="post">
+            <p class="text"><label>Subject name</label>  <input type="text" th:field="*{name}" /></p>
+            <p class="text"><label>Is examable</label> <input type="text" th:field="*{isExamable}" /></p>
+             <p class="text"><label>Optional</label>  <input type="text" th:field="*{optional}" /></p>
+            <p class="text"><label>Period id</label> <input type="text" th:field="*{priodId}" /></p>
+            
+            
+            <p><input type="submit" value="Submit" />  </p>
+
+        </form>
+
+</body>
+</html>

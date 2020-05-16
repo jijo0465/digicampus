@@ -5,9 +5,9 @@
 <title>Student Form</title>
 </head>
 <body bgcolor="#a8b5ac">
-<h1 align="center">Insert Student</h1>
+<h1 align="center">update Student</h1>
 
-<form action="#" th:action="@{/studentinsert}" th:object="${student}" method="post">
+<form action="#" th:action="@{/updatestudent/{studentId}(studentId=${student.studentId})}" th:object="${student}" method="post">
 <label for="Name"> Name:</label>
 	<input type="text" id="name" th:field="*{name}">
 	<br>
@@ -75,8 +75,7 @@
 	<input type="text" id="busid" th:field="*{schoolBus}">
 	<br>
 	<br>
-<input type="submit" value="Submit"/> 
-
+<input type="submit" value="Update"/> 
 </form>
 </body>
 </html>

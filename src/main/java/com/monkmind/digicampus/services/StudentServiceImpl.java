@@ -35,4 +35,10 @@ public class StudentServiceImpl implements StudentService {
 		// TODO Auto-generated method stub
 		studentRepository.save(student);
 	}
+
+	@Override
+	public Student get(long studentId) {
+		// TODO Auto-generated method stub
+		return studentRepository.findById(studentId).get();
+	}
 }
