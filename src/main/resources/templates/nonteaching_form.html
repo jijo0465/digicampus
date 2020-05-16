@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Non Teaching</title>
+</head>
+<body>
+<form action="#" th:action="@{/nonteachinginsert}" th:object="${nonteachingstaff}" method="post">
+<label for="staffId">Staff Id:</label>
+<input type="text" th:field="*{name}">
+<br>
+<br>
+<label for="category">Category:</label>
+<input type="text" th:field="*{category}">
+<br>
+<br>
+<label for="category">Category:</label>
+<input type="text" th:field="*{category}">
+<br>
+<br>
+<label for="designation">Designation:</label>
+<input type="text" th:field="*{designation}">
+<br>
+<br>
+<input type="submit" value="Submit" />
+</form>
+</body>
+</html>
