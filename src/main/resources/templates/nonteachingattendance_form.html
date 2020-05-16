@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
 <title>NonTeachingAttendance</title>
@@ -11,8 +11,8 @@
 <br>
 <br>
 <label for="attendance">Attendance:</label>
-<input type="radio" th:field="*{attendance}" value="yes">Yes
-<input type="radio" th:field="*{attendance}" value="no">No
+<input type="radio"  th:field="*{attendance}" value="yes">Yes
+<input type="radio"  th:field="*{attendance}" value="no">No
 <br>
 <br>
 <label for="non_teaching_id">Non Teaching Id:</label>

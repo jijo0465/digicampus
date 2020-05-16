@@ -20,7 +20,7 @@ public class GradeController {
 	private final GradeService gradeService;
 
 	public GradeController(GradeService gradeService) {
-		super();
+		//super();
 		this.gradeService = gradeService;
 	}
 	

@@ -59,31 +59,25 @@ public class StudentController {
 	    return "index";
 	}
 
+	/*author:shijina
+    created date:16/5/2020
+    */
 	
-/*	@PostMapping("/update/{studentId}")
-	public String updateUser(@PathVariable("studentId") long id, @Valid Student student, 
-	  BindingResult result, Model model) {
-	    if (result.hasErrors()) {
-	        student.setStudentId(studentId);
-	        return "update-user";
-	    }
-	         
-	    studentService.save(student);
-	    model.addAttribute("users", studentService.());
-	    return "index";
-	}
-	*/
-	/*Student customerToUpdate = studentService.getOne(StudentId);
-	customerToUpdate.setName(customerDto.getName);
-	customerRepository.save(customerToUpdate);
-	*/
+
 	@RequestMapping("/edit/{studentId}")
-	public String showEditStudentPage(@PathVariable Long studentId,Model model ,Optional<Long> student) {
+	public String studentUpdate(@PathVariable String studentId,Model model) {
 		//ModelAndView mav = new ModelAndView("edit_product");
 		System.out.println(studentId);
-	    Student students = studentService.get(studentId);
+	    Student students = studentService.get(new Long(studentId));
 	    model.addAttribute("student",students);
-	     return "studdisplay";
+	     return "updatestudent";
+	}
+	
+	@PostMapping
+	@RequestMapping("/updatestudent/{id}")
+	public String InsertStudent(@ModelAttribute Student student,Model model) {
+	    studentService.save(student);
+	    return "index";
 	}
 
 }
