@@ -7,9 +7,9 @@
 <title>Non Teaching</title>
 </head>
 <body>
-<form action="#" th:action="@{/nonteachingstaff}" th:object="${non_teaching_staff}" method="post">
+<form action="#" th:action="@{/nonteachingstaff}" th:object="${nonteaching}" method="post">
 <label for="staffId">Staff Id:</label>
-<input type="text" th:field="*{staff_id}">
+<input type="text" th:field="*{staffId}">
 <br>
 <br>
 <label for="name">Name:</label>
@@ -25,11 +25,11 @@
 <br>
 <br>
 <label for="alternate_phone">Alternate Phone:</label>
-<input type="text" th:field="*{alternate_phone}">
+<input type="text" th:field="*{altPhone}">
 <br>
 <br>
 <label for="date_of_birth">Date of Birth:</label>
-<input type="date" th:field="*{date_of_birth}">
+<input type="date" th:field="*{dateOfBirth}">
 <br>
 <br>
 <label for="blood_group">Blood Group:</label>
@@ -51,7 +51,7 @@
 <br>
 <br>
 <label for="display_image">Image:</label>
-<input type="text" th:field="*{display_image}">
+<input type="text" th:field="*{displayImage}">
 <br>
 <br>
 <label for="category">Category:</label>
