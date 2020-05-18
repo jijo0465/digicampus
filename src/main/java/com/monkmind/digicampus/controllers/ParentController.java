@@ -36,4 +36,5 @@ public class ParentController {
 	    parentService.save(parent);
 	    return "index";
 	}
+	
 }
