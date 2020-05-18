@@ -1,5 +1,6 @@
 package com.monkmind.digicampus.controllers;
 
+import com.monkmind.digicampus.command.LoginCommand;
 import com.monkmind.digicampus.models.Student;
 import com.monkmind.digicampus.models.Teacher;
 import com.monkmind.digicampus.models.User;
@@ -24,7 +25,7 @@ public class AuthController {
 
     @RequestMapping("/login")
     public String getLoginPage(Model model){
-
+        model.addAttribute("loginCommand",new LoginCommand());
         return "login";
     }
 
@@ -37,13 +38,22 @@ public class AuthController {
         if (dbUser!=null) {
             if (dbUser.getPassword().compareTo(user.getPassword()) == 0){
                // model.addAttribute("userType",userType);
-               
+
+//                if (dbUser!=null) {
+//                    if (dbUser.getPassword().compareTo(user.getPassword()) == 0){
+//                        model.addAttribute("userType",userType);
+//                        return "success :: success";
+//                    }else{
+//                        model.addAttribute("message","Invalid Password");
+//                        return "login";
+//                    }
+//                }
              if (userType.compareTo("admin")==0)
             {
             	model.addAttribute("userType",userType);
             	return "adminhome";
             }
-           
+
             else if(userType.compareTo("student")==0)
             {
             	Student student=studentService.getStudentByStudentId(dbUser.getLoginId());
