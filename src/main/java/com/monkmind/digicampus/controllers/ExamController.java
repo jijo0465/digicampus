@@ -37,6 +37,9 @@ public class ExamController {
 	    examService.save(exam);
 	    return "examformdisplay";
 	}
+	/*author:shijina
+	created date:16/5/2020
+	*/
 	@RequestMapping("/ei/{id}")
 	public String studentUpdate(@PathVariable String id,Model model) {
 		//ModelAndView mav = new ModelAndView("edit_product");
