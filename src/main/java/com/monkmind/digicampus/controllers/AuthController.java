@@ -1,5 +1,9 @@
-package com.monkmind.digicampus.controllers;
+/**
+ * Created by : Shinjina S
+ * Created on : 01/05/2020
+ */
 
+package com.monkmind.digicampus.controllers;
 import com.monkmind.digicampus.command.LoginCommand;
 import com.monkmind.digicampus.models.Student;
 import com.monkmind.digicampus.models.Teacher;
@@ -31,23 +35,25 @@ public class AuthController {
 
     @PostMapping
     @RequestMapping(value = "/{userType}/validate")
-    public String validateLogin(@PathVariable String userType,@ModelAttribute User user, Model model){
+    public String validateLogin(@PathVariable String userType,@ModelAttribute LoginCommand user, Model model){
         System.out.println(userType);
         User dbUser = userService.getUserByLoginId(user.getLoginId());
-        /*shijina*/
+
+//        if (dbUser!=null) {
+//            if (dbUser.getPassword().compareTo(user.getPassword()) == 0){
+//                model.addAttribute("userType",userType);
+//                return "success :: success";
+//            }else{
+//                model.addAttribute("message","Invalid Password");
+//                return "login";
+//            }
+//        }
+
         if (dbUser!=null) {
             if (dbUser.getPassword().compareTo(user.getPassword()) == 0){
                // model.addAttribute("userType",userType);
 
-//                if (dbUser!=null) {
-//                    if (dbUser.getPassword().compareTo(user.getPassword()) == 0){
-//                        model.addAttribute("userType",userType);
-//                        return "success :: success";
-//                    }else{
-//                        model.addAttribute("message","Invalid Password");
-//                        return "login";
-//                    }
-//                }
+
              if (userType.compareTo("admin")==0)
             {
             	model.addAttribute("userType",userType);
