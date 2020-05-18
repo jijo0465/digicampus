@@ -1,6 +1,6 @@
 package com.monkmind.digicampus.services;
 
-import com.monkmind.digicampus.models.Grade;
+
 import com.monkmind.digicampus.models.SchoolBus;
 
 public interface SchoolbusService {
