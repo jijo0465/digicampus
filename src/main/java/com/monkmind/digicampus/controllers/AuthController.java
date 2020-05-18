@@ -1,5 +1,6 @@
 package com.monkmind.digicampus.controllers;
 
+import com.monkmind.digicampus.command.LoginCommand;
 import com.monkmind.digicampus.models.User;
 import com.monkmind.digicampus.services.UserService;
 import org.springframework.stereotype.Controller;
@@ -16,20 +17,20 @@ public class AuthController {
 
     @RequestMapping("/login")
     public String getLoginPage(Model model){
-
-        return "user";
+        model.addAttribute("loginCommand",new LoginCommand());
+        return "login";
     }
 
     @PostMapping
     @RequestMapping(value = "/{userType}/validate")
-    public String validateLogin(@PathVariable String userType,@ModelAttribute User user, Model model){
-        System.out.println(userType);
+    public String validateLogin(@PathVariable String userType,@ModelAttribute LoginCommand user, Model model){
+        System.out.println(user.getLoginId());
         User dbUser = userService.getUserByLoginId(user.getLoginId());
 
         if (dbUser!=null) {
             if (dbUser.getPassword().compareTo(user.getPassword()) == 0){
                 model.addAttribute("userType",userType);
-                return "index";
+                return "success :: success";
             }else{
                 model.addAttribute("message","Invalid Password");
                 return "login";
