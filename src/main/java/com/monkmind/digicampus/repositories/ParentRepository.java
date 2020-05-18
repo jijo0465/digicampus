@@ -8,5 +8,6 @@ import org.springframework.data.repository.CrudRepository;
 
 public interface ParentRepository extends CrudRepository<Parent,Long> {
 	Optional<Parent> findByParentId(String parent);
+	Optional<Parent> findById(String parent);
 
 }

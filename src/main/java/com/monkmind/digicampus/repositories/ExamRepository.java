@@ -10,5 +10,7 @@ import com.monkmind.digicampus.models.Exam;
 public interface ExamRepository extends CrudRepository<Exam, Long>{
 	
 	Optional<Exam> findById(String exam);
+	Optional<Exam> findById(Long exam);
+	
 
 }

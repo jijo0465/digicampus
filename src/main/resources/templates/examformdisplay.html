@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html  lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>exam list</title>
+</head>
+<body>
+<h1> Exam listed here</h1>
+<table><tr>
+<th>examid</th>
+<th>start date</th>
+<th>name</th>
+<th>end date</th>
+
+</tr>
+
+<tr th:each="exam : ${exam}">
+			<td th:text="${exam.id}">
+      		<td th:text="${exam.startDate}">
+      		<td th:text="${exam.name}">
+      		<td th:text="${exam.endDate}">
+      		
+      		
+      	</tr>
+      	<tr><td>
+      	<a th:href="@{'/ei/'+ ${exam.id}}">Edit</a>
+      	</td></tr>
+</table>
+
+</body>
+</html>

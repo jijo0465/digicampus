@@ -1,6 +1,7 @@
 package com.monkmind.digicampus.controllers;
 
 import com.monkmind.digicampus.models.Gender;
+
 import com.monkmind.digicampus.models.Parent;
 import com.monkmind.digicampus.models.Person;
 import com.monkmind.digicampus.models.Student;
@@ -20,7 +21,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.ModelAndView;
+
 
 @AllArgsConstructor
 @Controller
