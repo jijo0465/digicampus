@@ -1,0 +1,45 @@
+<!-- Anand A B -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Test</title>
+</head>
+<body>
+<form action="#" th:action="@{/test}" th:object="${test}" method="post">
+<label for="date">Date:</label>
+<input type="text" th:field="*{date}">
+<br>
+<br>
+<label for="duration">Duration:</label>
+<input type="text" th:field="*{duration}">
+<br>
+<br>
+<label for="duration">Duration:</label>
+<input type="text" th:field="*{duration}">
+<br>
+<br>
+<label for="pass_mark">Pass Mark:</label>
+<input type="text" th:field="*{pass_mark}">
+<br>
+<br>
+<label for="Time">Time:</label>
+<input type="text" th:field="*{time}">
+<br>
+<br>
+<label for="total_mark">Total Mark:</label>
+<input type="text" th:field="*{total_mark}">
+<br>
+<br>
+<label for="exam_id">Exam ID:</label>
+<input type="text" th:field="*{exam_id}">
+<br>
+<br>
+<label for="subject_name_id">Subject Name Id:</label>
+<input type="text" th:field="*{subject_name_id}">
+<br>
+<br>
+
+<input type="submit" value="Submit" />
+</body>
+</html>
