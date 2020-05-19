@@ -6,9 +6,9 @@
 <title>Student Time Table</title>
 </head>
 <body>
-<form action="#" th:action="@{/studenttimetable}" th:object="${studenttimetable}" method="post">
+<form action="#" th:action="@{/timetableinsert}" th:object="${StudentTimeTable}" method="post">
 <label for="day">Day:</label>
-<select th:field="*{day}" >
+<select th:field="*{day}">
                <option value = "MONDAY">MONDAY</option>
                <option value = "TUESDAY">TUESDAY</option>
                <option value = "WEDNESDAY">WEDNESDAY</option>
