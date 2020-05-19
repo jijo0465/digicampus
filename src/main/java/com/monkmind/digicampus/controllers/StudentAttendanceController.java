@@ -22,7 +22,7 @@ public class StudentAttendanceController {
 	
 	 @RequestMapping("/studentattendanceform")
 		public String studentAttendanceForm(Model model) {
-		    model.addAttribute("studentattendance", new StudentAttendance());
+		    model.addAttribute("student_attendance", new StudentAttendance());
 		    return "studentattendance";
 		}
 	@PostMapping
