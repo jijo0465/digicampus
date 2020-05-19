@@ -6,18 +6,18 @@
 <title>TeachingAttendance</title>
 </head>
 <body>
-<form action="#" th:action="@{/teachingattendance}" th:object="${teacherattendance}" method="post">
+<form action="#" th:action="@{/teacherattendance}" th:object="${teacher_attendance}" method="post">
 <label for="date">Date:</label>
 <input type="date" th:field="*{date}">
 <br>
 <br>
 <label for="attendance">Attendance:</label>
-<input type="radio" th:field="*{attendance}" value="yes">Yes
-<input type="radio" th:field="*{attendance}" value="no">No
+<input type="radio" th:field="*{yes}" value="yes">Yes
+<input type="radio" th:field="*{yes}" value="no">No
 <br>
 <br>
 <label for="non_teaching_id">Teaching Id:</label>
-<input type="text" th:field="*{teacher_id}">
+<input type="text" th:field="*{teacher}">
 <br>
 <br>
 <input type="submit" value="Submit" />
