@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>sampe</title>
+<link th:href="@{/assets/css/csss.css}" rel="stylesheet"/>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="row">
+    <div class="card">
+      <div class="col-sm-9 col-md-7 col-lg-5 mx-auto ">
+        <div class="card card-signin my-5">
+          <div class="card-body">
+            <h5 class="card-title text-center">Sign In</h5>
+            <form class="form-inline">
+<div th:replace="fragments/forminput :: forminput">
+</div>
+<div th:replace="fragments/formpw :: formpw">
+</div>
+</form> 
+<div th:replace="fragments/formbutton :: formbutton">
+</div>
+<div th:replace="fragments/forgetpw :: forgetpw">
+</div>
+</div>
+ </div>
+      </div>
+    </div>
+  </div>
+  </div>
+ 
+   
+
+
+
+</body>
+</html>
