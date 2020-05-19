@@ -11,6 +11,7 @@ import lombok.AllArgsConstructor;
 @Service
 @AllArgsConstructor
 public class StudentTimetableServiceImpl implements StudentTimetableService{
+	
 	private final StudentTimetableRepository studenttimetableRepository;
 
 	@Override
@@ -20,10 +21,23 @@ public class StudentTimetableServiceImpl implements StudentTimetableService{
 	}
 
 	@Override
-	public void save(StudentTimeTable studentTimeTable) {
+	public void save(StudentTimeTable studentTimetable) {
 		// TODO Auto-generated method stub
-		studenttimetableRepository.save(studentTimeTable);
+		studenttimetableRepository.save(studentTimetable);
 	}
+
+	@Override
+	public StudentTimeTable getByDay(Long day) {
+		// TODO Auto-generated method stub
+		return studenttimetableRepository.findByDay(day).get();
+	}
+
+	
+	
+	
+	
+
+	
 	
 	
 	

@@ -57,7 +57,7 @@ public class StudentController {
 	@RequestMapping("/studentinsert")
 	public String createStudent(@ModelAttribute Student student,Model model) {
 	    studentService.save(student);
-	    return "index";
+	    return "studdisplay";
 	}
 
 	/*author:shijina

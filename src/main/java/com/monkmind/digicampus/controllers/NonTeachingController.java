@@ -14,18 +14,18 @@ public class NonTeachingController {
 	private final NonTeachinService nonteachingservice;
 
 	public NonTeachingController(NonTeachinService nonteachingservice) {
-		super();
+		//super();
 		this.nonteachingservice = nonteachingservice;
 	}
 	@RequestMapping("/nonteaching")
 	public String nonTeaching(Model model) {
-		model.addAttribute("nonteaching",new NonTeachingStaff());
+		model.addAttribute("nonteachingstaff",new NonTeachingStaff());
 		return "nonteaching_form";
 	}
 	@PostMapping("/nonteachingstaff")
 	public String createnonteaching(@ModelAttribute NonTeachingStaff nonteachingstaff,Model model) {
 		nonteachingservice.save(nonteachingstaff);
-		return "index";
+		return "nonteachingdisplay";
 	}
 
 }
