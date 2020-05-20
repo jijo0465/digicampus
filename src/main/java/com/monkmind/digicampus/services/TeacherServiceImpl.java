@@ -19,5 +19,8 @@ public class TeacherServiceImpl implements TeacherService{
 		// TODO Auto-generated method stub
 		return teacherRepository.findByTeacherId(teacher).orElse(null);
 	}
+	public void save(Teacher teacher) {
+		teacherRepository.save(teacher);
+	}
 
 }
