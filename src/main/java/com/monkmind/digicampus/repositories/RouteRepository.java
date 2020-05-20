@@ -9,5 +9,5 @@ import com.monkmind.digicampus.models.Route;
 
 public interface RouteRepository extends CrudRepository<Route, Long> {
 
-	Optional<Route> findByRouteId(String route);
+	Optional<Route> findByRouteId(String new_route);
 }

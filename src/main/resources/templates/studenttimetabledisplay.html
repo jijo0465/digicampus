@@ -14,7 +14,11 @@
 <tr th:each="studentTimetable : ${studentTimetable}">
 			<td th:text="${studentTimetable.id}">
       		<td th:text="${studentTimetable.day}">
+<<<<<<< HEAD
+      		<td th:text="${studentTimetable.Grade.id}">
+=======
       		<td th:text="${studentTimetable.grade.id}">
+>>>>>>> branch 'dev' of https://github.com/jijo0465/digicampus.git
       		</tr>   
       		<tr><td>
            <a th:href="@{'/e/'+ ${studentTimetable.id}}">Edit</a>
