@@ -22,7 +22,7 @@ import lombok.ToString;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
+//@ToString
 @Table(name = "teacher")
 @Entity
 
@@ -31,9 +31,7 @@ public class Teacher extends Person{
 	private String teacherId;
 	
 	@Column(name = "password")
-	private String hashPassword(String plainTextPassword){
-		return BCrypt.hashpw(plainTextPassword, BCrypt.gensalt());
-	}
+	private String Password;
 	
 	@OneToOne(mappedBy = "classTeacher")
     private Grade grade;

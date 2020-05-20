@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Person</title>
+</head>
+<body>
+<form action="#" th:action="@{/personinsert}" th:object="${person}" method="post">
+<label for="name">Name:</label>
+<input type="text" th:field="*{name}">
+<br>
+<br>
+<label for="dob">Date of Birth:</label>
+<input type="date" th:field="*{dateofBirth}">
+<br>
+<br>
+<label for="gender">Gender:</label>
+<input type="radio" th:field="*{MALE}">
+<input type="radio" th:field="*{FEMALE}">
+<br>
+<br>
+<label for="displayImage">Display Image:</label>
+<input type="text" th:field="*{displayImage}">
+<br>
+<br>
+<label for="address">Address:</label>
+<input type="text" th:field="*{address}">
+<br>
+<br>
+<label for="bloodgroup">Blood Group:</label>
+<select th:field="*{bloodGroup}">
+	<option value = "A_POS">A+ve</option>
+	<option value = "A_NEG">A-ve</option>
+	<option value = "B_POS">B+ve</option>
+	<option value = "B_NEG">B-ve</option>
+	<option value = "O_POS">O+ve</option>
+	<option value = "O_NEG">O-ve</option>
+	<option value = "AB_POS">AB+ve</option>
+	<option value = "AB_NEG">AB-ve</option>
+</select>
+	<br>
+	<br>
+<label for="phone">Phone Number:</label>
+<input type="text" th:field="*{phone}">
+<br>
+<br>
+<label for="altPhone">Alternative Phone:</label>
+<input type="text" th:field="*{altPhone}">
+<br>
+<br>
+<input type="submit" value="Submit" />
+</form>
+</body>
+</html>

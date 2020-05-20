@@ -10,6 +10,7 @@ import com.monkmind.digicampus.models.Grade;
 public interface GradeRepository extends CrudRepository<Grade, Long> {
 
 	Optional<Grade> findByDivision(String division);
+	Optional<Grade> findById(Long id);
 
 	//void save(Grade grade);
 }

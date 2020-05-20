@@ -8,6 +8,7 @@ public interface StudentService{
     public Student addStudent(Student student);
     public Student getStudentByStudentId(String student);
     public void save(Student student);
+    public Student get(long studentId); 
 
 
 }

@@ -29,4 +29,10 @@ public class ParentServiceImpl implements ParentService {
 		
 	}
 
+	@Override
+	public Parent get(long parentId) {
+		// TODO Auto-generated method stub
+		return parentRepository.findById(parentId).get();
+	}
+
 }

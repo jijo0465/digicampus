@@ -29,4 +29,10 @@ public class GradeServiceImpl implements GradeService {
 		gradeRepository.save(grade);
 	}
 
+	@Override
+	public Grade getGradeById(Long id) {
+		// TODO Auto-generated method stub
+		return gradeRepository.findById(id).get();
+	}
+
 }
