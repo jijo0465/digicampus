@@ -1,5 +1,6 @@
 package com.monkmind.digicampus.controllers;
 
+import com.monkmind.digicampus.command.LoginCommand;
 import com.monkmind.digicampus.models.Student;
 import com.monkmind.digicampus.models.Teacher;
 import com.monkmind.digicampus.models.User;
@@ -24,18 +25,18 @@ public class AuthController {
 
     @RequestMapping("/login")
     public String getLoginPage(Model model){
-    	model.addAttribute("user",new User());
+    	model.addAttribute("logincommand",new LoginCommand());
         return "loginfinal";
     }
 
     @PostMapping
     @RequestMapping(value = "/validate")
-    public String validateLogin(@ModelAttribute User user, Model model){
-        System.out.println(user.getLoginId());
-        User dbUser = userService.getUserByLoginId(user.getLoginId());
+    public String validateLogin(@ModelAttribute LoginCommand logincommand, Model model){
+        System.out.println(logincommand.getLoginId());
+        User dbUser = userService.getUserByLoginId(logincommand.getLoginId());
         /*shijina*/
         if (dbUser!=null) {
-            if (dbUser.getPassword().compareTo(user.getPassword()) == 0){
+            if (dbUser.getPassword().compareTo(logincommand.getPassword()) == 0){
                 return "user";
                 //return "fragments/formbutton:: formbutton";
             }else{

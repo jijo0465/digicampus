@@ -14,7 +14,7 @@
         <div class="card card-signin my-5">
           <div class="card-body">
             <h5 class="card-title text-center">Sign In</h5>
-        <form action="#" th:object="${user}" id="loginformfinal" method="post" class="form-signin">
+        <form action="#" th:object="${logincommand}" id="loginformfinal" method="post" class="form-signin">
             <div class="from-label-group" th:replace="fragments/forminput::forminput(label='USER ID',name='loginId' )"></div><br>
             <div class="from-label-group" th:replace="fragments/forminput::forminput(label='PASSWORD',name='password' )"></div>
             <div class="btn btn-lg btn-primary btn-block text-uppercase"  th:replace="fragments/formbutton::formbutton(name='login')"></div>
