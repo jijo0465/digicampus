@@ -20,9 +20,9 @@ public class StudentAttendanceServiceImpl implements StudentAttendanceService {
 	}
 
 	@Override
-	public void save(StudentAttendance studentAttendance) {
+	public StudentAttendance save(StudentAttendance studentAttendance) {
 		// TODO Auto-generated method stub
-		studentattendanceRepository.save(studentAttendance);
+		 return studentattendanceRepository.save(studentAttendance);
 	}
 
 }

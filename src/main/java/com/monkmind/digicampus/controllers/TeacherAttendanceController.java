@@ -27,8 +27,9 @@ public class TeacherAttendanceController {
 	@PostMapping
 	@RequestMapping("/teacherattendance")
 	public String createAttendance(@ModelAttribute TeacherAttendance teacherattendance ,Model model) {
-	    teacherattendanceService.save(teacherattendance);
-	    return "index";
+		TeacherAttendance teacher= teacherattendanceService.save(teacherattendance);
+		model.addAttribute("teacherattendance",teacher);
+	    return "teacherattendancedisplay";
 	
 
 }

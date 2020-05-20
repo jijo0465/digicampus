@@ -4,5 +4,5 @@ import com.monkmind.digicampus.models.StudentAttendance;
 //date:18/05/2020
 public interface StudentAttendanceService {
 	public  StudentAttendance getId(String id);
-	public void save(StudentAttendance studentAttendance);
+	public StudentAttendance save(StudentAttendance studentAttendance);
 }

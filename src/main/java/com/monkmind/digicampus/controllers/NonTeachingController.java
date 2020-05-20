@@ -31,16 +31,16 @@ public class NonTeachingController {
 		return "nonteachingdisplay";
 	}
 	
-	@RequestMapping("/i/{staffid}")
-	public String nonteachingEdit(@PathVariable String staffid,Model model) {
-		System.out.println(staffid);
-	    NonTeachingStaff nonTeachingstaff = nonteachingservice.getById(new Long(staffid));
+	@RequestMapping("/i/{id}")
+	public String nonteachingEdit(@PathVariable String id,Model model) {
+		System.out.println(id);
+	    NonTeachingStaff nonTeachingstaff = nonteachingservice.getById(new Long(id));
 	    model.addAttribute("nonTeachingstaff",nonTeachingstaff);
 	     return "updatenonteachingstaff";
 	}
 	
 	@PostMapping
-	@RequestMapping("/updatenonteaching/{staffid}")
+	@RequestMapping("/updatenonteaching/{id}")
 	public String insertNonteaching(@ModelAttribute   NonTeachingStaff nonTeachingstaff ,Model model) {
 		nonteachingservice.save(nonTeachingstaff);
 	    return "index";

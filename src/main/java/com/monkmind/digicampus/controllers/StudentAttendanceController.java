@@ -1,3 +1,8 @@
+/*created by:shijina
+created on:20/5/2020
+*/
+
+
 package com.monkmind.digicampus.controllers;
 
 import org.springframework.stereotype.Controller;
@@ -13,9 +18,7 @@ import com.monkmind.digicampus.services.StudentAttendanceService;
 import lombok.AllArgsConstructor;
 @Controller
 @AllArgsConstructor
-/*author:haritha
-created date:18/5/2020
-*/
+
 public class StudentAttendanceController {
 	private final StudentAttendanceService studentattendanceService;
 	
@@ -28,8 +31,9 @@ public class StudentAttendanceController {
 	@PostMapping
 	@RequestMapping("/studentattendance")
 	public String createAttendance(@ModelAttribute StudentAttendance studentattendance ,Model model) {
-	    studentattendanceService.save(studentattendance);
-	    return "index";
+		StudentAttendance student=  studentattendanceService.save(studentattendance);
+		 model.addAttribute("studentattendance",student);
+	    return "studentattendancedisplay";
 	
 
 }

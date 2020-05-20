@@ -9,7 +9,7 @@ import com.monkmind.digicampus.models.NonTeachingStaff;
 /*Anand A B 18/05/2020*/
 
 public interface NonTeachingRepository extends CrudRepository<NonTeachingStaff,Long> {
-	Optional<NonTeachingStaff> findById(Long staffId);
+	Optional<NonTeachingStaff> findById(Long id);
 	
 
 }

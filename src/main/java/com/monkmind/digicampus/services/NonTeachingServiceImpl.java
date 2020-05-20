@@ -18,9 +18,9 @@ public class NonTeachingServiceImpl implements NonTeachinService {
 	private final NonTeachingRepository nonteachingRepository;
 
 	@Override
-	public NonTeachingStaff getById(Long staffId) {
+	public NonTeachingStaff getById(Long id) {
 		// TODO Auto-generated method stub
-		return nonteachingRepository.findById(staffId).get();
+		return nonteachingRepository.findById(id).get();
 	}
 
 	@Override
