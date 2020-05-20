@@ -12,15 +12,15 @@ import lombok.AllArgsConstructor;
 public class TeacherTimeTableServiceImpl implements TeacherTimeTableService {
 private final TeacherTimeTableRepository teachertimetableRepository;
 	@Override
-	public TeacherTimeTable getById(String teachertimetable) {
+	public TeacherTimeTable getById(Long id) {
 		// TODO Auto-generated method stub
-		return teachertimetableRepository.findById(teachertimetable).get() ;
+		return teachertimetableRepository.findById(id).get() ;
 	}
 
 	@Override
-	public void save(TeacherTimeTable teachertimetable) {
+	public TeacherTimeTable save(TeacherTimeTable teachertimetable) {
 		// TODO Auto-generated method stub
-		teachertimetableRepository.save(teachertimetable);
+		return teachertimetableRepository.save(teachertimetable);
 	}
 
 }
