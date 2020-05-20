@@ -16,8 +16,6 @@
 
         $(document).ready(function(){
             $("#loginformfinal").submit(function(e){
-            	
-            	
                 e.preventDefault();
                 $.ajax({
                     method: "POST",
@@ -26,7 +24,7 @@
                     success: function(status){
                         if(status) {
                             console.log(status);
-                            $(".body").html(status)
+                           $(".body").html(status)
                         }
                     }
                 });

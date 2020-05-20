@@ -25,62 +25,64 @@ public class AuthController {
     @RequestMapping("/login")
     public String getLoginPage(Model model){
     	model.addAttribute("user",new User());
-        return "login";
+        return "loginfinal";
     }
 
     @PostMapping
-    @RequestMapping(value = "/{userType}/validate")
-    public String validateLogin(@PathVariable String userType,@ModelAttribute User user, Model model){
-        System.out.println(userType);
+    @RequestMapping(value = "/validate")
+    public String validateLogin(@ModelAttribute User user, Model model){
+        System.out.println(user.getLoginId());
         User dbUser = userService.getUserByLoginId(user.getLoginId());
         /*shijina*/
         if (dbUser!=null) {
             if (dbUser.getPassword().compareTo(user.getPassword()) == 0){
-                model.addAttribute("userType",userType);
-                return "fragments/formbutton:: formbutton";
+                return "user";
+                //return "fragments/formbutton:: formbutton";
             }else{
                 model.addAttribute("message","Invalid Password");
                 return "login";
             }
+        }else {
+        	return "login";
         }
         
-        
-        if (dbUser!=null) {
-            if (dbUser.getPassword().compareTo(user.getPassword()) == 0){
-               // model.addAttribute("userType",userType);
-               
-             if (userType.compareTo("admin")==0)
-            {
-            	model.addAttribute("userType",userType);
-            	return "adminhome";
-            }
-           
-            else if(userType.compareTo("student")==0)
-            {
-            	Student student=studentService.getStudentByStudentId(dbUser.getLoginId());
-            	model.addAttribute("student",student);
-            	model.addAttribute("userType",userType);
-            	System.out.println(student.getName());
-            	return "studdisplay";
-             }
-            else if(userType.compareTo("teacher")==0)
-            {
-            	Teacher teacher=teacherService.getTeacherByTeacherId(dbUser.getLoginId());
-            	model.addAttribute("teacher",teacher);
-            	model.addAttribute("userType",userType);
-            	System.out.println(teacher.getName());
-            	return "teacherdisplay";
-            }
-            return "index";
-            }
-            else{
-            	model.addAttribute("message","Invalid Password");
-                return "login";
-            }
-        }else{
-            model.addAttribute("message","Invalid UserId");
-            return "login";
-        }
+//        
+//        if (dbUser!=null) {
+//            if (dbUser.getPassword().compareTo(user.getPassword()) == 0){
+//               // model.addAttribute("userType",userType);
+//               
+//             if (userType.compareTo("admin")==0)
+//            {
+//            	model.addAttribute("userType",userType);
+//            	return "adminhome";
+//            }
+//           
+//            else if(userType.compareTo("student")==0)
+//            {
+//            	Student student=studentService.getStudentByStudentId(dbUser.getLoginId());
+//            	model.addAttribute("student",student);
+//            	model.addAttribute("userType",userType);
+//            	System.out.println(student.getName());
+//            	return "studdisplay";
+//             }
+//            else if(userType.compareTo("teacher")==0)
+//            {
+//            	Teacher teacher=teacherService.getTeacherByTeacherId(dbUser.getLoginId());
+//            	model.addAttribute("teacher",teacher);
+//            	model.addAttribute("userType",userType);
+//            	System.out.println(teacher.getName());
+//            	return "teacherdisplay";
+//            }
+//            return "index";
+//            }
+//            else{
+//            	model.addAttribute("message","Invalid Password");
+//                return "login";
+//            }
+//        }else{
+//            model.addAttribute("message","Invalid UserId");
+//            return "login";
+//        }
 
     }
 
