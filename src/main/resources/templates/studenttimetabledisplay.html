@@ -14,10 +14,10 @@
 <tr th:each="studentTimetable : ${studentTimetable}">
 			<td th:text="${studentTimetable.id}">
       		<td th:text="${studentTimetable.day}">
-      		<td th:text="${studentTimetable.grade}">
+      		<td th:text="${studentTimetable.grade.id}">
       		</tr>   
       		<tr><td>
-      	<a th:href="@{'/ei/'+ ${studentTimetable.day}}">Edit</a>
+           <a th:href="@{'/e/'+ ${studentTimetable.id}}">Edit</a>
       	</td></tr>	
 </table>
 </body>

@@ -16,6 +16,9 @@
       		<td th:text="${nonteachingstaff.name}">
       		<td th:text="${nonteachingstaff.address}">
       		</tr>
+      		<tr><td>
+           <a th:href="@{'/i/'+ ${nonteachingstaff.id}}">Edit</a>
+      	</td></tr>
       	
 </table>
 </body>

@@ -18,15 +18,15 @@ public class NonTeachingServiceImpl implements NonTeachinService {
 	private final NonTeachingRepository nonteachingRepository;
 
 	@Override
-	public NonTeachingStaff getByStaffId(Long staffId) {
+	public NonTeachingStaff getById(Long staffId) {
 		// TODO Auto-generated method stub
-		return nonteachingRepository.findByStaffId(staffId).get();
+		return nonteachingRepository.findById(staffId).get();
 	}
 
 	@Override
-	public void save(NonTeachingStaff nonteachingstaff) {
+	public NonTeachingStaff save(NonTeachingStaff nonteachingstaff) {
 		// TODO Auto-generated method stub
-		nonteachingRepository.save(nonteachingstaff);
+		return nonteachingRepository.save(nonteachingstaff);
 	}
 	
 	
