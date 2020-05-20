@@ -6,13 +6,9 @@
 <title>Test</title>
 </head>
 <body>
-<form action="#" th:action="@{/test}" th:object="${test}" method="post">
+<form action="#" th:action="@{/testinsert}" th:object="${test}" method="post">
 <label for="date">Date:</label>
-<input type="text" th:field="*{date}">
-<br>
-<br>
-<label for="duration">Duration:</label>
-<input type="text" th:field="*{duration}">
+<input type="date" th:field="*{date}">
 <br>
 <br>
 <label for="duration">Duration:</label>
@@ -20,7 +16,7 @@
 <br>
 <br>
 <label for="pass_mark">Pass Mark:</label>
-<input type="text" th:field="*{pass_mark}">
+<input type="text" th:field="*{passMark}">
 <br>
 <br>
 <label for="Time">Time:</label>
@@ -28,18 +24,18 @@
 <br>
 <br>
 <label for="total_mark">Total Mark:</label>
-<input type="text" th:field="*{total_mark}">
+<input type="text" th:field="*{totalMark}">
 <br>
 <br>
 <label for="exam_id">Exam ID:</label>
-<input type="text" th:field="*{exam_id}">
+<input type="text" th:field="*{exam}">
 <br>
 <br>
 <label for="subject_name_id">Subject Name Id:</label>
-<input type="text" th:field="*{subject_name_id}">
+<input type="text" th:field="*{subjectName}">
 <br>
 <br>
-
 <input type="submit" value="Submit" />
+</form>
 </body>
 </html>
