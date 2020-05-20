@@ -26,8 +26,8 @@ public class Route extends BaseEntity{
 	@Column(name = "route_id")
 	private Long routeId;
 	
-	@Column(name = "route")
-	private String route;
+	@Column(name = "route_Name")
+	private String routeName;
 	
 	@Column(name = "starting_time")
 	private Time startngTime;

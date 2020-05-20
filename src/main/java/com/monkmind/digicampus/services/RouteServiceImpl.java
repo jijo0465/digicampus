@@ -23,9 +23,9 @@ public class RouteServiceImpl implements RouteService{
 	}
 
 	@Override
-	public void save(Route new_route) {
+	public void save(Route route) {
 		// TODO Auto-generated method stub
-		routeRepository.save(new_route);
+		routeRepository.save(route);
 	}
 
 }

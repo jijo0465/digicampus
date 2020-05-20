@@ -24,14 +24,14 @@ public class RouteController {
 	}
 	@RequestMapping("/route")
 	public String routeForm(Model model) {
-	    model.addAttribute("new_route", new Route());
+	    model.addAttribute("route", new Route());
 	    return "route_form";
 	}
 
 	@PostMapping
 	@RequestMapping("/routeinsert")
-	public String createRoute(@ModelAttribute Route new_route,Model model) {
-	    routeService.save(new_route);
+	public String createRoute(@ModelAttribute Route route,Model model) {
+	    routeService.save(route);
 	    return "index";
 	}
 }
