@@ -8,6 +8,6 @@ public interface StudentTimetableService {
 	
 
 	 public StudentTimeTable getById(Long id);
-	 public void save(StudentTimeTable studentTimetable);
+	 public StudentTimeTable save(StudentTimeTable studentTimetable);
 	 public StudentTimeTable getByDay(Long day);
 }

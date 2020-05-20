@@ -21,9 +21,9 @@ public class StudentTimetableServiceImpl implements StudentTimetableService{
 	}
 
 	@Override
-	public void save(StudentTimeTable studentTimetable) {
+	public StudentTimeTable  save(StudentTimeTable studentTimetable) {
 		// TODO Auto-generated method stub
-		studenttimetableRepository.save(studentTimetable);
+		 return studenttimetableRepository.save(studentTimetable);
 	}
 
 	@Override

@@ -31,20 +31,21 @@ public class StudenttimetableController {
 	@PostMapping
 	@RequestMapping("/timetableinsert")
 	public String createTimeTable(@ModelAttribute StudentTimeTable studentTimetable,Model model) {
-	    studentTimetableService.save(studentTimetable);
+	    StudentTimeTable timetable=studentTimetableService.save(studentTimetable);
+	    model.addAttribute("studentTimetable",timetable);
 	    return "studenttimetabledisplay";
 	}
 	
-	@RequestMapping("/ei/{day}")
-	public String timetableEdit(@PathVariable String day,Model model) {
-		System.out.println(day);
-	    StudentTimeTable studentTimetable = studentTimetableService.getByDay(new Long(day));
+	@RequestMapping("/e/{id}")
+	public String timetableEdit(@PathVariable String id,Model model) {
+		System.out.println(id);
+	    StudentTimeTable studentTimetable = studentTimetableService.getById(new Long(id));
 	    model.addAttribute("studentTimetable",studentTimetable);
 	     return "updatestudenttimetable";
 	}
 	
 	@PostMapping
-	@RequestMapping("/updatetimetable/{day}")
+	@RequestMapping("/updatetimetable/{id}")
 	public String InsertTimetable(@ModelAttribute StudentTimeTable studentTimetable,Model model) {
 		studentTimetableService.save(studentTimetable);
 	    return "index";
