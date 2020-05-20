@@ -8,5 +8,5 @@ import com.monkmind.digicampus.models.NonTStaffAttendance;
 
 
 public interface NonTStaffAttendanceRepository extends CrudRepository<NonTStaffAttendance, Long>{
-	Optional<NonTStaffAttendance>findById(String id);
+	Optional<NonTStaffAttendance>findById(Long id);
 }

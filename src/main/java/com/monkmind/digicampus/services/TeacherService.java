@@ -7,4 +7,5 @@ public interface TeacherService {
 	//public Teacher addTeacher(Teacher teacher);
 	public void save(Teacher teacher);
     public Teacher getTeacherByTeacherId(String string);
+    public Teacher getById(Long teacher);
 }

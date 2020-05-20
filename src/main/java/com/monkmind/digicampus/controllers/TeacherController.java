@@ -3,9 +3,11 @@ package com.monkmind.digicampus.controllers;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.monkmind.digicampus.models.Student;
 import com.monkmind.digicampus.models.Teacher;
 import com.monkmind.digicampus.services.TeacherService;
 
@@ -25,7 +27,23 @@ public class TeacherController {
 	@PostMapping("/teacherinsert")
 	public String createteacher(@ModelAttribute Teacher teacher,Model model) {
 		teacherservice.save(teacher);
-		return "index";
+		return "teacherdisplay";
 	}
 
+	
+	@RequestMapping("/t/{teacherId}")
+	public String teacherUpdate(@PathVariable String teacherId,Model model) {
+		//ModelAndView mav = new ModelAndView("edit_product");
+		System.out.println(teacherId);
+	    Teacher teacher = teacherservice.getById(new Long(teacherId));
+	    model.addAttribute("teacher",teacher);
+	     return "updateteacher";
+	}
+	
+	@PostMapping
+	@RequestMapping("/updateteacher/{id}")
+	public String Insertteacher(@ModelAttribute Teacher teacher,Model model) {
+	    teacherservice.save(teacher);
+	    return "index";
+	}
 }

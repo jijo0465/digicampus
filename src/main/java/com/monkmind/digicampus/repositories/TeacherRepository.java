@@ -10,6 +10,7 @@ import org.springframework.data.repository.CrudRepository;
 public interface TeacherRepository extends CrudRepository<Teacher,Long> {
 
 	Optional<Teacher> findByTeacherId(String teacher);
-
+	Optional<Teacher> findById(Long teacher);
+  
 	//Optional<Teacher> findTeacherByTeacherId(String teacher);
 }

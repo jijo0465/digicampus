@@ -21,4 +21,11 @@ public class SubjectServiceImpl implements SubjectService{
 	}
 
 
+	@Override
+	public Subject getById(Long subject) {
+		// TODO Auto-generated method stub
+		return subjectrepository.findById(subject).get();
+	}
+
+
 }

@@ -13,14 +13,14 @@ public class NonTStaffAttendanceServiceImpl implements NonTStaffAttendanceServic
 private final NonTStaffAttendanceRepository nontstaffattendanceRepository;
 
 @Override
-public NonTStaffAttendance getId(String id) {
+public NonTStaffAttendance getId(Long id) {
 	// TODO Auto-generated method stub
 	return nontstaffattendanceRepository.findById(id).get();
 }
 
 @Override
-public void save(NonTStaffAttendance nontstaffattendance) {
+public NonTStaffAttendance save(NonTStaffAttendance nontstaffattendance) {
 	// TODO Auto-generated method stub
-	nontstaffattendanceRepository.save(nontstaffattendance);
+	return nontstaffattendanceRepository.save(nontstaffattendance);
 }
 }

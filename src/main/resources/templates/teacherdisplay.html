@@ -20,6 +20,9 @@
       		<td th:text="${teacher.address}">
       		
       	</tr>
+      	<tr><td>
+      	<a th:href="@{'/t/'+ ${teacher.id}}">Edit</a>
+      	</td></tr>
 </table>
 
 </body>

@@ -27,9 +27,12 @@ public class NonTStaffAttendanceController {
 	@PostMapping
 	@RequestMapping("/nonteachingattendance")
 	public String createAttendance(@ModelAttribute NonTStaffAttendance nontstaffattendance ,Model model) {
-	    nontstaffAttendanceService.save(nontstaffattendance);
-	    return "index";
+		NonTStaffAttendance attendance=nontstaffAttendanceService.save(nontstaffattendance);
+		model.addAttribute("nstaffattendance",attendance);
+	    return "nonteachingattendancedisplay";
 	
+	    
+	    
 
 }
 
