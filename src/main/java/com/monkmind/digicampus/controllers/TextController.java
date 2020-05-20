@@ -8,8 +8,11 @@ public class TextController {
 	@RequestMapping("/submit")
 	public String getHome()
 	{ 
-		return "sample";
+		return "loginfinal";
 	}
 	
-
 }
+        
+        
+      
+         

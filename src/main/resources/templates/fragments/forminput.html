@@ -1,26 +1,19 @@
+<!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="ISO-8859-1">
-<title>submit</title>
+<meta charset="UTF-8">
 <link th:href="@{/assets/css/csss.css}" rel="stylesheet"/>
 </head>
 <body>
-<div th:fragment ="forminput">
- 
-              
-              
-              <div class="form-label-group">
+<div th:fragment ="forminput" class="sample">
+   <div class="form-label-group">
               <div class="form-inline">
-              <label for="userid" class="mr-sm-2" >USER ID</label>
-                <input type="text" id="userid" class="form-control"  required autofocus>
+              <label  th:text="${label}"   class="mr-sm-2" ></label>
+                <input type="text"  class="form-control"  th:name="${name}" /><br/>
               </div>
               </div>
       </div>
-   
 </body>
+</html>
 
-
-
-
-	
 

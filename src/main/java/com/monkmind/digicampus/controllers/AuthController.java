@@ -24,7 +24,7 @@ public class AuthController {
 
     @RequestMapping("/login")
     public String getLoginPage(Model model){
-
+    	model.addAttribute("user",new User());
         return "login";
     }
 
@@ -34,6 +34,17 @@ public class AuthController {
         System.out.println(userType);
         User dbUser = userService.getUserByLoginId(user.getLoginId());
         /*shijina*/
+        if (dbUser!=null) {
+            if (dbUser.getPassword().compareTo(user.getPassword()) == 0){
+                model.addAttribute("userType",userType);
+                return "fragments/formbutton:: formbutton";
+            }else{
+                model.addAttribute("message","Invalid Password");
+                return "login";
+            }
+        }
+        
+        
         if (dbUser!=null) {
             if (dbUser.getPassword().compareTo(user.getPassword()) == 0){
                // model.addAttribute("userType",userType);
