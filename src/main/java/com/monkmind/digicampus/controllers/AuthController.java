@@ -46,13 +46,11 @@ public class AuthController {
         }else {
         	return "login";
         }
-        
-//        
-//        if (dbUser!=null) {
-//            if (dbUser.getPassword().compareTo(user.getPassword()) == 0){
-//               // model.addAttribute("userType",userType);
-//               
-//             if (userType.compareTo("admin")==0)
+             
+   //  if (dbUser!=null) {
+    //    if (dbUser.getPassword().compareTo(logincommand.getPassword()) == 0){
+              // model.addAttribute("userType",userType);
+         //   if (logincommand.compareTo("admin")==0)
 //            {
 //            	model.addAttribute("userType",userType);
 //            	return "adminhome";
