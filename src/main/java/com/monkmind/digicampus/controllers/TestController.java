@@ -3,6 +3,7 @@ package com.monkmind.digicampus.controllers;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -26,7 +27,23 @@ public class TestController {
 	@RequestMapping("/testinsert")
 	public String createTest(@ModelAttribute Test test,Model model) {
 	    testService.save(test);
+	    return "testdisplay";
+	}
+	@RequestMapping("/test/{id}")
+	public String gradeUpdate(@PathVariable String id,Model model) {
+		//ModelAndView mav = new ModelAndView("edit_product");
+		System.out.println(id);
+	    Test test =testService.getById(new Long(id));
+	    model.addAttribute("test",test);
+	    return "updatetest";
+	}
+	
+	@PostMapping
+	@RequestMapping("/updatetest/{id}")
+	public String InsertGrade(@ModelAttribute Test test,Model model) {
+	    testService.save(test);
 	    return "index";
 	}
+
 
 }

@@ -27,6 +27,6 @@ public class PeriodController {
 	@PostMapping("/periodinsert")
 	public String createperiod(@ModelAttribute Period period,Model model) {
 		periodService.save(period);
-		return "index";
+		return "perioddisplay";
 	}
 }
