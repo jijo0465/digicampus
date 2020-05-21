@@ -4,6 +4,7 @@ import com.monkmind.digicampus.command.LoginCommand;
 import com.monkmind.digicampus.models.Student;
 import com.monkmind.digicampus.models.Teacher;
 import com.monkmind.digicampus.models.User;
+import com.monkmind.digicampus.models.UserType;
 import com.monkmind.digicampus.services.StudentService;
 import com.monkmind.digicampus.services.TeacherService;
 import com.monkmind.digicampus.services.UserService;
@@ -37,33 +38,69 @@ public class AuthController {
         /*shijina*/
         if (dbUser!=null) {
             if (dbUser.getPassword().compareTo(logincommand.getPassword()) == 0){
-                return "user";
-                //return "fragments/formbutton:: formbutton";
-            }else{
+            	//return "user";
+               //return "fragments/formbutton:: formbutton";
+            	if(dbUser.getUsertype()==UserType.ADMIN) {
+                	
+                	return "adminhome";
+                }
+            	else if(dbUser.getUsertype()==UserType.TEACHER) {
+                	
+                	return "adminhome";
+                }
+            	else if(dbUser.getUsertype()==UserType.STUDENT) {
+                	
+                	return "adminhome";
+                }
+            	return "loginfinal";
+                 }
+            else{
                 model.addAttribute("message","Invalid Password");
                 return "loginfinal";
             }
-        }else {
+            
+        }
+           else {
         	return "loginfinal";
         }
+        }
+    }
+
              
-   //  if (dbUser!=null) {
-    //    if (dbUser.getPassword().compareTo(logincommand.getPassword()) == 0){
+    /*if (dbUser!=null) {
+    if (dbUser.getPassword().compareTo(logincommand.getPassword()) == 0){
               // model.addAttribute("userType",userType);
-         //   if (logincommand.compareTo("admin")==0)
-//            {
-//            	model.addAttribute("userType",userType);
-//            	return "adminhome";
-//            }
-//           
-//            else if(userType.compareTo("student")==0)
-//            {
-//            	Student student=studentService.getStudentByStudentId(dbUser.getLoginId());
-//            	model.addAttribute("student",student);
-//            	model.addAttribute("userType",userType);
-//            	System.out.println(student.getName());
-//            	return "studdisplay";
-//             }
+          if (logincommand.getLoginId().compareTo(logincommand.getPassword())== 0)
+          {
+//            //	model.addAttribute("userType",userType);
+        	   return "adminhome";
+       
+          }
+             */
+              
+      /*      else if(logincommand.getLoginId().length() == 7)
+            {
+            	Student student=studentService.getStudentByStudentId(dbUser.getLoginId());
+           	model.addAttribute("student",student);
+         	//model.addAttribute("userType",userType);
+          	System.out.println(student.getName());
+          	return "studdisplay";
+            }
+            else{
+                model.addAttribute("message","Invalid Password");
+                return "loginfinal";
+            }
+        } else {
+        	return "loginfinal";
+        }
+         
+       }
+       */
+
+    
+    
+
+     
 //            else if(userType.compareTo("teacher")==0)
 //            {
 //            	Teacher teacher=teacherService.getTeacherByTeacherId(dbUser.getLoginId());
@@ -81,8 +118,9 @@ public class AuthController {
 //        }else{
 //            model.addAttribute("message","Invalid UserId");
 //            return "login";
-//        }
+  
+    
 
-    }
+    
 
-}
+
