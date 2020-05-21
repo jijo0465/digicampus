@@ -1,0 +1,66 @@
+<<<<<<< HEAD
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+
+
+
+</head>
+<body th:align="center">
+    <div>
+        <img src="/images/digicampus.png" style="width:500px;height:600px;"/>
+    </div>
+    <div class="body">
+        <div th:replace="sample ::login_form"></div>
+    </div>
+    <h6 th:text="${message}"></h6>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script th:inline="javascript">
+
+        $(document).ready(function(){
+        	
+            $("#form-inline").submit(function(e){
+            	console.log("wow")
+                e.preventDefault();
+                $.ajax({
+                    method: "POST",
+                    url: "/teacher/validate",
+                    data: $('#form-inline').serialize(),
+                    success: function(status){
+
+                        if(status) {
+                            console.log(status);
+                            $(".body").html(status)
+                        }
+                    }
+                });
+            })
+        })
+    </script>
+</body>
+</html>
+=======
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+<body th:align="center">
+    <div>
+        <img src="/images/digicampus.png" style="width:500px;height:600px;"/>
+    </div>
+
+    <form action="#" th:action="@{/student/validate}" method="post">
+        <label for="loginId">Username</label>
+        <input type="text" id="loginId" name="loginId"/><br/>
+        <label for="password">Password</label>
+        <input type="text" id="password" name="password"/><br/>
+        <input type="submit" name="login" value="Login"/>
+    </form>
+    <h6 th:text="${message}"></h6>
+</body>
+</html>
+>>>>>>> branch 'dev' of https://github.com/jijo0465/digicampus.git
