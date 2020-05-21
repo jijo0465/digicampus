@@ -14,9 +14,9 @@ public class TestServiceImpl implements TestService{
 	
 	
 	@Override
-	public Test getById(String test) {
+	public Test getById(Long id) {
 		// TODO Auto-generated method stub
-		return testRepository.findById(test).get();
+		return testRepository.findById(id).get();
 	}	
 	
 
