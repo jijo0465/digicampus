@@ -11,16 +11,16 @@
 <th>Period ID</th>
 <th>Starting time</th>
 <th>Ending time</th>
-<th>student_timetable_id</th>
-<th>teacher_timetable_id</th>
+<th>Student Timetable Id</th>
+<th>Teacher Timetable Id</th>
 </tr>
 
 <tr th:each="period: ${period}">
 <td th:text="${period.id}">
-<td th:text="${period.startingTime}">
+<td th:text="${period.startngTime}">
 <td th:text="${period.endingTime}">
-<td th:text="${studentTimeTable.id}">
-<td th:text="${teacherTimetable.id}">
+<td th:text="${period.studentTimeTable.id}">
+<td th:text="${period.teacherTimeTable.id}">
 </tr>
 </table>
 </body>
