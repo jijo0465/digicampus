@@ -16,8 +16,8 @@ public class SubjectServiceImpl implements SubjectService{
 	private final SubjectRepository subjectrepository;
 	
 	
-	public void save(Subject subject) {
-		subjectrepository.save(subject);
+	public Subject save(Subject subject) {
+		return subjectrepository.save(subject);
 	}
 
 

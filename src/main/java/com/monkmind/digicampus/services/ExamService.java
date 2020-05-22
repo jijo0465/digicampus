@@ -5,9 +5,9 @@ import com.monkmind.digicampus.models.Exam;
 
 public interface ExamService {
 	
-	public Exam getExamById(String exam);
+	public Exam getById(Exam exam);
 	public void save(Exam exam);
-	public Exam getExamById(Long exam);
+	public Exam getExamById(Long long1);
 	 
 
 }

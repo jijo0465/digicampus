@@ -5,7 +5,7 @@
 <title>StudenAttendance</title>
 </head>
 <body>
-<form action="#" th:action="@{/studentattendance}" th:object="${studentattendance}" method="post">
+<form action="#" th:action="@{'/updatestudentattendance/'+ ${studentattendance.id}}" th:object="${studentattendance}" method="post">
 <label for="date">Date:</label>
 <input type="date" th:field="*{date}">
 <br>
@@ -16,7 +16,7 @@
 <br>
 <br>
 <label for="studentid">student Id:</label>
-<input type="text" th:field="*{student}">
+<input type="text" th:field="*{student.id}">
 <br>
 <br>
 <input type="submit" value="Submit" />

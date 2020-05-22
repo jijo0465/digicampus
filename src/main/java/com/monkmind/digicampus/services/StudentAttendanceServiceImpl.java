@@ -14,7 +14,7 @@ public class StudentAttendanceServiceImpl implements StudentAttendanceService {
 	private final StudentAttendanceRepository studentattendanceRepository;
 
 	@Override
-	public StudentAttendance getId(String id) {
+	public StudentAttendance getId(Long id) {
 		// TODO Auto-generated method stub
 		return studentattendanceRepository.findById(id).get();
 	}
@@ -24,5 +24,7 @@ public class StudentAttendanceServiceImpl implements StudentAttendanceService {
 		// TODO Auto-generated method stub
 		 return studentattendanceRepository.save(studentAttendance);
 	}
+
+	
 
 }
