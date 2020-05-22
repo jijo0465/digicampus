@@ -42,7 +42,7 @@ public class AuthController {
                //return "fragments/formbutton:: formbutton";
             	if(dbUser.getUsertype()==UserType.ADMIN) {
                 	
-                	return "adminhome";
+                	return "mydashboard";
                 }
             	else if(dbUser.getUsertype()==UserType.TEACHER) {
                 	
@@ -50,7 +50,7 @@ public class AuthController {
                 }
             	else if(dbUser.getUsertype()==UserType.STUDENT) {
                 	
-                	return "adminhome";
+                	return "fragments/formbutton:: formbutton";
                 }
             	return "loginfinal";
                  }
