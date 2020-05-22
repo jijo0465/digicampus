@@ -31,7 +31,8 @@ public class RouteController {
 	@PostMapping
 	@RequestMapping("/routeinsert")
 	public String createRoute(@ModelAttribute Route route,Model model) {
-	    routeService.save(route);
-	    return "index";
+	    Route busroute=routeService.save(route);
+	    model.addAttribute("route", busroute);
+	    return "routedisplay";
 	}
 }

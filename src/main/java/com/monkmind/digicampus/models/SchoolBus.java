@@ -42,7 +42,7 @@ public class SchoolBus extends BaseEntity{
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "schoolBus")
     Set<Student> students = new HashSet<>();
 	
-	@OneToOne(mappedBy = "schoolBus")
+	@OneToOne()
     private Route route;
 	
 }
