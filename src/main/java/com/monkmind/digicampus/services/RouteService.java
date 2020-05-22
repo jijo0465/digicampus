@@ -5,6 +5,6 @@ import com.monkmind.digicampus.models.Route;
 
 public interface RouteService {
 
-	 public Route getByRouteId(String routeId);
-	 public void save(Route route);
+	 public Route getById(String Id);
+	 public Route save(Route route);
 }
