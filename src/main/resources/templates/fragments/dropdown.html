@@ -2,21 +2,22 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Dropdown</title>
+
 </head>
 <body>
-<div th:fragment="dropdown"> 
-<div class="dropdown show">
-  <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Dropdown link
-  </a>
-
-  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-    <a class="dropdown-item" href="#">Action</a>
-    <a class="dropdown-item" href="#">Another action</a>
-    <a class="dropdown-item" href="#">Something else here</a>
-  </div>
-</div>
-</div>
+<div th:fragment ="dropdown" >
+       <label for="bloodgroup">BLOOD GROUP:</label>
+<select >
+	<option value = "A_POS">A+ve</option>
+	<option value = "A_NEG">A-ve</option>
+	<option value = "B_POS">B+ve</option>
+	<option value = "B_NEG">B-ve</option>
+	<option value = "O_POS">O+ve</option>
+	<option value = "O_NEG">O-ve</option>
+	<option value = "AB_POS">AB+ve</option>
+	<option value = "AB_NEG">AB-ve</option>
+</select>
+        </div>
 </body>
 </html>

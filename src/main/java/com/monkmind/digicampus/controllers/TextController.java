@@ -8,7 +8,7 @@ public class TextController {
 	@RequestMapping("/submit")
 	public String getHome()
 	{ 
-		return "loginfinal";
+		return "fragments/forms/addstud";
 	}
 	
 }

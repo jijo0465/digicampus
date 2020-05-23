@@ -2,22 +2,22 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <link th:href="@{/assets/css/csss.css}" rel="stylesheet"/>
+     <link th:href="@{/assets/css/csss.css}" rel="stylesheet"/>
     <title>Login</title>
 </head>
 <body>
 <div class="container" th:fragment="loginformfinal">
     
     <div class="row">
-    
       <div class="col-sm-9 col-md-7 col-lg-5 mx-auto ">
         <div class="card card-signin my-5">
           <div class="card-body">
             <h5 class="card-title text-center">Sign In</h5>
+
         <form action="#" th:object="${logincommand}" id="loginformfinal" method="post" class="form-signin">
             <div class="from-label-group" th:replace="fragments/forminput::forminput(label='USER ID',name='loginId' )"></div><br>
             <div class="from-label-group" th:replace="fragments/forminput::forminput(label='PASSWORD',name='password' )"></div>
-            <div class="btn btn-lg btn-primary btn-block text-uppercase"  th:replace="fragments/formbutton::formbutton(name='login')"></div>
+            <div class="btn btn-lg btn-primary btn-block text-uppercase"  th:replace="fragments/formbutton::formbutton(name='login',label='LOGIN')"></div>
             
         </form>
     </div>
