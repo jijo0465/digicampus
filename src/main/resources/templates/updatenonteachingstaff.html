@@ -7,11 +7,8 @@
 <title>Non Teaching</title>
 </head>
 <body>
-
 <form action="#" th:action="@{'/updatenonteaching/'+ ${nonTeachingstaff.id}}" th:object="${nonTeachingstaff}" method="post">
-
 <label for="staffId">Staff Id:</label>
-
 <input type="text" th:field="*{staffId}">
 <br>
 <br>

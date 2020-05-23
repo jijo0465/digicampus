@@ -14,7 +14,7 @@ public interface NonTeachingRepository extends CrudRepository<NonTeachingStaff,L
 
 	Optional<NonTeachingStaff> findById(String id);
 	List<NonTeachingStaff> findAll();
-	public void delete(Long id);
+	
 	
 
 }
