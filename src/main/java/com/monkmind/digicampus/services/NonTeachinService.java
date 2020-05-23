@@ -5,7 +5,7 @@ import com.monkmind.digicampus.models.NonTeachingStaff;
 
 
 public interface NonTeachinService {
-	public NonTeachingStaff getById(Long id);
+	public NonTeachingStaff getById(String id);
 	public NonTeachingStaff save(NonTeachingStaff nonteachingstaff);
 
 }

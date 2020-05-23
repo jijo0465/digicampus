@@ -1,0 +1,26 @@
+<!--  haritha date:22/may/2020-->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>UpdateStudentAttendance</title>
+</head>
+<body>
+<form action="#" th:action="@{/updatestudentattendance/'+${studentattendance.id}}" th:object="${studattendance}" method="post">
+<label for="date">Date:</label>
+<input type="date" th:field="*{date}">
+<br>
+<br>
+<label for="attendance">Attendance:</label>
+<input type="radio"  th:field="*{yes}" value="yes">Yes
+<input type="radio"  th:field="*{yes}" value="yes">No
+<br>
+<br>
+<label for="studentid">Student Id:</label>
+<input type="text" th:field="*{studentId}">
+<br>
+<br>
+<input type="submit" value="Submit" />
+</form>
+</body>
+</html>

@@ -8,9 +8,11 @@ package com.monkmind.digicampus.controllers;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.monkmind.digicampus.models.NonTeachingStaff;
 import com.monkmind.digicampus.models.Student;
 import com.monkmind.digicampus.models.StudentAttendance;
 import com.monkmind.digicampus.services.StudentAttendanceService;
@@ -37,5 +39,18 @@ public class StudentAttendanceController {
 	
 
 }
+	@RequestMapping("/edit/{id}")
+	public String studentattendanceEdit(@PathVariable String id,Model model) {
+		System.out.println(id);
+	 StudentAttendance studentAttendance = studentattendanceService.getId(new String(id));
+	    model.addAttribute("studentAttendance",studentAttendance);
+	     return "updatestudentattendance";
 
+}
+	@PostMapping
+	@RequestMapping("/updatestudentattendance/{id}")
+	public String insertStudentAttendance(@ModelAttribute   StudentAttendance studentAttendance ,Model model) {
+		studentattendanceService.save(studentAttendance);
+	    return "index";
+	}
 }

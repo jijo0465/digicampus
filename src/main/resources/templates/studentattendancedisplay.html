@@ -7,7 +7,7 @@
 <body>
 <h1> student attendance</h1>
 <table><tr>
-<th>id</th>
+<th>studentid</th>
 <th>date</th>
 <th>yes</th>
 </tr>
@@ -16,9 +16,11 @@
       		<td th:text="${studentattendance.date}">
       		<td th:text="${studentattendance.yes}">
       		</tr>   
-      		<tr><td>
-           
-      	</td></tr>	
+      		
+           <tr><td>
+      	<a th:href="@{'/edit/'+ ${studentattendance.id}}">Edit</a>
+      	</td></tr>
+      		
 </table>
 </body>
 </html>
