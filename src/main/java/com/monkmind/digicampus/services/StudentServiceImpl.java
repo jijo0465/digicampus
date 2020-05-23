@@ -6,6 +6,9 @@ import com.monkmind.digicampus.models.Student;
 import com.monkmind.digicampus.repositories.ParentRepository;
 import com.monkmind.digicampus.repositories.StudentRepository;
 import lombok.AllArgsConstructor;
+
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 @Service
@@ -40,5 +43,11 @@ public class StudentServiceImpl implements StudentService {
 	public Student get(long studentId) {
 		// TODO Auto-generated method stub
 		return studentRepository.findById(studentId).get();
+	}
+
+	@Override
+	public List<Student> listAll() {
+		// TODO Auto-generated method stub
+		return studentRepository.findAll();
 	}
 }
