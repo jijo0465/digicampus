@@ -32,7 +32,6 @@ public class NonTeachingServiceImpl implements NonTeachinService {
 		return nonteachingRepository.save(nonteachingstaff);
 	}
 
-<<<<<<< HEAD
 	@Override
 	public List<NonTeachingStaff> listAll() {
 		// TODO Auto-generated method stub
@@ -40,17 +39,17 @@ public class NonTeachingServiceImpl implements NonTeachinService {
 	}
 
 	@Override
-	public void delete(long id) {
+	public void delete(long id){
 		// TODO Auto-generated method stub
 		nonteachingRepository.deleteById(id);
 	}
 
-=======
+
 
 
 	
 	
->>>>>>> branch 'dev' of https://github.com/jijo0465/digicampus.git
+
 	
 
 }
