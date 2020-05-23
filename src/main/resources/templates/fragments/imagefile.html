@@ -2,14 +2,13 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-
 </head>
 <body>
-<div th:fragment ="forminput" class="sample">
+<div th:fragment ="imagefile" class="sample">
    <div class="form-label-group">
               <div class="form-inline">
               <label  th:text="${label}"   class="mr-sm-2" ></label>
-                <input  class="form-control"  th:name="${name}" /><br/>
+                <input type="file"  class="form-control"  th:name="${name}" /><br/>
               </div>
               </div>
       </div>

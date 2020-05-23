@@ -1,12 +1,29 @@
+<!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="ISO-8859-1">
-<link th:href="@{/assets/css/csss.css}" rel="stylesheet"/>
+<title>add student form</title>
+<link th:href="@{/assets/css/addstud.css}" rel="stylesheet"/>
 </head>
 <body>
-hiii
+<div class="container" >
+    <div class="row">
+    <h5 >ADD STUDENT</h5>
+        <form action="#"  id="addstudform" method="post" class=" ">
+        <div>
+         
+                  <div class="from-label-group" th:replace="fragments/dropdown::dropdown(label='BLOODGROUP',name='bloodgroup' )"></div>
+                  </div>
+                  <div>
+                      <div class="from-label-group" th:replace="fragments/date::date(label='DOB',name='dob' )"></div>
+                         </div>
+                          <div>
+                          <div class="from-label-group" th:replace="fragments/radiobut::radiobut(label='GENDER',name='gender' )"></div>
+                  </div>
+                  
+        </form>
+        </div>
+        </div>
+
 </body>
 </html>
-	
-
- 
