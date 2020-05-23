@@ -14,7 +14,7 @@ public class StudentAttendanceServiceImpl implements StudentAttendanceService {
 	private final StudentAttendanceRepository studentattendanceRepository;
 
 	@Override
-	public StudentAttendance getId(Long id) {
+	public StudentAttendance getId(String id) {
 		// TODO Auto-generated method stub
 		return studentattendanceRepository.findById(id).get();
 	}

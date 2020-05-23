@@ -20,18 +20,19 @@ import lombok.AllArgsConstructor;
 public class NonTeachingServiceImpl implements NonTeachinService {
 	private final NonTeachingRepository nonteachingRepository;
 
+	
 	@Override
-	public NonTeachingStaff getById(Long id) {
+	public NonTeachingStaff getById(String id) {
 		// TODO Auto-generated method stub
 		return nonteachingRepository.findById(id).get();
 	}
-
 	@Override
 	public NonTeachingStaff save(NonTeachingStaff nonteachingstaff) {
 		// TODO Auto-generated method stub
 		return nonteachingRepository.save(nonteachingstaff);
 	}
 
+<<<<<<< HEAD
 	@Override
 	public List<NonTeachingStaff> listAll() {
 		// TODO Auto-generated method stub
@@ -44,6 +45,12 @@ public class NonTeachingServiceImpl implements NonTeachinService {
 		nonteachingRepository.deleteById(id);
 	}
 
+=======
+
+
+	
+	
+>>>>>>> branch 'dev' of https://github.com/jijo0465/digicampus.git
 	
 
 }

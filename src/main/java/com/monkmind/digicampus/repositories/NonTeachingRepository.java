@@ -11,8 +11,12 @@ import com.monkmind.digicampus.models.Student;
 /*Anand A B 18/05/2020*/
 
 public interface NonTeachingRepository extends CrudRepository<NonTeachingStaff,Long> {
+<<<<<<< HEAD
 	Optional<NonTeachingStaff> findById(Long id);
 	List<NonTeachingStaff> findAll();
+=======
+	Optional<NonTeachingStaff> findById(String id);
+>>>>>>> branch 'dev' of https://github.com/jijo0465/digicampus.git
 	
 
 }
