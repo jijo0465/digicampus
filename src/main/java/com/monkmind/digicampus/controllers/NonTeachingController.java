@@ -1,5 +1,7 @@
 package com.monkmind.digicampus.controllers;
 
+import java.util.List;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -8,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.monkmind.digicampus.models.NonTeachingStaff;
+import com.monkmind.digicampus.models.Student;
 import com.monkmind.digicampus.models.StudentTimeTable;
 import com.monkmind.digicampus.services.NonTeachinService;
 
@@ -28,10 +31,17 @@ public class NonTeachingController {
 	public String createnonteaching(@ModelAttribute NonTeachingStaff nonteachingstaff,Model model) {
 		NonTeachingStaff staff=nonteachingservice.save(nonteachingstaff);
 		model.addAttribute("nonteachingstaff",staff);
+		return "redirect:/";
+	}
+	
+	@RequestMapping("/nonteachingdisplay")
+	public String nonteachingDisplay(Model model) {
+		List<NonTeachingStaff> listteachings=nonteachingservice.listAll();
+		model.addAttribute("listteachings",listteachings);
 		return "nonteachingdisplay";
 	}
 	
-	@RequestMapping("/i/{id}")
+	@RequestMapping("/change/{id}")
 	public String nonteachingEdit(@PathVariable String id,Model model) {
 		System.out.println(id);
 	    NonTeachingStaff nonTeachingstaff = nonteachingservice.getById(new Long(id));
@@ -44,6 +54,14 @@ public class NonTeachingController {
 	public String insertNonteaching(@ModelAttribute   NonTeachingStaff nonTeachingstaff ,Model model) {
 		nonteachingservice.save(nonTeachingstaff);
 	    return "index";
+	}
+	
+	@RequestMapping("/dele/{id}")
+	public String deleteNonteaching(@PathVariable Long id,Model model)
+	{
+		nonteachingservice.delete(id);
+		return "redirect:/";
+		
 	}
 
 

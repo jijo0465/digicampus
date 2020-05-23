@@ -1,3 +1,9 @@
+/*created by:shijina
+ * created on: 17/05/2020
+ * 
+ */
+
+
 package com.monkmind.digicampus.services;
 
 import com.monkmind.digicampus.models.Parent;
@@ -49,5 +55,11 @@ public class StudentServiceImpl implements StudentService {
 	public List<Student> listAll() {
 		// TODO Auto-generated method stub
 		return studentRepository.findAll();
+	}
+
+	@Override
+	public void delete(long id) {
+		// TODO Auto-generated method stub
+		studentRepository.deleteById(id);
 	}
 }

@@ -13,6 +13,7 @@ public interface StudentService{
     public void save(Student student);
     public Student get(long studentId);
 	public List<Student> listAll(); 
+	public void delete(long id);
 
 
 }

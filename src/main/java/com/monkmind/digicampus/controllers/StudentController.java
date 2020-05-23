@@ -90,5 +90,13 @@ public class StudentController {
 	    studentService.save(student);
 	    return "index";
 	}
+	
+	@RequestMapping("/delete/{id}")
+	public String deleteStudent(@PathVariable Long id,Model model)
+	{
+		studentService.delete(id);
+		return "redirect:/";
+		
+	}
 
 }
