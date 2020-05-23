@@ -1,6 +1,8 @@
 
 package com.monkmind.digicampus.services;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import com.monkmind.digicampus.models.NonTStaffAttendance;
@@ -22,5 +24,17 @@ public NonTStaffAttendance getId(Long id) {
 public NonTStaffAttendance save(NonTStaffAttendance nontstaffattendance) {
 	// TODO Auto-generated method stub
 	return nontstaffattendanceRepository.save(nontstaffattendance);
+}
+
+@Override
+public List<NonTStaffAttendance> listAll() {
+	// TODO Auto-generated method stub
+	return nontstaffattendanceRepository.findAll();
+}
+
+@Override
+public void delete(long id) {
+	// TODO Auto-generated method stub
+	nontstaffattendanceRepository.deleteById(id);
 }
 }

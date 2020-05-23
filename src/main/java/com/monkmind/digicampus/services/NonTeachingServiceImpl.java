@@ -22,7 +22,7 @@ public class NonTeachingServiceImpl implements NonTeachinService {
 
 	
 	@Override
-	public NonTeachingStaff getById(String id) {
+	public NonTeachingStaff getById(long id) {
 		// TODO Auto-generated method stub
 		return nonteachingRepository.findById(id).get();
 	}

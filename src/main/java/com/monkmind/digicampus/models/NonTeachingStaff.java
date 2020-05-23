@@ -25,7 +25,7 @@ import lombok.ToString;
 public class NonTeachingStaff extends Person{
 	
 	@Column(name = "staff_id")
-	private String staffId;
+	private Long staffId;
 	
 	@Column(name = "category")
 	private String category;
