@@ -12,9 +12,9 @@ import com.monkmind.digicampus.models.Student;
 
 public interface NonTeachingRepository extends CrudRepository<NonTeachingStaff,Long> {
 
-	Optional<NonTeachingStaff> findById(String id);
+	Optional<NonTeachingStaff> findById(long id);
 	List<NonTeachingStaff> findAll();
-	public void delete(Long id);
+	
 	
 
 }

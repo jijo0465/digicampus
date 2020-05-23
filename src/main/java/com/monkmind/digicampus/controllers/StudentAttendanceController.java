@@ -42,7 +42,7 @@ public class StudentAttendanceController {
 
 
 
-	@RequestMapping("/edit/{id}")
+	@RequestMapping("/cha/{id}")
 	public String studentattendanceEdit(@PathVariable String id,Model model) {
 		System.out.println(id);
 	 StudentAttendance studentAttendance = studentattendanceService.getId(new String(id));

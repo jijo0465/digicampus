@@ -44,7 +44,7 @@ public class NonTeachingController {
 	@RequestMapping("/change/{id}")
 	public String nonteachingEdit(@PathVariable String id,Model model) {
 		System.out.println(id);
-	    NonTeachingStaff nonTeachingstaff = nonteachingservice.getById(new String(id));
+	    NonTeachingStaff nonTeachingstaff = nonteachingservice.getById(new Long(id));
 	    model.addAttribute("nonTeachingstaff",nonTeachingstaff);
 	     return "updatenonteachingstaff";
 	}
