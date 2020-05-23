@@ -14,7 +14,7 @@ public class ExamServiceImpl implements ExamService {
 
 	private final ExamRepository examRepository;
 	@Override
-	public Exam getExamById(String exam) {
+	public Exam getExamById(Long exam) {
 		// TODO Auto-generated method stub
 		return examRepository.findById(exam).get();
 	}
@@ -25,10 +25,11 @@ public class ExamServiceImpl implements ExamService {
 		examRepository.save(exam);
 	}
 
+	
 	@Override
-	public Exam getExamById(Long exam) {
+	public Exam getById(Exam exam) {
 		// TODO Auto-generated method stub
-		return examRepository.findById(exam).get();
+		return examRepository.save(exam);
 	}
 
 	

@@ -1,0 +1,21 @@
+<!-- gopika -->
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>MyDashboard</title>
+<meta name="viewport" content="width=device-width , initial-scale=1.0">
+ <link th:href="@{/assets/css/style.css}" rel="stylesheet" />
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+ <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+</head>
+<body>
+
+<div th:replace="fragments/nav :: nav"></div>
+<div th:replace="fragments/item :: item"  ></div>
+<div th:replace="fragments/dropdown :: dropdown"></div>
+<div th:replace="fragments/checkbox :: checkbox"></div>
+<div th:replace="fragments/radiobutton :: radiobutton"></div>
+
+</body>
+</html>

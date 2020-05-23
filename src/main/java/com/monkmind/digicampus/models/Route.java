@@ -23,8 +23,7 @@ import lombok.ToString;
 
 public class Route extends BaseEntity{
 	
-	@Column(name = "route_id")
-	private Long routeId;
+	
 	
 	@Column(name = "route_Name")
 	private String routeName;
@@ -41,6 +40,6 @@ public class Route extends BaseEntity{
 	@Column(name = "ending_time")
 	private Time endingTime;
 	
-	@OneToOne
+	@OneToOne(mappedBy ="route")
 	private SchoolBus schoolBus;
 }

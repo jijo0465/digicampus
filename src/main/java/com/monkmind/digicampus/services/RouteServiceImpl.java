@@ -17,15 +17,20 @@ public class RouteServiceImpl implements RouteService{
 	private final RouteRepository routeRepository;
 	
 	@Override
-	public Route getByRouteId(String routeId) {
+	public Route getById(String Id) {
 		// TODO Auto-generated method stub
-		return routeRepository.findByRouteId(routeId).get();
+		return routeRepository.findById(Id).get();
 	}
 
 	@Override
-	public void save(Route route) {
+	public Route save(Route route) {
+		return routeRepository.save(route);
+	}
+
+	@Override
+	public Route getRouteById(String Id) {
 		// TODO Auto-generated method stub
-		routeRepository.save(route);
+		return routeRepository.findById(Id).get() ;
 	}
 
 }

@@ -7,16 +7,23 @@
 <body>
 <h1> Nonteaching  listed here</h1>
 <table><tr>
+<th>nonteaching staffid</th>
 <th>date</th>
 <th>attendance</th>
-<th>non teaching staff id</th>
+
 </tr>
-<tr th:each="nstaffattendance : ${nstaffattendance}">
+<tr th:each="nstaffattendance : ${listNonStaffs}">
+			<td th:text="${nstaffattendance.id}">
+			<td th:text="${nstaffattendance.nonTeachingS.id}">
 			<td th:text="${nstaffattendance.date}">
       		<td th:text="${nstaffattendance.yes}">
-      		<td th:text="${nstaffattendance.nonTeachingS.id}">
+      		
       		</tr>
       		<tr><td>
+      	    <a th:href="@{'/editing/'+ ${nstaffattendance.id}}">Edit</a>
+      		<a th:href="@{'/deleting/'+ ${nstaffattendance.id}}">Delete</a>
+      		
+      	
           
       	</td></tr>
       	

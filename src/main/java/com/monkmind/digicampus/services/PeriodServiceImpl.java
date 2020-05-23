@@ -13,8 +13,8 @@ import lombok.AllArgsConstructor;
 public class PeriodServiceImpl implements PeriodService{
 	private final PeriodRepository periodrepository;
 	
-	public Period getByPeriodId(String period) {
-		return periodrepository.findById(period).get();
+	public Period getByPeriodId(Long id) {
+		return periodrepository.findById(id).get();
 	}
 	
 	public void save(Period period) {

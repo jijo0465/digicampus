@@ -1,3 +1,9 @@
+/*created by:shijina
+ * created on: 17/05/2020
+ * 
+ */
+
+
 package com.monkmind.digicampus.services;
 
 import com.monkmind.digicampus.models.Parent;
@@ -6,6 +12,9 @@ import com.monkmind.digicampus.models.Student;
 import com.monkmind.digicampus.repositories.ParentRepository;
 import com.monkmind.digicampus.repositories.StudentRepository;
 import lombok.AllArgsConstructor;
+
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 @Service
@@ -40,5 +49,17 @@ public class StudentServiceImpl implements StudentService {
 	public Student get(long studentId) {
 		// TODO Auto-generated method stub
 		return studentRepository.findById(studentId).get();
+	}
+
+	@Override
+	public List<Student> listAll() {
+		// TODO Auto-generated method stub
+		return studentRepository.findAll();
+	}
+
+	@Override
+	public void delete(long id) {
+		// TODO Auto-generated method stub
+		studentRepository.deleteById(id);
 	}
 }

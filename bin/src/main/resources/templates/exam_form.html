@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Exam</title>
+</head>
+<body>
+<form action="#" th:action="@{/examinsert}" th:object="${exam}" method="post">
+<label for="name">Exam Name:</label>
+<input type="text" th:field="*{name}">
+<br>
+<br>
+<label for="startDate">Start Date:</label>
+<input type="date" th:field="*{startDate}">
+<br>
+<br>
+<label for="endDate">End Date:</label>
+<input type="date" th:field="*{endDate}">
+<br>
+<br>
+<input type="submit" value="Submit" />
+</form>
+</body>
+</html>

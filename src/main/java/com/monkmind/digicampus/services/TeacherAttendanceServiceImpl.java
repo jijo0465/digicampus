@@ -11,7 +11,7 @@ import lombok.AllArgsConstructor;
 public class TeacherAttendanceServiceImpl implements TeacherAttendanceService {
 	private final TeacherAttendanceRepository teacherattendanceRepository;
 	@Override
-	public TeacherAttendance getId(String id) {
+	public TeacherAttendance getId(Long id) {
 		// TODO Auto-generated method stub
 		return teacherattendanceRepository.findById(id).get();
 	}

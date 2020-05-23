@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html  lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>parent list</title>
+</head>
+<body>
+<h1> Parent listed here</h1>
+<table><tr>
+<th>parentid</th>
+<th>alternate_phone</th>
+<th>name</th>
+<th>address</th>
+
+</tr>
+
+<tr th:each="parent : ${parent}">
+			<td th:text="${parent.parentId}">
+      		<td th:text="${parent.altPhone}">
+      		<td th:text="${parent.name}">
+      		<td th:text="${parent.address}">
+      		
+      		
+      	</tr>
+      	<tr><td>
+      	<a th:href="@{'/edt/'+ ${parent.Id}}">Edit</a>
+      	</td></tr>
+</table>
+
+</body>
+</html>
