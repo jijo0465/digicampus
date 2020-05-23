@@ -9,6 +9,7 @@ import com.monkmind.digicampus.services.StudentService;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
 import java.util.Optional;
 
 import javax.validation.Valid;
@@ -57,8 +58,17 @@ public class StudentController {
 	@RequestMapping("/studentinsert")
 	public String createStudent(@ModelAttribute Student student,Model model) {
 	    studentService.save(student);
-	    return "studdisplay";
+	    return "index";
 	}
+	
+	
+	  @RequestMapping("/studentdisplay")
+		public String studentdisplay(Model model) {
+		  List<Student> liststudents=studentService.listAll();
+		    model.addAttribute("liststudents",liststudents);
+		    return "studdisplay";
+		}
+	
 
 	/*author:shijina
     created date:16/5/2020
