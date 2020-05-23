@@ -10,6 +10,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.sun.istack.NotNull;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -45,5 +47,6 @@ public class Subject extends BaseEntity{
 	Set<Test> tests = new HashSet<>();
 	
 	@ManyToOne
+	@NotNull
 	private Period period;
 }

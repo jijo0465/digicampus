@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.monkmind.digicampus.models.NonTeachingStaff;
 import com.monkmind.digicampus.models.Student;
 import com.monkmind.digicampus.models.StudentAttendance;
+import com.monkmind.digicampus.models.StudentTimeTable;
 import com.monkmind.digicampus.services.StudentAttendanceService;
 
 import lombok.AllArgsConstructor;
@@ -27,7 +28,7 @@ public class StudentAttendanceController {
 	
 	 @RequestMapping("/studentattendanceform")
 		public String studentAttendanceForm(Model model) {
-		    model.addAttribute("student_attendance", new StudentAttendance());
+		    model.addAttribute("studentattendance", new StudentAttendance());
 		    return "studentattendance";
 		}
 	@PostMapping
@@ -36,15 +37,20 @@ public class StudentAttendanceController {
 		StudentAttendance student=  studentattendanceService.save(studentattendance);
 		 model.addAttribute("studentattendance",student);
 	    return "studentattendancedisplay";
+	}
 	
 
-}
+
+
 	@RequestMapping("/edit/{id}")
 	public String studentattendanceEdit(@PathVariable String id,Model model) {
 		System.out.println(id);
 	 StudentAttendance studentAttendance = studentattendanceService.getId(new String(id));
 	    model.addAttribute("studentAttendance",studentAttendance);
 	     return "updatestudentattendance";
+	
+	
+	
 
 }
 	@PostMapping

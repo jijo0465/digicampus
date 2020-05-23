@@ -7,7 +7,7 @@ import com.monkmind.digicampus.models.Subject;
 public interface SubjectService {
 	
 	
-	public void save(Subject subject);
+	public Subject save(Subject subject);
 
 	public Subject getById(Long subject);
 

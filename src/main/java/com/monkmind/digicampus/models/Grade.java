@@ -6,6 +6,8 @@ import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
@@ -49,6 +51,7 @@ public class Grade extends BaseEntity{
     private Teacher classTeacher;
 	
 	@ManyToMany
+	//@JoinTable(name="grade_exams",joinColumns=@JoinColumn(name="grade_id"),inverseJoinColumns =@JoinColumn(name="exam_id"))
 	private Set<Exam> exams = new HashSet<>();
 	
 	

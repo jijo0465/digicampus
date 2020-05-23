@@ -34,6 +34,7 @@ public class ExamController {
 	@PostMapping
 	@RequestMapping("/examinsert")
 	public String createGrade(@ModelAttribute Exam exam,Model model) {
+	//	Exam exams=examService.getById(exam).add(exams);
 	    examService.save(exam);
 	    return "examformdisplay";
 	}
