@@ -48,6 +48,7 @@ public class NonTStaffAttendanceController {
 		    model.addAttribute("listNonStaffs",listNonStaffs);
 		    return "nonteachingattendancedisplay";
 		}
+
 	 @RequestMapping("/changing/{id}")
 		public String nonstaffEdit(@PathVariable String id,Model model) {
 			System.out.println(id);
@@ -62,7 +63,6 @@ public class NonTStaffAttendanceController {
 			nontstaffAttendanceService.save(nontstaffattendance);
 		    return "index";
 		}
-		
 		@RequestMapping("/deleting/{id}")
 		public String deleteNonteachingAttendance(@PathVariable Long id,Model model)
 		{
@@ -70,6 +70,7 @@ public class NonTStaffAttendanceController {
 			return "redirect:/";
 			
 		}
+
 
 
 }
