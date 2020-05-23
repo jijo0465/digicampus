@@ -3,11 +3,12 @@ package com.monkmind.digicampus.controllers;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.monkmind.digicampus.models.Route;
-
+import com.monkmind.digicampus.models.SchoolBus;
 import com.monkmind.digicampus.services.RouteService;
 
 /*author:shijina
@@ -34,5 +35,12 @@ public class RouteController {
 	    Route busroute=routeService.save(route);
 	    model.addAttribute("route", busroute);
 	    return "routedisplay";
+	}
+	@RequestMapping("/edi/{route}")
+	public String routeEdit(@PathVariable String route,Model model) {
+		System.out.println(route);
+	    Route routes = routeService.getRouteById(new String(route));
+	    model.addAttribute("route",routes);
+	     return "updateroute";
 	}
 }

@@ -25,7 +25,9 @@
       		<td th:text="${route.endingTime}">
       		<td th:text="${route.schoolBus}">
       		</tr>   
-      		
+ <tr><td>
+      	<a th:href="@{'/a/'+ ${route.id}}">Edit</a>
+      	</td></tr>     		
 </table>
 </body>
 </html>

@@ -27,4 +27,10 @@ public class RouteServiceImpl implements RouteService{
 		return routeRepository.save(route);
 	}
 
+	@Override
+	public Route getRouteById(String Id) {
+		// TODO Auto-generated method stub
+		return routeRepository.findById(Id).get() ;
+	}
+
 }
