@@ -6,7 +6,7 @@
 <title>Period</title>
 </head>
 <body>
-<form action="#" th:action="@{/updateperiod/+${period.id}}" th:object="${period}" method="post">
+<form action="#" th:action="@{'/updateperiod/'+${period.id}}" th:object="${period}" method="post">
 <label for="starting_time">Starting Time:</label>
 <input type="text" th:field="*{startngTime}">
 <br>
