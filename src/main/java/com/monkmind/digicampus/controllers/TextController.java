@@ -10,8 +10,13 @@ public class TextController {
 	{ 
 		return "fragments/forms/addstud";
 	}
-	
+	@RequestMapping("/gopika")
+	public String getForm()
+	{
+		return "fragments/forms/teacher";
+	}
 }
+
         
         
       
