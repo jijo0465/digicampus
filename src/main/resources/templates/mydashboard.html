@@ -10,12 +10,32 @@
  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 </head>
 <body>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script th:inline="javascript">
+
+        $(document).ready(function(){
+            $(".addstudent").click(function(e){
+            	console.log("student")
+                e.preventDefault();
+                $.ajax({
+                    method: "POST",
+                    url: "/submit",
+                    //data: $('').serialize(),
+                    success: function(status){
+                        if(status) {
+                        	 console.log(status);
+                           $(".body").html(status)
+                        }
+                   }
+                });
+            })
+        })
+    </script>
 
 <div th:replace="fragments/nav :: nav"></div>
+<div class="body">
 <div th:replace="fragments/item :: item"  ></div>
-<div th:replace="fragments/dropdown :: dropdown"></div>
-<div th:replace="fragments/checkbox :: checkbox"></div>
-<div th:replace="fragments/radiobutton :: radiobutton"></div>
 
+</div>
 </body>
 </html>
