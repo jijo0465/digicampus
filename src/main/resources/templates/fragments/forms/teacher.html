@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<link th:href="@{/assets/css/csss.css}" rel="stylesheet"/>
+</head>
+<body>
+<form action="#" id="addteacher" method="post" class=""></form>
+<div th:replace="fragments/forminput :: forminput(label='Name',name='teachername')"></div>
+<div th:replace="fragments/forminput :: forminput(label='Address',name='address')"></div>
+<div th:replace="fragments/forminput :: forminput(label='Phone Number',name='number')"></div>
+<div th:replace="fragments/forminput :: forminput(label='Alternative Phone',name='altnumber')"></div>
+</body>
+</html>
