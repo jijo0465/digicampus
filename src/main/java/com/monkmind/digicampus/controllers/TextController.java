@@ -12,13 +12,9 @@ public class TextController {
 	@RequestMapping("/submit")
 	public String getHome()
 	{ 
-<<<<<<< HEAD
-		
+
 		return "fragments/forms/addstud";
-				// "::addstud";
-=======
-		return "fragments/forms/addstud";
->>>>>>> branch 'dev' of https://github.com/jijo0465/digicampus.git
+
 	}
 	@RequestMapping("/gopika")
 	public String getForm()
