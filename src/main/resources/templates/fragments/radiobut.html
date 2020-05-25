@@ -7,9 +7,13 @@
 </head>
 <body>
 <div th:fragment ="radiobut" >
-<label for="gender">GENDER:</label>
+<div class="form-label-group">
+<div class="form-inline">
+<label th:text="${label}" class="mr-sm-2"></label>
 <input type="radio" value="MALE" >male
 <input type="radio" value="FEMALE" >Female
+</div>
+</div>
 </div>
 </body>
 </html>
