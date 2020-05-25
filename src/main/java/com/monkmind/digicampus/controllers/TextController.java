@@ -12,7 +12,9 @@ public class TextController {
 	@RequestMapping("/submit")
 	public String getHome()
 	{ 
-		return "fragments/forms/addstud::addstud";
+		
+		return "fragments/forms/addstud";
+				// "::addstud";
 	}
 	@RequestMapping("/gopika")
 	public String getForm()
