@@ -15,27 +15,21 @@
 
         $(document).ready(function(){
             $(".addstudent").click(function(e){
-            	console.log("student")
                 e.preventDefault();
-                $.ajax({
-                    method: "POST",
-                    url: "/submit",
-                    //data: $('').serialize(),
-                    success: function(status){
-                        if(status) {
-                        	 console.log(status);
-                           $(".body").html(status)
-                        }
-                   }
-                });
+        	$.ajax({
+        		method: "POST",
+        		url: "/add_student",
+        		dataType: "html"
+        		}).done(function(data){
+        		$('#results').load("/add_student .container");
+        		})
             })
         })
     </script>
 
 <div th:replace="fragments/nav :: nav"></div>
-<div class="body">
+<div class="body" id="results">
 <div th:replace="fragments/item :: item"  ></div>
-
 </div>
 </body>
 </html>
