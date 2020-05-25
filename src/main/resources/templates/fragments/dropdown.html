@@ -3,12 +3,20 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Dropdown</title>
-
 </head>
 <body>
 <div th:fragment ="dropdown" >
-       <label for="bloodgroup">BLOOD GROUP:</label>
+      <div class="form-label-group">
+              <div class="form-inline">
+              <label  th:text="${label}"   class="mr-sm-2" ></label>
+<!--  <select class="form-control"  name="dropdowny" id="dropdown" required="required">
+                    <option disabled="disabled" selected="selected" >         </option>
+                    <option th:each="" : ${agencies}"  th:text="${agency.name}" ></option>
+
+                </select>  -->     
+       
 <select >
+<option value = "SELECT">SELECT </option>
 	<option value = "A_POS">A+ve</option>
 	<option value = "A_NEG">A-ve</option>
 	<option value = "B_POS">B+ve</option>

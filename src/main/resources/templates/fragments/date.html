@@ -7,8 +7,12 @@
 </head>
 <body>
         <div th:fragment ="date">
-        <label for="dob">DATE OF BIRTH:</label> 
-	<input type="date" id="dob" >
+        <div class="form-label-group">
+              <div class="form-inline">
+              <label  th:text="${label}"></label> 
+	           <input type="date" id="dob" >
+	</div> 
+	</div> 
 	</div> 
 </body>
 </html>
