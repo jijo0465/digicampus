@@ -1,5 +1,7 @@
 package com.monkmind.digicampus.controllers;
 
+import java.util.List;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -36,8 +38,16 @@ public class ExamController {
 	public String createGrade(@ModelAttribute Exam exam,Model model) {
 	//	Exam exams=examService.getById(exam).add(exams);
 	    examService.save(exam);
+	    return "index";
+	}
+	
+	@RequestMapping("/examformdisplay")
+	public String examForm(Model model) {
+		List<Exam> exams=examService.listAll();
+	    model.addAttribute("exams",exams);
 	    return "examformdisplay";
 	}
+	
 	/*author:shijina
 	created date:16/5/2020
 	*/
@@ -55,6 +65,14 @@ public class ExamController {
 	public String InsertStudent(@ModelAttribute Exam exam,Model model) {
 	    examService.save(exam);
 	    return "index";
+	}
+	
+	@RequestMapping("/deleted/{id}")
+	public String deleteExam(@PathVariable Long id,Model model)
+	{
+		examService.delete(id);
+		return "redirect:/";
+		
 	}
 
 

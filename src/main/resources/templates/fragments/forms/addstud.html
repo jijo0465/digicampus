@@ -5,9 +5,9 @@
 <title>add student form</title>
 <link th:href="@{/assets/css/addstud.css}" rel="stylesheet"/>
 </head>
- <h5 align="center">ADD STUDENT</h5>
  <body>
-<div class="container" th:fragment="addstud">
+<div class="container" th:fragment="addstud" id="addstud">
+<h5 align="center">ADD STUDENT</h5>
     <div class="row">
         <form action="#"  id="addstudform" method="post" class=" ">
            <div  th:replace="fragments/forminput::forminput(label='NAME:',name='studname' )"></div>
@@ -24,7 +24,7 @@
            <div  th:replace="fragments/forminput::forminput(label='GRADEID:',name='gradeid' )"></div>
            <div  th:replace="fragments/forminput::forminput(label='PARENTID:',name='parentid' )"></div>
            <div  th:replace="fragments/forminput::forminput(label='SCHOOLBUSID:',name='schoolbusid' )"></div>
-           <div  th:replace="fragments/formbutton::formbutton(label='ADD',name='submit',class='btn btn-lg btn-primary btn-block text-uppercase')"></div> 
+           <div  th:replace="fragments/formbutton::formbutton(label='ADD',name='submit',class='tn-primbtn btn-lg bary btn-block text-uppercase')"></div> 
         </form>
         </div>
         </div>
