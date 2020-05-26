@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>period details</title>
+<link th:href="@{/assets/css/addstud.css}" rel="stylesheet"/>
+</head>
+<h5 align="center">PERIOD DETAILS</h5>
+<body>
+<div class="container" th:fragment="period">
+<div class="row">
+<form action="#" id="period" method="post" class="">
+<div th:replace="fragments/forminput::forminput(label='STARTING TIME:',name='startingtime')"> </div>
+<div th:replace="fragments/forminput::forminput(label='ENDING TIME:',name='endingtime')"> </div>
+<div th:replace="fragments/forminput::forminput(label='STUDENT TIME TABLE ID:',name='studtableid')"> </div>
+<div th:replace="fragments/forminput::forminput(label='TEACHER TIME TABLE ID:',name='teachtableid')"> </div>
+<div th:replace="fragments/formbutton::formbutton(label='SUBMIT',name='submit')"></div>
+</form>
+</div>
+</div>
+</body>
+</html>
+
+
+
+
