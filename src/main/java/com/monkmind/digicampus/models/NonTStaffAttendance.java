@@ -25,6 +25,7 @@ import lombok.ToString;
 public class NonTStaffAttendance extends BaseEntity{
 	
 	@ManyToOne
+	@NotNull
 	private NonTeachingStaff nonTeachingS;
 	
 	@JsonFormat(pattern = "dd-MM-yyyy")
