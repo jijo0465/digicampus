@@ -9,42 +9,25 @@
 <div class="container" th:fragment="addstud" id="addstud">
 <h5 align="center">ADD STUDENT</h5>
     <div class="row">
-<<<<<<< HEAD
-        <form action="#"  id="addstudform" method="post" class=" " th:object="${student}">
-           <div  th:replace="fragments/forminput::forminput(label='NAME',name='name' )"></div>
+
+        <form action="#"  id="addstudform" method="post" th:object="${student}">
+           <div th:replace="fragments/forminput::forminput(label='NAME',name='name')"></div>
            <div  th:replace="fragments/textarea::textarea(label='ADDRESS',name='address' )"></div>
-              <div  th:replace="fragments/forminput::forminput(label='PHONE NO',name='phone' )"></div>
-                 <div  th:replace="fragments/forminput::forminput(label='ALTERNATIVE PHONE',name='altPhone' )"></div>
-                  <div  th:replace="fragments/dropdown::dropdown(label='BLOODGROUP',name='bloodGroup' )"></div>
-                      <div  th:replace="fragments/date::date(label='DOB',name='dateOfBirth' )"></div>
-                          <div class="from-label-group" th:replace="fragments/radiobut::radiobut(label='GENDER',name='gender' )"></div>
-                  <div class="from-label-group" th:replace="fragments/forminput::forminput(label='HEIGHT',name='height' )"></div>
-                   <div class="from-label-group" th:replace="fragments/forminput::forminput(label='WEIGHT',name='weight' )"></div>
-                   <div class="from-label-group" th:replace="fragments/imagefile::imagefile(label='PHOTO',name='displayImage' )"></div>
-                    <div class="from-label-group" th:replace="fragments/forminput::forminput(label='STUDENTID',name='studentId' )"></div>
-                     <div class="from-label-group" th:replace="fragments/forminput::forminput(label='GRADEID',name='grade' )"></div>
-                      <div class="from-label-group" th:replace="fragments/forminput::forminput(label='PARENTID',name='parent' )"></div>
-                       <div class="from-label-group" th:replace="fragments/forminput::forminput(label='SCHOOLBUSID',name='schoolBus' )"></div>
-                  <div   th:replace="fragments/formbutton::formbutton(label='ADD',name='submit',class='btn btn-lg btn-primary btn-block text-uppercase')"></div>
+           <div  th:replace="fragments/forminput::forminput(label='PHONE NO',name='phone' )"></div>
+           <div  th:replace="fragments/forminput::forminput(label='ALTERNATIVE PHONE',name='altPhone' )"></div>
+           <div  th:replace="fragments/dropdown::dropdown(label='BLOODGROUP',name='bloodGroup' )"></div>
+           <div  th:replace="fragments/date::date(label='DOB',name='dateOfBirth' )"></div>
+           <div class="from-label-group" th:replace="fragments/radiobut::radiobut(label='GENDER',name='gender' )"></div>
+           <div class="from-label-group" th:replace="fragments/forminput::forminput(label='HEIGHT',name='height' )"></div>
+           <div class="from-label-group" th:replace="fragments/forminput::forminput(label='WEIGHT',name='weight' )"></div>
+           <div class="from-label-group" th:replace="fragments/imagefile::imagefile(label='PHOTO',name='displayImage' )"></div>
+           <div class="from-label-group" th:replace="fragments/forminput::forminput(label='STUDENTID',name='studentId' )"></div>
+           <div class="from-label-group" th:replace="fragments/forminput::forminput(label='GRADEID',name='grade' )"></div>
+           <div class="from-label-group" th:replace="fragments/forminput::forminput(label='PARENTID',name='parent' )"></div>
+           <div class="from-label-group" th:replace="fragments/forminput::forminput(label='SCHOOLBUSID',name='schoolBus' )"></div>
+           <div   th:replace="fragments/formbutton::formbutton(label='ADD',name='submit',class='btn btn-lg btn-primary btn-block text-uppercase')"></div>
             
-=======
-        <form action="#"  id="addstudform" method="post" class=" ">
-           <div  th:replace="fragments/forminput::forminput(label='NAME:',name='studname' )"></div>
-           <div  th:replace="fragments/textarea::textarea(label='ADDRESS:',name='address' )"></div>
-           <div  th:replace="fragments/forminput::forminput(label='PHONE NO:',name='phoneno' )"></div>
-           <div  th:replace="fragments/forminput::forminput(label='ALTERNATIVE PHONE:',name='alternateno' )"></div>
-           <div  th:replace="fragments/dropdown::dropdown(label='BLOODGROUP:',name='bloodgroup' )"></div>
-           <div  th:replace="fragments/date::date(label='DOB:',name='dob' )"></div>
-           <div  th:replace="fragments/radiobut::radiobut(label='GENDER:',name='gender' )"></div>
-           <div  th:replace="fragments/forminput::forminput(label='HEIGHT:',name='height' )"></div>
-           <div  th:replace="fragments/forminput::forminput(label='WEIGHT:',name='weight' )"></div>
-           <div  th:replace="fragments/imagefile::imagefile(label='PHOTO:',name='file' )"></div>
-           <div  th:replace="fragments/forminput::forminput(label='STUDENTID:',name='studid' )"></div>
-           <div  th:replace="fragments/forminput::forminput(label='GRADEID:',name='gradeid' )"></div>
-           <div  th:replace="fragments/forminput::forminput(label='PARENTID:',name='parentid' )"></div>
-           <div  th:replace="fragments/forminput::forminput(label='SCHOOLBUSID:',name='schoolbusid' )"></div>
-           <div  th:replace="fragments/formbutton::formbutton(label='ADD',name='submit',class='tn-primbtn btn-lg bary btn-block text-uppercase')"></div> 
->>>>>>> branch 'dev' of https://github.com/jijo0465/digicampus.git
+
         </form>
         </div>
        

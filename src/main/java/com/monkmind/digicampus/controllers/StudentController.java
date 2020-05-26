@@ -43,14 +43,14 @@ public class StudentController {
     @RequestMapping("/add_student")
 	public String studentForm(Model model) {
 	    model.addAttribute("student", new Student());
-	    return "fragments/forms/addstud";
+	    return "fragments/forms/addstud::addstud";
 	}
 
 	@PostMapping
 	@RequestMapping("/addstudent")
 	public String createStudent(@ModelAttribute Student student,Model model) {
 	    studentService.save(student);
-	    return "index";
+	    return "mydashboard";
 	}
 	
 	
