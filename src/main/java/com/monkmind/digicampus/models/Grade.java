@@ -6,6 +6,8 @@ import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
@@ -21,7 +23,7 @@ import lombok.ToString;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
+//@ToString
 @Table(name = "grade")
 @Entity
 
@@ -45,11 +47,16 @@ public class Grade extends BaseEntity{
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "grade")
     private Set<Student> students = new HashSet<>();
 	
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "grade")
+	private Set<Test> test  = new HashSet<>();
+	
 	@OneToOne
     private Teacher classTeacher;
 	
-	@ManyToMany
-	private Set<Exam> exams = new HashSet<>();
+	//@ManyToMany
+	//@JoinTable(name="grade_exams",joinColumns=@JoinColumn(name="grade_id"),inverseJoinColumns =@JoinColumn(name="exam_id"))
+	
+	
 	
 	
 //	@Column(name = "rating")

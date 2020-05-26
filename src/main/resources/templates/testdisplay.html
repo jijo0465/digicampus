@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Test Display</title>
+</head>
+<body>
+<h1>Test Details are Listed</h1>
+<table><tr>
+<th>Test Id</th>
+<th>Date</th>
+<th>Duration</th>
+<th>Pass Mark</th>
+<th>Time</th>
+<th>Total Mark</th>
+<th>Exam ID</th>
+<th>Subject Name ID</th>
+</tr>
+<tr th:each="test:${test}">
+<td th:text="${test.id}">
+<td th:text="${test.date}">
+<td th:text="${test.duration}">
+<td th:text="${test.passMark}">
+<td th:text="${test.time}">
+<td th:text="${test.totalMark}">
+<td th:text="${test.exam.id}">
+<td th:text="${test.subjectName.id}">
+</tr>
+</table>
+<a th:href="@{'/test/'+ ${test.id}}">Edit</a>
+</body>
+</html>

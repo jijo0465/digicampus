@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html  lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>student attendance </title>
+</head>
+<body>
+<h1> student attendance</h1>
+<table><tr>
+<th>studentid</th>
+<th>date</th>
+<th>yes</th>
+</tr>
+<tr th:each="studentattendance : ${studentattendance}">
+			<td th:text="${studentattendance.student.id}">
+      		<td th:text="${studentattendance.date}">
+      		<td th:text="${studentattendance.yes}">
+      		</tr>   
+<<<<<<< HEAD
+<tr><td>
+      	<a th:href="@{'/edit/'+ ${studentattendance.id}}">Edit</a>
+=======
+
+      		
+           <tr><td>
+      	<a th:href="@{'/cha/'+ ${studentattendance.id}}">Edit</a>
+>>>>>>> branch 'dev' of https://github.com/jijo0465/digicampus.git
+      	</td></tr>
+</table>
+</body>
+</html>

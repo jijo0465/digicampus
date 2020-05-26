@@ -1,0 +1,29 @@
+<!-- Anand A B -->
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Period</title>
+</head>
+<body>
+<form action="#" th:action="@{'/updateperiod/'+${period.id}}" th:object="${period}" method="post">
+<label for="starting_time">Starting Time:</label>
+<input type="text" th:field="*{startngTime}">
+<br>
+<br>
+<label for="ending_time">Ending Time:</label>
+<input type="text" th:field="*{endingTime}">
+<br>
+<br>
+<label for="student_time_table_id">Student Time Table Id:</label>
+<input type="text" th:field="*{StudentTimeTable.id}">
+<br>
+<br>
+<label for="teacher_time_table_id">Teacher Time Table Id:</label>
+<input type="text" th:field="*{TeacherTimeTable.id}">
+<br>
+<br>
+<input type="submit" value="Submit" />
+</form>
+</body>
+</html>

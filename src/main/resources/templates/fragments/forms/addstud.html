@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>add student form</title>
+<link th:href="@{/assets/css/addstud.css}" rel="stylesheet"/>
+</head>
+ <body>
+<div class="container" th:fragment="addstud" id="addstud">
+<h5 align="center">ADD STUDENT</h5>
+    <div class="row">
+
+        <form action="#"  id="addstudform" method="post" th:object="${student}">
+           <div th:replace="fragments/forminput::forminput(label='NAME',name='name')"></div>
+           <div  th:replace="fragments/textarea::textarea(label='ADDRESS',name='address' )"></div>
+           <div  th:replace="fragments/forminput::forminput(label='PHONE NO',name='phone' )"></div>
+           <div  th:replace="fragments/forminput::forminput(label='ALTERNATIVE PHONE',name='altPhone' )"></div>
+           <div  th:replace="fragments/dropdown::dropdown(label='BLOODGROUP',name='bloodGroup' )"></div>
+           <div  th:replace="fragments/date::date(label='DOB',name='dateOfBirth' )"></div>
+           <div class="from-label-group" th:replace="fragments/radiobut::radiobut(label='GENDER',name='gender' )"></div>
+           <div class="from-label-group" th:replace="fragments/forminput::forminput(label='HEIGHT',name='height' )"></div>
+           <div class="from-label-group" th:replace="fragments/forminput::forminput(label='WEIGHT',name='weight' )"></div>
+           <div class="from-label-group" th:replace="fragments/imagefile::imagefile(label='PHOTO',name='displayImage' )"></div>
+           <div class="from-label-group" th:replace="fragments/forminput::forminput(label='STUDENTID',name='studentId' )"></div>
+           <div class="from-label-group" th:replace="fragments/forminput::forminput(label='GRADEID',name='grade' )"></div>
+           <div class="from-label-group" th:replace="fragments/forminput::forminput(label='PARENTID',name='parent' )"></div>
+           <div class="from-label-group" th:replace="fragments/forminput::forminput(label='SCHOOLBUSID',name='schoolBus' )"></div>
+           <div   th:replace="fragments/formbutton::formbutton(label='ADD',name='submit',class='btn btn-lg btn-primary btn-block text-uppercase')"></div>
+            
+
+        </form>
+        </div>
+       
+         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script th:inline="javascript">
+
+        $(document).ready(function(){
+            $("#addstudform").submit(function(e){
+                e.preventDefault();
+                console.log("hai");
+                $.ajax({
+                    method: "POST",
+                    url: "/addstudent",
+                    data: $('#addstudform').serialize(),
+                    success: function(status){
+                        if(status) {
+                        	 console.log(status);
+                           $(".body").html(status)
+                        }
+                    }
+                });
+            })
+        })
+    </script>
+     </div>
+</body>
+</html>

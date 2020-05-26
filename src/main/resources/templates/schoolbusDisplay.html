@@ -12,7 +12,7 @@
 <th>driver</th>
 <th>helper</th>
 <th>registration</th>
-
+<th>routeid</th>
 </tr>
 
 <tr th:each="schoolBus : ${schoolBus}">
@@ -21,7 +21,7 @@
       		<td th:text="${schoolBus.driver}">
       		<td th:text="${schoolBus.helper}">
       		<td th:text="${schoolBus.registration}">
-      		
+      		<td th:text="${schoolBus.route.id}">
       		
       	</tr>
       	<tr><td>

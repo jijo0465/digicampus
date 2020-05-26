@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html  lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>nonteaching list</title>
+</head>
+<body>
+<h1> Nonteaching  listed here</h1>
+<table><tr>
+<th>date</th>
+<th>attendance</th>
+<th>non teaching staff id</th>
+</tr>
+<tr th:each="nstaffattendance : ${nstaffattendance}">
+			<td th:text="${nstaffattendance.date}">
+      		<td th:text="${nstaffattendance.yes}">
+      		<td th:text="${nstaffattendance.nonTeachingS.id}">
+      		</tr>
+      		<tr><td>
+          
+      	</td></tr>
+      	
+</table>
+</body>
+</html>

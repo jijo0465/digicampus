@@ -4,6 +4,7 @@ import java.sql.Date;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
@@ -35,10 +36,12 @@ public class Exam extends BaseEntity{
 	@Column(name = "end_date")
 	private Date endDate;
 
-	@OneToMany(mappedBy = "exam")
+	@OneToMany(cascade = CascadeType.ALL ,mappedBy = "exam")
     private Set<Test> tests = new HashSet<>();
 	
-	@ManyToMany(mappedBy = "exams")
-	private Set<Grade> grades = new HashSet<>();
+	//@ManyToMany(cascade = CascadeType.ALL ,mappedBy = "exams")
+	//private Set<Grade> grades = new HashSet<>();
+
+	
 	
 }

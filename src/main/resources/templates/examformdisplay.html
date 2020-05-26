@@ -11,10 +11,11 @@
 <th>start date</th>
 <th>name</th>
 <th>end date</th>
+<th>action</th>
 
 </tr>
 
-<tr th:each="exam : ${exam}">
+<tr th:each="exam : ${exams}">
 			<td th:text="${exam.id}">
       		<td th:text="${exam.startDate}">
       		<td th:text="${exam.name}">
@@ -23,7 +24,8 @@
       		
       	</tr>
       	<tr><td>
-      	<a th:href="@{'/ei/'+ ${exam.id}}">Edit</a>
+     <a th:href="@{'/ei/'+ ${exam.id}}">Edit</a>
+      <a th:href="@{'/deleted/'+ ${exam.id}}">Delete</a>
       	</td></tr>
 </table>
 

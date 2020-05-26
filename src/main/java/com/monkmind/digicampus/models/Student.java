@@ -1,6 +1,7 @@
 package com.monkmind.digicampus.models;
 
 import java.util.HashSet;
+
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -9,6 +10,9 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+
+//import com.sun.istack.NotNull;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -35,12 +39,15 @@ public class Student extends Person{
     private Double weight;
 	
 	@ManyToOne
+	@NotNull
     private Parent parent;
 	
 	@ManyToOne
+	@NotNull
 	private SchoolBus schoolBus;
 	
 	@ManyToOne
+	@NotNull
 	private Grade grade;
 	
 	@ManyToMany

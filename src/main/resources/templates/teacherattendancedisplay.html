@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html  lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>teacher attendance</title>
+</head>
+<body>
+<h1> teacher attendance</h1>
+<table><tr>
+<th>id</th>
+<th>date</th>
+<th>yes</th>
+</tr>
+<tr th:each="teacherattendance : ${teacherattendance}">
+			<td th:text="${teacherattendance.teacher.id}">
+      		<td th:text="${teacherattendance.date}">
+      		<td th:text="${teacherattendance.yes}">
+      		</tr>   
+      		<tr><td>
+           <a th:href="@{'/c/'+ ${teacherattendance.id}}">Edit</a>
+      	</td></tr>	
+</table>
+</body>
+</html>

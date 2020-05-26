@@ -11,6 +11,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -22,7 +23,7 @@ import lombok.ToString;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
+//@ToString
 @Table(name = "student_time_table")
 @Entity
 
@@ -33,6 +34,7 @@ public class StudentTimeTable extends BaseEntity{
     private WeekDay day;
 	
 	@ManyToOne
+	@NotNull
 	private Grade grade;
 	
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "studentTimeTable")

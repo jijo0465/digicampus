@@ -1,15 +1,20 @@
 package com.monkmind.digicampus.repositories;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.data.repository.CrudRepository;
 
 import com.monkmind.digicampus.models.NonTeachingStaff;
+import com.monkmind.digicampus.models.Student;
 
 /*Anand A B 18/05/2020*/
 
 public interface NonTeachingRepository extends CrudRepository<NonTeachingStaff,Long> {
-	Optional<NonTeachingStaff> findByStaffId(Long staffId);
+
+	Optional<NonTeachingStaff> findById(long id);
+	List<NonTeachingStaff> findAll();
+	
 	
 
 }

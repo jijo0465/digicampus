@@ -10,6 +10,7 @@ import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -34,9 +35,11 @@ public class Period extends BaseEntity{
 	private Time endingTime;
 	
 	@ManyToOne
+	@NotNull
 	private StudentTimeTable studentTimeTable;
 	
 	@ManyToOne
+	@NotNull
 	private TeacherTimeTable teacherTimeTable;
 	
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "period")

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang=en xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Bus Route Insert</title>
+</head>
+<h1 align="center">Route Creation Form</h1>
+<body>
+<form action="#" th:action="@{/updateroute/'+${route.routeid}" th:object="${route}" method="post">
+
+<br>
+<label for="route">Route:</label>
+<input type="text" th:field="*{routeName}">
+<br>
+<br>
+<label for="startingTime">Starting Time:</label>
+<input type="text" th:field="*{startngTime}">
+<br>
+<br>
+<label for="arrival">Arrival:</label>
+<input type="text" th:field="*{arrival}">
+<br>
+<br>
+<label for="departure">Departure :</label>
+<input type="text" th:field="*{departure}">
+<br>
+<br>
+<label for="ending_time">Ending Time:</label>
+<input type="text" th:field="*{endingTime}">
+<br>
+<br>
+<label for="schoolbusid">SchoolBus ID:</label>
+<input type="text" th:field="*{schoolBus}">
+<br>
+<br>
+<input type="submit" value="Submit" />
+
+</form>
+</body>
+</html>

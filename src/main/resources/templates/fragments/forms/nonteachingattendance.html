@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en"xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<link th:href="@{/assets/css/addstud.css}" rel="stylesheet"/>
+<title>non teaching attendance</title>
+</head>
+
+<body>
+<h5 align="center">NON TEACHING STAFF ATTENDANCE</h5>
+<div class="container" th:fragment="nonteachingattendance">
+<div class="row">
+<form action="#" id="nonteachingattendance" method="post" class="">
+ <div  th:replace="fragments/date::date(label='DATE:',name='date' )"></div>
+ <div th:replace="fragments/radiobut2::radiobut2(label='ATTENDANCE',name='attendance')"></div>
+ <div th:replace="fragments/forminput::forminput(label='NON TEACHING ID:',name='nonteachingid')"></div>
+ <div th:replace="fragments/formbutton::formbutton(label='SUBMIT',name='submit')"></div>
+</form>
+</div>
+</div>
+
+</body>
+</html>

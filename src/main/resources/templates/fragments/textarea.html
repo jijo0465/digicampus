@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+
+</head>
+<body>
+<div th:fragment ="textarea" class="sample">
+   <div class="form-label-group">
+              <div class="form-inline">
+              <label  th:text="${label}"   class="mr-sm-2" ></label>
+                <textarea  class="form-control"  th:name="${name}" ></textarea>
+              </div>
+              </div>
+      </div>
+</body>
+</html>
+
+
+

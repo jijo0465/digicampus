@@ -7,28 +7,26 @@
 <h1 align="center">Route Creation Form</h1>
 <body>
 <form action="#" th:action="@{/routeinsert}" th:object="${route}" method="post">
-<label for="route_id">Route Id:</label>
-<input type="text" th:field="*{routeId}">
-<br>
+
 <br>
 <label for="route">Route:</label>
-<input type="text" th:field="*{route}">
+<input type="text" th:field="*{routeName}">
 <br>
 <br>
 <label for="startingTime">Starting Time:</label>
-<input type="time" th:field="*{startngTime}">
+<input type="text" th:field="*{startngTime}">
 <br>
 <br>
 <label for="arrival">Arrival:</label>
-<input type="time" th:field="*{arrival}">
+<input type="text" th:field="*{arrival}">
 <br>
 <br>
 <label for="departure">Departure :</label>
-<input type="time" th:field="*{departure}">
+<input type="text" th:field="*{departure}">
 <br>
 <br>
 <label for="ending_time">Ending Time:</label>
-<input type="time" th:field="*{endingTime}">
+<input type="text" th:field="*{endingTime}">
 <br>
 <br>
 <label for="schoolbusid">SchoolBus ID:</label>
