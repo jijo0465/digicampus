@@ -47,12 +47,16 @@ public class Grade extends BaseEntity{
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "grade")
     private Set<Student> students = new HashSet<>();
 	
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "grade")
+	private Set<Test> test  = new HashSet<>();
+	
 	@OneToOne
     private Teacher classTeacher;
 	
-	@ManyToMany
+	//@ManyToMany
 	//@JoinTable(name="grade_exams",joinColumns=@JoinColumn(name="grade_id"),inverseJoinColumns =@JoinColumn(name="exam_id"))
-	private Set<Exam> exams = new HashSet<>();
+	
+	
 	
 	
 //	@Column(name = "rating")

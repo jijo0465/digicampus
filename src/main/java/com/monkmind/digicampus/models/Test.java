@@ -48,5 +48,8 @@ public class Test extends BaseEntity{
 	@NotNull
 	private Exam exam;
 	
+	@ManyToOne
+	@NotNull
+	private Grade grade;
 	
 }
