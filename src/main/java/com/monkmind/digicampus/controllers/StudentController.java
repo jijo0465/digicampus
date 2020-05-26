@@ -30,24 +30,24 @@ public class StudentController {
     private final StudentService studentService;
 
     //@PostMapping
-    @RequestMapping("/add_student")
-    public String addStudent(){
-        return "fragments/forms/addstud";
-    }
+  //  @RequestMapping("/add_student")
+   // public String addStudent(){
+   //     return "fragments/forms/addstud";
+   // }
     
     /*author:shijina
     created date:15/5/2020
     */
     
     
-    @RequestMapping("/studentform")
+    @RequestMapping("/add_student")
 	public String studentForm(Model model) {
 	    model.addAttribute("student", new Student());
-	    return "student_form";
+	    return "fragments/forms/addstud";
 	}
 
 	@PostMapping
-	@RequestMapping("/studentinsert")
+	@RequestMapping("/addstudent")
 	public String createStudent(@ModelAttribute Student student,Model model) {
 	    studentService.save(student);
 	    return "index";

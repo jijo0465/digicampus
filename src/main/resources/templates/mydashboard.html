@@ -16,19 +16,22 @@
         $(document).ready(function(){
             $(".addstudent").click(function(e){
                 e.preventDefault();
+                console.log("haiiiiiiiii")
         	$.ajax({
         		method: "POST",
         		url: "/add_student",
-        		dataType: "html"
-        		}).done(function(data){
-        		$('#results').load("/add_student .container");
-        		})
-            })
+        		success: function(status){
+                    if(status) {
+                    	 console.log(status);
+                       $(".body").html(status)
+                    }
+                }
+            });
         })
     </script>
 
 <div th:replace="fragments/nav :: nav"></div>
-<div class="body" id="results">
+<div class="body">
 <div th:replace="fragments/item :: item"  ></div>
 </div>
 </body>
