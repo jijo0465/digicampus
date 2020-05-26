@@ -14,24 +14,24 @@
     <script th:inline="javascript">
 
         $(document).ready(function(){
-            $(".addstudent").click(function(e){
+            $("#addstudent").click(function(e){
                 e.preventDefault();
-                console.log("haiiiiiiiii")
         	$.ajax({
         		method: "POST",
         		url: "/add_student",
         		success: function(status){
                     if(status) {
                     	 console.log(status);
-                       $(".body").html(status)
+                       $("#results").html(status)
                     }
                 }
             });
         })
+      })
     </script>
 
 <div th:replace="fragments/nav :: nav"></div>
-<div class="body">
+<div id="results">
 <div th:replace="fragments/item :: item"  ></div>
 </div>
 </body>
