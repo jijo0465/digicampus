@@ -39,8 +39,8 @@ public class Exam extends BaseEntity{
 	@OneToMany(cascade = CascadeType.ALL ,mappedBy = "exam")
     private Set<Test> tests = new HashSet<>();
 	
-	@ManyToMany(cascade = CascadeType.ALL ,mappedBy = "exams")
-	private Set<Grade> grades = new HashSet<>();
+	//@ManyToMany(cascade = CascadeType.ALL ,mappedBy = "exams")
+	//private Set<Grade> grades = new HashSet<>();
 
 	
 	

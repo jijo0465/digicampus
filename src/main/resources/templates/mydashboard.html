@@ -6,7 +6,7 @@
 <title>MyDashboard</title>
 <meta name="viewport" content="width=device-width , initial-scale=1.0">
  <link th:href="@{/assets/css/style.css}" rel="stylesheet" />
- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+ <link rel="stylesheet" th:href="@{/assets/css/bootstrap.css}">
  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
@@ -16,21 +16,24 @@
     <script th:inline="javascript">
 
         $(document).ready(function(){
-            $(".addstudent").click(function(e){
+            $("#addstudent").click(function(e){
                 e.preventDefault();
         	$.ajax({
         		method: "POST",
         		url: "/add_student",
-        		dataType: "html"
-        		}).done(function(data){
-        		$('#results').load("/add_student .container");
-        		})
-            })
+        		success: function(status){
+                    if(status) {
+                    	 console.log(status);
+                       $("#results").html(status)
+                    }
+                }
+            });
         })
+      })
     </script>
 
 <div th:replace="fragments/nav :: nav"></div>
-<div class="body" id="results">
+<div id="results">
 <div th:replace="fragments/item :: item"  ></div>
 </div>
 </body>

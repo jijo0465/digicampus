@@ -13,8 +13,8 @@ public class TextController {
 	public String getHome()
 	{ 
 
-		return "fragments/forms/addstud";
 
+		return "fragments/forms/addstud";
 	}
 	@RequestMapping("/gopika")
 	public String getForm()
