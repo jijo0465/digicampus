@@ -1,5 +1,7 @@
 package com.monkmind.digicampus.services;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 import com.monkmind.digicampus.models.TeacherAttendance;
 import com.monkmind.digicampus.repositories.TeacherAttendanceRepository;
@@ -20,5 +22,17 @@ public class TeacherAttendanceServiceImpl implements TeacherAttendanceService {
 	public TeacherAttendance save(TeacherAttendance teacherAttendance) {
 		// TODO Auto-generated method stub
 		return teacherattendanceRepository.save(teacherAttendance);
+	}
+
+	@Override
+	public List<TeacherAttendance> listAll() {
+		// TODO Auto-generated method stub
+		return teacherattendanceRepository.findAll();
+	}
+
+	@Override
+	public void delete(Long id) {
+		// TODO Auto-generated method stub
+		teacherattendanceRepository.deleteById(id);
 	}
 }

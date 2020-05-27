@@ -51,7 +51,9 @@
         </ol>
     </nav>
     <div class="dc-form-body">
-        <form action="#"  id="addstudform" method="post" th:object="${student}">
+
+        <form action="#"  id="addstudform" method="post" th:object="${command}">
+
             <div style="padding-bottom: 22px">
                 <h1 style="font-size: x-large" >Basic Information</h1>
             </div>
@@ -69,7 +71,7 @@
            <div class="from-label-group" th:replace="fragments/forminput::forminput(label='GRADEID',name='grade' )"></div>
            <div class="from-label-group" th:replace="fragments/forminput::forminput(label='PARENTID',name='parent' )"></div>
            <div class="from-label-group" th:replace="fragments/forminput::forminput(label='SCHOOLBUSID',name='schoolBus' )"></div>
-           <div th:replace="fragments/formbutton::formbutton(label='ADD',name='submit',class='btn btn-lg btn-primary btn-block text-uppercase')"></div>
+           <div th:replace="fragments/formbutton::formbutton(label='ADD',name='submit',class='btn btn-lg btn-primary btn-block text-uppercase',buttonid='studentsubmit')"></div>
             
 
         </form>
@@ -79,7 +81,7 @@
         <script th:inline="javascript">
 
         $(document).ready(function(){
-            $("#addstudform").submit(function(e){
+            $("#studentsubmit").click(function(e){
                 e.preventDefault();
                 console.log("hai");
                 $.ajax({
