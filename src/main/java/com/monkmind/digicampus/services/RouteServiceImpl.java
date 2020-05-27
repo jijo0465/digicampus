@@ -1,5 +1,7 @@
 package com.monkmind.digicampus.services;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import com.monkmind.digicampus.models.Route;
@@ -31,6 +33,18 @@ public class RouteServiceImpl implements RouteService{
 	public Route getRouteById(String Id) {
 		// TODO Auto-generated method stub
 		return routeRepository.findById(Id).get() ;
+	}
+
+	@Override
+	public List<Route> listAll() {
+		// TODO Auto-generated method stub
+		return routeRepository.findAll();
+	}
+
+	@Override
+	public void delete(Long Id) {
+		// TODO Auto-generated method stub
+		routeRepository.deleteById(Id);;
 	}
 
 }

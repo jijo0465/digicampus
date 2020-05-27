@@ -1,5 +1,7 @@
 package com.monkmind.digicampus.controllers;
 
+import java.util.List;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -8,7 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.monkmind.digicampus.models.Grade;
-import com.monkmind.digicampus.models.Student;
+
 import com.monkmind.digicampus.services.GradeService;
 
 /*author:shijina
@@ -32,9 +34,18 @@ public class GradeController {
 	    return "grade_form";
 	}
 
-	@PostMapping
-	@RequestMapping("/gradeinsert")
+	@PostMapping("/gradeinsert")
 	public String createGrade(@ModelAttribute Grade grade,Model model) {
+		Grade gradez =gradeService.save(grade);
+		 model.addAttribute("grade",gradez);
+		    return "redirect:/";
+		}
+	
+	
+	@RequestMapping("/gradedisplay")
+	public String displayGrade(@ModelAttribute Grade grade,Model model) {
+		List<Grade> listgrades=gradeService.listAll();
+		model.addAttribute("listgrades", listgrades);
 	    gradeService.save(grade);
 	    return "gradedisplay";
 	}
@@ -57,5 +68,11 @@ public class GradeController {
 	    gradeService.save(grade);
 	    return "index";
 	}
-
+	@RequestMapping("/delt/{id}")
+	public String deleteGrade(@PathVariable Long id,Model model)
+	{
+		gradeService.delete(id);
+		return "redirect:/";
+		
+	}
 }

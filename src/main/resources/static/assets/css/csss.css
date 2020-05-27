@@ -34,7 +34,7 @@
 	font-weight:bold;
 }
 .card-signin div{
-	width:100%;
+	
 	margin-bottom:20px;
 }
 .card-signin div[type="text"]{
@@ -58,7 +58,7 @@
 
 .form-signin .btn {
   font-size: 100%;
-  border-radius: 30rem;
+  border-radius: 2rem;
   letter-spacing: .1rem;
   font-weight: bold;
   padding: 1rem;

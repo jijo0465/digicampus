@@ -23,58 +23,63 @@ public class ExamController {
 	private final ExamService examService;
 
 	public ExamController(ExamService examService) {
-		//super();
+		// super();
 		this.examService = examService;
 	}
-	
+
 	@RequestMapping("/exam_form")
 	public String gradeForm(Model model) {
-	    model.addAttribute("exam", new Exam());
-	    return "exam_form";
+		model.addAttribute("exam", new Exam());
+		return "exam_form";
+	}
+	//haritha
+	//date:26/05/2020
+
+	@PostMapping("/examinsert")
+	public String createGrade(@ModelAttribute Exam exam, Model model) {
+		Exam examz = examService.save(exam);
+		model.addAttribute("exam", examz);
+		return "redirect:/";
 	}
 
-	@PostMapping
-	@RequestMapping("/examinsert")
-	public String createGrade(@ModelAttribute Exam exam,Model model) {
-	//	Exam exams=examService.getById(exam).add(exams);
-	    examService.save(exam);
-	    return "index";
-	}
+
+	@RequestMapping("/examdisplay")
+	public String displayExam(@ModelAttribute Exam exam, Model model) {
+		// Exam exams=examService.getById(exam).add(exams);
+		List<Exam> listexams = examService.listAll();
+		model.addAttribute("listexams", listexams);
+		examService.save(exam);
+		return "examformdisplay";
+}
+
 	
-	@RequestMapping("/examformdisplay")
-	public String examForm(Model model) {
-		List<Exam> exams=examService.listAll();
-	    model.addAttribute("exams",exams);
-	    return "examformdisplay";
-	}
 	
-	/*author:shijina
-	created date:16/5/2020
-	*/
+
 	@RequestMapping("/ei/{id}")
-	public String studentUpdate(@PathVariable String id,Model model) {
-		//ModelAndView mav = new ModelAndView("edit_product");
+	public String updateExam(@PathVariable String id, Model model) {
+		// ModelAndView mav = new ModelAndView("edit_product");
 		System.out.println(id);
-	    Exam exam = examService.getExamById(new Long(id));
-	    model.addAttribute("exam",exam);
-	     return "updateexam";
+		Exam exam = examService.getExamById(new Long(id));
+		model.addAttribute("exam", exam);
+		return "updateexam";
 	}
-	
+
 	@PostMapping
 	@RequestMapping("/updateexam/{id}")
-	public String InsertStudent(@ModelAttribute Exam exam,Model model) {
-	    examService.save(exam);
-	    return "index";
+	public String InsertStudent(@ModelAttribute Exam exam, Model model) {
+		examService.save(exam);
+		return "index";
 	}
-	
-	@RequestMapping("/deleted/{id}")
-	public String deleteExam(@PathVariable Long id,Model model)
-	{
+	// haritha
+	// date:25/05/2020
+
+	@RequestMapping("/del/{id}")
+	public String deleteExam(@PathVariable Long id, Model model) {
 		examService.delete(id);
 		return "redirect:/";
-		
+
 	}
-
-
 	
+	
+
 }

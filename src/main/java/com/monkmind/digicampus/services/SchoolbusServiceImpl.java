@@ -1,7 +1,8 @@
 package com.monkmind.digicampus.services;
 
-import org.springframework.stereotype.Service;
+import java.util.List;
 
+import org.springframework.stereotype.Service;
 
 import com.monkmind.digicampus.models.SchoolBus;
 
@@ -16,28 +17,34 @@ created date:14/5/2020
 @AllArgsConstructor
 public class SchoolbusServiceImpl implements SchoolbusService {
 	private final SchoolbusRepository schoolbusRepository;
+
 	@Override
 	public SchoolBus getDriverByDriver(String driver) {
 		// TODO Auto-generated method stub
 		return schoolbusRepository.findByDriver(driver).get();
 	}
-	 
-	
 
 	@Override
-	public void save(SchoolBus schoolbus) {
-		// TODO Auto-generated method stub
-		schoolbusRepository.save(schoolbus);
+	public SchoolBus save(SchoolBus schoolbus) {
+		return schoolbusRepository.save(schoolbus);
 	}
 
-
+	 @Override
+	 public SchoolBus getBusNumber(long busNumber) {
+	// TODO Auto-generated method stub
+	 return schoolbusRepository.findByBusNumber(busNumber).get();
+	 }
 
 	@Override
-	public SchoolBus getBusNumber(long busNumber) {
+	public List<SchoolBus> listAll() {
 		// TODO Auto-generated method stub
-		return schoolbusRepository.findByBusNumber(busNumber).get();
+		return schoolbusRepository.findAll();
 	}
 
-	
+	@Override
+	public void delete(Long busNumber) {
+		// TODO Auto-generated method stub
+		schoolbusRepository.deleteByBusNumber(busNumber);
+	}
 
 }
