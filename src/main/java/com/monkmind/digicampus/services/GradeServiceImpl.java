@@ -1,5 +1,7 @@
 package com.monkmind.digicampus.services;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import com.monkmind.digicampus.models.Grade;
@@ -24,9 +26,8 @@ public class GradeServiceImpl implements GradeService {
 	}
 
 	@Override
-	public void save(Grade grade) {
-		// TODO Auto-generated method stub
-		gradeRepository.save(grade);
+	public Grade save(Grade grade) {
+		return gradeRepository.save(grade);
 	}
 
 	@Override
@@ -34,5 +35,19 @@ public class GradeServiceImpl implements GradeService {
 		// TODO Auto-generated method stub
 		return gradeRepository.findById(id).get();
 	}
+	
+	@Override
+	public List<Grade> listAll() {
+		// TODO Auto-generated method stub
+		return gradeRepository.findAll();
+	}
+
+	@Override
+	public void delete(Long id) {
+		// TODO Auto-generated method stub
+		gradeRepository.deleteById(id);
+	}
+
+	
 
 }

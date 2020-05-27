@@ -1,3 +1,27 @@
+<!--  
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+</head>
+<body>
+<div th:fragment ="forminput" class="sample">
+ <div class="form-label-group">
+              <div class="form-inline">
+              <label  th:text="${label}"   class="control-label col-sm-2" ></label>
+                <input  class="form-control"  th:name="${name}" /><br/>
+              </div>
+              </div>
+              </div>
+            
+      
+</body>
+</html>
+
+
+
+======
+-->
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
@@ -10,7 +34,7 @@
         <div class="col-sm-7">
             <input type="text" th:name="${name}" class="form-control" >
         </div>
-    </div>
+    </div>																																																					
  <!--  <div class="form-label-group">
               <div class="form-inline">
               <label  th:text="${label}"   class="mr-sm-2" ></label>
@@ -20,6 +44,7 @@
 </div>
 </body>
 </html>
+
 
 
 

@@ -2,8 +2,9 @@
 created on:20/5/2020
 */
 
-
 package com.monkmind.digicampus.controllers;
+
+import java.util.List;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,44 +20,55 @@ import com.monkmind.digicampus.models.StudentTimeTable;
 import com.monkmind.digicampus.services.StudentAttendanceService;
 
 import lombok.AllArgsConstructor;
+
 @Controller
 @AllArgsConstructor
 
 public class StudentAttendanceController {
 	private final StudentAttendanceService studentattendanceService;
-	
-	
-	 @RequestMapping("/studentattendanceform")
-		public String studentAttendanceForm(Model model) {
-		    model.addAttribute("studentattendance", new StudentAttendance());
-		    return "studentattendance";
-		}
-	@PostMapping
-	@RequestMapping("/studentattendance")
-	public String createAttendance(@ModelAttribute StudentAttendance studentattendance ,Model model) {
-		StudentAttendance student=  studentattendanceService.save(studentattendance);
-		 model.addAttribute("studentattendance",student);
-	    return "studentattendancedisplay";
+
+	@RequestMapping("/studentattendanceform")
+	public String studentAttendanceForm(Model model) {
+		model.addAttribute("studentattendance", new StudentAttendance());
+		return "studentattendance";
 	}
-	
 
+	@PostMapping("/studentattendanceinsert")
+	public String createAttendance(@ModelAttribute StudentAttendance studentattendance, Model model) {
+		StudentAttendance studentz = studentattendanceService.save(studentattendance);
+		model.addAttribute("studentattendance", studentz);
+		return "redirect:/";
+	}
 
+	@RequestMapping("/studentattendancedisplay")
+	public String displayAttendance(@ModelAttribute StudentAttendance studentattendance, Model model) {
+		List<StudentAttendance> attendancelist = studentattendanceService.listAll();
+		model.addAttribute("attendancelist", attendancelist);
+		studentattendanceService.save(studentattendance);
+		return "studentattendancedisplay";
+	}
 
 	@RequestMapping("/cha/{id}")
-	public String studentattendanceEdit(@PathVariable String id,Model model) {
+	public String studentattendanceEdit(@PathVariable String id, Model model) {
 		System.out.println(id);
-	 StudentAttendance studentAttendance = studentattendanceService.getId(new String(id));
-	    model.addAttribute("studentAttendance",studentAttendance);
-	     return "updatestudentattendance";
-	
-	
-	
+		StudentAttendance studentAttendance = studentattendanceService.getId(new String(id));
+		model.addAttribute("studentAttendance", studentAttendance);
+		return "updatestudentattendance";
 
-}
+	}
+
 	@PostMapping
 	@RequestMapping("/updatestudentattendance/{id}")
-	public String insertStudentAttendance(@ModelAttribute   StudentAttendance studentAttendance ,Model model) {
+	public String insertStudentAttendance(@ModelAttribute StudentAttendance studentAttendance, Model model) {
 		studentattendanceService.save(studentAttendance);
-	    return "index";
+		return "index";
 	}
+
+	@RequestMapping("/vb/{id}")
+	public String deleteStudentAttendance(@PathVariable Long id, Model model) {
+		studentattendanceService.delete(id);
+		return "redirect:/";
+
+	}
+
 }

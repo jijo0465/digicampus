@@ -1,5 +1,7 @@
 package com.monkmind.digicampus.controllers;
 
+import java.util.List;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -7,8 +9,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+
 import com.monkmind.digicampus.models.SchoolBus;
-import com.monkmind.digicampus.models.Student;
+
 import com.monkmind.digicampus.services.SchoolbusService;
 
 
@@ -28,14 +31,22 @@ public class SchoolbusController {
 	}
 	
 	@RequestMapping("/schoolbus")
-	public String busForm(Model model) {
-	    model.addAttribute("schoolbus", new SchoolBus());
-	    return "schoolbus";
+	public String schoolBus(Model model) {
+		model.addAttribute("schoolbus",new SchoolBus());
+		return "schoolbus";
 	}
 
-	@PostMapping
-	@RequestMapping("/schoolbusinsert")
+	@PostMapping("/schoolbusinsert")
 	public String createSchoolbus(@ModelAttribute SchoolBus schoolbus,Model model) {
+	SchoolBus schoolbuz =schoolbusService.save(schoolbus);
+	 model.addAttribute("schoolBus",schoolbuz);
+	    return "redirect:/";
+	}
+	
+	@RequestMapping("/schoolbusdisplay")
+	public String SchoolbusDisplay(@ModelAttribute SchoolBus schoolbus,Model model) {
+		List<SchoolBus> listschoolbus=schoolbusService.listAll();
+		model.addAttribute("listschoolbus",listschoolbus);
 	    schoolbusService.save(schoolbus);
 	    return "schoolbusDisplay";
 	}
@@ -59,5 +70,13 @@ public class SchoolbusController {
 	    schoolbusService.save(schoolBus);
 	    return "index";
 	}
-
+	//haritha
+	//date:25/05/2020
+	@RequestMapping("/dlt/{busNumber}")
+	public String deleteSchoolBus(@PathVariable Long busNumber,Model model)
+	{
+		//schoolbusService.delete(busNumber);
+		return "redirect:/";
+		
+	}
 }
