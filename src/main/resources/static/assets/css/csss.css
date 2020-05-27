@@ -34,7 +34,7 @@
 	font-weight:bold;
 }
 .card-signin div{
-	
+	width:100%;
 	margin-bottom:20px;
 }
 .card-signin div[type="text"]{
@@ -58,23 +58,20 @@
 
 .form-signin .btn {
   font-size: 100%;
-  border-radius: 2rem;
+  border-radius: 30rem;
   letter-spacing: .1rem;
   font-weight: bold;
   padding: 1rem;
   transition: all 0.2s;
-  
 }
 
 .form-label-group {
   position: relative;
- 
 }
 
 .form-label-group div {
   height: auto;
   border-radius: 2rem;
-  height:40px;
 }
 
 .form-label-group>div,
@@ -86,11 +83,11 @@ border-radius: 70px;
 }
 
 .form-label-group>label {
-  position: relative;
+  position: absolute;
   top: 0;
   left: 0;
   display: block;
-  width: 80%;
+  width: 100%;
   margin-bottom: 0;
   /* Override default `<label>` margin */
   line-height: 1.5;
