@@ -1,5 +1,7 @@
 package com.monkmind.digicampus.controllers;
 
+import java.util.List;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -29,18 +31,32 @@ public class RouteController {
 	    return "route_form";
 	}
 
-	@PostMapping
-	@RequestMapping("/routeinsert")
+	@PostMapping("/routeinsert")
 	public String createRoute(@ModelAttribute Route route,Model model) {
 	    Route busroute=routeService.save(route);
 	    model.addAttribute("route", busroute);
+	    return "redirect:/";
+	}	
+	
+	@RequestMapping("/routedisplay")
+	public String displayRoute(@ModelAttribute Route route,Model model) {
+		List<Route> listroutes=routeService.listAll();
+		model.addAttribute("listroutes", listroutes);
+	    routeService.save(route);
 	    return "routedisplay";
 	}
-	@RequestMapping("/edi/{route}")
+	@RequestMapping("/abc/{route}")
 	public String routeEdit(@PathVariable String route,Model model) {
 		System.out.println(route);
 	    Route routes = routeService.getRouteById(new String(route));
 	    model.addAttribute("route",routes);
 	     return "updateroute";
+	}
+	@RequestMapping("/def/{id}")
+	public String deleteRoute(@PathVariable Long id,Model model)
+	{
+		routeService.delete(id);
+		return "redirect:/";
+		
 	}
 }

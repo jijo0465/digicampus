@@ -1,3 +1,4 @@
+<!-- haritha -->
 <!DOCTYPE html>
 <html  lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
@@ -11,19 +12,21 @@
 <th>start date</th>
 <th>name</th>
 <th>end date</th>
-
+<th>actions</th>
 </tr>
 
-<tr th:each="exam : ${exam}">
+<tr th:each="exam : ${listexams}">
 			<td th:text="${exam.id}">
       		<td th:text="${exam.startDate}">
       		<td th:text="${exam.name}">
       		<td th:text="${exam.endDate}">
       		
       		
-      	</tr>
-      	<tr><td>
-      	<a th:href="@{'/ei/'+ ${exam.id}}">Edit</a>
+      	
+      	<td>
+      	
+<a th:href="@{'/ei/'+ ${exam.id}}">Edit</a>
+<a th:href="@{'/del/'+ ${exam.id}}">Delete</a>
       	</td></tr>
 </table>
 

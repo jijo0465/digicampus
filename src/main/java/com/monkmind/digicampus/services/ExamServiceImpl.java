@@ -1,5 +1,7 @@
 package com.monkmind.digicampus.services;
 
+import java.util.List;
+
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
@@ -20,9 +22,8 @@ public class ExamServiceImpl implements ExamService {
 	}
 
 	@Override
-	public void save(Exam exam) {
-		// TODO Auto-generated method stub
-		examRepository.save(exam);
+	public Exam save(Exam exam) {
+		return examRepository.save(exam);
 	}
 
 	
@@ -31,6 +32,21 @@ public class ExamServiceImpl implements ExamService {
 		// TODO Auto-generated method stub
 		return examRepository.save(exam);
 	}
+
+	@Override
+	public List<Exam> listAll() {
+		// TODO Auto-generated method stub
+		return examRepository.findAll();
+	}
+	
+	
+	@Override
+	public void delete(long id) {
+		// TODO Auto-generated method stub
+		 examRepository.deleteById(id);
+	}
+
+	
 
 	
 }

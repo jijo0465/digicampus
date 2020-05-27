@@ -1,11 +1,14 @@
 package com.monkmind.digicampus.services;
 
+import java.util.List;
+
 import com.monkmind.digicampus.models.Grade;
 
 
 public interface GradeService {
 	 public Grade getGradeByDivision(String division);
-	 public void save(Grade grade);
+	 public Grade save(Grade grade);
 	 public Grade getGradeById(Long id);
-
+	 public List<Grade> listAll();
+	 public void delete(Long id);
 }
