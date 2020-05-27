@@ -1,29 +1,85 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html>
 <head>
-<meta charset="ISO-8859-1">
-<title>add student form</title>
-<link th:href="@{/assets/css/addstud.css}" rel="stylesheet"/>
+<style>
+table {
+ font-family: arial, sans-serif;
+  border: 1px solid black;
+  border-collapse: collapse;
+  
+}
+th{
+ border: 1px solid black;
+font-style: italic;
+ border-collapse: collapse;
+ text-align: center;
+  padding: 8px;
+   background-color: #D1F2EB ;
+} 
+td
+{
+ border: 1px solid black;
+font-style: normal;
+ border-collapse: collapse;
+ text-align: left;
+  padding: 8px;
+ 
+} 
+tr:nth-child(even) {
+  background-color: white;
+} 
+tr:nth-child(odd)
+{
+background-color: #FEF9E7 ;
+}
+</style>
 </head>
 <body>
-<div class="container" >
-    <div class="row">
-    <h5 >ADD STUDENT</h5>
-        <form action="#"  id="addstudform" method="post" class=" ">
-        <div>
-         
-                  <div class="from-label-group" th:replace="fragments/dropdown::dropdown(label='BLOODGROUP',name='bloodgroup' )"></div>
-                  </div>
-                  <div>
-                      <div class="from-label-group" th:replace="fragments/date::date(label='DOB',name='dob' )"></div>
-                         </div>
-                          <div>
-                          <div class="from-label-group" th:replace="fragments/radiobut::radiobut(label='GENDER',name='gender' )"></div>
-                  </div>
-                  
-        </form>
-        </div>
-        </div>
+<table style="width:100%">
+<caption><b>STUDENTS LIST</b></caption>
+  <tr>
+    <th>Firstname</th>
+    <th>Lastname</th> 
+    <th>Age</th>
+    <th>address</th>
+    <th>address</th>
+  </tr>
+  <tr>
+    <td>Jill</td>
+    <td>Smith</td>
+    <td>50</td>
+     <td>50</td>
+      <td>50</td>
+  </tr>
+  <tr>
+    <td>Eve</td>
+    <td>Jackson</td>
+    <td>94</td>
+     <td>50</td>
+      <td>50</td>
+  </tr>
+  <tr>
+    <td>John</td>
+    <td>Doe</td>
+    <td>80</td>
+     <td>50</td>
+     <td>50</td>
+  </tr>
+   <tr>
+    <td>Eve</td>
+    <td>Jackson</td>
+     <td>50</td>
+      <td>50</td>
+    <td>94</td>
+  </tr>
+   <tr>
+    <td>Eve</td>
+    <td>Jackson</td>
+    <td>94</td>
+     <td>50</td>
+      <td>50</td>
+  </tr>
+</table>
 
 </body>
 </html>

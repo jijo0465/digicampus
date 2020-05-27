@@ -6,44 +6,34 @@
 </head>
 <body>
 <div th:fragment="item"> 
-<div class="card-deck">
-  <div class="card">
-   
-    <div class="card-body">
-      <h5 class="card-title">Student</h5>
-      
- <div th:replace="fragments/option1 :: option1"></div>
-<div th:replace="fragments/option2 :: option2"></div>
-<div th:replace="fragments/option3 :: option3"></div>
-      
-     
-      
+  <div class="card-columns" style="column-gap: 40px">
+    <div class="card">
+      <div class="card-header dc-menu-header">Admissions</div>
+      <div class="card-body dc-menu-body">
+        <div th:replace="fragments/option1 :: option1"></div>
+      </div>
     </div>
-  </div>
-  <div class="card">
-    
-    <div class="card-body">
-      <h5 class="card-title">Teacher</h5>
-      
+    <div class="card">
+      <div class="card-header">Header</div>
+      <div class="card-body">Content</div>
+      <div class="card-footer">Footer</div>
     </div>
-  </div>
-  <div class="card">
-   
-    <div class="card-body">
-      <h5 class="card-title">Admin</h5>
-      
+    <div class="card">
+
+      <div class="card-body">
+        <h5 class="card-title">Teacher</h5>
+
+      </div>
+    </div>
+    <div class="card">
+
+      <div class="card-body">
+        <h5 class="card-title">Admin</h5>
+
+      </div>
     </div>
   </div>
 </div>
-
-
-
-
-</div>
-  
-    
-  
-
 
 </body>
 </html>

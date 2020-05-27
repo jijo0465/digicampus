@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+
+<title>timetable</title>
+<link th:href="@{/assets/css/addstud.css}" rel="stylesheet"/>
+</head>
+<body>
+<div class="container" th:fragment="studtimetable">
+<h5 align="center">Student Timetable</h5>
+<div class="row">
+<form action="#" id="studtimetable" method="post" class="">
+<div th:replace="fragments/datedrop :: datedrop(label='Days:',name='dayss')"></div>
+<div th:replace="fragments/forminput :: forminput(label='Grade Id:',name='gid')"></div>
+<div th:replace="fragments/formbutton::formbutton(label='submit',name='submit',class='btn btn-lg btn-primary btn-block text-uppercase')"></div>
+</form>
+</div>
+
+</div>
+</body>
+</html>

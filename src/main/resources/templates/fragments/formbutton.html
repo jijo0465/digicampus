@@ -6,15 +6,25 @@
 </head>
 <body>
 <div th:fragment ="formbutton"  class="class">
+    <div style="margin-top: 32px" class="btn-toolbar justify-content-center" role="toolbar" aria-label="Toolbar with button groups">
+        <div class="btn-group mr-2" role="group" aria-label="First group">
+            <button type="button" class="btn btn-secondary">Back</button>
+        </div>
+        <div class="btn-group mr-2" role="group" aria-label="Second group">
+            <button type="button" class="btn btn-secondary">Save</button>
+        </div>
+        <div class="btn-group" role="group" aria-label="Third group">
+            <button type="button" class="btn btn-primary">Submit</button>
+        </div>
+    </div>
   
-              <div class="form-label-group">
-               <div class="form-inline">
-                
-                 <button th:class="${class}" th:text="${label}"  th:name="${name}"  id="login" type="submit"></button>
-                
-              </div>
-          </div>
-      </div>
+<!--              <div class="form-label-group">-->
+<!--              -->
+<!--                -->
+<!--                 <button th:class="${class}" th:text="${label}"  th:name="${name}"  id="login" type="submit"></button>-->
+<!--                -->
+<!--              </div>-->
+</div>
 </body>
 </html>
 

@@ -5,12 +5,13 @@
 </head>
 <body>
 <div th:fragment ="imagefile" class="sample">
-   <div class="form-label-group">
-              <div class="form-inline">
-              <label  th:text="${label}"   class="mr-sm-2" ></label>
-                <input type="file"  class="form-control"  th:name="${name}" /><br/>
+   <div class="form-group row">
+              <label  th:text="${label}" style="text-align: end;" class="col-sm-3 col-form-label" ></label>
+              <div class="col-sm-2">
+                  <input type="file"  class="custom-file"  th:name="${name}" />
               </div>
               </div>
+
       </div>
 </body>
 </html>

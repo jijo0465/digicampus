@@ -38,6 +38,7 @@ public class ExamServiceImpl implements ExamService {
 		// TODO Auto-generated method stub
 		return examRepository.findAll();
 	}
+
 	
 	
 	@Override

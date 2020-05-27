@@ -5,17 +5,37 @@
 <meta charset="ISO-8859-1">
 <title>MyDashboard</title>
 <meta name="viewport" content="width=device-width , initial-scale=1.0">
- <link th:href="@{/assets/css/style.css}" rel="stylesheet" />
- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
- <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/4.4.1-1/css/bootstrap.min.css}" />
+    <link rel="stylesheet" th:href="@{/assets/css/style.css}" />
+    <script th:src="@{/webjars/jquery/3.5.0/jquery.min.js}"></script>
+    <script th:src="@{/webjars/bootstrap/4.4.1-1/js/bootstrap.min.js}"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 </head>
 <body>
 
-<div th:replace="fragments/nav :: nav"></div>
-<div th:replace="fragments/item :: item"  ></div>
-<div th:replace="fragments/dropdown :: dropdown"></div>
-<div th:replace="fragments/checkbox :: checkbox"></div>
-<div th:replace="fragments/radiobutton :: radiobutton"></div>
+    <script th:inline="javascript">
 
+        $(document).ready(function(){
+            $("#addstudent").click(function(e){
+                e.preventDefault();
+        	$.ajax({
+        		method: "POST",
+        		url: "/add_student",
+        		success: function(status){
+                    if(status) {
+                    	 console.log(status);
+                       $("#results").html(status)
+                    }
+                }
+            });
+        })
+      })
+    </script>
+
+<div th:replace="fragments/nav :: nav"></div>
+<div id="results" class="dcbody container-fluid">
+    <div th:replace="fragments/item :: item"  ></div>
+</div>
 </body>
 </html>

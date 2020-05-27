@@ -1,5 +1,7 @@
 package com.monkmind.digicampus.services;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import com.monkmind.digicampus.models.Parent;
@@ -33,6 +35,18 @@ public class ParentServiceImpl implements ParentService {
 	public Parent get(long parentId) {
 		// TODO Auto-generated method stub
 		return parentRepository.findById(parentId).get();
+	}
+
+	@Override
+	public List<Parent> listAll() {
+		// TODO Auto-generated method stub
+		return parentRepository.findAll();
+	}
+
+	@Override
+	public void delete(long id) {
+		// TODO Auto-generated method stub
+		parentRepository.findById(id);
 	}
 
 }

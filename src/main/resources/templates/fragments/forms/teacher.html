@@ -2,25 +2,29 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="ISO-8859-1">
+
 <title>teacher details</title>
 <link th:href="@{/assets/css/addstud.css}" rel="stylesheet"/>
 </head>
 
 <body>
+
+<div class="container" th:fragment="teacher">
 <h5 align="center">TeacherForm</h5>
-<div th:fragment="teacher">
+<div class="row">
 
 <form action="#" id="addteacher" method="post" class="">
-<div th:replace="fragments/forminput :: forminput(label='Name',name='teachername')"></div>
-<div th:replace="fragments/textarea :: textarea(label='Address',name='address')"></div>
-<div th:replace="fragments/forminput :: forminput(label='Phone Number',name='number')"></div>
-<div th:replace="fragments/forminput :: forminput(label='Alternative Phone',name='altnumber')"></div>
-<div th:replace="fragments/dropdown :: dropdown(label='Blood Group',name='bgroup')"></div>
-<div th:replace="fragments/date :: date(label='Date of Birth',name='dob')"></div>
-<div th:replace="fragments/radiobut :: radiobut(label='Gender',name='gender')"></div>
-<div th:replace="fragments/forminput :: forminput(label='Teacher Id',name='tid')"></div>
+<div th:replace="fragments/forminput :: forminput(label='Name:',name='teachername')"></div>
+<div th:replace="fragments/textarea :: textarea(label='Address:',name='address')"></div>
+<div th:replace="fragments/forminput :: forminput(label='Phone Number:',name='number')"></div>
+<div th:replace="fragments/forminput :: forminput(label='Alternative Phone:',name='altnumber')"></div>
+<div th:replace="fragments/dropdown :: dropdown(label='Blood Group:',name='bgroup')"></div>
+<div th:replace="fragments/date :: date(label='Date of Birth:',name='dob')"></div>
+<div th:replace="fragments/radiobut :: radiobut(label='Gender:',name='gender')"></div>
+<div th:replace="fragments/forminput :: forminput(label='Teacher Id:',name='tid')"></div>
+<div th:replace="fragments/formbutton::formbutton(label='Submit',name='submit',class='btn btn-lg btn-primary btn-block text-uppercase')"></div>
 </form>
 </div>
-
+</div>
 </body>
 </html>

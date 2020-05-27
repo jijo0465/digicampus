@@ -29,36 +29,28 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class StudentController {
     private final StudentService studentService;
 
-    @ResponseBody
-    @RequestMapping(value = "/add_student")
-    public String addStudent(){
-        Student student = new Student();
-        Parent parent = new Parent();
-        parent.setName("Thankappan");
-        parent.setGender(Gender.MALE);
-        student.setName("Ammu");
-        student.setGender(Gender.FEMALE);
-        student.setParent(parent);
-        studentService.addStudent(student);
-        return "success";
-    }
+    //@PostMapping
+  //  @RequestMapping("/add_student")
+   // public String addStudent(){
+   //     return "fragments/forms/addstud";
+   // }
     
     /*author:shijina
     created date:15/5/2020
     */
     
     
-    @RequestMapping("/studentform")
+    @RequestMapping("/add_student")
 	public String studentForm(Model model) {
 	    model.addAttribute("student", new Student());
-	    return "student_form";
+	    return "fragments/forms/addstud::addstud";
 	}
 
 	@PostMapping
-	@RequestMapping("/studentinsert")
+	@RequestMapping("/addstudent")
 	public String createStudent(@ModelAttribute Student student,Model model) {
 	    studentService.save(student);
-	    return "index";
+	    return "mydashboard";
 	}
 	
 	

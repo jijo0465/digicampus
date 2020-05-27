@@ -42,6 +42,7 @@ public class ExamController {
 		return "redirect:/";
 	}
 
+
 	@RequestMapping("/examdisplay")
 	public String displayExam(@ModelAttribute Exam exam, Model model) {
 		// Exam exams=examService.getById(exam).add(exams);
@@ -49,11 +50,11 @@ public class ExamController {
 		model.addAttribute("listexams", listexams);
 		examService.save(exam);
 		return "examformdisplay";
-	}
+}
 
-	/*
-	 * author:shijina created date:16/5/2020
-	 */
+	
+	
+
 	@RequestMapping("/ei/{id}")
 	public String updateExam(@PathVariable String id, Model model) {
 		// ModelAndView mav = new ModelAndView("edit_product");
@@ -78,5 +79,7 @@ public class ExamController {
 		return "redirect:/";
 
 	}
+	
+	
 
 }

@@ -1,5 +1,7 @@
 package com.monkmind.digicampus.services;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 
@@ -30,6 +32,18 @@ public class StudentTimetableServiceImpl implements StudentTimetableService{
 	public StudentTimeTable getByDay(Long day) {
 		// TODO Auto-generated method stub
 		return studenttimetableRepository.findByDay(day).get();
+	}
+
+	@Override
+	public List<StudentTimeTable> findAll() {
+		// TODO Auto-generated method stub
+		return studenttimetableRepository.findAll();
+	}
+
+	@Override
+	public void delete(long id) {
+		// TODO Auto-generated method stub
+		studenttimetableRepository.deleteById(id);
 	}
 
 	

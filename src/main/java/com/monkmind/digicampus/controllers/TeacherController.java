@@ -1,5 +1,7 @@
 package com.monkmind.digicampus.controllers;
 
+import java.util.List;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -27,9 +29,15 @@ public class TeacherController {
 	@PostMapping("/teacherinsert")
 	public String createteacher(@ModelAttribute Teacher teacher,Model model) {
 		teacherservice.save(teacher);
-		return "teacherdisplay";
+		return "index";
 	}
 
+	@RequestMapping("/teacherdisplay")
+	public String teacherDisplay(Model model) {
+		List<Teacher> teachers=teacherservice.findAll();
+		model.addAttribute("teachers",teachers);
+		return "teacherdisplay";
+	}
 	
 	@RequestMapping("/t/{teacherId}")
 	public String teacherUpdate(@PathVariable String teacherId,Model model) {
@@ -45,5 +53,13 @@ public class TeacherController {
 	public String Insertteacher(@ModelAttribute Teacher teacher,Model model) {
 	    teacherservice.save(teacher);
 	    return "index";
+	}
+	
+	@RequestMapping("/deletins/{id}")
+	public String deleteTeacher(@PathVariable Long id,Model model)
+	{
+		teacherservice.delete(id);
+		return "redirect:/";
+		
 	}
 }
