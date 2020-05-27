@@ -1,5 +1,6 @@
 package com.monkmind.digicampus.controllers;
 
+import com.monkmind.digicampus.command.RegisterCommand;
 import com.monkmind.digicampus.models.Gender;
 
 import com.monkmind.digicampus.models.Parent;
@@ -42,14 +43,14 @@ public class StudentController {
     
     @RequestMapping("/add_student")
 	public String studentForm(Model model) {
-	    model.addAttribute("student", new Student());
+	    model.addAttribute("command", new RegisterCommand());
 	    return "fragments/forms/addstud::addstud";
 	}
 
 	@PostMapping
 	@RequestMapping("/addstudent")
-	public String createStudent(@ModelAttribute Student student,Model model) {
-	    studentService.save(student);
+	public String Save(@ModelAttribute RegisterCommand command,Model model) {
+	   RegisterCommand savedCommand=studentService.saveRegisterCommand(command);
 	    return "mydashboard";
 	}
 	
@@ -76,12 +77,13 @@ public class StudentController {
 	     return "updatestudent";
 	}
 	
-	@PostMapping
+	/*@PostMapping
 	@RequestMapping("/updatestudent/{id}")
 	public String InsertStudent(@ModelAttribute Student student,Model model) {
 	    studentService.save(student);
 	    return "index";
 	}
+	*/
 	
 	@RequestMapping("/delete/{id}")
 	public String deleteStudent(@PathVariable Long id,Model model)
