@@ -13,12 +13,10 @@ public class TextController {
 	{ 
 
 
-		//return "dangeralertdupli";
+		return "fragments/loginformfinal";
 
 
-
-
-		return "fragments/forms/addstud";
+		//return "fragments/forms/addstud";
 
 	}
 	@RequestMapping("/gopika")
