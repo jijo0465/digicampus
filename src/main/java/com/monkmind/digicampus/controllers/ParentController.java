@@ -1,5 +1,7 @@
 package com.monkmind.digicampus.controllers;
 
+import java.util.List;
+
 import org.springframework.stereotype.Controller;
 
 import org.springframework.ui.Model;
@@ -36,6 +38,13 @@ public class ParentController {
 	@RequestMapping("/parentinsert")
 	public String createParent(@ModelAttribute Parent parent,Model model) {
 	    parentService.save(parent);
+	    return "index";
+	}
+	
+	@RequestMapping("/parentdisplay")
+	public String parentDisplayForm(Model model) {
+		List<Parent> parents=parentService.listAll();
+	    model.addAttribute("parents",parents);
 	    return "parentdisplay";
 	}
 	
@@ -59,5 +68,12 @@ public class ParentController {
 	    return "index";
 	}
 	
+	@RequestMapping("/deletings/{id}")
+	public String deleteParent(@PathVariable Long id,Model model)
+	{
+		parentService.delete(id);
+		return "redirect:/";
+		
+	}
 
 }

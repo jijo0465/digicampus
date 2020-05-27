@@ -12,4 +12,6 @@ import com.monkmind.digicampus.models.Subject;
 
 public interface SubjectRepository extends CrudRepository<Subject, Long>{
 
+	
+	
 }

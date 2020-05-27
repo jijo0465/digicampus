@@ -14,17 +14,19 @@
 
 </tr>
 
-<tr th:each="parent : ${parent}">
+<tr th:each="parent : ${parents}">
 			<td th:text="${parent.parentId}">
       		<td th:text="${parent.altPhone}">
       		<td th:text="${parent.name}">
       		<td th:text="${parent.address}">
       		
       		
-      	</tr>
-      	<tr><td>
+      		<td>
       	<a th:href="@{'/edt/'+ ${parent.id}}">Edit</a>
+      	<a th:href="@{'/deletings/'+ ${parent.id}}">Delete</a>
       	</td></tr>
+      		
+      	
 </table>
 
 </body>

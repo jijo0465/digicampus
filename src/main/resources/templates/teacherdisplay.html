@@ -13,16 +13,18 @@
 <th>address</th>
 </tr>
 
-<tr th:each="teacher : ${teacher}">
+<tr th:each="teacher : ${teachers}">
 			<td th:text="${teacher.teacherId}">
       		<td th:text="${teacher.altPhone}">
       		<td th:text="${teacher.name}">
       		<td th:text="${teacher.address}">
       		
-      	</tr>
-      	<tr><td>
+      		<td>
       	<a th:href="@{'/t/'+ ${teacher.id}}">Edit</a>
+      	<a th:href="@{'/deletins/'+ ${teacher.id}}">Delete</a>
       	</td></tr>
+      		
+      
 </table>
 
 </body>
