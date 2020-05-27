@@ -8,7 +8,6 @@
 }
 body{
 	font-family:monserrat;
-	
 }
 
 	
@@ -18,16 +17,49 @@ label.logo{
 	font-size:28px;
 	line-height:80px;
 	padding:0 100px;
-	font-weight:semi-bold;
+	font-weight:bold;
 	vertical-align: center;
 	
 }
+.dcnav{
+	background-color: #2a5e92;
+}
+body{
+	background-color:  #2a5e922e;
+}
+.dcbody{
 
+	padding: 40px;
+}
 
+.dc-menu-header{
+	color: white;
+	background-color: black;
+	font-size: larger;
+}
 
-	
-	
-	
+.dc-menu-item{
+	font-size: 16px;
+}
+hr {
+	color: black;
+	margin-top: 0.5rem;
+	margin-bottom: 0.6rem;
+	border: 0;
+	border-top: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.dc-menu-body{
+	padding: 0px;
+}
+.list-group li:first-child{
+	padding-top: 20px;
+}
+
+.dc-form-body{
+	background-color: white;
+	padding: 22px;
+}
 	
 	
 	
