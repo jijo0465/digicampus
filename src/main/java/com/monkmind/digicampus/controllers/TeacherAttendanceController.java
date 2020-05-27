@@ -1,5 +1,7 @@
 package com.monkmind.digicampus.controllers;
 
+import java.util.List;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -26,11 +28,21 @@ public class TeacherAttendanceController {
 		    model.addAttribute("teacherattendance", new TeacherAttendance());
 		    return "teachingattendance";
 		}
-	@PostMapping
-	@RequestMapping("/teacherattendance")
+	@PostMapping("/teacherattendanceinsert")
 	public String createAttendance(@ModelAttribute TeacherAttendance teacherattendance ,Model model) {
-		TeacherAttendance teacher= teacherattendanceService.save(teacherattendance);
-		model.addAttribute("teacherattendance",teacher);
+		TeacherAttendance teacherz= teacherattendanceService.save(teacherattendance);
+		model.addAttribute("teacherattendance",teacherz);
+	    return "redirect:/";
+	}
+	
+	
+	
+	
+	@RequestMapping("/teacherattendancedisplay")
+	public String displayAttendance(@ModelAttribute TeacherAttendance teacherattendance ,Model model) {
+		List<TeacherAttendance> teacherlists=teacherattendanceService.listAll();
+		model.addAttribute("teacherlists",teacherlists);
+		teacherattendanceService.save(teacherattendance);
 	    return "teacherattendancedisplay";
 	}
 	
@@ -48,4 +60,11 @@ public class TeacherAttendanceController {
 	teacherattendanceService.save(teacherattendance);
     return "index";
 }
+	@RequestMapping("/lt/{id}")
+	public String deleteTeacherattendance(@PathVariable Long id,Model model)
+	{
+		teacherattendanceService.delete(id);
+		return "redirect:/";
+		
+	}
 }

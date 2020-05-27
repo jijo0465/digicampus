@@ -1,5 +1,7 @@
 package com.monkmind.digicampus.services;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import com.monkmind.digicampus.models.Period;
@@ -11,14 +13,26 @@ import lombok.AllArgsConstructor;
 @Service
 @AllArgsConstructor
 public class PeriodServiceImpl implements PeriodService{
-	private final PeriodRepository periodrepository;
+	private final PeriodRepository periodRepository;
 	
 	public Period getByPeriodId(Long id) {
-		return periodrepository.findById(id).get();
+		return periodRepository.findById(id).get();
 	}
 	
-	public void save(Period period) {
-		periodrepository.save(period);
+	public Period save(Period period) {
+		return periodRepository.save(period);
+	}
+
+	@Override
+	public List<Period> listAll() {
+		// TODO Auto-generated method stub
+		return periodRepository.findAll();
+	}
+
+	@Override
+	public void delete(Long id) {
+		// TODO Auto-generated method stub
+		periodRepository.deleteById(id);
 	}
 	
 
