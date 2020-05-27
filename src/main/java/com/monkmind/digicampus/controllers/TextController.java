@@ -19,7 +19,7 @@ public class TextController {
 	@RequestMapping("/gopika")
 	public String getForm()
 	{
-		return "fragments/forms/teacher";
+		return "mydashboard";
 	}
 }
 

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+<body>
+<div class="login-form" th:fragment="login_form">
+    <div>
+        <form action="#" th:object="${loginCommand}" id="login_form" method="post">
+            <div th:replace="fragments/frag::frag(label='ID',name='loginId')"></div>
+            <div th:replace="fragments/frag::frag(label='Password',name='password')"></div>
+            <input type="submit" name="login" value="Login" id="login"/>
+        </form>
+    </div>
+</div>
+</body>
+
+</html>

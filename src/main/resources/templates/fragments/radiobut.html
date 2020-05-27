@@ -6,13 +6,28 @@
 </head>
 <body>
 <div th:fragment ="radiobut" >
-<div class="form-label-group">
-<div class="form-inline">
-<label th:text="${label}" class="mr-sm-2"></label>
-<input type="radio" value="MALE" >male
-<input type="radio" value="FEMALE" >Female
-</div>
-</div>
+    <div class="form-group row" th:fragment ="date">
+        <label th:text="${label}" style="text-align: end;" class="col-sm-3 custom-control-label"></label>
+        <div class="col-sm-7">
+            <div class="custom-control custom-radio custom-control-inline" >
+                <input type="radio" id="customRadioInline1" name="customRadioInline1" class="custom-control-input">
+                <label class="custom-control-label" for="customRadioInline1">Male</label>
+            </div>
+            <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="customRadioInline2" name="customRadioInline1" class="custom-control-input">
+                <label class="custom-control-label" for="customRadioInline2">Female</label>
+            </div>
+        </div>
+    </div>
+
+<!--<div th:fragment ="radiobut" >-->
+<!--<div class="form-label-group">-->
+<!--<div class="form-inline">-->
+<!--<label th:text="${label}" class="mr-sm-2"></label>-->
+<!--<input type="radio" value="MALE" >male-->
+<!--<input type="radio" value="FEMALE" >Female-->
+<!--</div>-->
+<!--</div>-->
 </div>
 </body>
 </html>
