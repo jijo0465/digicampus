@@ -12,15 +12,19 @@ public class TextController {
 	public String getHome()
 	{ 
 
-		return "dangeralertdupli";
+
+		//return "dangeralertdupli";
 
 
-		
+
+
+		return "fragments/forms/addstud";
+
 	}
 	@RequestMapping("/gopika")
 	public String getForm()
 	{
-		return "fragments/forms/teacher";
+		return "mydashboard";
 	}
 }
 

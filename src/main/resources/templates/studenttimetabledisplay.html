@@ -11,14 +11,19 @@
 <th>day</th>
 <th>grade</th>
 </tr>
-<tr th:each="studentTimetable : ${studentTimetable}">
+<tr th:each="studentTimetable : ${timetables}">
 			<td th:text="${studentTimetable.id}">
       		<td th:text="${studentTimetable.day}">
       		<td th:text="${studentTimetable.grade.id}">
-      		</tr>   
-      		<tr><td>
+      		<td>
            <a th:href="@{'/e/'+ ${studentTimetable.id}}">Edit</a>
+            <a th:href="@{'/timedele/'+ ${studentTimetable.id}}">Delete</a>
       	</td></tr>	
+      		
+      		
+      		
+      		
+      		
 </table>
 </body>
 </html>

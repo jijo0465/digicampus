@@ -5,29 +5,46 @@
 <title>Dropdown</title>
 </head>
 <body>
-<div th:fragment ="dropdown" >
+<!--<div th:fragment ="dropdown" >
       <div class="form-label-group">
               <div class="form-inline">
               <label  th:text="${label}"   class="mr-sm-2" ></label>
-<!--  <select class="form-control"  name="dropdown" id="dropdown" required="required">
+  <select class="form-control"  name="dropdown" id="dropdown" required="required">
                     <option disabled="disabled" selected="selected" >         </option>
                     <option th:each="" : ${agencies}"  th:text="${agency.name}" ></option>
 
                 </select>  -->     
-
-<select >
-<option value = "SELECT">SELECT </option>
-	<option value = "A_POS">A+ve</option>
-	<option value = "A_NEG">A-ve</option>
-	<option value = "B_POS">B+ve</option>
-	<option value = "B_NEG">B-ve</option>
-	<option value = "O_POS">O+ve</option>
-	<option value = "O_NEG">O-ve</option>
-	<option value = "AB_POS">AB+ve</option>
-	<option value = "AB_NEG">AB-ve</option>
-</select>
-        </div>
-         </div>
-          </div>     
+<div>
+	<div class="form-group row" th:fragment ="dropdown" >
+		<label th:text="${label}" style="text-align: end;" class="col-sm-3 col-form-label"></label>
+		<div class="col-sm-2">
+			<select class="form-control dropdown">
+			  <option value = "A_POS">Select</option>
+			  <option value = "A_POS">A+ve</option>
+			  <option value = "A_NEG">A-ve</option>
+			  <option value = "B_POS">B+ve</option>
+			  <option value = "B_NEG">B-ve</option>
+			  <option value = "O_POS">O+ve</option>
+			  <option value = "O_NEG">O-ve</option>
+			  <option value = "AB_POS">AB+ve</option>
+			  <option value = "AB_NEG">AB-ve</option>
+		  	</select>
+<!--			<div class="dropdown">-->
+<!--				<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
+<!--					Select-->
+<!--				</button>-->
+<!--				<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">-->
+<!--					<a class="dropdown-item" href="#">O +ve</a>-->
+<!--					<a class="dropdown-item" href="#">A +ve</a>-->
+<!--					<a class="dropdown-item" href="#">A -ve</a>-->
+<!--				</div>-->
+<!--			</div>-->
+		</div>
+		<label style="text-align: end;" class="col-sm-2 col-form-label">Date of birth</label>
+		<div class="col-sm-2">
+			<input class="form-control" type="date" id="dob" >
+		</div>
+	</div>
+</div>
 </body>
 </html>

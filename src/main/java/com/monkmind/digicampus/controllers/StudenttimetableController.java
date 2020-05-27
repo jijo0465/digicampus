@@ -3,6 +3,8 @@
     */
 package com.monkmind.digicampus.controllers;
 
+import java.util.List;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -33,9 +35,16 @@ public class StudenttimetableController {
 	public String createTimeTable(@ModelAttribute StudentTimeTable studentTimetable,Model model) {
 	    StudentTimeTable timetable=studentTimetableService.save(studentTimetable);
 	    model.addAttribute("studentTimetable",timetable);
-	    return "studenttimetabledisplay";
+	    return "index";
 	}
 	
+	
+	 @RequestMapping("/studenttimetableformdisplay")
+		public String timetableDisplay(Model model) {
+		 List<StudentTimeTable> timetables=studentTimetableService.findAll();
+		    model.addAttribute("timetables",timetables);
+		    return "studenttimetabledisplay";
+		}
 	@RequestMapping("/e/{id}")
 	public String timetableEdit(@PathVariable String id,Model model) {
 		System.out.println(id);
@@ -51,5 +60,11 @@ public class StudenttimetableController {
 	    return "index";
 	}
 
-
+	@RequestMapping("/timedele/{id}")
+	public String deleteStudentTimetable(@PathVariable Long id,Model model)
+	{
+		studentTimetableService.delete(id);
+		return "redirect:/";
+		
+	}
 }
