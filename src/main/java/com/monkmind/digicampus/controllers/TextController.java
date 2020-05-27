@@ -3,7 +3,6 @@ package com.monkmind.digicampus.controllers;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class TextController {
@@ -12,13 +11,11 @@ public class TextController {
 	@RequestMapping("/submit")
 	public String getHome()
 	{ 
-<<<<<<< HEAD
-		return "sample2";
-=======
 
-		return "fragments/forms/addstud";
+		return "dangeralertdupli";
 
->>>>>>> branch 'dev' of https://github.com/jijo0465/digicampus.git
+
+		
 	}
 	@RequestMapping("/gopika")
 	public String getForm()
