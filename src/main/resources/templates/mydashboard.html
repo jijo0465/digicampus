@@ -31,6 +31,23 @@
             });
         })
       })
+      </script>
+      <script th:inline="javascript">
+       $(document).ready(function(){
+            $("#addteacher").click(function(e){
+                e.preventDefault();
+        	$.ajax({
+        		method: "POST",
+        		url: "/teacher",
+        		success: function(status){
+                    if(status) {
+                    	 console.log(status);
+                       $("#results").html(status)
+                    }
+                }
+            });
+        })
+      })
     </script>
 
 <div th:replace="fragments/nav :: nav"></div>
