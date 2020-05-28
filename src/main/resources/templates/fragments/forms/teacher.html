@@ -9,11 +9,15 @@
 
 <body>
 
-<div class="container" th:fragment="teacher">
-<h5 align="center">TeacherForm</h5>
-<div class="row">
+<div class="container" style="min-width:80%" th:fragment="teacher" id="teacher">
+<h4 align="left" style="font-size: 32px" >TeacherForm</h4>
+<div class="dc-form-body">
+        <form action="#"  id="addteacher" method="post" th:object="${teacher}">
+            <div style="padding-bottom: 22px">
+                <h1 style="font-size: x-large" >Basic Information</h1>
+            </div>
 
-<form action="#" id="addteacher" method="post" class="">
+
 <div th:replace="fragments/forminput :: forminput(label='Name:',name='teachername')"></div>
 <div th:replace="fragments/textarea :: textarea(label='Address:',name='address')"></div>
 <div th:replace="fragments/forminput :: forminput(label='Phone Number:',name='number')"></div>
@@ -24,6 +28,7 @@
 <div th:replace="fragments/forminput :: forminput(label='Teacher Id:',name='tid')"></div>
 <div th:replace="fragments/formbutton::formbutton(label='Submit',name='submit',class='btn btn-lg btn-primary btn-block text-uppercase')"></div>
 </form>
+
 </div>
 </div>
 </body>
