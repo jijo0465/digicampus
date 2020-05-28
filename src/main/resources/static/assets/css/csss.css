@@ -12,6 +12,7 @@
 	left:50%;
 	
 }
+
 .card-signin {
   border: 1;
   margin-top:25%;
@@ -25,6 +26,7 @@
   left:50%;
   position:absolute;
   box-sizing:border-box;
+ 
   
 }
 .card-signin h5{
@@ -34,7 +36,7 @@
 	font-weight:bold;
 }
 .card-signin div{
-	width:100%;
+
 	margin-bottom:20px;
 }
 .card-signin div[type="text"]{
@@ -58,6 +60,9 @@
 
 .form-signin .btn {
   font-size: 100%;
+
+  border-radius: 1rem;
+
   border-radius: 30rem;
   letter-spacing: .1rem;
   font-weight: bold;
