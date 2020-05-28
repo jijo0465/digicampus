@@ -26,6 +26,17 @@ public class TextController {
 	{
 		return "mydashboard";
 	}
+	
+	@RequestMapping("/display")
+	public String getStud()
+	{
+		return "fragments/display/studentdisplay";
+	}
+	@RequestMapping("/display2")
+	public String getTeach()
+	{
+		return "fragments/display/teacherdisplay";
+	}
 }
 
         

@@ -1,40 +1,13 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-<style>
-table {
- font-family: arial, sans-serif;
-  border: 1px solid black;
-  border-collapse: collapse;
-  
-}
-th{
- border: 1px solid black;
-font-style: italic;
- border-collapse: collapse;
- text-align: center;
-  padding: 8px;
-   background-color: #D1F2EB ;
-} 
-td
-{
- border: 1px solid black;
-font-style: normal;
- border-collapse: collapse;
- text-align: left;
-  padding: 8px;
- 
-} 
-tr:nth-child(even) {
-  background-color: white;
-} 
-tr:nth-child(odd)
-{
-background-color: #FEF9E7 ;
-}
-</style>
+    <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Student list dispaly</title>
+    <link th:href="@{/assets/css/studentdisplay.css}" rel="stylesheet"/>
 </head>
 <body>
+<div class="container" th:fragment="studentdisplay">
 <table style="width:100%">
 <caption><b>STUDENTS LIST</b></caption>
   <tr>
@@ -80,6 +53,7 @@ background-color: #FEF9E7 ;
       <td>50</td>
   </tr>
 </table>
+</div>
 </body>
 </html>
 
