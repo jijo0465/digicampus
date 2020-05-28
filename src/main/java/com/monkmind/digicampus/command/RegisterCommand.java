@@ -34,11 +34,11 @@ public class RegisterCommand {
 	private Double weight;
 	private byte[] displayImage;
 	private String studentId;
-	//@NotNull
-	private Grade gradeid;
-	//@NotNull
+	
+	private GradeCommand gradeid;
+	
 	private Parent parentid;
-	//@NotNull
+	
 	private SchoolBus schoolBusid;
 	private Set<Subject> subjects = new HashSet<>();
 	private Set<StudentAttendance> studentAttendance = new HashSet<>();

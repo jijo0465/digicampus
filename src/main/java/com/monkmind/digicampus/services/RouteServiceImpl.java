@@ -2,8 +2,15 @@ package com.monkmind.digicampus.services;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.stereotype.Service;
 
+import com.monkmind.digicampus.command.GradeCommand;
+import com.monkmind.digicampus.command.RouteCommand;
+import com.monkmind.digicampus.converters.RouteCommandToRoute;
+import com.monkmind.digicampus.converters.RouteToRouteCommand;
+import com.monkmind.digicampus.models.Grade;
 import com.monkmind.digicampus.models.Route;
 import com.monkmind.digicampus.repositories.RouteRepository;
 
@@ -17,6 +24,8 @@ created date:17/5/2020
 @AllArgsConstructor
 public class RouteServiceImpl implements RouteService{
 	private final RouteRepository routeRepository;
+	private final RouteCommandToRoute routeCommandToRoute;
+	private final RouteToRouteCommand routeToRouteCommand;
 	
 	@Override
 	public Route getById(String Id) {
@@ -24,10 +33,11 @@ public class RouteServiceImpl implements RouteService{
 		return routeRepository.findById(Id).get();
 	}
 
-	@Override
+	/*@Override
 	public Route save(Route route) {
 		return routeRepository.save(route);
 	}
+	*/
 
 	@Override
 	public Route getRouteById(String Id) {
@@ -47,4 +57,17 @@ public class RouteServiceImpl implements RouteService{
 		routeRepository.deleteById(Id);;
 	}
 
-}
+	@Override
+	@Transactional
+	
+	public RouteCommand saveRouteCommand(RouteCommand routecommand) {
+		// TODO Auto-generated method stub
+			Route detachedRoute=routeCommandToRoute.convert(routecommand);
+			Route savedRoute=routeRepository.save(detachedRoute);
+			//log.debug("saved studentid :"+ savedStudent.getId());
+			return routeToRouteCommand.convert(savedRoute) ;
+		}
+
+	}
+
+

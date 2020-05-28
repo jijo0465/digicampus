@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.monkmind.digicampus.command.GradeCommand;
+import com.monkmind.digicampus.command.RouteCommand;
 import com.monkmind.digicampus.models.Route;
 import com.monkmind.digicampus.models.SchoolBus;
 import com.monkmind.digicampus.services.RouteService;
@@ -27,14 +29,14 @@ public class RouteController {
 	}
 	@RequestMapping("/route")
 	public String routeForm(Model model) {
-	    model.addAttribute("route", new Route());
+	    model.addAttribute("routecommand", new RouteCommand());
 	    return "route_form";
 	}
 
 	@PostMapping("/routeinsert")
-	public String createRoute(@ModelAttribute Route route,Model model) {
-	    Route busroute=routeService.save(route);
-	    model.addAttribute("route", busroute);
+	public String createRoute(@ModelAttribute RouteCommand routecommand,Model model) {
+		 RouteCommand savedCommand=routeService.saveRouteCommand(routecommand);
+	    model.addAttribute("routecommand",routecommand);
 	    return "redirect:/";
 	}	
 	
@@ -42,7 +44,6 @@ public class RouteController {
 	public String displayRoute(@ModelAttribute Route route,Model model) {
 		List<Route> listroutes=routeService.listAll();
 		model.addAttribute("listroutes", listroutes);
-	    routeService.save(route);
 	    return "routedisplay";
 	}
 	@RequestMapping("/abc/{route}")

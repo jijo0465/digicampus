@@ -12,6 +12,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
+import com.monkmind.digicampus.command.GradeCommand;
+
 //import com.sun.istack.NotNull;
 
 import lombok.AllArgsConstructor;
@@ -39,15 +41,15 @@ public class Student extends Person{
     private Double weight;
 	
 	@ManyToOne
-	@NotNull
+	//@NotNull
     private Parent parent;
 	
 	@ManyToOne
-	@NotNull
+	//@NotNull
 	private SchoolBus schoolBus;
 	
 	@ManyToOne
-	@NotNull
+	//@NotNull
 	private Grade grade;
 	
 	@ManyToMany
