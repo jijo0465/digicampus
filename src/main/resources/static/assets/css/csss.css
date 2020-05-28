@@ -29,6 +29,9 @@
  
   
 }
+.head{
+	margin-bottom:10vh;
+}
 .card-signin h5{
 	margin:0;
 	padding:30;
