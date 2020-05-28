@@ -11,8 +11,14 @@
 
 <div class="container" style="min-width:80%" th:fragment="teacher" id="teacher">
 <h4 align="left" style="font-size: 32px" >TeacherForm</h4>
+<nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Teacher</li>
+        </ol>
+    </nav>
 <div class="dc-form-body">
-        <form action="#"  id="addteacher" method="post" th:object="${teacher}">
+        <form action="#"  id="addteacher" method="post" >
             <div style="padding-bottom: 22px">
                 <h1 style="font-size: x-large" >Basic Information</h1>
             </div>
