@@ -1,13 +1,23 @@
 package com.monkmind.digicampus.command;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import com.monkmind.digicampus.models.BloodGroup;
 import com.monkmind.digicampus.models.Gender;
+import com.monkmind.digicampus.models.Grade;
+import com.monkmind.digicampus.models.Parent;
+import com.monkmind.digicampus.models.SchoolBus;
+import com.monkmind.digicampus.models.StudentAttendance;
+import com.monkmind.digicampus.models.Subject;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Setter
 @Getter
+@NoArgsConstructor
 public class RegisterCommand {
 
 	
@@ -22,8 +32,10 @@ public class RegisterCommand {
 	private Double weight;
 	private byte[] displayImage;
 	private String studentId;
-	private String gradeid;
-	private String parentid;
-	private String schoolBusid;
+	private Grade gradeid;
+	private Parent parentid;
+	private SchoolBus schoolBusid;
+	private Set<Subject> subjects = new HashSet<>();
+	private Set<StudentAttendance> studentAttendance = new HashSet<>();
 	
 }

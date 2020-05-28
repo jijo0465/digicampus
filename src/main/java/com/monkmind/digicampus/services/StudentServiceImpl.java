@@ -6,6 +6,9 @@
 
 package com.monkmind.digicampus.services;
 
+import com.monkmind.digicampus.command.RegisterCommand;
+import com.monkmind.digicampus.converters.RegisterCommandToStudent;
+import com.monkmind.digicampus.converters.StudentToRegisterCommand;
 import com.monkmind.digicampus.models.Parent;
 
 import com.monkmind.digicampus.models.Student;
@@ -15,14 +18,23 @@ import lombok.AllArgsConstructor;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
+import org.hibernate.annotations.common.util.impl.Log;
+//import org.apache.juli.logging.Log;
+//import org.hibernate.annotations.common.util.impl.Log;
+//import org.apache.commons.logging.Log;
+//import org.hibernate.validator.internal.util.logging.Log;
 import org.springframework.stereotype.Service;
+//import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @AllArgsConstructor
 public class StudentServiceImpl implements StudentService {
     private final StudentRepository studentRepository;
     private final ParentRepository parentRepository;
-
+    private final RegisterCommandToStudent registerCommandToStudent;
+    private final StudentToRegisterCommand studentToRegisterCommand;
     @Override
     public Student addStudent(Student student) {
         addParent(student.getParent());
@@ -39,11 +51,13 @@ public class StudentServiceImpl implements StudentService {
 		return studentRepository.findByStudentId(student).orElse(null);
 	}
 
-	@Override
+	/*@Override
 	public void save(Student student) {
 		// TODO Auto-generated method stub
 		studentRepository.save(student);
 	}
+	*/
+	
 
 	@Override
 	public Student get(long studentId) {
@@ -61,5 +75,16 @@ public class StudentServiceImpl implements StudentService {
 	public void delete(long id) {
 		// TODO Auto-generated method stub
 		studentRepository.deleteById(id);
+	}
+
+	@Override
+	@Transactional
+	public RegisterCommand saveRegisterCommand(RegisterCommand command) {
+		// TODO Auto-generated method stub
+		
+		Student detachedStudent=registerCommandToStudent.convert(command);
+		Student savedStudent=studentRepository.save(detachedStudent);
+		//log.debug("saved studentid :"+ savedStudent.getId());
+		return studentToRegisterCommand.convert(savedStudent) ;
 	}
 }
