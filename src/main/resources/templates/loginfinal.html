@@ -16,7 +16,7 @@
     <script th:inline="javascript">
 
         $(document).ready(function(){
-            $("#loginformfinal").submit(function(e){
+            $("#loginbutton").click(function(e){
                 e.preventDefault();
                 $.ajax({
                     method: "POST",
