@@ -9,7 +9,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-
+import com.monkmind.digicampus.command.GradeCommand;
+import com.monkmind.digicampus.command.SchoolBusCommand;
 import com.monkmind.digicampus.models.SchoolBus;
 
 import com.monkmind.digicampus.services.SchoolbusService;
@@ -32,14 +33,14 @@ public class SchoolbusController {
 	
 	@RequestMapping("/schoolbus")
 	public String schoolBus(Model model) {
-		model.addAttribute("schoolbus",new SchoolBus());
+		model.addAttribute("schoolBusCommand",new SchoolBusCommand());
 		return "schoolbus";
 	}
 
 	@PostMapping("/schoolbusinsert")
-	public String createSchoolbus(@ModelAttribute SchoolBus schoolbus,Model model) {
-	SchoolBus schoolbuz =schoolbusService.save(schoolbus);
-	 model.addAttribute("schoolBus",schoolbuz);
+	public String createSchoolbus(@ModelAttribute SchoolBusCommand schoolBusCommand,Model model) {
+     SchoolBusCommand savedCommand=schoolbusService.saveSchoolBusCommand(schoolBusCommand);
+	 model.addAttribute("schoolBusCommand",schoolBusCommand);
 	    return "redirect:/";
 	}
 	
@@ -47,7 +48,7 @@ public class SchoolbusController {
 	public String SchoolbusDisplay(@ModelAttribute SchoolBus schoolbus,Model model) {
 		List<SchoolBus> listschoolbus=schoolbusService.listAll();
 		model.addAttribute("listschoolbus",listschoolbus);
-	    schoolbusService.save(schoolbus);
+	    //schoolbusService.save(schoolbus);
 	    return "schoolbusDisplay";
 	}
 	
@@ -64,12 +65,13 @@ public class SchoolbusController {
 	     return "updateschoolbus";
 	}
 	
-	@PostMapping
+	/*@PostMapping
 	@RequestMapping("/updateschoolBus/{busNumber}")
 	public String InsertSchoolBus(@ModelAttribute SchoolBus schoolBus,Model model) {
 	    schoolbusService.save(schoolBus);
 	    return "index";
 	}
+	*/
 	//haritha
 	//date:25/05/2020
 	@RequestMapping("/dlt/{busNumber}")
