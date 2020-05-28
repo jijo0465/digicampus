@@ -1,5 +1,7 @@
 package com.monkmind.digicampus.converters;
 
+import javax.validation.constraints.NotNull;
+
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Component;
@@ -14,7 +16,6 @@ import lombok.Synchronized;
 public class RegisterCommandToStudent implements Converter<RegisterCommand, Student> {
 
 	@Synchronized
-	//@Nullable
 	@Override
 	public Student convert(RegisterCommand source) {
 		
