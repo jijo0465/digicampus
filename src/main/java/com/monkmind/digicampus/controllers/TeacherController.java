@@ -24,7 +24,7 @@ public class TeacherController {
 	@RequestMapping("/teacher")
 	public String teacherform(Model model) {
 		model.addAttribute("teacher",new Teacher());
-		return "teacherform";
+		return "fragments/forms/teacher::teacher";
 	}
 	@PostMapping("/teacherinsert")
 	public String createteacher(@ModelAttribute Teacher teacher,Model model) {

@@ -15,8 +15,32 @@
         <div th:replace="fragments/alloptions :: option (name='Display Student')"></div>
       </div>
     </div>
-   
-   
+   <div class="card">
+      <div class="card-header dc-menu-header">Teachers</div>
+      <div class="card-body dc-menu-body">
+        <div th:replace="fragments/alloptions :: option (name='Add Teacher',val='addteacher')"></div>
+        <div th:replace="fragments/alloptions :: option (name='Edit Teacher',val='editteacher')"></div>
+        <div th:replace="fragments/alloptions :: option (name='Display Teacher',val='displayteacher')"></div>
+      </div>
+    </div>
+   <div class="card">
+      <div class="card-header dc-menu-header">TimeTable</div>
+      <div class="card-body dc-menu-body">
+        <div th:replace="fragments/alloptions :: option (name='Add Teacher TimeTable',val='addstudent')"></div>
+        <div th:replace="fragments/alloptions :: option (name='Edit Teacher TimeTable')"></div>
+        <div th:replace="fragments/alloptions :: option (name='Display Student TimeTable')"></div>
+      </div>
+    </div>
+    </div>
+    <div class="card-columns" style="column-gap: 40px">
+    <div class="card">
+      <div class="card-header dc-menu-header">TimeTable</div>
+      <div class="card-body dc-menu-body">
+        <div th:replace="fragments/alloptions :: option (name='Add Teacher TimeTable',val='addstudent')"></div>
+        <div th:replace="fragments/alloptions :: option (name='Edit Teacher TimeTable')"></div>
+        <div th:replace="fragments/alloptions :: option (name='Display Student TimeTable')"></div>
+      </div>
+    </div>
    
   </div>
 </div>
