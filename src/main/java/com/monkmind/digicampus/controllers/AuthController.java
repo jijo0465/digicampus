@@ -31,7 +31,7 @@ public class AuthController {
     }
 
     @PostMapping
-    @RequestMapping(value = "/validate")
+    @RequestMapping(value = "/dashboard")
     public String validateLogin(@ModelAttribute LoginCommand logincommand, Model model){
         System.out.println(logincommand.getLoginId());
         User dbUser = userService.getUserByLoginId(logincommand.getLoginId());

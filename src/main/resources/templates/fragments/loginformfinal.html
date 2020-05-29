@@ -16,13 +16,13 @@
             <h5 class="card-title text-center">Sign In</h5></div>
             <br>
 
-        <form action="#" th:object="${logincommand}" id="loginformfinal" method="post" class="form-signin form-inline ">
+        <form th:action="@{/dashboard}" th:object="${logincommand}" id="loginformfinal" method="post" class="form-signin form-inline ">
        <div class="form-group">
             <div class="form-control input-sm " th:replace="fragments/forminput::forminput(label='UserId',name='loginId' )"></div>
 
             <div class="form-control input-sm " th:replace="fragments/forminput::forminput(label='Password',name='password' )"></div>
-            
-            <div class="btn btn-lg  btn-primary btn-block "  th:replace="fragments/primary::primary(name='login',label='Login',buttonid='loginbutton')"></div>
+           <div class="btn btn-lg  btn-primary btn-block "  th:replace="fragments/primary::primary(name='login',buttonid='loginbutton')"></div>
+          
             </div>
         </form>
     
