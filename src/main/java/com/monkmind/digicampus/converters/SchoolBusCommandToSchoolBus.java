@@ -36,8 +36,10 @@ public class SchoolBusCommandToSchoolBus implements Converter<SchoolBusCommand, 
 		schoolBus.setHelper(source.getHelper());
 		schoolBus.setRegistration(source.getRegistration());
 		schoolBus.setRoute(routeConverter.convert(source.getRoute()));
+		schoolBus.setId(source.getId());
 		return schoolBus;
 	}
-	
 
+
+	
 }

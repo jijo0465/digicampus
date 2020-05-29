@@ -27,7 +27,7 @@ public class RegisterCommandToStudent implements Converter<RegisterCommand, Stud
 	}
 
 	@Synchronized
-	@NotNull
+	@Nullable
 	@Override
 	public Student convert(RegisterCommand source) {
 		
@@ -38,6 +38,7 @@ public class RegisterCommandToStudent implements Converter<RegisterCommand, Stud
 	    }
 		
 		final Student st =new Student();
+		//st.setId(source.get());
 		st.setName(source.getName());
 		st.setAddress(source.getAddress());
 		st.setPhone(source.getPhone());
@@ -51,7 +52,15 @@ public class RegisterCommandToStudent implements Converter<RegisterCommand, Stud
 		st.setStudentId(source.getStudentId());
 		st.setGrade(gradeConverter.convert(source.getGradeid()));
 		st.setParent(source.getParentid());
-		st.setSchoolBus(source.getSchoolBusid());
+		st.setSchoolBus(schoolBusConverter.convert(source.getSchoolBusid()));
+		/*if(source.getGradeid()!=null && source.getGradeid().getId()> 0)
+		{
+			source.getGradeid()
+			.forEach(grade ->st.getGradeid().add(gradeConverter.convert(garde)));
+		}*/
+		
+		
+		
 		return st;
 		
 
