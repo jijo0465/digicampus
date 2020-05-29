@@ -20,6 +20,7 @@ public class RouteCommandToRoute implements Converter<RouteCommand, Route>{
 		return null;
 	}
 		final Route route=new Route();
+		route.setId(source.getId());
 		route.setRouteName(source.getRouteName());
 		route.setStartngTime(source.getStartngTime());
 		route.setArrival(source.getArrival());

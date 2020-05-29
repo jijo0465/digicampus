@@ -13,11 +13,11 @@ import lombok.Setter;
 @NoArgsConstructor
 public class RouteCommand {
 
-	
+	private long Id;
 	private String routeName;
 	private Time startngTime;
 	private Time arrival;
 	private Time departure;
 	private Time endingTime;
-	private SchoolBus schoolBus;
+	private SchoolBusCommand schoolBus;
 }

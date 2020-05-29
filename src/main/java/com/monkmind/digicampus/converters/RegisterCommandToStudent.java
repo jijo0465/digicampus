@@ -18,10 +18,12 @@ import lombok.Synchronized;
 public class RegisterCommandToStudent implements Converter<RegisterCommand, Student> {
 	
 	private final GradeCommandToGrade gradeConverter;
+	private final SchoolBusCommandToSchoolBus schoolBusConverter;
 
-	public RegisterCommandToStudent(GradeCommandToGrade gradeConverter) {
+	public RegisterCommandToStudent(GradeCommandToGrade gradeConverter,SchoolBusCommandToSchoolBus schoolBusConverter) {
 		super();
 		this.gradeConverter = gradeConverter;
+		this.schoolBusConverter= schoolBusConverter;
 	}
 
 	@Synchronized

@@ -16,6 +16,7 @@ import lombok.Setter;
 @NoArgsConstructor
 public class SchoolBusCommand {
 	
+	private long id;
 	private Long busNumber;
 	private String registration;
 	private String driver;
