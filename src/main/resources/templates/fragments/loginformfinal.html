@@ -8,12 +8,14 @@
 <body>
 <div class="container" th:fragment="loginformfinal">
       <div class="row">
-
+ 
       <div class="col-sm-9 col-md-7 col-lg-5 mx-auto ">
+      <div class="card"  style="width: 30rem">
         <div class="card card-signin my-5">
+       
           <div class="card-body">
           <div class="head">
-            <h5 class="card-title text-center">Sign In</h5></div>
+            <h6 class="card-title text-center">Sign In</h6></div>
             <br>
 
         <form th:action="@{/dashboard}" th:object="${logincommand}" id="loginformfinal" method="post" class="form-signin form-inline ">
@@ -26,7 +28,7 @@
             </div>
         </form>
     
-   
+        </div>
      </div>
      </div>
       </div>

@@ -35,7 +35,7 @@ public class TextController {
 	@RequestMapping("/display2")
 	public String getTeach()
 	{
-		return "fragments/display/teacherdisplay";
+		return "fragments/sucessalert";
 	}
 }
 
