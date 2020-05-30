@@ -22,7 +22,7 @@ public class GradeCommandToGrade implements Converter<GradeCommand, Grade> {
 	}
 		
 		final Grade gd=new Grade();
-		//gd.setId(source.get);
+		gd.setId(source.getId());
 		gd.setStandard(source.getStandard());
 		gd.setDivision(source.getDivision());
 		gd.setStrength(source.getStrength());

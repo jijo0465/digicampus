@@ -9,7 +9,7 @@
         <div class="form-group row" th:fragment ="date">
             <label th:text="${label}" style="text-align: end;" class="col-sm-3 col-form-label"></label>
             <div class="col-sm-2">
-                <input class="form-control" type="date" id="dob" >
+                <input class="form-control" type="date" th:name="${name}">
             </div>
 	    </div>
 	</div> 
