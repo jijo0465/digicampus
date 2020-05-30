@@ -25,7 +25,7 @@ public class TeacherTimeTableController {
 	@RequestMapping("/timetableform")
 	public String TeacherTimeTableForm(Model model) {
 		model.addAttribute("teachertimetable", new TeacherTimeTable());
-		return "teachertimetable_form";
+		return "fragments/forms/teachertimetable::teachertimetable";
 	}
 
 	@PostMapping("/teacher_timetable")
