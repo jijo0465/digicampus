@@ -18,12 +18,24 @@
 	<div class="form-group row" th:fragment ="dropdown" >
 		<label th:text="${label}" style="text-align: end;" class="col-sm-3 col-form-label"></label>
 		<div class="col-sm-2">
-			<select class="form-control dropdown" th:object="${bloodtitle}">
+		
+	<select th:name="${bloodtitle}">
+	<option value = "A_POS">A+ve</option>
+	<option value = "A_NEG">A-ve</option>
+	<option value = "B_POS">B+ve</option>
+	<option value = "B_NEG">B-ve</option>
+	<option value = "O_POS">O+ve</option>
+	<option value = "O_NEG">O-ve</option>
+	<option value = "AB_POS">AB+ve</option>
+	<option value = "AB_NEG">AB-ve</option	>
+	</select>
+		<!--	<select class="form-control dropdown" th:name="${bloodtitle}">
 			  <option th:each="bloodGroup: ${T(com.monkmind.digicampus.models.BloodGroup).values()}"
 			  th:value="${bloodGroup.name()}"
               th:text="${bloodGroup.name()}"
               >Select</option>
 		  	</select>
+		  	-->
 <!--			<div class="dropdown">-->
 <!--				<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
 <!--					Select-->
@@ -37,7 +49,7 @@
 		</div>
 		<label style="text-align: end;" class="col-sm-2 col-form-label">Date of birth</label>
 		<div class="col-sm-2">
-			<input class="form-control" type="date" id="dob" >
+			<input class="form-control" type="date" th:name="${name}" >
 		</div>
 	</div>
 </div>

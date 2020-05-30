@@ -12,7 +12,7 @@
  <h5 align="center">GRADE CREATION FORM</h5>
 <div class="container" th:fragment="gradeform">
     <div class="row">
-        <form action="#"  id="gradeform" method="post" class=" ">
+        <form action="#"  id="gradeform" method="post" class=" "  th:object="${gradecommand}">
          
                   <div  th:replace="fragments/dropdown2::dropdown2(label='STANDARD:',name='standard' )"></div>
                <div  th:replace="fragments/dropdown3::dropdown3(label='DIVISION:',name='division' )"></div>
