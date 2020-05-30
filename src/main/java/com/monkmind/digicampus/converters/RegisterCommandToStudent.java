@@ -38,7 +38,7 @@ public class RegisterCommandToStudent implements Converter<RegisterCommand, Stud
 	    }
 		
 		final Student st =new Student();
-		//st.setId(source.get());
+		st.setId(source.getId());
 		st.setName(source.getName());
 		st.setAddress(source.getAddress());
 		st.setPhone(source.getPhone());

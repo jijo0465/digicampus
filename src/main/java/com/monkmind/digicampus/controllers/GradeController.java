@@ -33,7 +33,9 @@ public class GradeController {
 	@RequestMapping("/grade_form")
 	public String gradeForm(Model model) {
 	    model.addAttribute("gradecommand", new GradeCommand());
-	    return "grade_form";
+	    return "grade_form"; 
+	    		//"fragments/forms/gradeform::gradeform";
+	    		//
 	}
 
 	@PostMapping("/gradeinsert")

@@ -28,4 +28,33 @@ $(document).ready(function(){
 		});
 	})
 })
-
+$(document).ready(function(){
+	$("#addteachertimetable").click(function(e){
+		e.preventDefault();
+		$.ajax({
+			method: "POST",
+			url: "/timetableform",
+			success: function(status){
+				if(status) {
+					console.log(status);
+					$("#results").html(status)
+				}
+			}
+		});
+	})
+})
+$(document).ready(function(){
+	$("#displaystudent").click(function(e){
+		e.preventDefault();
+		$.ajax({
+			method: "POST",
+			url: "/studentdisplay",
+			success: function(status){
+				if(status) {
+					console.log(status);
+					$("#results").html(status)
+				}
+			}
+		});
+	})
+})

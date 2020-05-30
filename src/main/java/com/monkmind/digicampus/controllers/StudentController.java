@@ -55,11 +55,13 @@ public class StudentController {
 	}
 	
 	
+
 	  @RequestMapping("/studentdisplay")
 		public String studentdisplay(Model model) {
 		  List<Student> liststudents=studentService.listAll();
 		    model.addAttribute("liststudents",liststudents);
-		    return "studdisplay";
+		    return "fragments/display/studentdisplay::studentdisplay";
+
 		}
 	
 

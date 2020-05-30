@@ -13,7 +13,9 @@ public class TextController {
 	{ 
 
 
-		//return "dangeralertdupli";
+
+
+
 
 
 
@@ -35,7 +37,7 @@ public class TextController {
 	@RequestMapping("/display2")
 	public String getTeach()
 	{
-		return "fragments/display/teacherdisplay";
+		return "fragments/forms/teachertimetable";
 	}
 }
 

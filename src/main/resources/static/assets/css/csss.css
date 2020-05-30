@@ -32,7 +32,7 @@
 .head{
 	margin-bottom:10vh;
 }
-.card-signin h5{
+.card-signin h6{
 	margin:0;
 	padding:30;
 	text-align:center;
@@ -40,7 +40,7 @@
 }
 .card-signin div{
 
-	margin-bottom:20px;
+	margin-bottom:15px;
 }
 .card-signin div[type="text"]{
 	height:40px;
