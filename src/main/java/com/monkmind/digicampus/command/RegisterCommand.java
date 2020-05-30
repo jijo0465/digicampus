@@ -42,5 +42,6 @@ public class RegisterCommand {
 	private SchoolBusCommand schoolBusid;
 	private Set<Subject> subjects = new HashSet<>();
 	private Set<StudentAttendance> studentAttendance = new HashSet<>();
+
 	
 }
