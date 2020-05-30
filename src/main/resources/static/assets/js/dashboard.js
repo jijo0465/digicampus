@@ -28,19 +28,4 @@ $(document).ready(function(){
 		});
 	})
 })
-$(document).ready(function(){
-	$("#logout").click(function(e){
-		e.preventDefault();
-		$.ajax({
-			method: "POST",
-			url: "/login",
-			success: function(status){
-				if(status) {
-					console.log(status);
-					$("#body").html(status)
-				}
-			}
-		});
-	})
-})
 

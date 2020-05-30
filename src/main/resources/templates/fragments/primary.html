@@ -9,8 +9,7 @@
     <div style="margin-top: 32px" class="btn-toolbar justify-content-center" role="toolbar" aria-label="Toolbar with button groups">
         
         <div class="btn-group" role="group" aria-label="Third group">
-           <!--   <button type="button"  th:class="${class}" th:text="${label}"  th:name="${name}"  th:id="${buttonid}"></button>-->
-            <button type="button" class="btn btn-primary" th:id="${buttonid}">Submit</button>
+            <input type="submit" th:value="${name}" class="btn btn-primary" th:id="${buttonid}">
         </div>
     </div>
      </div>

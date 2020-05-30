@@ -22,7 +22,7 @@ import lombok.Setter;
 @NoArgsConstructor
 public class RegisterCommand {
 
-	
+	private long id;
 	private String name;
 	private String address;
 	private String phone;
@@ -39,7 +39,7 @@ public class RegisterCommand {
 	
 	private Parent parentid;
 	
-	private SchoolBus schoolBusid;
+	private SchoolBusCommand schoolBusid;
 	private Set<Subject> subjects = new HashSet<>();
 	private Set<StudentAttendance> studentAttendance = new HashSet<>();
 	
