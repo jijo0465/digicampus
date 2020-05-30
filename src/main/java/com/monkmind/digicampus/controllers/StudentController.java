@@ -55,11 +55,11 @@ public class StudentController {
 	}
 	
 	
-	  @RequestMapping("/studentdisplay")
-		public String studentdisplay(Model model) {
-		  List<Student> liststudents=studentService.listAll();
-		    model.addAttribute("liststudents",liststudents);
-		    return "studdisplay";
+	@RequestMapping("/studentdisplay")
+	public String listStudents(Model model) {
+    List<Student> liststudents=studentService.listAll();
+    model.addAttribute("liststudents",liststudents);
+    return "studentdisplay";
 		}
 	
 
