@@ -1,3 +1,4 @@
+
 package com.monkmind.digicampus.controllers;
 
 import java.util.List;
@@ -31,12 +32,20 @@ public class TeacherController {
 		teacherservice.save(teacher);
 		return "index";
 	}
+	
+	@RequestMapping("teachername")
+	public String showByName(@PathVariable String name,Model model)
+	{
+		model.addAttribute("teacher",teacherservice.findByName(String.valueOf(name)));
+		return "teachername";
+	}
+	
 
 	@RequestMapping("/teacherdisplay")
 	public String teacherDisplay(Model model) {
 		List<Teacher> teachers=teacherservice.findAll();
 		model.addAttribute("teachers",teachers);
-		return "teacherdisplay";
+		return "fragments/display/teacherdisplay::teacherdisplay";
 	}
 	
 	@RequestMapping("/t/{teacherId}")

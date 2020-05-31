@@ -46,13 +46,13 @@
 <h4 align="left" style="font-size: 32px">Add Student</h4>
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item" id="home"><a href="#">Home</a></li>
+            <li class="breadcrumb-item" id="home"><a href="/dashboard">Home</a></li>
             <li class="breadcrumb-item active" aria-current="page">Add Student</li>
         </ol>
     </nav>
     <div class="dc-form-body">
 
-        <form action="#"  id="addstudform" method="post" th:object="${command}">
+        <form action="#"  id="addstudform" method="post" th:object="${command}" >
 
             <div style="padding-bottom: 22px">
                 <h1 style="font-size: x-large" >Basic Information</h1>
@@ -63,14 +63,21 @@
            <div  th:replace="fragments/forminput::forminput(label='Phone Secondary',name='altPhone' )"></div>
            <div  th:replace="fragments/dropdown::dropdown(label='Bloodgroup',bloodtitle='bloodGroup',name='dob' )"></div>
 <!--           <div  th:replace="fragments/date::date(label='DOB',name='dateOfBirth' )"></div>-->
-           <div class="from-label-group" th:replace="fragments/radiobut::radiobut(label='Gender',name='gender' )"></div>
-           <div class="from-label-group" th:replace="fragments/forminput::forminput(label='Height',name='height' )"></div>
-           <div class="from-label-group" th:replace="fragments/forminput::forminput(label='Weight',name='weight' )"></div>
-           <div class="from-label-group" th:replace="fragments/imagefile::imagefile(label='Photo',name='displayImage' )"></div>
-           <div class="from-label-group" th:replace="fragments/forminput::forminput(label='Student Id',name='studentId' )"></div>
-           <div class="from-label-group" th:replace="fragments/forminput::forminput(label='Grade Id',name='gradeId' )"></div>
-           <div class="from-label-group" th:replace="fragments/forminput::forminput(label='Parent Id',name='parentId' )"></div>
-           <div class="from-label-group" th:replace="fragments/forminput::forminput(label='Schoolbus Id',name='schoolBusId' )"></div>
+           <div class="from-label-group" th:replace="fragments/radiobut::radiobut(label='GENDER',name='gender' )"></div>
+           <div class="from-label-group" th:replace="fragments/forminput::forminput(label='HEIGHT',name='height' )"></div>
+           <div class="from-label-group" th:replace="fragments/forminput::forminput(label='WEIGHT',name='weight' )"></div>
+           <div class="from-label-group" th:replace="fragments/imagefile::imagefile(label='PHOTO',name='displayImage' )"></div>
+           <div class="from-label-group" th:replace="fragments/forminput::forminput(label='STUDENTID',name='studentId' )"></div>
+            <div th:fragment ="forminput" class="forminput">
+                <div class="form-group row">
+                    <label th:text="Grade" style="text-align: end;" class="col-sm-3 col-form-label"></label>
+                    <div class="col-sm-7">
+                        <input type="text" th:field = "${command.gradeid.id}" th:name="gradeid" class="form-control" >
+                    </div>
+                </div>
+<!--           <div class="from-label-group" th:replace="fragments/forminput::forminput(label='GRADEID',name='gradeid' )"></div>-->
+           <div class="from-label-group" th:replace="fragments/forminput::forminput(label='PARENTID',name='parentId' )"></div>
+           <div class="from-label-group" th:replace="fragments/forminput::forminput(label='SCHOOLBUSID',name='schoolBusId' )"></div>
            <div th:replace="fragments/formbutton::formbutton(label='ADD',name='submit',class='btn btn-lg btn-primary btn-block text-uppercase',buttonid='studentsubmit')"></div>
             
 
@@ -90,28 +97,12 @@
                     data: $('#addstudform').serialize(),
                     success: function(status){
                         if(status) {
-                        	 console.log(status);
                            $(".body").html(status)
                         }
                     }
                 });
             })
         })
-$(document).ready(function(){
-	$("#home").click(function(e){
-		e.preventDefault();
-		$.ajax({
-			method: "POST",
-			url: "/login",
-			success: function(status){
-				if(status) {
-					console.log(status);
-					$("#body").html(status)
-				}
-			}
-		});
-	})
-})
     </script>
      </div>
 </body>
