@@ -7,41 +7,26 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class TextController {
 	@PostMapping
-	
+
 	@RequestMapping("/submit")
-	public String getHome()
-	{ 
-
-
-
-
-
-
-
-
+	public String getHome() {
 
 		return "fragments/forms/addstud";
 
 	}
+
 	@RequestMapping("/gopika")
-	public String getForm()
-	{
+	public String getForm() {
 		return "mydashboard";
 	}
-	
+
 	@RequestMapping("/display")
-	public String getStud()
-	{
+	public String getStud() {
 		return "fragments/display/studentdisplay";
 	}
+
 	@RequestMapping("/display2")
-	public String getTeach()
-	{
+	public String getTeach() {
 		return "fragments/forms/teachertimetable";
 	}
 }
-
-        
-        
-      
-         
