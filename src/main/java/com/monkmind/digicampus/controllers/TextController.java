@@ -13,7 +13,13 @@ public class TextController {
 	{ 
 
 
-		//return "dangeralertdupli";
+
+
+
+
+
+
+
 		return "fragments/forms/addstud";
 
 	}
