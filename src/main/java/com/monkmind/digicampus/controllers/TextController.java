@@ -11,14 +11,6 @@ public class TextController {
 	public String getHome()
 	{ 
 
-
-
-
-
-
-
-
-
 		return "fragments/forms/addstud";
 
 	}
@@ -31,7 +23,7 @@ public class TextController {
 	@RequestMapping("/display")
 	public String getStud()
 	{
-		return "fragments/display/teachertimetabledisplay";
+		return "fragments/forms/teachertimetabledisplay";
 	}
 	@RequestMapping("/display2")
 	public String getTeach()
