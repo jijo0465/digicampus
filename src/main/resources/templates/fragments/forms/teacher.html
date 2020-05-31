@@ -24,15 +24,14 @@
             </div>
 
 
-<div th:replace="fragments/forminput :: forminput(label='Name:',name='teachername')"></div>
+<div th:replace="fragments/forminput :: forminput(label='Name:',name='name')"></div>
 <div th:replace="fragments/textarea :: textarea(label='Address:',name='address')"></div>
-<div th:replace="fragments/forminput :: forminput(label='Phone Number:',name='number')"></div>
-<div th:replace="fragments/forminput :: forminput(label='Alternative Phone:',name='altnumber')"></div>
-<div th:replace="fragments/dropdown :: dropdown(label='Blood Group:',name='bloodGroup')"></div>
-<div th:replace="fragments/date :: date(label='Date of Birth:',name='dob')"></div>
+<div th:replace="fragments/forminput :: forminput(label='Phone Number:',name='phone')"></div>
+<div th:replace="fragments/forminput :: forminput(label='Alternative Phone:',name='altPhone')"></div>
+<div th:replace="fragments/dropdown :: dropdown(label='Blood Group:',bloodtitle='bloodGroup',name='dob')"></div>
 <div th:replace="fragments/radiobut :: radiobut(label='Gender:',name='gender')"></div>
 <div th:replace="fragments/forminput :: forminput(label='Teacher Id:',name='tid')"></div>
-<div th:replace="fragments/formbutton::formbutton(label='Submit',name='submit',class='btn btn-lg btn-primary btn-block text-uppercase' buttonid='teachersubmit')"></div>
+<div th:replace="fragments/formbutton::formbutton(label='Submit',name='submit',class='btn btn-lg btn-primary btn-block text-uppercase',buttonid='teachersubmit')"></div>
 </form>
 </div>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
