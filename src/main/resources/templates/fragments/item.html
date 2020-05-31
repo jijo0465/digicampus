@@ -12,7 +12,7 @@
       <div class="card-body dc-menu-body">
         <div th:replace="fragments/alloptions :: option (name='Add Student',val='addstudent')"></div>
         <div th:replace="fragments/alloptions :: option (name='Edit Student')"></div>
-        <div th:replace="fragments/alloptions :: option (name='Display Student')"></div>
+        <div th:replace="fragments/alloptions :: option (name='Display Student',val='displaystudent')"></div>
       </div>
     </div>
    <div class="card">
@@ -26,7 +26,7 @@
    <div class="card">
       <div class="card-header dc-menu-header">TimeTable</div>
       <div class="card-body dc-menu-body">
-        <div th:replace="fragments/alloptions :: option (name='Add Teacher TimeTable',val='addstudent')"></div>
+        <div th:replace="fragments/alloptions :: option (name='Add Teacher TimeTable',val='addteachertimetable')"></div>
         <div th:replace="fragments/alloptions :: option (name='Edit Teacher TimeTable')"></div>
         <div th:replace="fragments/alloptions :: option (name='Display Student TimeTable')"></div>
       </div>

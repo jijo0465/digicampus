@@ -18,11 +18,8 @@ import javax.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 
 @AllArgsConstructor
@@ -40,7 +37,7 @@ public class StudentController {
     created date:15/5/2020
     */
     
-    
+
     @RequestMapping("/add_student")
 	public String studentForm(Model model) {
 	    model.addAttribute("command", new RegisterCommand());
@@ -49,17 +46,20 @@ public class StudentController {
 
 	@PostMapping
 	@RequestMapping("/addstudent")
-	public String Save(@ModelAttribute RegisterCommand command,Model model) {
+	public String Save(@RequestPart("displayImage") MultipartFile displayImage, @ModelAttribute RegisterCommand command, Model model) {
+		System.out.println(command.getGradeid().getId());
 	   RegisterCommand savedCommand=studentService.saveRegisterCommand(command);
 	    return "mydashboard";
 	}
 	
 	
+
 	  @RequestMapping("/studentdisplay")
 		public String studentdisplay(Model model) {
 		  List<Student> liststudents=studentService.listAll();
 		    model.addAttribute("liststudents",liststudents);
-		    return "studdisplay";
+		    return "fragments/display/studentdisplay::studentdisplay";
+
 		}
 	
 

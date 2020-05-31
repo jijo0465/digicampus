@@ -1,0 +1,5 @@
+amazonProperties:
+  endpointUrl: https://s3.us-east-2.amazonaws.com
+  accessKey: AKIAIJQ6ZERGHYCOWMFA
+  secretKey: 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
+  bucketName: digicampus

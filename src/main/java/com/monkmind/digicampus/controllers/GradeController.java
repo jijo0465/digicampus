@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.monkmind.digicampus.command.GradeCommand;
+import com.monkmind.digicampus.command.RegisterCommand;
 import com.monkmind.digicampus.models.Grade;
 
 import com.monkmind.digicampus.services.GradeService;
@@ -30,15 +32,17 @@ public class GradeController {
 	
 	@RequestMapping("/grade_form")
 	public String gradeForm(Model model) {
-	    model.addAttribute("grade", new Grade());
-	    return "grade_form";
+	    model.addAttribute("gradecommand", new GradeCommand());
+	    return "grade_form"; 
+	    		//"fragments/forms/gradeform::gradeform";
+	    		//
 	}
 
 	@PostMapping("/gradeinsert")
-	public String createGrade(@ModelAttribute Grade grade,Model model) {
-		Grade gradez =gradeService.save(grade);
-		 model.addAttribute("grade",gradez);
-		    return "redirect:/";
+	public String createGrade(@ModelAttribute GradeCommand gradecommand,Model model) {
+		 GradeCommand savedCommand=gradeService.saveGradeCommand(gradecommand);
+		 model.addAttribute("gradecommand",gradecommand);
+		    return "index";
 		}
 	
 	
@@ -46,9 +50,10 @@ public class GradeController {
 	public String displayGrade(@ModelAttribute Grade grade,Model model) {
 		List<Grade> listgrades=gradeService.listAll();
 		model.addAttribute("listgrades", listgrades);
-	    gradeService.save(grade);
+	    //gradeService.save(grade);
 	    return "gradedisplay";
 	}
+	
 	/*author:shijina
 	created date:18/5/2020
 	*/
@@ -62,12 +67,13 @@ public class GradeController {
 	     return "updategrade";
 	}
 	
-	@PostMapping
+	/*@PostMapping
 	@RequestMapping("/updategrade/{id}")
 	public String InsertGrade(@ModelAttribute Grade grade,Model model) {
 	    gradeService.save(grade);
 	    return "index";
 	}
+	*/
 	@RequestMapping("/delt/{id}")
 	public String deleteGrade(@PathVariable Long id,Model model)
 	{

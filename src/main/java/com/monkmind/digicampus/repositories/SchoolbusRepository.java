@@ -5,6 +5,8 @@ import java.util.Optional;
 
 import org.springframework.data.repository.CrudRepository;
 
+import com.monkmind.digicampus.command.GradeCommand;
+import com.monkmind.digicampus.command.SchoolBusCommand;
 import com.monkmind.digicampus.models.SchoolBus;
 import com.monkmind.digicampus.models.Student;
 
@@ -16,5 +18,6 @@ public interface SchoolbusRepository extends CrudRepository<SchoolBus, Long>{
 	List<SchoolBus> findAll();
 	Optional<SchoolBus> findByBusNumber(Long busNumber);
 	Optional<SchoolBus>deleteByBusNumber(Long busNumber);
+	void save(SchoolBusCommand schoolBuscommand);
 	
 }

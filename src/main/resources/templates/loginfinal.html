@@ -12,25 +12,6 @@
         <div th:replace="fragments/loginformfinal ::loginformfinal"></div>
     </div>
     <h6 th:text="${message}"></h6>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script th:inline="javascript">
 
-        $(document).ready(function(){
-            $("#loginformfinal").submit(function(e){
-                e.preventDefault();
-                $.ajax({
-                    method: "POST",
-                    url: "/validate",
-                    data: $('#loginformfinal').serialize(),
-                    success: function(status){
-                        if(status) {
-                        	 console.log(status);
-                           $(".body").html(status)
-                        }
-                    }
-                });
-            })
-        })
-    </script>
 </body>
 </html>

@@ -5,7 +5,21 @@
 <title>student list</title>
 </head>
 <body>
-<h1> Student listed here</h1>
+<div class="container" style="min-width: 80%" th:fragment="studdisplay" id="studdis">
+<h4 align="left" style="font-size: 32px">Students List</h4>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item" id="home"><a href="/dashboard">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Student List</li>
+        </ol>
+    </nav>
+    <div class="dc-form-body">
+
+      
+
+            <div style="padding-bottom: 22px">
+                <h1 style="font-size: x-large" >Basic Information</h1>
+            </div>
 <table><tr>
 <th>studentid</th>
 <th>alternate_phone</th>
@@ -28,5 +42,7 @@
       	</td></tr>
       		
  </table>
+ </div>
+ </div>
  </body>
 </html>

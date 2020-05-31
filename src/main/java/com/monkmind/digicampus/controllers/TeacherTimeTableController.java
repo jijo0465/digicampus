@@ -11,8 +11,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.monkmind.digicampus.models.Grade;
 import com.monkmind.digicampus.models.StudentTimeTable;
+import com.monkmind.digicampus.models.Teacher;
 import com.monkmind.digicampus.models.TeacherAttendance;
 import com.monkmind.digicampus.models.TeacherTimeTable;
+import com.monkmind.digicampus.services.TeacherService;
 import com.monkmind.digicampus.services.TeacherTimeTableService;
 
 import lombok.AllArgsConstructor;
@@ -21,11 +23,14 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 public class TeacherTimeTableController {
 	private final TeacherTimeTableService teachertimetableService;
+	private final TeacherService teacherservice;
 
 	@RequestMapping("/timetableform")
 	public String TeacherTimeTableForm(Model model) {
 		model.addAttribute("teachertimetable", new TeacherTimeTable());
-		return "teachertimetable_form";
+		List<Teacher> teachers=teacherservice.findAll();
+		model.addAttribute("teachers",teachers);
+		return "fragments/forms/teachertimetable::teachertimetable";
 	}
 
 	@PostMapping("/teacher_timetable")

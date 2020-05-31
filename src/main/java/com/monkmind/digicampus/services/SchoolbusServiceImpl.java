@@ -2,8 +2,14 @@ package com.monkmind.digicampus.services;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.stereotype.Service;
 
+import com.monkmind.digicampus.command.SchoolBusCommand;
+import com.monkmind.digicampus.converters.SchoolBusCommandToSchoolBus;
+import com.monkmind.digicampus.converters.SchoolBusToSchoolBusCommand;
+import com.monkmind.digicampus.models.Grade;
 import com.monkmind.digicampus.models.SchoolBus;
 
 import com.monkmind.digicampus.repositories.SchoolbusRepository;
@@ -17,6 +23,9 @@ created date:14/5/2020
 @AllArgsConstructor
 public class SchoolbusServiceImpl implements SchoolbusService {
 	private final SchoolbusRepository schoolbusRepository;
+	private final SchoolBusCommandToSchoolBus schoolBusCommandToSchoolBus;
+	private final SchoolBusToSchoolBusCommand schoolBusToSchoolBusCommand;
+	
 
 	@Override
 	public SchoolBus getDriverByDriver(String driver) {
@@ -24,10 +33,11 @@ public class SchoolbusServiceImpl implements SchoolbusService {
 		return schoolbusRepository.findByDriver(driver).get();
 	}
 
-	@Override
+	/*@Override
 	public SchoolBus save(SchoolBus schoolbus) {
 		return schoolbusRepository.save(schoolbus);
 	}
+	*/
 
 	 @Override
 	 public SchoolBus getBusNumber(long busNumber) {
@@ -45,6 +55,17 @@ public class SchoolbusServiceImpl implements SchoolbusService {
 	public void delete(Long busNumber) {
 		// TODO Auto-generated method stub
 		schoolbusRepository.deleteByBusNumber(busNumber);
+	}
+
+	@Override
+	@Transactional
+	public SchoolBusCommand saveSchoolBusCommand(SchoolBusCommand schoolBusCommand) {
+		// TODO Auto-generated method stub
+		
+		SchoolBus detachedSchoolBus=schoolBusCommandToSchoolBus.convert(schoolBusCommand);
+		SchoolBus savedSchoolBus=schoolbusRepository.save(detachedSchoolBus);
+		//log.debug("saved studentid :"+ savedStudent.getId());
+		return schoolBusToSchoolBusCommand.convert(savedSchoolBus) ;
 	}
 
 }
