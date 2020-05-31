@@ -45,7 +45,7 @@ public class TeacherController {
 	public String teacherDisplay(Model model) {
 		List<Teacher> teachers=teacherservice.findAll();
 		model.addAttribute("teachers",teachers);
-		return "teacherdisplay";
+		return "fragments/display/teacherdisplay::teacherdisplay";
 	}
 	
 	@RequestMapping("/t/{teacherId}")
