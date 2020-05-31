@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.monkmind.digicampus.command.RegisterCommand;
+import com.monkmind.digicampus.command.TeacherRegisterCommand;
 import com.monkmind.digicampus.models.Student;
 import com.monkmind.digicampus.models.Teacher;
 import com.monkmind.digicampus.services.TeacherService;
@@ -24,21 +26,16 @@ public class TeacherController {
 	
 	@RequestMapping("/teacher")
 	public String teacherform(Model model) {
-		model.addAttribute("teacher",new Teacher());
+		model.addAttribute("teacherCommand",new TeacherRegisterCommand());
 		return "fragments/forms/teacher::teacher";
 	}
-	@PostMapping("/teacherinsert")
-	public String createteacher(@ModelAttribute Teacher teacher,Model model) {
-		teacherservice.save(teacher);
+	@PostMapping("/addteacher")
+	public String createteacher(@ModelAttribute TeacherRegisterCommand teachercommand,Model model) {
+		TeacherRegisterCommand savedCommand=teacherservice.saveTeacherRegisterCommand(teachercommand);
+		//teacherservice.save(savedcommand);
 		return "index";
 	}
 	
-	@RequestMapping("teachername")
-	public String showByName(@PathVariable String name,Model model)
-	{
-		model.addAttribute("teacher",teacherservice.findByName(String.valueOf(name)));
-		return "teachername";
-	}
 	
 
 	@RequestMapping("/teacherdisplay")
