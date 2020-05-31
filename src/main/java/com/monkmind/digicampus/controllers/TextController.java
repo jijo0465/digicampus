@@ -8,7 +8,10 @@ public class TextController {
 	@PostMapping
 
 	@RequestMapping("/submit")
-	public String getHome() {
+
+	public String getHome()
+	{ 
+
 
 		return "fragments/forms/addstud";
 
@@ -21,8 +24,15 @@ public class TextController {
 
 	@RequestMapping("/display")
 
+
 	public String getStud() {
 		return "fragments/display/studentdisplay";
+	}
+
+	public String getStudt()
+	{
+		return "fragments/forms/teachertimetabledisplay";
+
 	}
 
 	//public String getStud()
