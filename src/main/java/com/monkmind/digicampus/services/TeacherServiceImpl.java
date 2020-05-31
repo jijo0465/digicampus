@@ -1,6 +1,7 @@
 package com.monkmind.digicampus.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
@@ -38,6 +39,12 @@ public class TeacherServiceImpl implements TeacherService{
 	public void delete(long id) {
 		// TODO Auto-generated method stub
 		teacherRepository.deleteById(id);
+	}
+	@Override
+	public Teacher findByName(String name) {
+		// TODO Auto-generated method stub
+		Optional<Teacher> teacherOptional =teacherRepository.findByName(Long.valueOf(name));
+		return teacherOptional.get();
 	}
 
 }

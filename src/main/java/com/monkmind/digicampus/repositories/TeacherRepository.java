@@ -12,6 +12,7 @@ public interface TeacherRepository extends CrudRepository<Teacher,Long> {
 
 	Optional<Teacher> findByTeacherId(String teacher);
 	Optional<Teacher> findById(Long teacher);
+	Optional<Teacher> findByName(Long long1);
 	List<Teacher> findAll();
   
 	//Optional<Teacher> findTeacherByTeacherId(String teacher);

@@ -12,4 +12,7 @@ public interface TeacherService {
     public Teacher getById(Long teacher);
     public List<Teacher> findAll();
     public void delete(long id);
+    public Teacher findByName(String valueOf);
+	//public Object findByName(Long valueOf);
+    
 }
