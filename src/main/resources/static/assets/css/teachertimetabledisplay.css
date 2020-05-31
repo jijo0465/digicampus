@@ -1,0 +1,27 @@
+@charset "ISO-8859-1";
+table{
+	
+	  
+	  cellspacing:3 ;
+	  align:center ;
+	  style:width:100%;
+	  font-family: arial, sans-serif;
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+td{
+	
+	 border: 1px solid black;
+font-style: normal;
+ border-collapse: collapse;
+ text-align: center;
+  padding: 8px;
+}
+body{
+	 bgcolor:skyblue;
+	 align: center;
+}
+ 
+caption{
+	font-size: 32px;
+}

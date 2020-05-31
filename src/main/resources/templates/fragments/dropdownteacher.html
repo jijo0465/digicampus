@@ -5,12 +5,15 @@
 <title>DropdownTeacher</title>
 </head>
 <body>
-<div th:fragment ="dropdownteacher" >
-      <div class="form-label-group">
-              <div class="form-inline">
-              <label  th:text="${label}"   class="mr-sm-2" ></label>
+
+<div>
+	<div class="form-group row" th:fragment ="dropdownteacher" >
+		<label th:text="${label}" style="text-align: end;" class="col-sm-3 col-form-label"></label>
+		<div class="col-sm-2">
+
+
 <select  th:name="${name}">
-<option value = "SELECT">SELECT </option>
+<option value = "SELECT">Select </option>
 	<option value = "Lilly">LILLY</option>
 	<option value = "Rose">ROSE</option>
 	<option value = "Jasmine">JASMINE</option>

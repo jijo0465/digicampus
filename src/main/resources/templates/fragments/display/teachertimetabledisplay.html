@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Teacher TimeTable Display</title>
+     <link th:href="@{/assets/css/teachertimetabledisplay.css}" rel="stylesheet"/>
+</head>
+<body>
+<div class="container" th:fragment="teachertimetabledisplay">
+<table>
+  <tr>
+  <td>
+ <td >8:30-9:30
+ <td  >9:30-10:30
+ <td >10:3-11:30
+  <td>
+ <td >11:30-12:30
+ <td >12:30-2:00
+ <td  >2:00-3:00
+ <td  >3:00-4:00
+  </tr>
+  <tr>
+    <td>MONDAY</td>
+ <td><font color="blue">
+ <select><option value = "SELECT">Select </option>
+	<option value = "i">I</option>
+	<option value = "ii">II</option>
+	<option value = "iii">III</option>
+	<option value = "iv">IV</option>
+	<option value = "v">V</option>
+	<option value = "vi">VI</option>
+	<option value = "vii">VII</option>
+ </select>
+ </font></td>
+ <td><font color="pink">
+  <select><option value = "SELECT">Select </option>
+	<option value = "i">I</option>
+	<option value = "ii">II</option>
+	<option value = "iii">III</option>
+	<option value = "iv">IV</option>
+	<option value = "v">V</option>
+	<option value = "vi">VI</option>
+	<option value = "vii">VII</option>
+ </select>
+ </font></td>
+ <td><font color="red">
+  <select><option value = "SELECT">Select </option>
+	<option value = "i">I</option>
+	<option value = "ii">II</option>
+	<option value = "iii">III</option>
+	<option value = "iv">IV</option>
+	<option value = "v">V</option>
+	<option value = "vi">VI</option>
+	<option value = "vii">VII</option>
+ </select>
+ </font></td>
+ <td rowspan="6">L<br>U<br>N<br>C<br>H
+ <td> <font color="maroon">
+  <select><option value = "SELECT">Select </option>
+	<option value = "i">I</option>
+	<option value = "ii">II</option>
+	<option value = "iii">III</option>
+	<option value = "iv">IV</option>
+	<option value = "v">V</option>
+	<option value = "vi">VI</option>
+	<option value = "vii">VII</option>
+ </select>
+ </font></td>
+ <td> <font color="maroon">
+  <select><option value = "SELECT">Select </option>
+	<option value = "i">I</option>
+	<option value = "ii">II</option>
+	<option value = "iii">III</option>
+	<option value = "iv">IV</option>
+	<option value = "v">V</option>
+	<option value = "vi">VI</option>
+	<option value = "vii">VII</option>
+ </select>
+ </font></td>
+ <td> <font color="maroon">
+  <select><option value = "SELECT">Select </option>
+	<option value = "i">I</option>
+	<option value = "ii">II</option>
+	<option value = "iii">III</option>
+	<option value = "iv">IV</option>
+	<option value = "v">V</option>
+	<option value = "vi">VI</option>
+	<option value = "vii">VII</option>
+ </select>
+ </font></td>
+ <td> <font color="maroon">
+  <select><option value = "SELECT">Select </option>
+	<option value = "i">I</option>
+	<option value = "ii">II</option>
+	<option value = "iii">III</option>
+	<option value = "iv">IV</option>
+	<option value = "v">V</option>
+	<option value = "vi">VI</option>
+	<option value = "vii">VII</option>
+ </select>
+ </font></td>
+ </tr>
+ <td>TUESDAY
+ <td><font color="blue">
+  <select><option value = "SELECT">Select </option>
+	<option value = "i">I</option>
+	<option value = "ii">II</option>
+	<option value = "iii">III</option>
+	<option value = "iv">IV</option>
+	<option value = "v">V</option>
+	<option value = "vi">VI</option>
+	<option value = "vii">VII</option>
+ </select>
+ </font></td>
+ <td><font color="red">
+  <select><option value = "SELECT">Select </option>
+	<option value = "i">I</option>
+	<option value = "ii">II</option>
+	<option value = "iii">III</option>
+	<option value = "iv">IV</option>
+	<option value = "v">V</option>
+	<option value = "vi">VI</option>
+	<option value = "vii">VII</option>
+ </select>
+ </font></td>
+ <td><font color="pink">
+  <select><option value = "SELECT">Select </option>
+	<option value = "i">I</option>
+	<option value = "ii">II</option>
+	<option value = "iii">III</option>
+	<option value = "iv">IV</option>
+	<option value = "v">V</option>
+	<option value = "vi">VI</option>
+	<option value = "vii">VII</option>
+ </select>
+ </font></td>
+ <td> <font color="maroon">
+  <select><option value = "SELECT">Select </option>
+	<option value = "i">I</option>
+	<option value = "ii">II</option>
+	<option value = "iii">III</option>
+	<option value = "iv">IV</option>
+	<option value = "v">V</option>
+	<option value = "vi">VI</option>
+	<option value = "vii">VII</option>
+ </select>
+ </font></td>
+ <td> <font color="orange">
+  <select><option value = "SELECT">Select </option>
+	<option value = "i">I</option>
+	<option value = "ii">II</option>
+	<option value = "iii">III</option>
+	<option value = "iv">IV</option>
+	<option value = "v">V</option>
+	<option value = "vi">VI</option>
+	<option value = "vii">VII</option>
+ </select>
+ </font></td>
+ <td> <font color="maroon">
+  <select><option value = "SELECT">Select </option>
+	<option value = "i">I</option>
+	<option value = "ii">II</option>
+	<option value = "iii">III</option>
+	<option value = "iv">IV</option>
+	<option value = "v">V</option>
+	<option value = "vi">VI</option>
+	<option value = "vii">VII</option>
+ </select>
+ </font></td>
+ <td> <font color="maroon">
+  <select><option value = "SELECT">Select </option>
+	<option value = "i">I</option>
+	<option value = "ii">II</option>
+	<option value = "iii">III</option>
+	<option value = "iv">IV</option>
+	<option value = "v">V</option>
+	<option value = "vi">VI</option>
+	<option value = "vii">VII</option>
+ </select>
+ </font></td>
+</tr>
+<tr>
+ <td>WEDNESDAY
+ <td><font color="pink">
+  <select><option value = "SELECT">Select </option>
+	<option value = "i">I</option>
+	<option value = "ii">II</option>
+	<option value = "iii">III</option>
+	<option value = "iv">IV</option>
+	<option value = "v">V</option>
+	<option value = "vi">VI</option>
+	<option value = "vii">VII</option>
+ </select>
+ </font></td>
+ <td><font color="orange">
+  <select><option value = "SELECT">Select </option>
+	<option value = "i">I</option>
+	<option value = "ii">II</option>
+	<option value = "iii">III</option>
+	<option value = "iv">IV</option>
+	<option value = "v">V</option>
+	<option value = "vi">VI</option>
+	<option value = "vii">VII</option>
+ </select>
+ </font></td>
+ <td><font color="brown">
+  <select><option value = "SELECT">Select </option>
+	<option value = "i">I</option>
+	<option value = "ii">II</option>
+	<option value = "iii">III</option>
+	<option value = "iv">IV</option>
+	<option value = "v">V</option>
+	<option value = "vi">VI</option>
+	<option value = "vii">VII</option>
+ </select>
+ </font></td>
+ <td><font color="brown">
+  <select><option value = "SELECT">Select </option>
+	<option value = "i">I</option>
+	<option value = "ii">II</option>
+	<option value = "iii">III</option>
+	<option value = "iv">IV</option>
+	<option value = "v">V</option>
+	<option value = "vi">VI</option>
+	<option value = "vii">VII</option>
+ </select>
+ </font></td>
+  
+ <td ><font color="green"> 
+  <select><option value = "SELECT">Select </option>
+	<option value = "i">I</option>
+	<option value = "ii">II</option>
+	<option value = "iii">III</option>
+	<option value = "iv">IV</option>
+	<option value = "v">V</option>
+	<option value = "vi">VI</option>
+	<option value = "vii">VII</option>
+ </select>
+ </font></td>
+  <td> <font color="maroon">
+  <select><option value = "SELECT">Select </option>
+	<option value = "i">I</option>
+	<option value = "ii">II</option>
+	<option value = "iii">III</option>
+	<option value = "iv">IV</option>
+	<option value = "v">V</option>
+	<option value = "vi">VI</option>
+	<option value = "vii">VII</option>
+ </select>
+  </font></td>
+  <td> <font color="maroon">
+  <select><option value = "SELECT">Select </option>
+	<option value = "i">I</option>
+	<option value = "ii">II</option>
+	<option value = "iii">III</option>
+	<option value = "iv">IV</option>
+	<option value = "v">V</option>
+	<option value = "vi">VI</option>
+	<option value = "vii">VII</option>
+ </select>
+ </font></td>
+</tr>
+<tr>
+ <td>THURSDAY
+ 
+ <td ><font color="brown">
+  <select><option value = "SELECT">Select </option>
+	<option value = "i">I</option>
+	<option value = "ii">II</option>
+	<option value = "iii">III</option>
+	<option value = "iv">IV</option>
+	<option value = "v">V</option>
+	<option value = "vi">VI</option>
+	<option value = "vii">VII</option>
+ </select>
+ </font></td>
+ <td ><font color="brown">
+  <select><option value = "SELECT">Select </option>
+	<option value = "i">I</option>
+	<option value = "ii">II</option>
+	<option value = "iii">III</option>
+	<option value = "iv">IV</option>
+	<option value = "v">V</option>
+	<option value = "vi">VI</option>
+	<option value = "vii">VII</option>
+ </select>
+ </font></td>
+ <td ><font color="orange">
+  <select><option value = "SELECT">Select </option>
+	<option value = "i">I</option>
+	<option value = "ii">II</option>
+	<option value = "iii">III</option>
+	<option value = "iv">IV</option>
+	<option value = "v">V</option>
+	<option value = "vi">VI</option>
+	<option value = "vii">VII</option>
+ </select>
+ </font></td>
+ <td ><font color="orange">
+  <select><option value = "SELECT">Select </option>
+	<option value = "i">I</option>
+	<option value = "ii">II</option>
+	<option value = "iii">III</option>
+	<option value = "iv">IV</option>
+	<option value = "v">V</option>
+	<option value = "vi">VI</option>
+	<option value = "vii">VII</option>
+ </select>
+ </font></td>
+ <td ><font color="orange">
+  <select><option value = "SELECT">Select </option>
+	<option value = "i">I</option>
+	<option value = "ii">II</option>
+	<option value = "iii">III</option>
+	<option value = "iv">IV</option>
+	<option value = "v">V</option>
+	<option value = "vi">VI</option>
+	<option value = "vii">VII</option>
+ </select>
+ </font></td>
+ <td ><font color="orange">
+  <select><option value = "SELECT">Select </option>
+	<option value = "i">I</option>
+	<option value = "ii">II</option>
+	<option value = "iii">III</option>
+	<option value = "iv">IV</option>
+	<option value = "v">V</option>
+	<option value = "vi">VI</option>
+	<option value = "vii">VII</option>
+ </select>
+ </font></td>
+ <td ><font color="orange">
+  <select><option value = "SELECT">Select </option>
+	<option value = "i">I</option>
+	<option value = "ii">II</option>
+	<option value = "iii">III</option>
+	<option value = "iv">IV</option>
+	<option value = "v">V</option>
+	<option value = "vi">VI</option>
+	<option value = "vii">VII</option>
+ </select>
+ </font></td>
+</tr>
+<tr>
+ <td>FRIDAY
+ <td ><font color="orange">
+  <select><option value = "SELECT">Select </option>
+	<option value = "i">I</option>
+	<option value = "ii">II</option>
+	<option value = "iii">III</option>
+	<option value = "iv">IV</option>
+	<option value = "v">V</option>
+	<option value = "vi">VI</option>
+	<option value = "vii">VII</option>
+ </select>
+ </font></td>
+ <td ><font color="orange">
+  <select><option value = "SELECT">Select </option>
+	<option value = "i">I</option>
+	<option value = "ii">II</option>
+	<option value = "iii">III</option>
+	<option value = "iv">IV</option>
+	<option value = "v">V</option>
+	<option value = "vi">VI</option>
+	<option value = "vii">VII</option>
+ </select>
+ </font></td>
+ <td ><font color="orange">
+  <select><option value = "SELECT">Select </option>
+	<option value = "i">I</option>
+	<option value = "ii">II</option>
+	<option value = "iii">III</option>
+	<option value = "iv">IV</option>
+	<option value = "v">V</option>
+	<option value = "vi">VI</option>
+	<option value = "vii">VII</option>
+ </select>
+ </font></td>
+ <td ><font color="orange">
+  <select><option value = "SELECT">Select </option>
+	<option value = "i">I</option>
+	<option value = "ii">II</option>
+	<option value = "iii">III</option>
+	<option value = "iv">IV</option>
+	<option value = "v">V</option>
+	<option value = "vi">VI</option>
+	<option value = "vii">VII</option>
+ </select>
+ </font></td>
+ <td ><font color="orange">
+  <select><option value = "SELECT">Select </option>
+	<option value = "i">I</option>
+	<option value = "ii">II</option>
+	<option value = "iii">III</option>
+	<option value = "iv">IV</option>
+	<option value = "v">V</option>
+	<option value = "vi">VI</option>
+	<option value = "vii">VII</option>
+ </select>
+ </font></td>
+<td ><font color="orange">
+  <select><option value = "SELECT">Select </option>
+	<option value = "i">I</option>
+	<option value = "ii">II</option>
+	<option value = "iii">III</option>
+	<option value = "iv">IV</option>
+	<option value = "v">V</option>
+	<option value = "vi">VI</option>
+	<option value = "vii">VII</option>
+ </select>
+ </font></td>
+<td ><font color="orange">
+  <select><option value = "SELECT">Select </option>
+	<option value = "i">I</option>
+	<option value = "ii">II</option>
+	<option value = "iii">III</option>
+	<option value = "iv">IV</option>
+	<option value = "v">V</option>
+	<option value = "vi">VI</option>
+	<option value = "vii">VII</option>
+ </select>
+ </font></td>
+</tr>
+<tr>
+ <td >SATURDAY
+ <td ><font color="orange">
+  <select><option value = "SELECT">Select </option>
+	<option value = "i">I</option>
+	<option value = "ii">II</option>
+	<option value = "iii">III</option>
+	<option value = "iv">IV</option>
+	<option value = "v">V</option>
+	<option value = "vi">VI</option>
+	<option value = "vii">VII</option>
+ </select>
+ </font></td>
+ 
+ <td ><font color="orange">
+  <select><option value = "SELECT">Select </option>
+	<option value = "i">I</option>
+	<option value = "ii">II</option>
+	<option value = "iii">III</option>
+	<option value = "iv">IV</option>
+	<option value = "v">V</option>
+	<option value = "vi">VI</option>
+	<option value = "vii">VII</option>
+ </select>
+ </font></td>
+ <td ><font color="orange">
+  <select><option value = "SELECT">Select </option>
+	<option value = "i">I</option>
+	<option value = "ii">II</option>
+	<option value = "iii">III</option>
+	<option value = "iv">IV</option>
+	<option value = "v">V</option>
+	<option value = "vi">VI</option>
+	<option value = "vii">VII</option>
+ </select>
+ </font></td>
+ <td ><font color="orange">
+  <select><option value = "SELECT">Select </option>
+	<option value = "i">I</option>
+	<option value = "ii">II</option>
+	<option value = "iii">III</option>
+	<option value = "iv">IV</option>
+	<option value = "v">V</option>
+	<option value = "vi">VI</option>
+	<option value = "vii">VII</option>
+ </select>
+ </font></td>
+<td ><font color="orange">
+  <select><option value = "SELECT">Select </option>
+	<option value = "i">I</option>
+	<option value = "ii">II</option>
+	<option value = "iii">III</option>
+	<option value = "iv">IV</option>
+	<option value = "v">V</option>
+	<option value = "vi">VI</option>
+	<option value = "vii">VII</option>
+ </select>
+ </font></td>
+ <td ><font color="orange">
+  <select><option value = "SELECT">Select </option>
+	<option value = "i">I</option>
+	<option value = "ii">II</option>
+	<option value = "iii">III</option>
+	<option value = "iv">IV</option>
+	<option value = "v">V</option>
+	<option value = "vi">VI</option>
+	<option value = "vii">VII</option>
+ </select>
+ </font></td>
+   <td ><font color="orange">
+  <select><option value = "SELECT">Select </option>
+	<option value = "i">I</option>
+	<option value = "ii">II</option>
+	<option value = "iii">III</option>
+	<option value = "iv">IV</option>
+	<option value = "v">V</option>
+	<option value = "vi">VI</option>
+	<option value = "vii">VII</option>
+ </select>
+ </font></td>
+</tr>
+</table>
+</div>
+</body>
+</html>
+
+
+
+
+
+
+
