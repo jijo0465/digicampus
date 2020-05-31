@@ -12,14 +12,12 @@
 		<div class="col-sm-2">
 
 
-<select  th:name="${name}">
-<option value = "SELECT">Select </option>
-	<option value = "Lilly">LILLY</option>
-	<option value = "Rose">ROSE</option>
-	<option value = "Jasmine">JASMINE</option>
-	
-	
-</select>
+ <select class="form-control" id="testOrder" th:name="${name}">
+        <option value="">Teachers</option>
+        <option th:each="teacher : ${teachers}"
+                th:value="${teacher.name}"
+                th:text="${teacher.name}"></option>
+    </select>
         </div>
          </div>
           </div>
