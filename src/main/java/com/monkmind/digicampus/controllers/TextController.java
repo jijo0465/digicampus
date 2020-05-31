@@ -1,5 +1,4 @@
 package com.monkmind.digicampus.controllers;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,9 +20,16 @@ public class TextController {
 	}
 
 	@RequestMapping("/display")
+
 	public String getStud() {
 		return "fragments/display/studentdisplay";
 	}
+
+	//public String getStud()
+	//{
+		//return "fragments/display/teachertimetabledisplay";
+
+	//}
 
 	@RequestMapping("/display2")
 	public String getTeach() {

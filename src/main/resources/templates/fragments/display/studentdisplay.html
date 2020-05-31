@@ -10,47 +10,23 @@
 <table style="width:100%">
 <caption><b>STUDENTS LIST</b></caption>
   <tr>
-    <th>Firstname</th>
-    <th>Lastname</th> 
-    <th>Age</th>
-    <th>address</th>
-    <th>address</th>
+    <th>Student ID</th>
+    <th>Name</th> 
+    <th>Alternative ph</th>
+    <th>Phone number</th>
+    <th>Gender</th>
+    <th>BloodGroup</th>
   </tr>
-  <tr>
-    <td>Jill</td>
-    <td>Smith</td>
-    <td>50</td>
-     <td>50</td>
-      <td>50</td>
-  </tr>
-  <tr>
-    <td>Eve</td>
-    <td>Jackson</td>
-    <td>94</td>
-     <td>50</td>
-      <td>50</td>
-  </tr>
-  <tr>
-    <td>John</td>
-    <td>Doe</td>
-    <td>80</td>
-     <td>50</td>
-     <td>50</td>
-  </tr>
-   <tr>
-    <td>Eve</td>
-    <td>Jackson</td>
-     <td>50</td>
-      <td>50</td>
-    <td>94</td>
-  </tr>
-   <tr>
-    <td>Eve</td>
-    <td>Jackson</td>
-    <td>94</td>
-     <td>50</td>
-      <td>50</td>
-  </tr>
+ <tr th:each="student : ${liststudents}">
+			<td th:text="${student.id}">
+			<td th:text="${student.name}">
+      		<td th:text="${student.altPhone}">
+      		<td th:text="${student.phone}">
+      		<td th:text="${student.gender}">
+      		<td th:text="${student.bloodGroup}">
+      		
+ 
+ </tr>
 </table>
 </div>
 </body>
