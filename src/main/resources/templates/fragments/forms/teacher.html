@@ -9,7 +9,7 @@
 
 <body>
 
-<div class="container" style="min-width:80%" th:fragment="teacher" id="teacher">
+<div class="container" style="min-width:80%" th:fragment="teacher" id="teacher" th:object="${teachercommand}">
 <h4 align="left" style="font-size: 32px" >TeacherForm</h4>
 <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
@@ -28,14 +28,33 @@
 <div th:replace="fragments/textarea :: textarea(label='Address:',name='address')"></div>
 <div th:replace="fragments/forminput :: forminput(label='Phone Number:',name='number')"></div>
 <div th:replace="fragments/forminput :: forminput(label='Alternative Phone:',name='altnumber')"></div>
-<div th:replace="fragments/dropdown :: dropdown(label='Blood Group:',name='bgroup')"></div>
+<div th:replace="fragments/dropdown :: dropdown(label='Blood Group:',name='bloodGroup')"></div>
 <div th:replace="fragments/date :: date(label='Date of Birth:',name='dob')"></div>
 <div th:replace="fragments/radiobut :: radiobut(label='Gender:',name='gender')"></div>
 <div th:replace="fragments/forminput :: forminput(label='Teacher Id:',name='tid')"></div>
-<div th:replace="fragments/formbutton::formbutton(label='Submit',name='submit',class='btn btn-lg btn-primary btn-block text-uppercase')"></div>
+<div th:replace="fragments/formbutton::formbutton(label='Submit',name='submit',class='btn btn-lg btn-primary btn-block text-uppercase' buttonid='teachersubmit')"></div>
 </form>
-
 </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script th:inline="javascript">
+
+        $(document).ready(function(){
+            $("#teachersubmit").click(function(e){
+                e.preventDefault();
+                console.log("hai");
+                $.ajax({
+                    method: "POST",
+                    url: "/addteacher",
+                    data: $('#addteacher').serialize(),
+                    success: function(status){
+                        if(status) {
+                           $(".body").html(status)
+                        }
+                    }
+                });
+            })
+        })
+    </script>
 </div>
 </body>
 </html>

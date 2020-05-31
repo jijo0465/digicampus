@@ -1,5 +1,7 @@
 package com.monkmind.digicampus.repositories;
 
+import com.monkmind.digicampus.command.RegisterCommand;
+import com.monkmind.digicampus.command.TeacherRegisterCommand;
 import com.monkmind.digicampus.models.Teacher;
 import com.monkmind.digicampus.models.User;
 
@@ -14,6 +16,7 @@ public interface TeacherRepository extends CrudRepository<Teacher,Long> {
 	Optional<Teacher> findById(Long teacher);
 	Optional<Teacher> findByName(Long long1);
 	List<Teacher> findAll();
+	void save(TeacherRegisterCommand teacherRegisterCommand);
   
 	//Optional<Teacher> findTeacherByTeacherId(String teacher);
 }
