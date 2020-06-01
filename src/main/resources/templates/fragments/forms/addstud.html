@@ -74,7 +74,7 @@
                     <label th:text="Standard" style="text-align: end;" class="col-sm-3 col-form-label"></label>
                     <div class="col-sm-7">
                         <div class="form-group blu-margin">
-                            <select class="form-control" th:field="${command.gradeid}"  id="selectClass">
+                            <select class="form-control" th:field="${command.gradeid.id}"  id="selectClass">
                                 <option value="0">select Class</option>
                                 <option th:each="gradeCommand : ${gradeList}" th:value="${gradeCommand.id}" th:text="${gradeCommand.standard}"></option>
                             </select>
@@ -95,26 +95,7 @@
         <script th:inline="javascript">
 
         $(document).ready(function(){
-            $("input:file").change(function (){
-                var fileName = $(this).val();
-                // $(".filename").html(fileName);
-                $.ajax({
-                    method: "POST",
-                    data: $('#displayImage').attr('files'),
-                    cache: false,
-                    processData: false,
-                    contentType: "multipart/form-data",
-                    url: "/upload_image",
-                    success: function(status){
-                        console.log('Called')
-                        if(status) {
-                            $(".body").html(status)
-                        }
-                    }
-                });
-            });
-
-            $("#studentsubmit").click(function(e){
+                $("#studentsubmit").click(function(e){
                 e.preventDefault();
                 console.log("hai");
                 $.ajax({
