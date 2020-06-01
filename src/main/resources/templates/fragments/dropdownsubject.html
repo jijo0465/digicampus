@@ -21,9 +21,10 @@
 
 <select  th:name="${name}">
 <option value = "SELECT">Select</option>
-	<option value = "teacherdisplay.html">PHYSICS</option>
-	<option value = "Chemistry">CHEMISTRY</option>
-	<option value = "Maths">MATHEMATICS</option>
+	<option th:each="subject:${teachers[0].subjects}" th:value="${subject.id}" th:text="${subject.name}"></option>
+<!--	<option value = "teacherdisplay.html">PHYSICS</option>-->
+<!--	<option value = "Chemistry">CHEMISTRY</option>-->
+<!--	<option value = "Maths">MATHEMATICS</option>-->
 </select>
         </div>
          </div>

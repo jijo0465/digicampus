@@ -6,6 +6,8 @@
 <link th:href="@{/assets/css/addstud.css}" rel="stylesheet"/>
 </head>
 <body>
+
+
 <div class="container" style="min-width: 80%" th:fragment="teachertimetable" id="teachertimetable">
 <h4 align="left" style="font-size: 32px">Teacher Timetable</h4>
 <nav aria-label="breadcrumb">
@@ -21,7 +23,10 @@
             </div>
 <div th:replace="fragments/dropdownteacher :: dropdownteacher(label='Teacher Name',name='teachername')"></div>
 <div th:replace="fragments/dropdownsubject :: dropdownsubject(label='Subject Name',name='subjectname')"></div>
+
+
 <div th:replace="fragments/forms/teachertimetabledisplay::teachertimetabledisplay"></div>
+
 </form>
 </div>
 </div>
