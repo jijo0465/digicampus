@@ -26,6 +26,7 @@ public class GradeCommandToGrade implements Converter<GradeCommand, Grade> {
 		gd.setStandard(source.getStandard());
 		gd.setDivision(source.getDivision());
 		gd.setStrength(source.getStrength());
+		//gd.getClassTeacher()
 		return gd;
 	}
 

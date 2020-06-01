@@ -3,55 +3,33 @@
 <head>
     <meta charset="UTF-8">
      <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Student list dispaly</title>
+    <title>Teacher list dispaly</title>
     <link th:href="@{/assets/css/studentdisplay.css}" rel="stylesheet"/>
 </head>
 <body>
 <div class="container" th:fragment="teacherdisplay">
+<h4 align="left" style="font-size: 32px">Teacher Display</h4>
+<nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item" id="home"><a href="#">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Display Teacher</li>
+        </ol>
+    </nav>
 <table style="width:100%">
-<caption><b>TEACHERS LIST</b></caption>
   <tr>
     <th>Firstname</th>
-    <th>Lastname</th> 
-    <th>Age</th>
-    <th>address</th>
-    <th>address</th>
+    <th>Phone</th> 
+    <th>Gender</th>
+    <th>Blood Group</th>
   </tr>
-  <tr>
-    <td>JULY</td>
-    <td>dona</td>
-    <td>50</td>
-     <td>50</td>
-      <td>50</td>
-  </tr>
-  <tr>
-    <td>Evely</td>
-    <td>Jack</td>
-    <td>94</td>
-     <td>50</td>
-      <td>50</td>
-  </tr>
-  <tr>
-    <td>Johnny</td>
-    <td>Doe</td>
-    <td>80</td>
-     <td>50</td>
-     <td>50</td>
-  </tr>
-   <tr>
-    <td>Eve</td>
-    <td>Jackson</td>
-     <td>50</td>
-      <td>50</td>
-    <td>94</td>
-  </tr>
-   <tr>
-    <td>Eve</td>
-    <td>Jackson</td>
-    <td>94</td>
-     <td>50</td>
-      <td>50</td>
-  </tr>
+ <tr th:each="teachers : ${teachers}">
+			<td th:text="${teachers.name}">
+			<td th:text="${teachers.phone}">
+      		<td th:text="${teachers.gender}">
+      		<td th:text="${teachers.bloodGroup}">
+      		
+ 
+ </tr>
 </table>
 </div>
 </body>

@@ -46,7 +46,7 @@
 <h4 align="left" style="font-size: 32px">Add Student</h4>
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item" id="home"><a href="#">Home</a></li>
+            <li class="breadcrumb-item" id="home"><a href="/mydashboard">Home</a></li>
             <li class="breadcrumb-item active" aria-current="page">Add Student</li>
         </ol>
     </nav>
@@ -68,7 +68,7 @@
            <div class="from-label-group" th:replace="fragments/forminput::forminput(label='WEIGHT',name='weight' )"></div>
            <div class="from-label-group" th:replace="fragments/imagefile::imagefile(label='PHOTO',name='displayImage' )"></div>
            <div class="from-label-group" th:replace="fragments/forminput::forminput(label='STUDENTID',name='studentId' )"></div>
-            <div th:fragment ="forminput" class="forminput">
+          
                 <div class="form-group row">
                     <label th:text="Grade" style="text-align: end;" class="col-sm-3 col-form-label"></label>
                     <div class="col-sm-7">
@@ -128,20 +128,6 @@
                 });
             })
         })
-$(document).ready(function(){
-	$("#home").click(function(e){
-		e.preventDefault();
-		$.ajax({
-			method: "POST",
-			url: "/login",
-			success: function(status){
-				if(status) {
-					$("#body").html(status)
-				}
-			}
-		});
-	})
-})
     </script>
      </div>
 </body>

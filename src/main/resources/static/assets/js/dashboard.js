@@ -58,3 +58,18 @@ $(document).ready(function(){
 		});
 	})
 })
+$(document).ready(function(){
+	$("#displayteacher").click(function(e){
+		e.preventDefault();
+		$.ajax({
+			method: "POST",
+			url: "/teacherdisplay",
+			success: function(status){
+				if(status) {
+					console.log(status);
+					$("#results").html(status)
+				}
+			}
+		});
+	})
+})
