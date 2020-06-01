@@ -10,9 +10,7 @@
 	<div class="form-group row" th:fragment ="dropdownteacher" >
 		<label th:text="${label}" style="text-align: end;" class="col-sm-3 col-form-label"></label>
 		<div class="col-sm-2">
-
-
- <select class="form-control" id="testOrder" th:name="${name}">
+ <select class="form-control" th:name="${name}" th:id="teacherinput">
         <option value="">Teachers</option>
         <option th:each="teacher : ${teachers}"
                 th:value="${teacher.name}"

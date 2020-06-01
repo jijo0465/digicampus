@@ -56,13 +56,13 @@ public class StudentController {
 	    return "fragments/forms/addstud::addstud";
 	}
 
-	@PostMapping
+	/*@PostMapping
 	@RequestMapping("/addstudent")
 	public String Save(@ModelAttribute RegisterCommand command, Model model) {
 		System.out.println(command.getGradeid().getId());
 	   RegisterCommand savedCommand=studentService.saveRegisterCommand(command);
 	    return "mydashboard";
-	}
+	}*/
 	
 	
 
