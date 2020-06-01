@@ -46,7 +46,7 @@ public class StudentController {
 
 	@PostMapping
 	@RequestMapping("/addstudent")
-	public String Save(@RequestPart("displayImage") MultipartFile displayImage, @ModelAttribute RegisterCommand command, Model model) {
+	public String Save(@ModelAttribute RegisterCommand command, Model model) {
 		System.out.println(command.getGradeid().getId());
 	   RegisterCommand savedCommand=studentService.saveRegisterCommand(command);
 	    return "mydashboard";
