@@ -7,23 +7,7 @@
 </head>
 <body>
 
-<div class="container" style="min-width:80%" th:fragment="teachertimetable" id="teachertime">
-<h4 align="left" style="font-size: 32px" >Teacher Timetable</h4>
-<nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Teacher Timetable</li>
-        </ol>
-    </nav>
-<div class="dc-form-body">
-        <form action="#"  id="ttimetable" method="post" >
-            <div style="padding-bottom: 22px">
-                <h1 style="font-size: x-large" >Basic Information</h1>
-            </div>
-<div th:replace="fragments/datedrop :: datedrop(label='Days:',name='dayss')"></div>
-<div th:replace="fragments/forminput :: forminput(label='Teacher Id:',name='teachid')"></div>
-<div th:replace="fragments/formbutton::formbutton(label='submit',name='submit',class='btn btn-lg btn-primary btn-block text-uppercase')"></div>
-=======
+
 <div class="container" style="min-width: 80%" th:fragment="teachertimetable" id="teachertimetable">
 <h4 align="left" style="font-size: 32px">Teacher Timetable</h4>
 <nav aria-label="breadcrumb">
@@ -39,8 +23,10 @@
             </div>
 <div th:replace="fragments/dropdownteacher :: dropdownteacher(label='Teacher Name',name='teachername')"></div>
 <div th:replace="fragments/dropdownsubject :: dropdownsubject(label='Subject Name',name='subjectname')"></div>
-<div th:replace="fragments/display/teachertimetabledisplay::teachertimetabledisplay"></div>
->>>>>>> branch 'dev' of https://github.com/jijo0465/digicampus.git
+
+
+<div th:replace="fragments/forms/teachertimetabledisplay::teachertimetabledisplay"></div>
+
 </form>
 </div>
 </div>
