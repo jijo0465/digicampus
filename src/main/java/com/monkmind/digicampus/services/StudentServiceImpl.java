@@ -17,6 +17,7 @@ import com.monkmind.digicampus.repositories.StudentRepository;
 import lombok.AllArgsConstructor;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.transaction.Transactional;
 
@@ -86,5 +87,19 @@ public class StudentServiceImpl implements StudentService {
 		Student savedStudent=studentRepository.save(detachedStudent);
 		//log.debug("saved studentid :"+ savedStudent.getId());
 		return studentToRegisterCommand.convert(savedStudent) ;
+	}
+
+	@Transactional
+	@Override
+	public RegisterCommand findCommandById(long l) {
+		// TODO Auto-generated method stub
+		return studentToRegisterCommand.convert(findById(l));
+	}
+
+	@Override
+	public Student findById(long l) {
+		// TODO Auto-generated method stub
+		Optional<Student> studentoptional=studentRepository.findById(l);
+		return studentoptional.get();
 	}
 }
