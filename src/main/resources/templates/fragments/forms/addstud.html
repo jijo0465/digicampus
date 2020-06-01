@@ -46,7 +46,7 @@
 <h4 align="left" style="font-size: 32px">Add Student</h4>
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item" id="home"><a href="/dashboard">Home</a></li>
+            <li class="breadcrumb-item" id="home"><a href="/mydashboard">Home</a></li>
             <li class="breadcrumb-item active" aria-current="page">Add Student</li>
         </ol>
     </nav>
@@ -66,13 +66,20 @@
            <div class="from-label-group" th:replace="fragments/radiobut::radiobut(label='GENDER',name='gender' )"></div>
            <div class="from-label-group" th:replace="fragments/forminput::forminput(label='HEIGHT',name='height' )"></div>
            <div class="from-label-group" th:replace="fragments/forminput::forminput(label='WEIGHT',name='weight' )"></div>
-           <div class="from-label-group" th:replace="fragments/imagefile::imagefile(label='PHOTO',name='displayImage' )"></div>
+          <!-- <div class="from-label-group" th:replace="fragments/imagefile::imagefile(label='PHOTO',name='displayImage' )"></div>-->
+          
            <div class="from-label-group" th:replace="fragments/forminput::forminput(label='STUDENTID',name='studentId' )"></div>
-            <div th:fragment ="forminput" class="forminput">
+          
                 <div class="form-group row">
                     <label th:text="Grade" style="text-align: end;" class="col-sm-3 col-form-label"></label>
                     <div class="col-sm-7">
-                        <input type="text" th:field = "${command.gradeid.id}" th:name="gradeid" class="form-control" >
+                        <div class="form-group blu-margin">
+                            <select class="form-control" th:field="${command.gradeid}"  id="selectClass">
+                                <option value="0">select Class</option>
+                                <option th:each="gradeCommand : ${gradeList}" th:value="${gradeCommand.id}" th:text="${gradeCommand.division}"></option>
+                            </select>
+                        </div>
+<!--                        <input type="text" th:field = "${command.gradeid.id}" th:name="gradeid" class="form-control" >-->
                     </div>
                 </div>
 <!--           <div class="from-label-group" th:replace="fragments/forminput::forminput(label='GRADEID',name='gradeid' )"></div>-->
@@ -88,13 +95,32 @@
         <script th:inline="javascript">
 
         $(document).ready(function(){
+            $("input:file").change(function (){
+                var fileName = $(this).val();
+                // $(".filename").html(fileName);
+                $.ajax({
+                    method: "POST",
+                    data: $('#displayImage').attr('files'),
+                    cache: false,
+                    processData: false,
+                    contentType: "multipart/form-data",
+                    url: "/upload_image",
+                    success: function(status){
+                        console.log('Called')
+                        if(status) {
+                            $(".body").html(status)
+                        }
+                    }
+                });
+            });
+
             $("#studentsubmit").click(function(e){
                 e.preventDefault();
                 console.log("hai");
                 $.ajax({
                     method: "POST",
                     url: "/addstudent",
-                    data: $('#addstudform').serialize(),
+                    // data: $('#addstudform').serialize(),
                     success: function(status){
                         if(status) {
                            $(".body").html(status)

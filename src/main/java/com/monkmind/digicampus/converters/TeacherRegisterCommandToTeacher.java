@@ -43,7 +43,7 @@ public class TeacherRegisterCommandToTeacher implements Converter<TeacherRegiste
 		teacher.setGender(source.getGender());
 		teacher.setDisplayImage(source.getDisplayImage());
 		teacher.setGrade(gradeConverter.convert(source.getGrade()));
-		//teacher.
+		teacher.setBloodGroup(source.getBloodGroup());
 		return teacher;
 		
 	}

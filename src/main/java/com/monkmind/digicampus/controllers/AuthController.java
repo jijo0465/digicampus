@@ -14,6 +14,9 @@ import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class AuthController {
+	
+	
+	private boolean loginval=false;
     private final UserService userService;
     private final StudentService studentService;
     private final TeacherService teacherService;
@@ -30,12 +33,12 @@ public class AuthController {
         return "loginfinal";
     }
 
-    @PostMapping
-    @RequestMapping(value = "/dashboard")
-    public String validateLogin(@ModelAttribute LoginCommand logincommand, Model model){
+   // @PostMapping
+    /* @RequestMapping(value = "/dashboard")
+  public String validateLogin(@ModelAttribute LoginCommand logincommand, Model model){
         System.out.println(logincommand.getLoginId());
         User dbUser = userService.getUserByLoginId(logincommand.getLoginId());
-        /*shijina*/
+       
         if (dbUser!=null) {
             if (dbUser.getPassword().compareTo(logincommand.getPassword()) == 0){
             	//return "user";
@@ -64,7 +67,63 @@ public class AuthController {
         	return "loginfinal";
         }
         }
+*/
+    
+    @RequestMapping(value="/mydashboard" , method=RequestMethod.GET)
+    public String dashboard(Model model)
+    {
+    	if(loginval==true)
+    	{
+    	return "mydashboard";
+    	}
+    	else
+    	{
+    	return "loginfinal";
+    	}
     }
+    
+    @PostMapping
+    @RequestMapping(value="/dashboard")
+    public String validateLogin(@ModelAttribute LoginCommand logincommand, Model model){
+    System.out.println(logincommand.getLoginId());
+    User dbUser = userService.getUserByLoginId(logincommand.getLoginId());
+   
+    if (dbUser!=null) {
+    	
+        if (dbUser.getPassword().compareTo(logincommand.getPassword()) == 0){
+        	//return "user";
+           //return "fragments/formbutton:: formbutton";
+        	
+        	if(dbUser.getUsertype()==UserType.ADMIN) {
+        		
+        		loginval=true;
+            	return "mydashboard";
+            }
+        	else if(dbUser.getUsertype()==UserType.TEACHER) {
+            	
+            	return "adminhome";
+            }
+        	else if(dbUser.getUsertype()==UserType.STUDENT) {
+            	
+            	return "fragments/formbutton:: formbutton";
+            }
+        	return "loginfinal";
+             }
+        else{
+            model.addAttribute("message","Invalid Password");
+            return "loginfinal";
+        }
+        
+    }
+       else {
+    	return "loginfinal";
+    }
+    }
+    	
+    }
+    
+
+
 
              
     /*if (dbUser!=null) {

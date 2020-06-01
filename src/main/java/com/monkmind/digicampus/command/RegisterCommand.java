@@ -32,7 +32,7 @@ public class RegisterCommand {
 	private Gender gender;
 	private Double height;
 	private Double weight;
-	private byte[] displayImage;
+	//private byte[] displayImage;
 	private String studentId;
 	
 	private GradeCommand gradeid;

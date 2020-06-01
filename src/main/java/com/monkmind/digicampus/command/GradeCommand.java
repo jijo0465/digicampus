@@ -4,6 +4,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import com.monkmind.digicampus.models.Student;
+import com.monkmind.digicampus.models.Teacher;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -19,5 +20,6 @@ public class GradeCommand {
 	private String division;
 	private Double strength;
 	private Set<RegisterCommand> students = new HashSet<>();
+	 private TeacherRegisterCommand classTeacher;
 
 }
