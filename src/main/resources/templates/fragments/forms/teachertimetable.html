@@ -18,13 +18,12 @@
     </nav>
     <div class="dc-form-body">
 <form action="#" id="teachertimetable" method="post" class="" >
+
   <div style="padding-bottom: 22px">
                 <h1 style="font-size: x-large" >TimeTable Information</h1>
             </div>
 <div th:replace="fragments/dropdownteacher :: dropdownteacher(label='Teacher Name',name='teachername')"></div>
-<div th:replace="fragments/dropdownsubject :: dropdownsubject(label='Subject Name',name='subjectname')"></div>
-
-
+ <!--  <div th:replace="fragments/dropdownsubject :: dropdownsubject(label='Subject Name',name='subjectname')"></div>-->
 <div th:replace="fragments/forms/teachertimetabledisplay::teachertimetabledisplay"></div>
 
 </form>
