@@ -73,13 +73,13 @@ public class StudentController {
     */
 	
 
-	@RequestMapping("/edit/{studentId}")
-	public String studentUpdate(@PathVariable String studentId,Model model) {
+	@RequestMapping("/edit/{id}")
+	public String studentUpdate(@PathVariable String id,Model model) {
 		//ModelAndView mav = new ModelAndView("edit_product");
-		System.out.println(studentId);
-	    Student students = studentService.get(new Long(studentId));
-	    model.addAttribute("student",students);
-	     return "updatestudent";
+		//System.out.println(studentId);
+	   // Student students = studentService.get(new Long(studentId));
+	    model.addAttribute("command",studentService.findCommandById(Long.valueOf(id)));
+	     return "fragments/forms/addstud::addstud";
 	}
 	
 	/*@PostMapping
