@@ -4,23 +4,22 @@
     <meta charset="UTF-8">
      <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Teacher TimeTable Display</title>
-     <!-- <link th:href="@{/assets/css/teachertimetabledisplay.css}" rel="stylesheet"/> -->
 </head>
 <body>
-<div class="container" th:fragment="teachertimetabledisplay">
-<table>
-  <tr>
+<div class="container overflow-auto " th:fragment="teachertimetabledisplay">
+<table  class="table table-striped " >
+  <tr  class="table-dark">
   <td>
- <td >8:30-9:30
- <td  >9:30-10:30
- <td >10:3-11:30
+ <td >PERIOD ONE
+ <td >PERIOD TWO
+ <td >PERIOD THREE
   <td>
- <td >11:30-12:30
- <td >12:30-2:00
- <td  >2:00-3:00
- <td  >3:00-4:00
+ <td >PERIOD FOUR
+ <td >PERIOD FIVE
+ <td  >PERIOD SIX
+ <td>PERIOD SEVEN
   </tr>
-  <tr>
+  <tr >
     <td>MONDAY</td>
  <td>
  <select><option value = "SELECT">Select </option>
@@ -32,16 +31,14 @@
 	<option value = "vi">VI</option>
 	<option value = "vii">VII</option>
  </select>
- </td>
- <td>
-  <select><option value = "SELECT">Select </option>
-	<option value = "i">I</option>
-	<option value = "ii">II</option>
-	<option value = "iii">III</option>
-	<option value = "iv">IV</option>
-	<option value = "v">V</option>
-	<option value = "vi">VI</option>
-	<option value = "vii">VII</option>
+ <select><option value = "SELECT">Select </option>
+	<option value = "english">ENGLISH</option>
+	<option value = "malayalam">MALAYALAM</option>
+	<option value = "hindi">HINDI</option>
+	<option value = "physics">PHYSICS</option>
+	<option value = "chemistry">CHEMISTRY</option>
+	<option value = "sanskrit">SANSKRIT</option>
+	<option value = "drill">DRILL</option>
  </select>
  </td>
  <td>
@@ -54,8 +51,37 @@
 	<option value = "vi">VI</option>
 	<option value = "vii">VII</option>
  </select>
+ <select><option value = "SELECT">Select </option>
+	<option value = "english">ENGLISH</option>
+	<option value = "malayalam">MALAYALAM</option>
+	<option value = "hindi">HINDI</option>
+	<option value = "physics">PHYSICS</option>
+	<option value = "chemistry">CHEMISTRY</option>
+	<option value = "sanskrit">SANSKRIT</option>
+	<option value = "drill">DRILL</option>
+ </select>
  </td>
- <td rowspan="6">L<br>U<br>N<br>C<br>H
+ <td>
+  <select><option value = "SELECT">Select </option>
+	<option value = "i">I</option>
+	<option value = "ii">II</option>
+	<option value = "iii">III</option>
+	<option value = "iv">IV</option>
+	<option value = "v">V</option>
+	<option value = "vi">VI</option>
+	<option value = "vii">VII</option>
+ </select>
+ <select><option value = "SELECT">Select </option>
+	<option value = "english">ENGLISH</option>
+	<option value = "malayalam">MALAYALAM</option>
+	<option value = "hindi">HINDI</option>
+	<option value = "physics">PHYSICS</option>
+	<option value = "chemistry">CHEMISTRY</option>
+	<option value = "sanskrit">SANSKRIT</option>
+	<option value = "drill">DRILL</option>
+ </select>
+ </td>
+ <td rowspan="6">L<br>U<br>N<br>C<br>H<br>B<br>R<br>E<br>A<br>K
  <td> 
   <select><option value = "SELECT">Select </option>
 	<option value = "i">I</option>
@@ -66,6 +92,15 @@
 	<option value = "vi">VI</option>
 	<option value = "vii">VII</option>
  </select>
+ <select><option value = "SELECT">Select </option>
+	<option value = "english">ENGLISH</option>
+	<option value = "malayalam">MALAYALAM</option>
+	<option value = "hindi">HINDI</option>
+	<option value = "physics">PHYSICS</option>
+	<option value = "chemistry">CHEMISTRY</option>
+	<option value = "sanskrit">SANSKRIT</option>
+	<option value = "drill">DRILL</option>
+ </select>
  </td>
  <td>
   <select><option value = "SELECT">Select </option>
@@ -77,8 +112,17 @@
 	<option value = "vi">VI</option>
 	<option value = "vii">VII</option>
  </select>
+ <select><option value = "SELECT">Select </option>
+	<option value = "english">ENGLISH</option>
+	<option value = "malayalam">MALAYALAM</option>
+	<option value = "hindi">HINDI</option>
+	<option value = "physics">PHYSICS</option>
+	<option value = "chemistry">CHEMISTRY</option>
+	<option value = "sanskrit">SANSKRIT</option>
+	<option value = "drill">DRILL</option>
+ </select>
  </td>
- <td> <font color="maroon">
+ <td>
   <select><option value = "SELECT">Select </option>
 	<option value = "i">I</option>
 	<option value = "ii">II</option>
@@ -88,8 +132,17 @@
 	<option value = "vi">VI</option>
 	<option value = "vii">VII</option>
  </select>
- </font></td>
- <td> <font color="maroon">
+ <select><option value = "SELECT">Select </option>
+	<option value = "english">ENGLISH</option>
+	<option value = "malayalam">MALAYALAM</option>
+	<option value = "hindi">HINDI</option>
+	<option value = "physics">PHYSICS</option>
+	<option value = "chemistry">CHEMISTRY</option>
+	<option value = "sanskrit">SANSKRIT</option>
+	<option value = "drill">DRILL</option>
+ </select>
+ </td>
+ <td> 
   <select><option value = "SELECT">Select </option>
 	<option value = "i">I</option>
 	<option value = "ii">II</option>
@@ -99,10 +152,19 @@
 	<option value = "vi">VI</option>
 	<option value = "vii">VII</option>
  </select>
- </font></td>
+ <select><option value = "SELECT">Select </option>
+	<option value = "english">ENGLISH</option>
+	<option value = "malayalam">MALAYALAM</option>
+	<option value = "hindi">HINDI</option>
+	<option value = "physics">PHYSICS</option>
+	<option value = "chemistry">CHEMISTRY</option>
+	<option value = "sanskrit">SANSKRIT</option>
+	<option value = "drill">DRILL</option>
+ </select>
+ </td>
  </tr>
  <td>TUESDAY
- <td><font color="blue">
+ <td>
   <select><option value = "SELECT">Select </option>
 	<option value = "i">I</option>
 	<option value = "ii">II</option>
@@ -112,8 +174,17 @@
 	<option value = "vi">VI</option>
 	<option value = "vii">VII</option>
  </select>
- </font></td>
- <td><font color="red">
+ <select><option value = "SELECT">Select </option>
+	<option value = "english">ENGLISH</option>
+	<option value = "malayalam">MALAYALAM</option>
+	<option value = "hindi">HINDI</option>
+	<option value = "physics">PHYSICS</option>
+	<option value = "chemistry">CHEMISTRY</option>
+	<option value = "sanskrit">SANSKRIT</option>
+	<option value = "drill">DRILL</option>
+ </select>
+ </td>
+ <td>
   <select><option value = "SELECT">Select </option>
 	<option value = "i">I</option>
 	<option value = "ii">II</option>
@@ -123,8 +194,17 @@
 	<option value = "vi">VI</option>
 	<option value = "vii">VII</option>
  </select>
- </font></td>
- <td><font color="pink">
+ <select><option value = "SELECT">Select </option>
+	<option value = "english">ENGLISH</option>
+	<option value = "malayalam">MALAYALAM</option>
+	<option value = "hindi">HINDI</option>
+	<option value = "physics">PHYSICS</option>
+	<option value = "chemistry">CHEMISTRY</option>
+	<option value = "sanskrit">SANSKRIT</option>
+	<option value = "drill">DRILL</option>
+ </select>
+ </td>
+ <td>
   <select><option value = "SELECT">Select </option>
 	<option value = "i">I</option>
 	<option value = "ii">II</option>
@@ -134,8 +214,17 @@
 	<option value = "vi">VI</option>
 	<option value = "vii">VII</option>
  </select>
- </font></td>
- <td> <font color="maroon">
+ <select><option value = "SELECT">Select </option>
+	<option value = "english">ENGLISH</option>
+	<option value = "malayalam">MALAYALAM</option>
+	<option value = "hindi">HINDI</option>
+	<option value = "physics">PHYSICS</option>
+	<option value = "chemistry">CHEMISTRY</option>
+	<option value = "sanskrit">SANSKRIT</option>
+	<option value = "drill">DRILL</option>
+ </select>
+</td>
+ <td>
   <select><option value = "SELECT">Select </option>
 	<option value = "i">I</option>
 	<option value = "ii">II</option>
@@ -145,8 +234,17 @@
 	<option value = "vi">VI</option>
 	<option value = "vii">VII</option>
  </select>
- </font></td>
- <td> <font color="orange">
+ <select><option value = "SELECT">Select </option>
+	<option value = "english">ENGLISH</option>
+	<option value = "malayalam">MALAYALAM</option>
+	<option value = "hindi">HINDI</option>
+	<option value = "physics">PHYSICS</option>
+	<option value = "chemistry">CHEMISTRY</option>
+	<option value = "sanskrit">SANSKRIT</option>
+	<option value = "drill">DRILL</option>
+ </select>
+</td>
+ <td> 
   <select><option value = "SELECT">Select </option>
 	<option value = "i">I</option>
 	<option value = "ii">II</option>
@@ -156,8 +254,17 @@
 	<option value = "vi">VI</option>
 	<option value = "vii">VII</option>
  </select>
- </font></td>
- <td> <font color="maroon">
+ <select><option value = "SELECT">Select </option>
+	<option value = "english">ENGLISH</option>
+	<option value = "malayalam">MALAYALAM</option>
+	<option value = "hindi">HINDI</option>
+	<option value = "physics">PHYSICS</option>
+	<option value = "chemistry">CHEMISTRY</option>
+	<option value = "sanskrit">SANSKRIT</option>
+	<option value = "drill">DRILL</option>
+ </select>
+ </td>
+ <td> 
   <select><option value = "SELECT">Select </option>
 	<option value = "i">I</option>
 	<option value = "ii">II</option>
@@ -167,8 +274,17 @@
 	<option value = "vi">VI</option>
 	<option value = "vii">VII</option>
  </select>
- </font></td>
- <td> <font color="maroon">
+ <select><option value = "SELECT">Select </option>
+	<option value = "english">ENGLISH</option>
+	<option value = "malayalam">MALAYALAM</option>
+	<option value = "hindi">HINDI</option>
+	<option value = "physics">PHYSICS</option>
+	<option value = "chemistry">CHEMISTRY</option>
+	<option value = "sanskrit">SANSKRIT</option>
+	<option value = "drill">DRILL</option>
+ </select>
+</td>
+ <td> 
   <select><option value = "SELECT">Select </option>
 	<option value = "i">I</option>
 	<option value = "ii">II</option>
@@ -178,11 +294,20 @@
 	<option value = "vi">VI</option>
 	<option value = "vii">VII</option>
  </select>
- </font></td>
+ <select><option value = "SELECT">Select </option>
+	<option value = "english">ENGLISH</option>
+	<option value = "malayalam">MALAYALAM</option>
+	<option value = "hindi">HINDI</option>
+	<option value = "physics">PHYSICS</option>
+	<option value = "chemistry">CHEMISTRY</option>
+	<option value = "sanskrit">SANSKRIT</option>
+	<option value = "drill">DRILL</option>
+ </select>
+</td>
 </tr>
 <tr>
  <td>WEDNESDAY
- <td><font color="pink">
+ <td>
   <select><option value = "SELECT">Select </option>
 	<option value = "i">I</option>
 	<option value = "ii">II</option>
@@ -192,8 +317,17 @@
 	<option value = "vi">VI</option>
 	<option value = "vii">VII</option>
  </select>
- </font></td>
- <td><font color="orange">
+ <select><option value = "SELECT">Select </option>
+	<option value = "english">ENGLISH</option>
+	<option value = "malayalam">MALAYALAM</option>
+	<option value = "hindi">HINDI</option>
+	<option value = "physics">PHYSICS</option>
+	<option value = "chemistry">CHEMISTRY</option>
+	<option value = "sanskrit">SANSKRIT</option>
+	<option value = "drill">DRILL</option>
+ </select>
+ </td>
+ <td>
   <select><option value = "SELECT">Select </option>
 	<option value = "i">I</option>
 	<option value = "ii">II</option>
@@ -203,8 +337,17 @@
 	<option value = "vi">VI</option>
 	<option value = "vii">VII</option>
  </select>
- </font></td>
- <td><font color="brown">
+ <select><option value = "SELECT">Select </option>
+	<option value = "english">ENGLISH</option>
+	<option value = "malayalam">MALAYALAM</option>
+	<option value = "hindi">HINDI</option>
+	<option value = "physics">PHYSICS</option>
+	<option value = "chemistry">CHEMISTRY</option>
+	<option value = "sanskrit">SANSKRIT</option>
+	<option value = "drill">DRILL</option>
+ </select>
+ </td>
+ <td>
   <select><option value = "SELECT">Select </option>
 	<option value = "i">I</option>
 	<option value = "ii">II</option>
@@ -214,8 +357,17 @@
 	<option value = "vi">VI</option>
 	<option value = "vii">VII</option>
  </select>
- </font></td>
- <td><font color="brown">
+ <select><option value = "SELECT">Select </option>
+	<option value = "english">ENGLISH</option>
+	<option value = "malayalam">MALAYALAM</option>
+	<option value = "hindi">HINDI</option>
+	<option value = "physics">PHYSICS</option>
+	<option value = "chemistry">CHEMISTRY</option>
+	<option value = "sanskrit">SANSKRIT</option>
+	<option value = "drill">DRILL</option>
+ </select>
+ </td>
+ <td>
   <select><option value = "SELECT">Select </option>
 	<option value = "i">I</option>
 	<option value = "ii">II</option>
@@ -225,9 +377,17 @@
 	<option value = "vi">VI</option>
 	<option value = "vii">VII</option>
  </select>
- </font></td>
-  
- <td ><font color="green"> 
+ <select><option value = "SELECT">Select </option>
+	<option value = "english">ENGLISH</option>
+	<option value = "malayalam">MALAYALAM</option>
+	<option value = "hindi">HINDI</option>
+	<option value = "physics">PHYSICS</option>
+	<option value = "chemistry">CHEMISTRY</option>
+	<option value = "sanskrit">SANSKRIT</option>
+	<option value = "drill">DRILL</option>
+ </select>
+ </td>
+ <td >
   <select><option value = "SELECT">Select </option>
 	<option value = "i">I</option>
 	<option value = "ii">II</option>
@@ -237,8 +397,17 @@
 	<option value = "vi">VI</option>
 	<option value = "vii">VII</option>
  </select>
- </font></td>
-  <td> <font color="maroon">
+ <select><option value = "SELECT">Select </option>
+	<option value = "english">ENGLISH</option>
+	<option value = "malayalam">MALAYALAM</option>
+	<option value = "hindi">HINDI</option>
+	<option value = "physics">PHYSICS</option>
+	<option value = "chemistry">CHEMISTRY</option>
+	<option value = "sanskrit">SANSKRIT</option>
+	<option value = "drill">DRILL</option>
+ </select>
+ </td>
+  <td> 
   <select><option value = "SELECT">Select </option>
 	<option value = "i">I</option>
 	<option value = "ii">II</option>
@@ -248,8 +417,17 @@
 	<option value = "vi">VI</option>
 	<option value = "vii">VII</option>
  </select>
-  </font></td>
-  <td> <font color="maroon">
+ <select><option value = "SELECT">Select </option>
+	<option value = "english">ENGLISH</option>
+	<option value = "malayalam">MALAYALAM</option>
+	<option value = "hindi">HINDI</option>
+	<option value = "physics">PHYSICS</option>
+	<option value = "chemistry">CHEMISTRY</option>
+	<option value = "sanskrit">SANSKRIT</option>
+	<option value = "drill">DRILL</option>
+ </select>
+ </td>
+  <td> 
   <select><option value = "SELECT">Select </option>
 	<option value = "i">I</option>
 	<option value = "ii">II</option>
@@ -259,12 +437,20 @@
 	<option value = "vi">VI</option>
 	<option value = "vii">VII</option>
  </select>
- </font></td>
+ <select><option value = "SELECT">Select </option>
+	<option value = "english">ENGLISH</option>
+	<option value = "malayalam">MALAYALAM</option>
+	<option value = "hindi">HINDI</option>
+	<option value = "physics">PHYSICS</option>
+	<option value = "chemistry">CHEMISTRY</option>
+	<option value = "sanskrit">SANSKRIT</option>
+	<option value = "drill">DRILL</option>
+ </select>
+ </td>
 </tr>
 <tr>
  <td>THURSDAY
- 
- <td ><font color="brown">
+ <td >
   <select><option value = "SELECT">Select </option>
 	<option value = "i">I</option>
 	<option value = "ii">II</option>
@@ -274,8 +460,17 @@
 	<option value = "vi">VI</option>
 	<option value = "vii">VII</option>
  </select>
- </font></td>
- <td ><font color="brown">
+ <select><option value = "SELECT">Select </option>
+	<option value = "english">ENGLISH</option>
+	<option value = "malayalam">MALAYALAM</option>
+	<option value = "hindi">HINDI</option>
+	<option value = "physics">PHYSICS</option>
+	<option value = "chemistry">CHEMISTRY</option>
+	<option value = "sanskrit">SANSKRIT</option>
+	<option value = "drill">DRILL</option>
+ </select>
+</td>
+ <td >
   <select><option value = "SELECT">Select </option>
 	<option value = "i">I</option>
 	<option value = "ii">II</option>
@@ -285,8 +480,17 @@
 	<option value = "vi">VI</option>
 	<option value = "vii">VII</option>
  </select>
- </font></td>
- <td ><font color="orange">
+ <select><option value = "SELECT">Select </option>
+	<option value = "english">ENGLISH</option>
+	<option value = "malayalam">MALAYALAM</option>
+	<option value = "hindi">HINDI</option>
+	<option value = "physics">PHYSICS</option>
+	<option value = "chemistry">CHEMISTRY</option>
+	<option value = "sanskrit">SANSKRIT</option>
+	<option value = "drill">DRILL</option>
+ </select>
+ </td>
+ <td >
   <select><option value = "SELECT">Select </option>
 	<option value = "i">I</option>
 	<option value = "ii">II</option>
@@ -296,8 +500,17 @@
 	<option value = "vi">VI</option>
 	<option value = "vii">VII</option>
  </select>
- </font></td>
- <td ><font color="orange">
+ <select><option value = "SELECT">Select </option>
+	<option value = "english">ENGLISH</option>
+	<option value = "malayalam">MALAYALAM</option>
+	<option value = "hindi">HINDI</option>
+	<option value = "physics">PHYSICS</option>
+	<option value = "chemistry">CHEMISTRY</option>
+	<option value = "sanskrit">SANSKRIT</option>
+	<option value = "drill">DRILL</option>
+ </select>
+</td>
+ <td >
   <select><option value = "SELECT">Select </option>
 	<option value = "i">I</option>
 	<option value = "ii">II</option>
@@ -307,8 +520,17 @@
 	<option value = "vi">VI</option>
 	<option value = "vii">VII</option>
  </select>
- </font></td>
- <td ><font color="orange">
+ <select><option value = "SELECT">Select </option>
+	<option value = "english">ENGLISH</option>
+	<option value = "malayalam">MALAYALAM</option>
+	<option value = "hindi">HINDI</option>
+	<option value = "physics">PHYSICS</option>
+	<option value = "chemistry">CHEMISTRY</option>
+	<option value = "sanskrit">SANSKRIT</option>
+	<option value = "drill">DRILL</option>
+ </select>
+ </td>
+ <td >
   <select><option value = "SELECT">Select </option>
 	<option value = "i">I</option>
 	<option value = "ii">II</option>
@@ -318,8 +540,17 @@
 	<option value = "vi">VI</option>
 	<option value = "vii">VII</option>
  </select>
- </font></td>
- <td ><font color="orange">
+ <select><option value = "SELECT">Select </option>
+	<option value = "english">ENGLISH</option>
+	<option value = "malayalam">MALAYALAM</option>
+	<option value = "hindi">HINDI</option>
+	<option value = "physics">PHYSICS</option>
+	<option value = "chemistry">CHEMISTRY</option>
+	<option value = "sanskrit">SANSKRIT</option>
+	<option value = "drill">DRILL</option>
+ </select>
+ </td>
+ <td >
   <select><option value = "SELECT">Select </option>
 	<option value = "i">I</option>
 	<option value = "ii">II</option>
@@ -329,8 +560,17 @@
 	<option value = "vi">VI</option>
 	<option value = "vii">VII</option>
  </select>
- </font></td>
- <td ><font color="orange">
+ <select><option value = "SELECT">Select </option>
+	<option value = "english">ENGLISH</option>
+	<option value = "malayalam">MALAYALAM</option>
+	<option value = "hindi">HINDI</option>
+	<option value = "physics">PHYSICS</option>
+	<option value = "chemistry">CHEMISTRY</option>
+	<option value = "sanskrit">SANSKRIT</option>
+	<option value = "drill">DRILL</option>
+ </select>
+ </td>
+ <td >
   <select><option value = "SELECT">Select </option>
 	<option value = "i">I</option>
 	<option value = "ii">II</option>
@@ -340,11 +580,20 @@
 	<option value = "vi">VI</option>
 	<option value = "vii">VII</option>
  </select>
- </font></td>
+ <select><option value = "SELECT">Select </option>
+	<option value = "english">ENGLISH</option>
+	<option value = "malayalam">MALAYALAM</option>
+	<option value = "hindi">HINDI</option>
+	<option value = "physics">PHYSICS</option>
+	<option value = "chemistry">CHEMISTRY</option>
+	<option value = "sanskrit">SANSKRIT</option>
+	<option value = "drill">DRILL</option>
+ </select>
+ </td>
 </tr>
 <tr>
  <td>FRIDAY
- <td ><font color="orange">
+ <td >
   <select><option value = "SELECT">Select </option>
 	<option value = "i">I</option>
 	<option value = "ii">II</option>
@@ -354,8 +603,17 @@
 	<option value = "vi">VI</option>
 	<option value = "vii">VII</option>
  </select>
- </font></td>
- <td ><font color="orange">
+ <select><option value = "SELECT">Select </option>
+	<option value = "english">ENGLISH</option>
+	<option value = "malayalam">MALAYALAM</option>
+	<option value = "hindi">HINDI</option>
+	<option value = "physics">PHYSICS</option>
+	<option value = "chemistry">CHEMISTRY</option>
+	<option value = "sanskrit">SANSKRIT</option>
+	<option value = "drill">DRILL</option>
+ </select>
+ </td>
+ <td >
   <select><option value = "SELECT">Select </option>
 	<option value = "i">I</option>
 	<option value = "ii">II</option>
@@ -365,8 +623,17 @@
 	<option value = "vi">VI</option>
 	<option value = "vii">VII</option>
  </select>
- </font></td>
- <td ><font color="orange">
+ <select><option value = "SELECT">Select </option>
+	<option value = "english">ENGLISH</option>
+	<option value = "malayalam">MALAYALAM</option>
+	<option value = "hindi">HINDI</option>
+	<option value = "physics">PHYSICS</option>
+	<option value = "chemistry">CHEMISTRY</option>
+	<option value = "sanskrit">SANSKRIT</option>
+	<option value = "drill">DRILL</option>
+ </select>
+ </td>
+ <td >
   <select><option value = "SELECT">Select </option>
 	<option value = "i">I</option>
 	<option value = "ii">II</option>
@@ -376,8 +643,17 @@
 	<option value = "vi">VI</option>
 	<option value = "vii">VII</option>
  </select>
- </font></td>
- <td ><font color="orange">
+ <select><option value = "SELECT">Select </option>
+	<option value = "english">ENGLISH</option>
+	<option value = "malayalam">MALAYALAM</option>
+	<option value = "hindi">HINDI</option>
+	<option value = "physics">PHYSICS</option>
+	<option value = "chemistry">CHEMISTRY</option>
+	<option value = "sanskrit">SANSKRIT</option>
+	<option value = "drill">DRILL</option>
+ </select>
+ </td>
+ <td >
   <select><option value = "SELECT">Select </option>
 	<option value = "i">I</option>
 	<option value = "ii">II</option>
@@ -387,8 +663,17 @@
 	<option value = "vi">VI</option>
 	<option value = "vii">VII</option>
  </select>
- </font></td>
- <td ><font color="orange">
+ <select><option value = "SELECT">Select </option>
+	<option value = "english">ENGLISH</option>
+	<option value = "malayalam">MALAYALAM</option>
+	<option value = "hindi">HINDI</option>
+	<option value = "physics">PHYSICS</option>
+	<option value = "chemistry">CHEMISTRY</option>
+	<option value = "sanskrit">SANSKRIT</option>
+	<option value = "drill">DRILL</option>
+ </select>
+ </td>
+ <td >
   <select><option value = "SELECT">Select </option>
 	<option value = "i">I</option>
 	<option value = "ii">II</option>
@@ -398,8 +683,17 @@
 	<option value = "vi">VI</option>
 	<option value = "vii">VII</option>
  </select>
- </font></td>
-<td ><font color="orange">
+ <select><option value = "SELECT">Select </option>
+	<option value = "english">ENGLISH</option>
+	<option value = "malayalam">MALAYALAM</option>
+	<option value = "hindi">HINDI</option>
+	<option value = "physics">PHYSICS</option>
+	<option value = "chemistry">CHEMISTRY</option>
+	<option value = "sanskrit">SANSKRIT</option>
+	<option value = "drill">DRILL</option>
+ </select>
+ </td>
+<td >
   <select><option value = "SELECT">Select </option>
 	<option value = "i">I</option>
 	<option value = "ii">II</option>
@@ -409,8 +703,17 @@
 	<option value = "vi">VI</option>
 	<option value = "vii">VII</option>
  </select>
- </font></td>
-<td ><font color="orange">
+ <select><option value = "SELECT">Select </option>
+	<option value = "english">ENGLISH</option>
+	<option value = "malayalam">MALAYALAM</option>
+	<option value = "hindi">HINDI</option>
+	<option value = "physics">PHYSICS</option>
+	<option value = "chemistry">CHEMISTRY</option>
+	<option value = "sanskrit">SANSKRIT</option>
+	<option value = "drill">DRILL</option>
+ </select>
+ </td>
+<td >
   <select><option value = "SELECT">Select </option>
 	<option value = "i">I</option>
 	<option value = "ii">II</option>
@@ -420,11 +723,20 @@
 	<option value = "vi">VI</option>
 	<option value = "vii">VII</option>
  </select>
- </font></td>
+ <select><option value = "SELECT">Select </option>
+	<option value = "english">ENGLISH</option>
+	<option value = "malayalam">MALAYALAM</option>
+	<option value = "hindi">HINDI</option>
+	<option value = "physics">PHYSICS</option>
+	<option value = "chemistry">CHEMISTRY</option>
+	<option value = "sanskrit">SANSKRIT</option>
+	<option value = "drill">DRILL</option>
+ </select>
+ </td>
 </tr>
 <tr>
  <td >SATURDAY
- <td ><font color="orange">
+ <td >
   <select><option value = "SELECT">Select </option>
 	<option value = "i">I</option>
 	<option value = "ii">II</option>
@@ -434,9 +746,18 @@
 	<option value = "vi">VI</option>
 	<option value = "vii">VII</option>
  </select>
- </font></td>
+ <select><option value = "SELECT">Select </option>
+	<option value = "english">ENGLISH</option>
+	<option value = "malayalam">MALAYALAM</option>
+	<option value = "hindi">HINDI</option>
+	<option value = "physics">PHYSICS</option>
+	<option value = "chemistry">CHEMISTRY</option>
+	<option value = "sanskrit">SANSKRIT</option>
+	<option value = "drill">DRILL</option>
+ </select>
+ </td>
  
- <td ><font color="orange">
+ <td >
   <select><option value = "SELECT">Select </option>
 	<option value = "i">I</option>
 	<option value = "ii">II</option>
@@ -446,8 +767,17 @@
 	<option value = "vi">VI</option>
 	<option value = "vii">VII</option>
  </select>
- </font></td>
- <td ><font color="orange">
+ <select><option value = "SELECT">Select </option>
+	<option value = "english">ENGLISH</option>
+	<option value = "malayalam">MALAYALAM</option>
+	<option value = "hindi">HINDI</option>
+	<option value = "physics">PHYSICS</option>
+	<option value = "chemistry">CHEMISTRY</option>
+	<option value = "sanskrit">SANSKRIT</option>
+	<option value = "drill">DRILL</option>
+ </select>
+ </td>
+ <td >
   <select><option value = "SELECT">Select </option>
 	<option value = "i">I</option>
 	<option value = "ii">II</option>
@@ -457,8 +787,17 @@
 	<option value = "vi">VI</option>
 	<option value = "vii">VII</option>
  </select>
- </font></td>
- <td ><font color="orange">
+ <select><option value = "SELECT">Select </option>
+	<option value = "english">ENGLISH</option>
+	<option value = "malayalam">MALAYALAM</option>
+	<option value = "hindi">HINDI</option>
+	<option value = "physics">PHYSICS</option>
+	<option value = "chemistry">CHEMISTRY</option>
+	<option value = "sanskrit">SANSKRIT</option>
+	<option value = "drill">DRILL</option>
+ </select>
+ </td>
+ <td >
   <select><option value = "SELECT">Select </option>
 	<option value = "i">I</option>
 	<option value = "ii">II</option>
@@ -468,8 +807,17 @@
 	<option value = "vi">VI</option>
 	<option value = "vii">VII</option>
  </select>
- </font></td>
-<td ><font color="orange">
+ <select><option value = "SELECT">Select </option>
+	<option value = "english">ENGLISH</option>
+	<option value = "malayalam">MALAYALAM</option>
+	<option value = "hindi">HINDI</option>
+	<option value = "physics">PHYSICS</option>
+	<option value = "chemistry">CHEMISTRY</option>
+	<option value = "sanskrit">SANSKRIT</option>
+	<option value = "drill">DRILL</option>
+ </select>
+ </td>
+<td >
   <select><option value = "SELECT">Select </option>
 	<option value = "i">I</option>
 	<option value = "ii">II</option>
@@ -479,8 +827,17 @@
 	<option value = "vi">VI</option>
 	<option value = "vii">VII</option>
  </select>
- </font></td>
- <td ><font color="orange">
+ <select><option value = "SELECT">Select </option>
+	<option value = "english">ENGLISH</option>
+	<option value = "malayalam">MALAYALAM</option>
+	<option value = "hindi">HINDI</option>
+	<option value = "physics">PHYSICS</option>
+	<option value = "chemistry">CHEMISTRY</option>
+	<option value = "sanskrit">SANSKRIT</option>
+	<option value = "drill">DRILL</option>
+ </select>
+ </td>
+ <td >
   <select><option value = "SELECT">Select </option>
 	<option value = "i">I</option>
 	<option value = "ii">II</option>
@@ -490,8 +847,17 @@
 	<option value = "vi">VI</option>
 	<option value = "vii">VII</option>
  </select>
- </font></td>
-   <td ><font color="orange">
+ <select><option value = "SELECT">Select </option>
+	<option value = "english">ENGLISH</option>
+	<option value = "malayalam">MALAYALAM</option>
+	<option value = "hindi">HINDI</option>
+	<option value = "physics">PHYSICS</option>
+	<option value = "chemistry">CHEMISTRY</option>
+	<option value = "sanskrit">SANSKRIT</option>
+	<option value = "drill">DRILL</option>
+ </select>
+ </td>
+   <td >
   <select><option value = "SELECT">Select </option>
 	<option value = "i">I</option>
 	<option value = "ii">II</option>
@@ -501,7 +867,16 @@
 	<option value = "vi">VI</option>
 	<option value = "vii">VII</option>
  </select>
- </font></td>
+ <select><option value = "SELECT">Select </option>
+	<option value = "english">ENGLISH</option>
+	<option value = "malayalam">MALAYALAM</option>
+	<option value = "hindi">HINDI</option>
+	<option value = "physics">PHYSICS</option>
+	<option value = "chemistry">CHEMISTRY</option>
+	<option value = "sanskrit">SANSKRIT</option>
+	<option value = "drill">DRILL</option>
+ </select>
+ </td>
 </tr>
 </table>
 </div>

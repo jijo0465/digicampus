@@ -45,7 +45,7 @@ public class RegisterCommandToStudent implements Converter<RegisterCommand, Stud
 		st.setAltPhone(source.getAltPhone());
 		st.setBloodGroup(source.getBloodGroup());
 		st.setDateOfBirth(source.getDob());
-		st.setDisplayImage(source.getDisplayImage());
+		//st.setDisplayImage(source.getDisplayImage());
 		st.setHeight(source.getHeight());
 		st.setWeight(source.getWeight());
 		st.setGender(source.getGender());

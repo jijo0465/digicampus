@@ -14,6 +14,9 @@ import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class AuthController {
+	
+	
+	private boolean loginval=false;
     private final UserService userService;
     private final StudentService studentService;
     private final TeacherService teacherService;
@@ -66,10 +69,17 @@ public class AuthController {
         }
 */
     
-    @RequestMapping(value="/mydashboard")
+    @RequestMapping(value="/mydashboard" , method=RequestMethod.GET)
     public String dashboard(Model model)
     {
-    	return "rediect:/";
+    	if(loginval==true)
+    	{
+    	return "mydashboard";
+    	}
+    	else
+    	{
+    	return "loginfinal";
+    	}
     }
     
     @PostMapping
@@ -79,11 +89,14 @@ public class AuthController {
     User dbUser = userService.getUserByLoginId(logincommand.getLoginId());
    
     if (dbUser!=null) {
+    	
         if (dbUser.getPassword().compareTo(logincommand.getPassword()) == 0){
         	//return "user";
            //return "fragments/formbutton:: formbutton";
+        	
         	if(dbUser.getUsertype()==UserType.ADMIN) {
-            	
+        		
+        		loginval=true;
             	return "mydashboard";
             }
         	else if(dbUser.getUsertype()==UserType.TEACHER) {
