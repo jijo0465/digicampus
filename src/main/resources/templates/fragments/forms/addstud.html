@@ -52,7 +52,7 @@
     </nav>
     <div class="dc-form-body">
 
-        <form action="#"  id="addstudform" method="post" th:object="${command}">
+        <form action="#"  id="addstudform" method="post" th:object="${command}" >
 
             <div style="padding-bottom: 22px">
                 <h1 style="font-size: x-large" >Basic Information</h1>
@@ -72,7 +72,13 @@
                 <div class="form-group row">
                     <label th:text="Grade" style="text-align: end;" class="col-sm-3 col-form-label"></label>
                     <div class="col-sm-7">
-                        <input type="text" th:field = "${command.gradeid.id}" th:name="gradeid" class="form-control" >
+                        <div class="form-group blu-margin">
+                            <select class="form-control" th:field="${command.gradeid}"  id="selectClass">
+                                <option value="0">select Class</option>
+                                <option th:each="gradeCommand : ${gradeList}" th:value="${gradeCommand.id}" th:text="${gradeCommand.division}"></option>
+                            </select>
+                        </div>
+<!--                        <input type="text" th:field = "${command.gradeid.id}" th:name="gradeid" class="form-control" >-->
                     </div>
                 </div>
 <!--           <div class="from-label-group" th:replace="fragments/forminput::forminput(label='GRADEID',name='gradeid' )"></div>-->
@@ -88,13 +94,32 @@
         <script th:inline="javascript">
 
         $(document).ready(function(){
+            $("input:file").change(function (){
+                var fileName = $(this).val();
+                // $(".filename").html(fileName);
+                $.ajax({
+                    method: "POST",
+                    data: $('#displayImage').attr('files'),
+                    cache: false,
+                    processData: false,
+                    contentType: "multipart/form-data",
+                    url: "/upload_image",
+                    success: function(status){
+                        console.log('Called')
+                        if(status) {
+                            $(".body").html(status)
+                        }
+                    }
+                });
+            });
+
             $("#studentsubmit").click(function(e){
                 e.preventDefault();
                 console.log("hai");
                 $.ajax({
                     method: "POST",
                     url: "/addstudent",
-                    data: $('#addstudform').serialize(),
+                    // data: $('#addstudform').serialize(),
                     success: function(status){
                         if(status) {
                            $(".body").html(status)

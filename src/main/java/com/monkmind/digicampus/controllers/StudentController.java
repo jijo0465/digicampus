@@ -1,5 +1,6 @@
 package com.monkmind.digicampus.controllers;
 
+import com.monkmind.digicampus.command.GradeCommand;
 import com.monkmind.digicampus.command.RegisterCommand;
 import com.monkmind.digicampus.models.Gender;
 
@@ -10,6 +11,7 @@ import com.monkmind.digicampus.services.StudentService;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -40,13 +42,24 @@ public class StudentController {
 
     @RequestMapping("/add_student")
 	public String studentForm(Model model) {
-	    model.addAttribute("command", new RegisterCommand());
+        RegisterCommand registerCommand = new RegisterCommand();
+        List<GradeCommand> gradeCommands = new ArrayList<>();
+        GradeCommand gradeCommand = new GradeCommand();
+        gradeCommand.setDivision("A");
+        gradeCommand.setId(1);
+        GradeCommand gradeCommand2 = new GradeCommand();
+        gradeCommand.setDivision("B");
+        gradeCommand.setId(2);
+        gradeCommands.add(gradeCommand);
+        gradeCommands.add(gradeCommand2);
+	    model.addAttribute("command", registerCommand);
+	    model.addAttribute("gradeList", gradeCommands);
 	    return "fragments/forms/addstud::addstud";
 	}
 
 	@PostMapping
 	@RequestMapping("/addstudent")
-	public String Save(@RequestPart("displayImage") MultipartFile displayImage, @ModelAttribute RegisterCommand command, Model model) {
+	public String Save(@RequestParam("displayImage") MultipartFile displayImage, @ModelAttribute RegisterCommand command, Model model) {
 		System.out.println(command.getGradeid().getId());
 	   RegisterCommand savedCommand=studentService.saveRegisterCommand(command);
 	    return "mydashboard";
