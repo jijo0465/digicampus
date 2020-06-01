@@ -3,10 +3,11 @@ package com.monkmind.digicampus.controllers;
 import com.monkmind.digicampus.command.GradeCommand;
 import com.monkmind.digicampus.command.RegisterCommand;
 import com.monkmind.digicampus.models.Gender;
-
+import com.monkmind.digicampus.models.Grade;
 import com.monkmind.digicampus.models.Parent;
 import com.monkmind.digicampus.models.Person;
 import com.monkmind.digicampus.models.Student;
+import com.monkmind.digicampus.services.GradeService;
 import com.monkmind.digicampus.services.StudentService;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
@@ -28,7 +29,7 @@ import org.springframework.web.multipart.MultipartFile;
 @Controller
 public class StudentController {
     private final StudentService studentService;
-
+    private final GradeService gradeService;
     //@PostMapping
   //  @RequestMapping("/add_student")
    // public String addStudent(){
@@ -42,15 +43,7 @@ public class StudentController {
     @RequestMapping("/add_student")
 	public String studentForm(Model model) {
         RegisterCommand registerCommand = new RegisterCommand();
-        List<GradeCommand> gradeCommands = new ArrayList<>();
-        GradeCommand gradeCommand1 = new GradeCommand();
-        gradeCommand1.setDivision("A");
-        gradeCommand1.setId(1);
-        GradeCommand gradeCommand2 = new GradeCommand();
-        gradeCommand2.setDivision("B");
-        gradeCommand2.setId(2);
-        gradeCommands.add(gradeCommand1);
-        gradeCommands.add(gradeCommand2);
+        List<Grade> gradeCommands = gradeService.listAll();
 	    model.addAttribute("command", registerCommand);
 	    model.addAttribute("gradeList", gradeCommands);
 	    return "fragments/forms/addstud::addstud";
