@@ -61,9 +61,9 @@ public class StudentServiceImpl implements StudentService {
 	
 
 	@Override
-	public Student get(long studentId) {
+	public Student get(long id) {
 		// TODO Auto-generated method stub
-		return studentRepository.findById(studentId).get();
+		return studentRepository.findById(id).get();
 	}
 
 	@Override
@@ -89,7 +89,7 @@ public class StudentServiceImpl implements StudentService {
 		return studentToRegisterCommand.convert(savedStudent) ;
 	}
 
-	@Transactional
+   @Transactional
 	@Override
 	public RegisterCommand findCommandById(long l) {
 		// TODO Auto-generated method stub

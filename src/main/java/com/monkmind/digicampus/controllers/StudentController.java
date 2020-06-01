@@ -76,19 +76,20 @@ public class StudentController {
 	@RequestMapping("/edit/{id}")
 	public String studentUpdate(@PathVariable String id,Model model) {
 		//ModelAndView mav = new ModelAndView("edit_product");
-		//System.out.println(studentId);
-	   // Student students = studentService.get(new Long(studentId));
-	    model.addAttribute("command",studentService.findCommandById(Long.valueOf(id)));
-	     return "fragments/forms/addstud::addstud";
+		System.out.println(id);
+	   RegisterCommand savedCommand = studentService.findCommandById(Long.valueOf(id));
+	    model.addAttribute("savedCommand",savedCommand);
+	     return "fragments/forms/updatestudent";
 	}
 	
-	/*@PostMapping
+	@PostMapping
 	@RequestMapping("/updatestudent/{id}")
-	public String InsertStudent(@ModelAttribute Student student,Model model) {
-	    studentService.save(student);
+	public String InsertStudent(@ModelAttribute  RegisterCommand  command,Model model) {
+		 RegisterCommand savedCommand=studentService.saveRegisterCommand(command);
+		// studentService.save(student);
 	    return "index";
 	}
-	*/
+	
 	
 	@RequestMapping("/delete/{id}")
 	public String deleteStudent(@PathVariable Long id,Model model)

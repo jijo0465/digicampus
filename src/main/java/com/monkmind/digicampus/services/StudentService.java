@@ -12,7 +12,7 @@ public interface StudentService{
     public Student addStudent(Student student);
     public Student getStudentByStudentId(String student);
     //public void save(Student student);
-    public Student get(long studentId);
+    public Student get(long id);
 	public List<Student> listAll(); 
 	public void delete(long id);
 	Student findById(long l);
