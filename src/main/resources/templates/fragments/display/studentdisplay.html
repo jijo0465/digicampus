@@ -22,6 +22,8 @@
     <th>Phone number</th>
     <th>Gender</th>
     <th>BloodGroup</th>
+    <th>Edit</th>
+    <th>Delete</th>
   </tr>
  <tr th:each="student : ${liststudents}">
 			<td th:text="${student.id}">
@@ -30,10 +32,30 @@
       		<td th:text="${student.phone}">
       		<td th:text="${student.gender}">
       		<td th:text="${student.bloodGroup}">
-      		
+      		<td><a href="#" id="edit">Edit</a></td>
+      		<td><a href="#" id="delete">Delete</a></td>
  
  </tr>
 </table>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script th:inline="javascript">
+$(document).ready(function(){
+	$("#edit").click(function(e){
+		e.preventDefault();
+		$.ajax({
+			method: "POST",
+			url: "/add_student",
+			success: function(status){
+				if(status) {
+					console.log(status);
+					$("#results").html(status)
+				}
+			}
+		});
+	})
+})
+</script>
 </div>
 </body>
 </html>
