@@ -66,10 +66,10 @@ public class AuthController {
         }
 */
     
-    @RequestMapping(value="/mydashboard")
+    @RequestMapping(value="/mydashboard" , method=RequestMethod.GET)
     public String dashboard(Model model)
     {
-    	return "rediect:/";
+    	return "rediect:/mydashboard/";
     }
     
     @PostMapping
