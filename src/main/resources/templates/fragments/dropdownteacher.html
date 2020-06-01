@@ -13,7 +13,7 @@
  <select class="form-control" th:name="${name}" th:id="teacherinput">
         <option value="">Teachers</option>
         <option th:each="teacher : ${teachers}"
-                th:value="${teacher.name}"
+                th:value="${teacher.id}"
                 th:text="${teacher.name}"></option>
     </select>
         </div>
