@@ -31,7 +31,7 @@ public class TextController {
 
 	public String getStudt()
 	{
-		return "fragments/forms/teachertimetabledisplay";
+		return "fragments/forms/teachertimetable";
 
 	}
 
@@ -43,6 +43,6 @@ public class TextController {
 
 	@RequestMapping("/display2")
 	public String getTeach() {
-		return "fragments/forms/teachertimetable";
+		return "fragments/forms/teachertimetabledisplay";
 	}
 }
