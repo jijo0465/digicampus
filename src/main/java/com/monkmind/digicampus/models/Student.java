@@ -37,7 +37,7 @@ public class Student extends Person{
 	@Column(name = "weight")
     private Double weight;
 	
-	@ManyToOne(cascade = CascadeType.PERSIST)
+	@ManyToOne(cascade = CascadeType.ALL)
 	//@NotNull
     private Parent parent;
 	
