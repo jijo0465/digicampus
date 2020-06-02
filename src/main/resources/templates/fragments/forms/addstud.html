@@ -16,22 +16,22 @@
         </ol>
     </nav>
     <div class="dc-form-body" id="formBody">
-        <div class="alert alert-danger" role="alert">
-            <a id="dangerMessage"></a>
+        <div id="errorPanel" class="alert alert-danger" role="alert" style="display: none">
+            Mandatory fields cannot be empty
         </div>
         <div class="alert alert-info" role="alert">
-            <a>* Marked fields are mandatory</a>
+            * Marked fields are mandatory
         </div>
         <form action="#" id="addstudform" method="post" th:object="${command}">
 
-            <div style="padding-bottom: 22px">
-                <h1 style="font-size: x-large">Basic Information</h1>
-            </div>
+            <h3>
+                <small class="text-gray">Student Information</small>
+            </h3>
+            <br/>
             <div th:replace="fragments/forminput::forminput(label='Admission No *',name='studentId',id='admissionNumber',required=true )"></div>
             <div th:replace="fragments/forminput::forminput(label='Name *',name='name',id='studentName',required=true)"></div>
             <div th:replace="fragments/textarea::textarea(label='Address',name='address', id='address')"></div>
-            <div th:replace="fragments/forminput::forminput(label='Phone *',id='phoneParent', name='phone',required=true )"></div>
-            <div th:replace="fragments/forminput::forminput(label='Phone Secondary',name='altPhone' )"></div>
+
             <div th:replace="fragments/dropdown::dropdown(label='Bloodgroup *',bloodtitle='bloodGroup',name='dob')"></div>
             <!--           <div  th:replace="fragments/date::date(label='DOB',name='dateOfBirth' )"></div>-->
             <div th:replace="fragments/radiobut::radiobut(label='Gender *',name='gender')"></div>
@@ -54,10 +54,15 @@
                 </div>
             </div>
             <!--           <div class="from-label-group" th:replace="fragments/forminput::forminput(label='GRADEID',name='gradeid' )"></div>-->
+            <h3>
+                <small class="text-gray">Parent Information</small>
+            </h3><br/>
             <div class="from-label-group"
-                 th:replace="fragments/forminput::forminput(label='PARENTID',name='parentId' )"></div>
-            <div class="from-label-group"
-                 th:replace="fragments/forminput::forminput(label='SCHOOLBUSID',name='schoolBusId' )"></div>
+                 th:replace="fragments/forminput::forminput(label='Parent Name',name='parentId')"></div>
+                <div th:replace="fragments/forminput::forminput(label='Phone *',id='phoneParent', name='phone',required=true )"></div>
+                <div th:replace="fragments/forminput::forminput(label='Phone Secondary',name='altPhone' )"></div>
+<!--            <div class="from-label-group"-->
+<!--                 th:replace="fragments/forminput::forminput(label='SCHOOLBUSID',name='schoolBusId' )"></div>-->
             <div th:replace="fragments/formbutton::formbutton(label='ADD',name='submit',class='btn btn-lg btn-primary btn-block text-uppercase',buttonid='studentsubmit')"></div>
 
 
@@ -71,18 +76,36 @@
             $("#studentsubmit").click(function (e) {
                 e.preventDefault();
                 console.log("hai");
+                var formElements  = document.getElementById('addstudform').elements;
+                var hasError = false;
+                for(var i=0; i < formElements.length; i++){
+                    var element = formElements[i];
 
-
-                $.ajax({
-                    method: "POST",
-                    url: "/addstudent",
-                    data: $('#addstudform').serialize(),
-                    success: function (status) {
-                        if (status) {
-                            $(".body").html(status)
-                        }
+                    console.log(element.id+"="+element.value);
+                    if((element.hasAttribute('required'))&&element.value==''){
+                        element.classList.add("is-invalid")
+                        hasError = true;
+                    }else{
+                        element.classList.add("is-valid")
                     }
-                });
+                }
+                if(hasError){
+                    console.log('error')
+                    $('#errorPanel').show();
+                }else{
+                    $.ajax({
+                        method: "POST",
+                        url: "/addstudent",
+                        data: $('#addstudform').serialize(),
+                        success: function (status) {
+                            if (status) {
+                                $(".body").html(status)
+                            }
+                        }
+                    });
+                }
+
+
             });
 
 
