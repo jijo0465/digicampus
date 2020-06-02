@@ -17,9 +17,10 @@
 <div>
 	<div class="form-group row" th:fragment ="dropdown" >
 		<label th:text="${label}" style="text-align: end;" class="col-sm-3 col-form-label"></label>
-		<div class="col-sm-2">
+		<div class="col-sm-2 dc-input" th:id="${id}">
 		
-	<select th:name="${bloodtitle}">
+	<select th:name="${bloodtitle}" th:required="${required}" th:id="${id}+'_input'">
+	<option>Select</option>
 	<option th:value = "A_POS">A+ve</option>
 	<option th:value = "A_NEG">A-ve</option>
 	<option th:value = "B_POS">B+ve</option>
@@ -29,6 +30,7 @@
 	<option th:value = "AB_POS">AB+ve</option>
 	<option th:value = "AB_NEG">AB-ve</option	>
 	</select>
+	<small th:id="${id}+'_message'" class="form-text text-danger"></small>
 		<!--	<select class="form-control dropdown" th:name="${bloodtitle}">
 			  <option th:each="bloodGroup: ${T(com.monkmind.digicampus.models.BloodGroup).values()}"
 			  th:value="${bloodGroup.name()}"

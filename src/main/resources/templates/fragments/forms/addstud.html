@@ -32,7 +32,7 @@
             <div th:replace="fragments/forminput::forminput(label='Name *',name='name',id='studentName',required=true)"></div>
             <div th:replace="fragments/textarea::textarea(label='Address',name='address', id='address')"></div>
 
-            <div th:replace="fragments/dropdown::dropdown(label='Bloodgroup *',bloodtitle='bloodGroup',name='dob')"></div>
+            <div th:replace="fragments/dropdown::dropdown(label='Bloodgroup *',bloodtitle='bloodGroup',name='dob',required=true,id='blood')"></div>
             <!--           <div  th:replace="fragments/date::date(label='DOB',name='dateOfBirth' )"></div>-->
             <div th:replace="fragments/radiobut::radiobut(label='Gender *',name='gender')"></div>
             <div th:replace="fragments/forminput::forminput(label='Height',name='height' )"></div>
