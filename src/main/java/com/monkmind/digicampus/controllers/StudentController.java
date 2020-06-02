@@ -43,7 +43,7 @@ public class StudentController {
 	public String Save(@ModelAttribute RegisterCommand command, Model model) {
 		System.out.println(command.getGradeid().getId());
 	   RegisterCommand savedCommand=studentService.saveRegisterCommand(command);
-	    return "mydashboard";
+	    return "fragments/forms/confirmpage::confirmpage";
 	}
 	
 	
@@ -86,6 +86,10 @@ public class StudentController {
 		studentService.delete(id);
 		return "redirect:/";
 		
+	}
+	@RequestMapping("/studentupdate")
+	public String updatestudent() {
+		return "fragments/edit/studentedit::studentedit";
 	}
 
 }

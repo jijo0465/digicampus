@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Edit student form</title>
+</head>
+<body>
+<div class="container" th:fragment="studentedit" >
+<h4 align="left" style="font-size: 32px">Edit Student</h4>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item" id="home"><a href="/mydashboard">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Edit Student</li>
+        </ol>
+    </nav>
+    <form action="#" id="editstudform" method="post" >
+    <div th:replace="fragments/forminput::forminput(label='Admission Number:',name='studentId',id='admissionNumber' )"></div>
+    <div  th:replace="fragments/savebut::savebut(name='edit',buttonid='editbutton')"></div>
+    </form>
+    </div>
+</body>
+</html>
