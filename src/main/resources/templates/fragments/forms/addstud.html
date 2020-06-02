@@ -32,7 +32,8 @@
             <div th:replace="fragments/forminput::forminput(label='Name *',name='name',id='studentName',required=true)"></div>
             <div th:replace="fragments/textarea::textarea(label='Address',name='address', id='address')"></div>
 
-            <div th:replace="fragments/dropdown::dropdown(label='Bloodgroup *',bloodtitle='bloodGroup',name='dob')"></div>
+            <div th:replace="fragments/dropdown::dropdown(label='Bloodgroup *',bloodtitle='bloodGroup',name='dob',
+            required=true,id1='blood',id2='dob')"></div>
             <!--           <div  th:replace="fragments/date::date(label='DOB',name='dateOfBirth' )"></div>-->
             <div th:replace="fragments/radiobut::radiobut(label='Gender *',name='gender')"></div>
             <div th:replace="fragments/forminput::forminput(label='Height',name='height' )"></div>
@@ -43,12 +44,13 @@
             <div class="form-group row">
                 <label th:text="Standard" style="text-align: end;" class="col-sm-3 col-form-label"></label>
                 <div class="col-sm-7">
-                    <div class="form-group blu-margin">
-                        <select class="form-control" th:field="${command.gradeid.id}" id="selectClass">
+                    <div class="form-group blu-margin dc-input" id="grade">
+                        <select class="form-control" th:field="${command.gradeid.id}" th:id="grade_input" th:required="true">
                             <option value="0">select Class</option>
                             <option th:each="gradeCommand : ${gradeList}" th:value="${gradeCommand.id}"
                                     th:text="${gradeCommand.standard}"></option>
                         </select>
+                         <small id="grade+_message" class="form-text text-danger"></small>
                     </div>
                     <!--                        <input type="text" th:field = "${command.gradeid.id}" th:name="gradeid" class="form-control" >-->
                 </div>
@@ -57,10 +59,11 @@
             <h3>
                 <small class="text-gray">Parent Information</small>
             </h3><br/>
-            <div class="from-label-group"
-                 th:replace="fragments/forminput::forminput(label='Parent Name',name='parentId')"></div>
-                <div th:replace="fragments/forminput::forminput(label='Phone *',id='phoneParent', name='phone',required=true )"></div>
-                <div th:replace="fragments/forminput::forminput(label='Phone Secondary',name='altPhone' )"></div>
+             <!-- <input type="text" th:field = "${command.parentid.pname}"  class="form-control" > -->
+               <div class="from-label-group"
+                 th:replace="fragments/forminput::forminput(label='Parent Name',name='parentid.pname')"></div>
+                <div th:replace="fragments/forminput::forminput(label='Phone *',id='phoneParent', name='parentid.pphone',required=true )"></div>
+                <div th:replace="fragments/forminput::forminput(label='Phone Secondary',name='parentid.paltPhone' )"></div>
 <!--            <div class="from-label-group"-->
 <!--                 th:replace="fragments/forminput::forminput(label='SCHOOLBUSID',name='schoolBusId' )"></div>-->
             <div th:replace="fragments/formbutton::formbutton(label='ADD',name='submit',class='btn btn-lg btn-primary btn-block text-uppercase',buttonid='studentsubmit')"></div>
