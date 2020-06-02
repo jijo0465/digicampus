@@ -15,7 +15,7 @@
     </nav>
     <form action="#" id="editstudform" method="post" >
     <div th:replace="fragments/forminput::forminput(label='Admission Number:',name='studentId',id='admissionNumber' )"></div>
-    <div class="btn btn-lg  btn-primary btn-block "  th:replace="fragments/primary::primary(name='edit',buttonid='editbutton')"></div>
+    <div  th:replace="fragments/savebut::savebut(name='edit',buttonid='editbutton')"></div>
     </form>
     </div>
 </body>
