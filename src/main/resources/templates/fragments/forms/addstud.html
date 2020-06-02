@@ -72,8 +72,26 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script th:inline="javascript">
-
-        $(document).ready(function () {
+    
+   
+    
+    
+function confirmSubmit(){
+	console.log("loooooooo")
+	 $.ajax({
+         method: "POST",
+         url: "/addstudent",
+         data: $('#addstudform').serialize(),
+         success: function (status) {
+             if (status) {
+             	  
+             	   $(".dc-form-body").html(status)
+             }
+         }
+     });
+}
+      //  $(document).ready(function () {
+        	
             $("#studentsubmit").click(function (e) {
                 e.preventDefault();
                 console.log("hai");
@@ -89,25 +107,19 @@
                     }else{
                         element.classList.add("is-valid")
                     }
+                   
                 }
                 
-              
-
               if(hasError){
                     console.log('error')
                     $('#errorPanel').show();
                 }else{
-                    $.ajax({
-                        method: "POST",
-                        url: "/addstudent",
-                        data: $('#addstudform').serialize(),
-                        success: function (status) {
-                            if (status) {
-                            	  $("#addstudform input").attr("disabled" ,true);
-                                $(".body").html(status)
-                            }
-                        }
-                    });
+                	$("#addstudform input").attr("disabled" ,true);
+              	  $('#studentsubmit').html('Confirm');
+              	/*jQuery(this).prev("#studentsubmit").attr("id","confirmSubmit");*/
+              	$("#studentsubmit").attr("onClick" ,"confirmSubmit()");
+              	$("#studentsubmit").removeAttr("id");
+                   
                 }
             });
             $(".dc-input").focusout(function(e) {
@@ -121,7 +133,7 @@
                 }
                 $('#'+errorMessageElementId).text(errorMessage);
             });
-        });
+      //  });
     </script>
 </div>
 </body>

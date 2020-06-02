@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>confirm</title>
+    <link th:href="@{/assets/css/addstud.css}" rel="stylesheet"/>
+     <link th:href="@{/assets/css/bootstrap.css}" rel="stylesheet"/>
+</head>
+<body>
+
+<div class="container" style="min-width: 80%" th:fragment="confirmpage" id="confirmpage">
+                <div  th:replace="fragments/sucessalert::sucessalert(class='alert alert-success')"></div>
+               <div  th:replace="fragments/savebut::savebut(label='ADD STUDENT',buttonid='addnewstud')"></div>
+                 <!--   <div  th:replace="fragments/backbut::backbut(name='HOME',buttonid='homebutton')"></div>  -->
+                
+                </div>
+                
+    <script th:inline="javascript">
+   
+    $(document).ready(function(){
+    	 $("#addnewstud").click(function(e){
+    			console.log("noooo");
+    			e.preventDefault();
+    			$.ajax({
+    				method: "POST",
+    				url: "/add_student",
+    				success: function(status){
+    					if(status) {
+    						console.log(status);
+    						$(".dc-form-body").html(status)
+    					}
+    				}
+    			});
+    		})  
+	
+}) 
+</script>
+                
+                </body>
+                </html>
