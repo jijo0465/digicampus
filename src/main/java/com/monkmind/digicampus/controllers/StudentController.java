@@ -52,26 +52,33 @@ public class StudentController {
 	  @RequestMapping("/studentdisplay")
 		public String studentdisplay(Model model) {
 		  List<Student> liststudents=studentService.listAll();
-		    model.addAttribute("liststudents",liststudents);
+		  List<Grade> gradeCommands = gradeService.listAll();
+		  model.addAttribute("gradeList", gradeCommands);
+		   model.addAttribute("liststudents",liststudents);
 		    return "fragments/display/studentdisplay::studentdisplay";
 
 		}
-	
+	@PostMapping("/displaycls")
+	public String displaycls(@ModelAttribute Grade std) {
+		System.out.println(std.getId());
+		
+		return "mydashboard";
+	}
 
 	/*author:shijina
     created date:16/5/2020
     */
 	
-
-	@RequestMapping("/edit/{id}")
-	public String studentUpdate(@PathVariable String id,Model model) {
-		//ModelAndView mav = new ModelAndView("edit_product");
-		System.out.println(id);
-	   RegisterCommand savedCommand = studentService.findCommandById(Long.valueOf(id));
-	    model.addAttribute("savedCommand",savedCommand);
-	     return "fragments/forms/updatestudent";
-	}
-	
+//
+//	@RequestMapping("/edit/{id}")
+//	public String studentUpdate(@PathVariable String id,Model model) {
+//		//ModelAndView mav = new ModelAndView("edit_product");
+//		System.out.println(id);
+//	   RegisterCommand savedCommand = studentService.findCommandById(Long.valueOf(id));
+//	    model.addAttribute("savedCommand",savedCommand);
+//	     return "fragments/forms/updatestudent";
+//	}
+//	
 	@PostMapping
 	@RequestMapping("/updatestudent/{id}")
 	public String InsertStudent(@ModelAttribute  RegisterCommand  command,Model model) {
