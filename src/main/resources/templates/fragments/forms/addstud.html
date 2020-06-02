@@ -4,7 +4,6 @@
     <meta charset="ISO-8859-1">
     <title>add student form</title>
     <link th:href="@{/assets/css/addstud.css}" rel="stylesheet"/>
-
 </head>
 <body>
 <div class="container" style="min-width: 80%" th:fragment="addstud" id="addstud">
@@ -23,7 +22,6 @@
             * Marked fields are mandatory
         </div>
         <form action="#" id="addstudform" method="post" th:object="${command}">
-
             <h3>
                 <small class="text-gray">Student Information</small>
             </h3>
@@ -89,7 +87,10 @@
                         element.classList.add("is-valid")
                     }
                 }
-                if(hasError){
+                
+              
+
+              if(hasError){
                     console.log('error')
                     $('#errorPanel').show();
                 }else{
@@ -99,16 +100,13 @@
                         data: $('#addstudform').serialize(),
                         success: function (status) {
                             if (status) {
+                            	  $("#addstudform input").attr("disabled" ,true);
                                 $(".body").html(status)
                             }
                         }
                     });
                 }
-
-
             });
-
-
             $(".dc-input").focusout(function(e) {
                 var errorMessageElementId = e.currentTarget.id+'_message';
                 var errorMessage = '';
