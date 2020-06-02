@@ -3,9 +3,6 @@ package com.monkmind.digicampus.command;
 import java.util.HashSet;
 import java.util.Set;
 
-import com.monkmind.digicampus.models.Student;
-import com.monkmind.digicampus.models.Teacher;
-
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

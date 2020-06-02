@@ -6,11 +6,9 @@ import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
 
-import com.monkmind.digicampus.command.GradeCommand;
 import com.monkmind.digicampus.command.RouteCommand;
 import com.monkmind.digicampus.converters.RouteCommandToRoute;
 import com.monkmind.digicampus.converters.RouteToRouteCommand;
-import com.monkmind.digicampus.models.Grade;
 import com.monkmind.digicampus.models.Route;
 import com.monkmind.digicampus.repositories.RouteRepository;
 

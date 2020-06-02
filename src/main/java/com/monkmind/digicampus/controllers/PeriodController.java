@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.monkmind.digicampus.models.Period;
-import com.monkmind.digicampus.models.Student;
 import com.monkmind.digicampus.services.PeriodService;
 
 //Anand A B 18/05/2020

@@ -10,10 +10,7 @@ import com.monkmind.digicampus.command.GradeCommand;
 import com.monkmind.digicampus.converters.GradeCommandToGrade;
 import com.monkmind.digicampus.converters.GradeToGradeCommand;
 import com.monkmind.digicampus.models.Grade;
-import com.monkmind.digicampus.models.Student;
 import com.monkmind.digicampus.repositories.GradeRepository;
-import com.monkmind.digicampus.repositories.ParentRepository;
-import com.monkmind.digicampus.repositories.StudentRepository;
 
 import lombok.AllArgsConstructor;
 

@@ -2,7 +2,6 @@ package com.monkmind.digicampus.services;
 
 import java.util.List;
 
-import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
 import com.monkmind.digicampus.models.Exam;

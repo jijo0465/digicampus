@@ -1,28 +1,17 @@
 package com.monkmind.digicampus.controllers;
 
-import com.monkmind.digicampus.command.GradeCommand;
 import com.monkmind.digicampus.command.RegisterCommand;
-import com.monkmind.digicampus.models.Gender;
 import com.monkmind.digicampus.models.Grade;
-import com.monkmind.digicampus.models.Parent;
-import com.monkmind.digicampus.models.Person;
 import com.monkmind.digicampus.models.Student;
 import com.monkmind.digicampus.services.GradeService;
 import com.monkmind.digicampus.services.StudentService;
 import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
-
-import javax.validation.Valid;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
 
 
 @AllArgsConstructor

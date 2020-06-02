@@ -27,8 +27,9 @@
 <div th:fragment ="forminput" class="forminput">
     <div class="form-group row">
         <label th:text="${label}" style="text-align: end;" class="col-sm-3 col-form-label"></label>
-        <div class="col-sm-7">
-            <input type="text" th:name="${name}" class="form-control" >
+        <div th:id="${id}" class="col-sm-7 dc-input">
+            <input th:required="${required}" th:id="${id}+'_input'" type="text" th:name="${name}" class="form-control" >
+            <small th:id="${id}+'_message'" class="form-text text-danger"></small>
         </div>
     </div>
  <!--  <div class="form-label-group">

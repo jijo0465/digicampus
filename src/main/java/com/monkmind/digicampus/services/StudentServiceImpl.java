@@ -21,7 +21,6 @@ import java.util.Optional;
 
 import javax.transaction.Transactional;
 
-import org.hibernate.annotations.common.util.impl.Log;
 //import org.apache.juli.logging.Log;
 //import org.hibernate.annotations.common.util.impl.Log;
 //import org.apache.commons.logging.Log;

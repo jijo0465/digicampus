@@ -1,7 +1,5 @@
 package com.monkmind.digicampus.converters;
 
-import javax.validation.constraints.Null;
-
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Component;

@@ -2,8 +2,6 @@ package com.monkmind.digicampus.command;
 
 import java.sql.Time;
 
-import com.monkmind.digicampus.models.SchoolBus;
-
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

@@ -9,10 +9,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.monkmind.digicampus.command.GradeCommand;
 import com.monkmind.digicampus.command.RouteCommand;
 import com.monkmind.digicampus.models.Route;
-import com.monkmind.digicampus.models.SchoolBus;
 import com.monkmind.digicampus.services.RouteService;
 
 /*author:shijina

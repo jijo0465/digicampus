@@ -2,7 +2,6 @@ package com.monkmind.digicampus.services;
 
 import java.util.List;
 
-import com.monkmind.digicampus.models.NonTeachingStaff;
 import com.monkmind.digicampus.models.Parent;
 public interface ParentService {
 	

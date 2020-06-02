@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 //import com.monkmind.digicampus.models.StudentAttendance;
 import com.monkmind.digicampus.models.TeacherAttendance;
-import com.monkmind.digicampus.models.TeacherTimeTable;
 //import com.monkmind.digicampus.services.AttendanceService;
 import com.monkmind.digicampus.services.TeacherAttendanceService;
 

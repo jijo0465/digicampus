@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.monkmind.digicampus.models.SchoolBus;
 import com.monkmind.digicampus.models.StudentTimeTable;
 import com.monkmind.digicampus.services.StudentTimetableService;
 

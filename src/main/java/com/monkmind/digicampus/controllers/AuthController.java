@@ -1,8 +1,6 @@
 package com.monkmind.digicampus.controllers;
 
 import com.monkmind.digicampus.command.LoginCommand;
-import com.monkmind.digicampus.models.Student;
-import com.monkmind.digicampus.models.Teacher;
 import com.monkmind.digicampus.models.User;
 import com.monkmind.digicampus.models.UserType;
 import com.monkmind.digicampus.services.StudentService;

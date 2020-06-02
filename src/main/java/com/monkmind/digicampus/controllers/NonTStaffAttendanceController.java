@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.monkmind.digicampus.models.NonTStaffAttendance;
-import com.monkmind.digicampus.models.NonTeachingStaff;
 //import com.monkmind.digicampus.models.Student;
 import com.monkmind.digicampus.services.NonTStaffAttendanceService;
 

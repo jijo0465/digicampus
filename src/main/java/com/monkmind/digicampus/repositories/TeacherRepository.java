@@ -1,9 +1,7 @@
 package com.monkmind.digicampus.repositories;
 
-import com.monkmind.digicampus.command.RegisterCommand;
 import com.monkmind.digicampus.command.TeacherRegisterCommand;
 import com.monkmind.digicampus.models.Teacher;
-import com.monkmind.digicampus.models.User;
 
 import java.util.List;
 import java.util.Optional;

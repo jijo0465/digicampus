@@ -9,10 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.monkmind.digicampus.models.Grade;
-import com.monkmind.digicampus.models.StudentTimeTable;
 import com.monkmind.digicampus.models.Teacher;
-import com.monkmind.digicampus.models.TeacherAttendance;
 import com.monkmind.digicampus.models.TeacherTimeTable;
 import com.monkmind.digicampus.services.TeacherService;
 import com.monkmind.digicampus.services.TeacherTimeTableService;

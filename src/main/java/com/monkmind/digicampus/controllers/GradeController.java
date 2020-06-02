@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.monkmind.digicampus.command.GradeCommand;
-import com.monkmind.digicampus.command.RegisterCommand;
 import com.monkmind.digicampus.models.Grade;
 
 import com.monkmind.digicampus.services.GradeService;

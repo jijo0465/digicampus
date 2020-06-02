@@ -10,8 +10,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.monkmind.digicampus.models.Exam;
-import com.monkmind.digicampus.models.Grade;
-import com.monkmind.digicampus.models.Student;
 import com.monkmind.digicampus.services.ExamService;
 
 /*author:shijina

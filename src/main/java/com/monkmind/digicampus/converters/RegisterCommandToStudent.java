@@ -1,14 +1,11 @@
 package com.monkmind.digicampus.converters;
 
-import javax.validation.constraints.NotNull;
-
 
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Component;
 
 import com.monkmind.digicampus.command.RegisterCommand;
-import com.monkmind.digicampus.controllers.GradeController;
 import com.monkmind.digicampus.models.Student;
 
 import lombok.Synchronized;

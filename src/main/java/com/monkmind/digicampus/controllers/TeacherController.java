@@ -10,9 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.monkmind.digicampus.command.RegisterCommand;
 import com.monkmind.digicampus.command.TeacherRegisterCommand;
-import com.monkmind.digicampus.models.Student;
 import com.monkmind.digicampus.models.Teacher;
 import com.monkmind.digicampus.services.TeacherService;
 

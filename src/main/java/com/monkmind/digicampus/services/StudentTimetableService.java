@@ -3,7 +3,6 @@ package com.monkmind.digicampus.services;
 
 import java.util.List;
 
-import com.monkmind.digicampus.models.SchoolBus;
 import com.monkmind.digicampus.models.StudentTimeTable;
 
 public interface StudentTimetableService {

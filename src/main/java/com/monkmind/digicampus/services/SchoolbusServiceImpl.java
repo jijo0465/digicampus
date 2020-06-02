@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 import com.monkmind.digicampus.command.SchoolBusCommand;
 import com.monkmind.digicampus.converters.SchoolBusCommandToSchoolBus;
 import com.monkmind.digicampus.converters.SchoolBusToSchoolBusCommand;
-import com.monkmind.digicampus.models.Grade;
 import com.monkmind.digicampus.models.SchoolBus;
 
 import com.monkmind.digicampus.repositories.SchoolbusRepository;
