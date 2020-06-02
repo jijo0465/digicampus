@@ -18,19 +18,25 @@
         </ol>
     </nav>
 <div class="dc-form-body">
+<div id="errorPanel" class="alert alert-danger" role="alert" style="display: none">
+            Mandatory fields cannot be empty
+        </div>
+        <div class="alert alert-info" role="alert">
+            * Marked fields are mandatory
+        </div>
         <form action="#"  id="addteacher" method="post" >
             <div style="padding-bottom: 22px">
                 <h1 style="font-size: x-large" >Basic Information</h1>
             </div>
 
 
-<div th:replace="fragments/forminput :: forminput(label='Name:',name='name')"></div>
-<div th:replace="fragments/textarea :: textarea(label='Address:',name='address')"></div>
-<div th:replace="fragments/forminput :: forminput(label='Phone Number:',name='phone')"></div>
-<div th:replace="fragments/forminput :: forminput(label='Alternative Phone:',name='altPhone')"></div>
-<div th:replace="fragments/dropdown :: dropdown(label='Blood Group:',bloodtitle='bloodGroup',name='dob')"></div>
-<div th:replace="fragments/radiobut :: radiobut(label='Gender:',name='gender')"></div>
- <div th:replace="fragments/forminput :: forminput(label='Teacher Id:',name='tid')"></div>
+<div th:replace="fragments/forminput :: forminput(label='Name *',name='name',id='name',required=true)"></div>
+<div th:replace="fragments/textarea :: textarea(label='Address ',name='address')"></div>
+<div th:replace="fragments/forminput :: forminput(label='Phone Number *',name='phone',id='phone',required=true)"></div>
+<div th:replace="fragments/forminput :: forminput(label='Alternative Phone',name='altPhone')"></div>
+<div th:replace="fragments/dropdown :: dropdown(label='Blood Group *',bloodtitle='bloodGroup',name='dob')"></div>
+<div th:replace="fragments/radiobut :: radiobut(label='Gender *',name='gender')"></div>
+ <div th:replace="fragments/forminput :: forminput(label='Teacher Id *',name='tid',id='tid',required=true)"></div>
 <div th:replace="fragments/formbutton::formbutton(label='Submit',name='submit',class='btn btn-lg btn-primary btn-block text-uppercase',buttonid='teachersubmit')"></div>
 </form>
 </div>
@@ -41,6 +47,23 @@
             $("#teachersubmit").click(function(e){
                 e.preventDefault();
                 console.log("hai");
+                var formElements  = document.getElementById('addteacher').elements;
+                var hasError = false;
+                for(var i=0; i < formElements.length; i++){
+                    var element = formElements[i];
+
+                    console.log(element.id+"="+element.value);
+                    if((element.hasAttribute('required'))&&element.value==''){
+                        element.classList.add("is-invalid")
+                        hasError = true;
+                    }else{
+                        element.classList.add("is-valid")
+                    }
+                }
+                if(hasError){
+                    console.log('error')
+                    $('#errorPanel').show();
+                }else{
                 $.ajax({
                     method: "POST",
                     url: "/addteacher",
@@ -51,8 +74,20 @@
                         }
                     }
                 });
-            })
-        })
+            }
+        });
+            $(".dc-input").focusout(function(e) {
+                var errorMessageElementId = e.currentTarget.id+'_message';
+                var errorMessage = '';
+                var inputElementId = e.currentTarget.id+'_input';
+                var inputText = $('#'+inputElementId).val();
+                console.log(inputText);
+                if($('#'+inputElementId).prop('required') && inputText==''){
+                    errorMessage = 'Field cannot be empty';
+                }
+                $('#'+errorMessageElementId).text(errorMessage);
+            });  
+        });
     </script>
 </div>
 </body>

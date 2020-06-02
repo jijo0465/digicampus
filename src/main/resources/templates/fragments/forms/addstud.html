@@ -32,7 +32,8 @@
             <div th:replace="fragments/forminput::forminput(label='Name *',name='name',id='studentName',required=true)"></div>
             <div th:replace="fragments/textarea::textarea(label='Address',name='address', id='address')"></div>
 
-            <div th:replace="fragments/dropdown::dropdown(label='Bloodgroup *',bloodtitle='bloodGroup',name='dob',required=true,id='blood')"></div>
+            <div th:replace="fragments/dropdown::dropdown(label='Bloodgroup *',bloodtitle='bloodGroup',name='dob',
+            required=true,id1='blood',id2='dob')"></div>
             <!--           <div  th:replace="fragments/date::date(label='DOB',name='dateOfBirth' )"></div>-->
             <div th:replace="fragments/radiobut::radiobut(label='Gender *',name='gender')"></div>
             <div th:replace="fragments/forminput::forminput(label='Height',name='height' )"></div>
@@ -43,12 +44,13 @@
             <div class="form-group row">
                 <label th:text="Standard" style="text-align: end;" class="col-sm-3 col-form-label"></label>
                 <div class="col-sm-7">
-                    <div class="form-group blu-margin">
-                        <select class="form-control" th:field="${command.gradeid.id}" id="selectClass">
+                    <div class="form-group blu-margin dc-input" id="grade">
+                        <select class="form-control" th:field="${command.gradeid.id}" th:id="grade_input" th:required="true">
                             <option value="0">select Class</option>
                             <option th:each="gradeCommand : ${gradeList}" th:value="${gradeCommand.id}"
                                     th:text="${gradeCommand.standard}"></option>
                         </select>
+                         <small id="grade+_message" class="form-text text-danger"></small>
                     </div>
                     <!--                        <input type="text" th:field = "${command.gradeid.id}" th:name="gradeid" class="form-control" >-->
                 </div>
