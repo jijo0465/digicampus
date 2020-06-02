@@ -14,6 +14,26 @@
             <li class="breadcrumb-item active" aria-current="page">Display Student</li>
         </ol>
     </nav>
+    
+    
+    
+    <form action="#" th:object="${std}">
+     <div class="form-group row">
+     <label th:text="Standard" style="text-align: end;" class="col-sm-3 col-form-label"></label>
+     <div class="col-sm-7">
+     <div class="form-group blu-margin dc-input" id="grade">
+    
+    <select class="form-control">
+    <option th:each="gradeCommand : ${gradeList}" th:value="${gradeCommand.id}"
+                                    th:text="${gradeCommand.standard}">
+    </option>
+    </select>
+    </div>
+    </div>
+    </div>
+    <div th:replace="fragments/formbutton::formbutton(label='Submit',name='submit',class='btn btn-lg btn-primary btn-block text-uppercase',buttonid='studentsubmit')"></div>
+
+    </form>
 <table style="width:100%">
   <tr>
     <th>Student ID</th>
@@ -39,14 +59,15 @@
  </tr>
 </table>
 
-<!--  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script th:inline="javascript">
 $(document).ready(function(){
-	$("#edit").click(function(e){
+	$("#show").click(function(e){
 		e.preventDefault();
 		$.ajax({
 			method: "POST",
-			url: "/edit/{id}",
+			url: "/displaycls",
+			
 			success: function(status){
 				if(status) {
 					console.log(status);
@@ -55,7 +76,7 @@ $(document).ready(function(){
 			}
 		});
 	})
-})-->
+})
 </script>
 </div>
 </body>

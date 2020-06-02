@@ -9,6 +9,7 @@ package com.monkmind.digicampus.services;
 import com.monkmind.digicampus.command.RegisterCommand;
 import com.monkmind.digicampus.converters.RegisterCommandToStudent;
 import com.monkmind.digicampus.converters.StudentToRegisterCommand;
+import com.monkmind.digicampus.models.Grade;
 import com.monkmind.digicampus.models.Parent;
 
 import com.monkmind.digicampus.models.Student;
@@ -100,5 +101,8 @@ public class StudentServiceImpl implements StudentService {
 		// TODO Auto-generated method stub
 		Optional<Student> studentoptional=studentRepository.findById(l);
 		return studentoptional.get();
+	}
+	public List<Student> findByGradeid(Grade grade){
+		return studentRepository.findByGrade(grade);
 	}
 }
