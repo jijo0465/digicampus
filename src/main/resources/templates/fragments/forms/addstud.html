@@ -32,25 +32,25 @@
             <div th:replace="fragments/forminput::forminput(label='Name *',name='name',id='studentName',required=true)"></div>
             <div th:replace="fragments/textarea::textarea(label='Address',name='address', id='address')"></div>
 
-            <div th:replace="fragments/dropdown::dropdown(label='Bloodgroup *',bloodtitle='bloodGroup',name='dob',
+            <div th:replace="fragments/dropdown::dropdown(label='Bloodgroup',bloodtitle='bloodGroup',name='dob',
             required=true,id1='blood',id2='dob')"></div>
             <!--           <div  th:replace="fragments/date::date(label='DOB',name='dateOfBirth' )"></div>-->
-            <div th:replace="fragments/radiobut::radiobut(label='Gender *',name='gender')"></div>
+            <div th:replace="fragments/radiobut::radiobut(label='Gender *',name='gender', required=true)"></div>
             <div th:replace="fragments/forminput::forminput(label='Height',name='height' )"></div>
             <div th:replace="fragments/forminput::forminput(label='Weight',name='weight' )"></div>
             <!-- <div class="from-label-group" th:replace="fragments/imagefile::imagefile(label='PHOTO',name='displayImage' )"></div>-->
 
 
             <div class="form-group row">
-                <label th:text="Standard" style="text-align: end;" class="col-sm-3 col-form-label"></label>
+                <label style="text-align: end;" class="col-sm-3 col-form-label">Class</label>
                 <div class="col-sm-7">
                     <div class="form-group blu-margin dc-input" id="grade">
                         <select class="form-control" th:field="${command.gradeid.id}" th:id="grade_input" th:required="true">
-                            <option value="0">select Class</option>
+                            <option value="0">Select class</option>
                             <option th:each="gradeCommand : ${gradeList}" th:value="${gradeCommand.id}"
-                                    th:text="${gradeCommand.standard}"></option>
+                                    th:text="${gradeCommand.standard}+'  '+${gradeCommand.division}"></option>
                         </select>
-                         <small id="grade+_message" class="form-text text-danger"></small>
+                        <small id="grade+_message" class="form-text text-danger"></small>
                     </div>
                     <!--                        <input type="text" th:field = "${command.gradeid.id}" th:name="gradeid" class="form-control" >-->
                 </div>
@@ -59,13 +59,13 @@
             <h3>
                 <small class="text-gray">Parent Information</small>
             </h3><br/>
-             <!-- <input type="text" th:field = "${command.parentid.pname}"  class="form-control" > -->
-               <div class="from-label-group"
+            <!-- <input type="text" th:field = "${command.parentid.pname}"  class="form-control" > -->
+            <div class="from-label-group"
                  th:replace="fragments/forminput::forminput(label='Parent Name',name='parentid.pname')"></div>
-                <div th:replace="fragments/forminput::forminput(label='Phone *',id='phoneParent', name='parentid.pphone',required=true )"></div>
-                <div th:replace="fragments/forminput::forminput(label='Phone Secondary',name='parentid.paltPhone' )"></div>
-<!--            <div class="from-label-group"-->
-<!--                 th:replace="fragments/forminput::forminput(label='SCHOOLBUSID',name='schoolBusId' )"></div>-->
+            <div th:replace="fragments/forminput::forminput(label='Phone *',id='phoneParent', name='parentid.pphone',required=true )"></div>
+            <div th:replace="fragments/forminput::forminput(label='Phone Secondary',name='parentid.paltPhone' )"></div>
+            <!--            <div class="from-label-group"-->
+            <!--                 th:replace="fragments/forminput::forminput(label='SCHOOLBUSID',name='schoolBusId' )"></div>-->
             <div th:replace="fragments/formbutton::formbutton(label='ADD',name='submit',class='btn btn-lg btn-primary btn-block text-uppercase',buttonid='studentsubmit')"></div>
 
 
@@ -78,24 +78,48 @@
         $(document).ready(function () {
             $("#studentsubmit").click(function (e) {
                 e.preventDefault();
-                console.log("hai");
                 var formElements  = document.getElementById('addstudform').elements;
                 var hasError = false;
+                var gender = $("input[name='gender']:checked").val();
+                console.log('Gender')
+                console.log(gender)
                 for(var i=0; i < formElements.length; i++){
-                    var element = formElements[i];
 
-                    console.log(element.id+"="+element.value);
-                    if((element.hasAttribute('required'))&&element.value==''){
+                    var element = formElements[i];
+                    element.classList.remove("is-invalid")
+                    element.classList.remove("is-valid")
+                    if((element.hasAttribute('required'))&&(element.value==''||element.value==0)){
                         element.classList.add("is-invalid")
                         hasError = true;
-                    }else{
-                        element.classList.add("is-valid")
                     }
                 }
+                if (typeof gender == 'undefined'){
+                    console.log('not asdasd')
+                    document.getElementById('genderMale').classList.add("is-invalid")
+                    document.getElementById('genderFemale').classList.add("is-invalid")
+                    hasError = true;
+                }else {
+                    document.getElementById('genderMale').classList.remove("is-invalid")
+                    document.getElementById('genderFemale').classList.remove("is-invalid")
+                    document.getElementById('genderMale').classList.remove("is-valid")
+                    document.getElementById('genderFemale').classList.remove("is-valid")
+
+                    console.log('ELSE')
+                    console.log(gender)
+                    if(gender == 'Male'){
+                        console.log(gender)
+                        document.getElementById('genderMale').classList.add("is-valid")
+                    }else{
+                        document.getElementById('genderFemale').classList.add("is-valid")
+                    }
+
+
+                }
+
                 if(hasError){
-                    console.log('error')
                     $('#errorPanel').show();
-                }else{
+                }
+                else{
                     $.ajax({
                         method: "POST",
                         url: "/addstudent",

@@ -26,7 +26,7 @@ import lombok.Setter;
 public class Grade extends BaseEntity{
 
 	@Column(name = "standard")
-	private Double standard;
+	private int standard;
 	
 	@Column(name = "division")
     private String division;

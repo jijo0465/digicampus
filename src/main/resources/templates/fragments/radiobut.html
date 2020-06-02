@@ -8,14 +8,14 @@
 <div th:fragment ="radiobut">
     <div class="form-group row" th:fragment ="date" >
         <label th:text="${label}" style="text-align: end;" class="col-sm-3"></label>
-        <div class="col-sm-7">
+        <div class="col-sm-7" id="gender">
             <div class="custom-control custom-radio custom-control-inline" >
-                <input type="radio" id="customRadioInline1" name="customRadioInline1" class="custom-control-input" th:name="${name}" th:value="MALE">
-                <label class="custom-control-label" for="customRadioInline1">Male</label>
+                <input type="radio" id="genderMale" name="gender" class="custom-control-input" value="Male" th:required="${required}">
+                <label class="custom-control-label" for="genderMale">Male</label>
             </div>
             <div class="custom-control custom-radio custom-control-inline">
-                <input type="radio" id="customRadioInline2" name="customRadioInline1" class="custom-control-input" th:name="${name}" th:value="FEMALE">
-                <label class="custom-control-label" for="customRadioInline2">Female</label>
+                <input type="radio" id="genderFemale" name="gender" class="custom-control-input" value="Female">
+                <label class="custom-control-label" for="genderFemale">Female</label>
             </div>
         </div>
     </div>

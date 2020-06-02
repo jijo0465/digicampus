@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="ISO-8859-1">
-<title>Dropdown</title>
+	<meta charset="ISO-8859-1">
+	<title>Dropdown</title>
 </head>
 <body>
 <!--<div th:fragment ="dropdown" >
@@ -13,41 +13,41 @@
                     <option disabled="disabled" selected="selected" >         </option>
                     <option th:each="" : ${agencies}"  th:text="${agency.name}" ></option>
 
-                </select>  -->     
+                </select>  -->
 <div>
 	<div class="form-group row" th:fragment ="dropdown" >
 		<label th:text="${label}" style="text-align: end;" class="col-sm-3 col-form-label"></label>
 		<div class="col-sm-2 dc-input" th:id="${id1}">
-		
-	<select th:name="${bloodtitle}" th:required="${required}" th:id="${id1}+'_input'">
-	<option th:value=none>Select</option>
-	<option th:value = "A_POS">A+ve</option>
-	<option th:value = "A_NEG">A-ve</option>
-	<option th:value = "B_POS">B+ve</option>
-	<option th:value = "B_NEG">B-ve</option>
-	<option th:value = "O_POS">O+ve</option>
-	<option th:value = "O_NEG">O-ve</option>
-	<option th:value = "AB_POS">AB+ve</option>
-	<option th:value = "AB_NEG">AB-ve</option	>
-	</select>
-	<small th:id="${id1}+'_message'" class="form-text text-danger"></small>
-		<!--	<select class="form-control dropdown" th:name="${bloodtitle}">
-			  <option th:each="bloodGroup: ${T(com.monkmind.digicampus.models.BloodGroup).values()}"
-			  th:value="${bloodGroup.name()}"
-              th:text="${bloodGroup.name()}"
-              >Select</option>
-		  	</select>
-		  	-->
-<!--			<div class="dropdown">-->
-<!--				<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
-<!--					Select-->
-<!--				</button>-->
-<!--				<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">-->
-<!--					<a class="dropdown-item" href="#">O +ve</a>-->
-<!--					<a class="dropdown-item" href="#">A +ve</a>-->
-<!--					<a class="dropdown-item" href="#">A -ve</a>-->
-<!--				</div>-->
-<!--			</div>-->
+
+			<select class="form-control" th:name="${bloodtitle}" th:required="${required}" th:id="${id1}+'_input'">
+				<option th:value=none>Select</option>
+				<option th:value = "A_POS">A+ve</option>
+				<option th:value = "A_NEG">A-ve</option>
+				<option th:value = "B_POS">B+ve</option>
+				<option th:value = "B_NEG">B-ve</option>
+				<option th:value = "O_POS">O+ve</option>
+				<option th:value = "O_NEG">O-ve</option>
+				<option th:value = "AB_POS">AB+ve</option>
+				<option th:value = "AB_NEG">AB-ve</option	>
+			</select>
+			<small th:id="${id1}+'_message'" class="form-text text-danger"></small>
+			<!--	<select class="form-control dropdown" th:name="${bloodtitle}">
+                  <option th:each="bloodGroup: ${T(com.monkmind.digicampus.models.BloodGroup).values()}"
+                  th:value="${bloodGroup.name()}"
+                  th:text="${bloodGroup.name()}"
+                  >Select</option>
+                  </select>
+                  -->
+			<!--			<div class="dropdown">-->
+			<!--				<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
+			<!--					Select-->
+			<!--				</button>-->
+			<!--				<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">-->
+			<!--					<a class="dropdown-item" href="#">O +ve</a>-->
+			<!--					<a class="dropdown-item" href="#">A +ve</a>-->
+			<!--					<a class="dropdown-item" href="#">A -ve</a>-->
+			<!--				</div>-->
+			<!--			</div>-->
 		</div>
 		<label style="text-align: end;" class="col-sm-2 col-form-label">Date of birth</label>
 		<div class="col-sm-2 dc-input" th:id="${id2}">

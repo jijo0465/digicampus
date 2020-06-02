@@ -13,7 +13,7 @@ import lombok.Setter;
 public class GradeCommand {
 	
 	private long id;
-	private Double standard;
+	private int standard;
 	private String division;
 	private Double strength;
 	private Set<RegisterCommand> students = new HashSet<>();
