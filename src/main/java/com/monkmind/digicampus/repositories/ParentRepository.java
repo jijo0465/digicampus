@@ -1,5 +1,6 @@
 package com.monkmind.digicampus.repositories;
 
+import com.monkmind.digicampus.command.ParentCommand;
 import com.monkmind.digicampus.models.Parent;
 
 import java.util.List;
@@ -11,5 +12,6 @@ public interface ParentRepository extends CrudRepository<Parent,Long> {
 	Optional<Parent> findByParentId(String parent);
 	Optional<Parent> findById(String parent);
 	List<Parent> findAll();
+	void save(ParentCommand parentCommand);
 
 }

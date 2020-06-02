@@ -33,7 +33,7 @@ public class RegisterCommand {
 	
 	private GradeCommand gradeid;
 	
-	private Parent parentid;
+	private ParentCommand parentid;
 	
 	private SchoolBusCommand schoolBusid;
 	private Set<Subject> subjects = new HashSet<>();

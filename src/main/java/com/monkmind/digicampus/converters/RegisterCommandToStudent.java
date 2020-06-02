@@ -16,11 +16,14 @@ public class RegisterCommandToStudent implements Converter<RegisterCommand, Stud
 	
 	private final GradeCommandToGrade gradeConverter;
 	private final SchoolBusCommandToSchoolBus schoolBusConverter;
+	private final ParentCommandToParent parentConverter;
 
-	public RegisterCommandToStudent(GradeCommandToGrade gradeConverter,SchoolBusCommandToSchoolBus schoolBusConverter) {
+	public RegisterCommandToStudent(GradeCommandToGrade gradeConverter,SchoolBusCommandToSchoolBus schoolBusConverter,
+			ParentCommandToParent parentConverter) {
 		super();
 		this.gradeConverter = gradeConverter;
 		this.schoolBusConverter= schoolBusConverter;
+		this.parentConverter=parentConverter;
 	}
 
 	@Synchronized
@@ -48,7 +51,7 @@ public class RegisterCommandToStudent implements Converter<RegisterCommand, Stud
 		st.setGender(source.getGender());
 		st.setStudentId(source.getStudentId());
 		st.setGrade(gradeConverter.convert(source.getGradeid()));
-		st.setParent(source.getParentid());
+		st.setParent(parentConverter.convert(source.getParentid()));
 		st.setSchoolBus(schoolBusConverter.convert(source.getSchoolBusid()));
 		/*if(source.getGradeid()!=null && source.getGradeid().getId()> 0)
 		{

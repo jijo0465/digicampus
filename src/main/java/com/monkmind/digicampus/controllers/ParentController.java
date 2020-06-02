@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.monkmind.digicampus.command.GradeCommand;
+import com.monkmind.digicampus.command.ParentCommand;
 import com.monkmind.digicampus.models.Parent;
 import com.monkmind.digicampus.services.ParentService;
 
@@ -30,14 +32,15 @@ public class ParentController {
 
 	@RequestMapping("/parentform")
 	public String parentForm(Model model) {
-	    model.addAttribute("parent", new Parent());
+	    model.addAttribute("parentcommand", new ParentCommand());
 	    return "parent_form";
 	}
 
 	@PostMapping
 	@RequestMapping("/parentinsert")
-	public String createParent(@ModelAttribute Parent parent,Model model) {
-	    parentService.save(parent);
+	public String createParent(@ModelAttribute ParentCommand parentcommand,Model model) {
+		ParentCommand savedCommand=parentService.saveParentCommand(parentcommand);
+		 model.addAttribute("parentcommand",parentcommand);
 	    return "index";
 	}
 	
