@@ -57,10 +57,11 @@
             <h3>
                 <small class="text-gray">Parent Information</small>
             </h3><br/>
-            <div class="from-label-group"
-                 th:replace="fragments/forminput::forminput(label='Parent Name',name='parentId')"></div>
-                <div th:replace="fragments/forminput::forminput(label='Phone *',id='phoneParent', name='phone',required=true )"></div>
-                <div th:replace="fragments/forminput::forminput(label='Phone Secondary',name='altPhone' )"></div>
+             <!-- <input type="text" th:field = "${command.parentid.pname}"  class="form-control" > -->
+               <div class="from-label-group"
+                 th:replace="fragments/forminput::forminput(label='Parent Name',name='parentid.pname')"></div>
+                <div th:replace="fragments/forminput::forminput(label='Phone *',id='phoneParent', name='parentid.pphone',required=true )"></div>
+                <div th:replace="fragments/forminput::forminput(label='Phone Secondary',name='parentid.paltPhone' )"></div>
 <!--            <div class="from-label-group"-->
 <!--                 th:replace="fragments/forminput::forminput(label='SCHOOLBUSID',name='schoolBusId' )"></div>-->
             <div th:replace="fragments/formbutton::formbutton(label='ADD',name='submit',class='btn btn-lg btn-primary btn-block text-uppercase',buttonid='studentsubmit')"></div>
