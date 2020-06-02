@@ -57,9 +57,9 @@
             <h3>
                 <small class="text-gray">Parent Information</small>
             </h3><br/>
-              <input type="text" th:field = "${command.parentid.pname}"  class="form-control" > 
-             <!--  <div class="from-label-group"
-                 th:replace="fragments/forminput::forminput(label='Parent Name',name='command.parentid.pname',field='${command.parentid.pname}')"></div>-->
+             <!-- <input type="text" th:field = "${command.parentid.pname}"  class="form-control" > -->
+               <div class="from-label-group"
+                 th:replace="fragments/forminput::forminput(label='Parent Name',name='parentid.pname')"></div>
                 <div th:replace="fragments/forminput::forminput(label='Phone *',id='phoneParent', name='parentid.pphone',required=true )"></div>
                 <div th:replace="fragments/forminput::forminput(label='Phone Secondary',name='parentid.paltPhone' )"></div>
 <!--            <div class="from-label-group"-->
