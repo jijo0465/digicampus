@@ -45,4 +45,8 @@ public class TextController {
 	public String getTeach() {
 		return "fragments/forms/teachertimetabledisplay";
 	}
+	@RequestMapping("/edit")
+	public String getform() {
+		return "fragments/edit/studentedit";
+	}
 }
