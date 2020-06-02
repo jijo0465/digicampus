@@ -4,7 +4,6 @@
     <meta charset="ISO-8859-1">
     <title>add student form</title>
     <link th:href="@{/assets/css/addstud.css}" rel="stylesheet"/>
-
 </head>
 <body>
 <div class="container" style="min-width: 80%" th:fragment="addstud" id="addstud">
@@ -23,7 +22,6 @@
             * Marked fields are mandatory
         </div>
         <form action="#" id="addstudform" method="post" th:object="${command}">
-
             <h3>
                 <small class="text-gray">Student Information</small>
             </h3>
@@ -68,14 +66,32 @@
             <!--                 th:replace="fragments/forminput::forminput(label='SCHOOLBUSID',name='schoolBusId' )"></div>-->
             <div th:replace="fragments/formbutton::formbutton(label='ADD',name='submit',class='btn btn-lg btn-primary btn-block text-uppercase',buttonid='studentsubmit')"></div>
 
-
         </form>
+
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script th:inline="javascript">
 
-        $(document).ready(function () {
+
+
+
+function confirmSubmit(){
+	console.log("loooooooo")
+	 $.ajax({
+         method: "POST",
+         url: "/addstudent",
+         data: $('#addstudform').serialize(),
+         success: function (status) {
+             if (status) {
+
+             	   $(".dc-form-body").html(status)
+             }
+         }
+     });
+}
+      //  $(document).ready(function () {
+
             $("#studentsubmit").click(function (e) {
                 e.preventDefault();
                 var formElements  = document.getElementById('addstudform').elements;
@@ -114,9 +130,13 @@
                     }
 
 
+
                 }
 
                 if(hasError){
+
+              if(hasError){
+                    console.log('error')
                     $('#errorPanel').show();
                 }
                 else{
@@ -133,6 +153,14 @@
                 }
 
 
+                }else{
+                	$("#addstudform input").attr("disabled" ,true);
+              	  $('#studentsubmit').html('Confirm');
+              	/*jQuery(this).prev("#studentsubmit").attr("id","confirmSubmit");*/
+              	$("#studentsubmit").attr("onClick" ,"confirmSubmit()");
+              	$("#studentsubmit").removeAttr("id");
+
+                }
             });
 
 
@@ -147,7 +175,7 @@
                 }
                 $('#'+errorMessageElementId).text(errorMessage);
             });
-        });
+      //  });
     </script>
 </div>
 </body>

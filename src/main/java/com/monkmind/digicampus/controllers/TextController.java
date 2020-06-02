@@ -26,7 +26,7 @@ public class TextController {
 
 
 	public String getStud() {
-		return "fragments/display/studentdisplay";
+		return "fragments/forms/confirmpage";
 	}
 
 	public String getStudt()

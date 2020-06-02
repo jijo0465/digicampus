@@ -5,6 +5,7 @@ package com.monkmind.digicampus.services;
 import java.util.List;
 
 import com.monkmind.digicampus.command.RegisterCommand;
+import com.monkmind.digicampus.models.Grade;
 //import com.monkmind.digicampus.controllers.List;
 import com.monkmind.digicampus.models.Student;
 
@@ -18,6 +19,7 @@ public interface StudentService{
 	Student findById(long l);
 	RegisterCommand findCommandById(long l);
 	RegisterCommand saveRegisterCommand(RegisterCommand command);
+	public List<Student> findByGradeid(Grade grade);
 
 
 }
