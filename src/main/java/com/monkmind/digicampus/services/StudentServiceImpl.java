@@ -93,6 +93,10 @@ public class StudentServiceImpl implements StudentService {
 		// TODO Auto-generated method stub
 		
 		Student detachedStudent=registerCommandToStudent.convert(command);
+		Parent p = parentRepository.findByPhone(detachedStudent.getParent().getPhone()).orElse(null);
+		if(p!=null){
+			detachedStudent.setParent(p);
+		}
 		Student savedStudent=studentRepository.save(detachedStudent);
 		//log.debug("saved studentid :"+ savedStudent.getId());
 		return studentToRegisterCommand.convert(savedStudent) ;
