@@ -105,7 +105,7 @@ public class StudentController {
 	public String deleteStudent(@PathVariable Long id,Model model)
 	{
 		studentService.delete(id);
-		return "redirect:/";
+		return "mydashboard";
 		
 	}
 	@RequestMapping("/studentUpdate/{studentId}")
