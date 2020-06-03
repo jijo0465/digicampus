@@ -16,7 +16,7 @@
     </nav>
     
     
-    
+    <div class="dc-form-body">
     <form action="#" th:object="${std}">
      <div class="form-group row">
      <label th:text="Standard" style="text-align: end;" class="col-sm-3 col-form-label"></label>
@@ -31,7 +31,7 @@
     </div>
     </div>
     </div>
-    <div th:replace="fragments/formbutton::formbutton(label='Submit',name='submit',class='btn btn-lg btn-primary btn-block text-uppercase',buttonid='studentsubmit')"></div>
+<!--    <div th:replace="fragments/formbutton::formbutton(label='Submit',name='submit',class='btn btn-lg btn-primary btn-block text-uppercase',buttonid='studentsubmit')"></div>-->
 
     </form>
 <table style="width:100%">
@@ -86,6 +86,7 @@ $(document).ready(function(){
 }
 </script>
 -->
+    </div>
 </div>
 </body>
 </html>
