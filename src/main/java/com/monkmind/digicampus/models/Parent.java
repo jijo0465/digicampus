@@ -26,7 +26,7 @@ import lombok.ToString;
 public class Parent extends Person{
 	
 	@Column(name = "parent_id")
-	private Long parentId;
+	private String parentId;
 	
 	@Column(name = "password")
 	private String Password;

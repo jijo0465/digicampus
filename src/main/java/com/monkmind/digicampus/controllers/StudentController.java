@@ -1,8 +1,10 @@
 package com.monkmind.digicampus.controllers;
 
+
 import com.monkmind.digicampus.command.RegisterCommand;
 import com.monkmind.digicampus.models.Grade;
 import com.monkmind.digicampus.models.Student;
+import com.monkmind.digicampus.models.User;
 import com.monkmind.digicampus.services.GradeService;
 import com.monkmind.digicampus.services.StudentService;
 import lombok.AllArgsConstructor;
@@ -43,6 +45,11 @@ public class StudentController {
 	public String Save(@ModelAttribute RegisterCommand command, Model model) {
 		System.out.println(command.getGradeid().getId());
 		System.out.println(command.getStudentId());
+		long parentid = (long) Math.floor(Math.random() * 9000000L) + 100000L;
+		
+		System.out.println(parentid);
+		command.getParentid().setParentId(Long.toString(parentid));
+		System.out.println(command.getParentid().getParentId());
 	   RegisterCommand savedCommand=studentService.saveRegisterCommand(command);
 	    return "fragments/forms/confirmpage::confirmpage";
 	}
