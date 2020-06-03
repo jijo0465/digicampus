@@ -105,7 +105,7 @@ public class StudentServiceImpl implements StudentService {
 		Student savedStudent=studentRepository.save(detachedStudent);
 		User user=new User();
 		user.setLoginId(savedStudent.getParent().getParentId());
-		long password = (long) Math.floor(Math.random() * 9000L) + 100L;
+		long password = (long) Math.floor(Math.random() * 90000L) + 1000L;
 		user.setPassword(Long.toString(password));
 		user.setUsertype(UserType.PARENT);
 		User saveduser=userService.saveUser(user);
