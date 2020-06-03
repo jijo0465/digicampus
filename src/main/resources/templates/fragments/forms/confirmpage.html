@@ -10,36 +10,49 @@
 
 <div class="container-fluid" style="min-width: 80%" th:fragment="confirmpage" id="confirmpage">
                 <div  th:replace="fragments/sucessalert::sucessalert(class='alert alert-success')"></div>
-               <div  th:replace="fragments/savebut::savebut(label='ADD STUDENT',buttonid='addnewstud')"></div>
+               <div  th:replace="fragments/savebut::savebut(label='ADD STUDENT',buttonid='addnewstud',
+               id1='backhome')"></div>
                  <!--   <div  th:replace="fragments/backbut::backbut(name='HOME',buttonid='homebutton')"></div>  -->
                 
-                </div>
-                
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>            
     <script th:inline="javascript">
-
+    
+    
+    
         function modifySubit(){
             console.log('SUCCESS')
         }
 
-    $(document).ready(function(){
-        $("#addnewstud").attr("onClick" ,"modifySubmit()");
-    	 $("#addnewstud").click(function(e){
-    			console.log("noooo");
-    			e.preventDefault();
-    			$.ajax({
-    				method: "POST",
-    				url: "/add_student",
-    				success: function(status){
-    					if(status) {
-    						console.log(status);
-    						$(".dc-form-body").html(status)
-    					}
-    				}
-    			});
-    		})  
-	
-}) 
+ $(document).ready(function(){
+	$("#addnewstud").attr("onClick" ,"modifySubmit()");
+	$("#addnewstud").click(function(e){
+		e.preventDefault();
+		$.ajax({
+			method: "POST",
+			url: "/add_student",
+			success: function(status){
+				if(status) {
+					console.log(status);
+					$("#results").html(status)
+				}
+			}
+		});
+	})
+	$("#backhome").click(function(e){
+		e.preventDefault();
+		$.ajax({
+			method: "GET",
+			url: "/mydashboard",
+			success: function(status){
+				if(status) {
+					console.log(status);
+					$("#dashboard").html(status)
+				}
+			}
+		});
+	})
+})
 </script>
-                
+                 </div>
                 </body>
                 </html>
