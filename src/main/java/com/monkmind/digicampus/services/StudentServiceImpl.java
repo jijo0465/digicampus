@@ -38,12 +38,21 @@ public class StudentServiceImpl implements StudentService {
     private final StudentToRegisterCommand studentToRegisterCommand;
     @Override
     public Student addStudent(Student student) {
-        addParent(student.getParent());
+//        addParent(student.getParent());
+		System.out.println(student.getParent().getPhone());
+		Parent p = parentRepository.findByPhone(student.getParent().getPhone()).orElse(null);
+		if(p!=null){
+			student.setParent(p);
+		}
         return studentRepository.save(student);
     }
 
     public void addParent(Parent parent){
-        parentRepository.save(parent);
+        Parent p = parentRepository.findByPhone(parent.getPhone()).orElse(null);
+        if(p==null){
+			parentRepository.save(parent);
+		}
+
     }
 
     @Override

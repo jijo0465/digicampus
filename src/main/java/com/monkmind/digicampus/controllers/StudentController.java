@@ -42,7 +42,7 @@ public class StudentController {
 	@RequestMapping("/addstudent")
 	public String Save(@ModelAttribute RegisterCommand command, Model model) {
 		System.out.println(command.getGradeid().getId());
-		
+		System.out.println(command.getStudentId());
 	   RegisterCommand savedCommand=studentService.saveRegisterCommand(command);
 	    return "fragments/forms/confirmpage::confirmpage";
 	}
@@ -86,8 +86,19 @@ public class StudentController {
 		// studentService.save(student);
 	    return "index";
 	}
-	
-	
+
+	@ResponseBody
+	@RequestMapping("/validateStudentId/{studentId}")
+	public String InsertStudent(@PathVariable  String studentId ,Model model) {
+		System.out.println(studentId);
+		Student s = studentService.getStudentByStudentId(studentId);
+		if(s!=null){
+			return "exists";
+		}else{
+			return "notExists";
+		}
+	}
+
 	@RequestMapping("/delete/{id}")
 	public String deleteStudent(@PathVariable Long id,Model model)
 	{

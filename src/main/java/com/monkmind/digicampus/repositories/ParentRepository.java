@@ -11,6 +11,7 @@ import org.springframework.data.repository.CrudRepository;
 public interface ParentRepository extends CrudRepository<Parent,Long> {
 	Optional<Parent> findByParentId(String parent);
 	Optional<Parent> findById(String parent);
+	Optional<Parent> findByPhone(String phone);
 	List<Parent> findAll();
 	void save(ParentCommand parentCommand);
 

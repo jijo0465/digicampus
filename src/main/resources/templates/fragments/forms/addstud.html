@@ -7,7 +7,7 @@
 </head>
 <body>
 <div class="container" style="min-width: 80%" th:fragment="addstud" id="addstud">
-    <h4 align="left" style="font-size: 32px">Add Student</h4>
+    <h4 class="dc-title" align="left" style="font-size: 32px">New Admission</h4>
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item" id="home"><a href="/mydashboard">Home</a></li>
@@ -15,8 +15,16 @@
         </ol>
     </nav>
     <div class="dc-form-body" id="formBody">
+
+        <div id="existPanel" class="alert alert-danger" role="alert" style="display: none">
+            Admission number you have entered already exists
+        </div>
+
         <div id="errorPanel" class="alert alert-danger" role="alert" style="display: none">
             Mandatory fields cannot be empty
+        </div>
+        <div class="alert alert-warning" role="alert">
+            Admission number should be unique for every student
         </div>
         <div class="alert alert-info" role="alert">
             * Marked fields are mandatory
@@ -26,13 +34,12 @@
                 <small class="text-gray">Student Information</small>
             </h3>
             <br/>
-            <div th:replace="fragments/forminput::forminput(label='Admission No *',name='studentId',id='admissionNumber',required=true )"></div>
+            <div th:replace="fragments/forminput::forminput(label='Admission No *',name='studentId',id='admissionNumber',
+                        required=true)"></div>
             <div th:replace="fragments/forminput::forminput(label='Name *',name='name',id='studentName',required=true)"></div>
             <div th:replace="fragments/textarea::textarea(label='Address',name='address', id='address')"></div>
-
             <div th:replace="fragments/dropdown::dropdown(label='Bloodgroup',bloodtitle='bloodGroup',name='dob',
-            required=true,id1='blood',id2='dob')"></div>
-            <!--           <div  th:replace="fragments/date::date(label='DOB',name='dateOfBirth' )"></div>-->
+                        id1='blood')"></div>
             <div th:replace="fragments/radiobut::radiobut(label='Gender *',name='gender', required=true)"></div>
             <div th:replace="fragments/forminput::forminput(label='Height',name='height' )"></div>
             <div th:replace="fragments/forminput::forminput(label='Weight',name='weight' )"></div>
@@ -59,8 +66,8 @@
             </h3><br/>
             <!-- <input type="text" th:field = "${command.parentid.pname}"  class="form-control" > -->
             <div class="from-label-group"
-                 th:replace="fragments/forminput::forminput(label='Parent Name',name='parentid.pname')"></div>
-            <div th:replace="fragments/forminput::forminput(label='Phone *',id='phoneParent', name='parentid.pphone',required=true )"></div>
+                 th:replace="fragments/forminput::forminput(label='Parent Name *',name='parentid.pname',required=true)"></div>
+            <div th:replace="fragments/forminput::forminput(label='Phone *',id='phoneParent', name='parentid.pphone',required=true)"></div>
             <div th:replace="fragments/forminput::forminput(label='Phone Secondary',name='parentid.paltPhone' )"></div>
             <!--            <div class="from-label-group"-->
             <!--                 th:replace="fragments/forminput::forminput(label='SCHOOLBUSID',name='schoolBusId' )"></div>-->
@@ -73,109 +80,161 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script th:inline="javascript">
 
+        $( document ).ready(function() {
+            $('#phoneParent_info').text('Previously entered numbers are validated');
+        });
 
+        function modifySubmit() {
+            $("#addstudform input").attr("disabled",false)
+            $("#addstudform textarea").attr("disabled",false)
+            $("#addstudform select").attr("disabled",false)
+            $("#addstudform input").css("background-color","#ffffff");
+            $("#addstudform select").attr("background-color","#ffffff")
+            $('textarea[name ="address"]').css("background-color","#ffffff");
+            $("#grade_input").css("background-color","#ffffff")
+        }
 
-
-function confirmSubmit(){
-	console.log("loooooooo")
-	 $.ajax({
-         method: "POST",
-         url: "/addstudent",
-         data: $('#addstudform').serialize(),
-         success: function (status) {
-             if (status) {
-
-             	   $(".dc-form-body").html(status)
-             }
-         }
-     });
-}
-      //  $(document).ready(function () {
-
-            $("#studentsubmit").click(function (e) {
-                e.preventDefault();
-                var formElements  = document.getElementById('addstudform').elements;
-                var hasError = false;
-                var gender = $("input[name='gender']:checked").val();
-                console.log('Gender')
-                console.log(gender)
-                for(var i=0; i < formElements.length; i++){
-
-                    var element = formElements[i];
-                    element.classList.remove("is-invalid")
-                    element.classList.remove("is-valid")
-                    if((element.hasAttribute('required'))&&(element.value==''||element.value==0)){
-                        element.classList.add("is-invalid")
-                        hasError = true;
+        function confirmSubmit(){
+            $('textarea[name ="address"]').attr("disabled" ,false);
+            $("#addstudform input").attr("disabled",false)
+            $.ajax({
+                method: "POST",
+                url: "/addstudent",
+                data: $('#addstudform').serialize(),
+                success: function (status) {
+                    if (status) {
+                        $(".dc-form-body").html(status)
                     }
                 }
-                if (typeof gender == 'undefined'){
-                    console.log('not asdasd')
-                    document.getElementById('genderMale').classList.add("is-invalid")
-                    document.getElementById('genderFemale').classList.add("is-invalid")
+            });
+        }
+
+
+
+        $("#studentsubmit").click(function (e) {
+            e.preventDefault();
+            var formElements  = document.getElementById('addstudform').elements;
+            var hasError = false;
+            var gender = $("input[name='gender']:checked").val();
+            console.log('Gender')
+            console.log(gender)
+
+
+
+            for(var i=0; i < formElements.length; i++){
+
+                var element = formElements[i];
+                element.classList.remove("is-invalid")
+                element.classList.remove("is-valid")
+                if((element.hasAttribute('required'))&&(element.value==''||element.value==0)){
+                    element.classList.add("is-invalid")
                     hasError = true;
-                }else {
-                    document.getElementById('genderMale').classList.remove("is-invalid")
-                    document.getElementById('genderFemale').classList.remove("is-invalid")
-                    document.getElementById('genderMale').classList.remove("is-valid")
-                    document.getElementById('genderFemale').classList.remove("is-valid")
+                }
+            }
+            if (typeof gender == 'undefined'){
+                console.log('not asdasd')
+                document.getElementById('genderMale').classList.add("is-invalid")
+                document.getElementById('genderFemale').classList.add("is-invalid")
+                hasError = true;
+            }else {
+                document.getElementById('genderMale').classList.remove("is-invalid")
+                document.getElementById('genderFemale').classList.remove("is-invalid")
+                document.getElementById('genderMale').classList.remove("is-valid")
+                document.getElementById('genderFemale').classList.remove("is-valid")
 
-                    console.log('ELSE')
+                console.log('ELSE')
+                console.log(gender)
+                if(gender == 'Male'){
                     console.log(gender)
-                    if(gender == 'Male'){
-                        console.log(gender)
-                        document.getElementById('genderMale').classList.add("is-valid")
-                    }else{
-                        document.getElementById('genderFemale').classList.add("is-valid")
-                    }
-
-
-
+                    document.getElementById('genderMale').classList.add("is-valid")
+                }else{
+                    document.getElementById('genderFemale').classList.add("is-valid")
                 }
 
-                if(hasError){
 
-              if(hasError){
+
+            }
+
+            if(hasError){
                     console.log('error')
                     $('#errorPanel').show();
-                }
-                else{
-                    $.ajax({
-                        method: "POST",
-                        url: "/addstudent",
-                        data: $('#addstudform').serialize(),
-                        success: function (status) {
-                            if (status) {
-                                $(".body").html(status)
-                            }
+
+            }
+            else {
+                $.ajax({
+                    method: "GET",
+                    url: "/validateStudentId/"+$("#admissionNumber_input").val(),
+
+                    success: function (status) {
+                        if (status=='exists') {
+                            $('#errorPanel').hide();
+                            $('#existPanel').show();
+                        }else{
+                            $(".alert").hide()
+                            $("html, body").animate({ scrollTop: 0 }, "fast");
+                            $('textarea[name ="address"]').attr("disabled" ,true);
+                            $('textarea[name ="address"]').css("background-color","#6c757d59");
+
+                            $("#grade_input").css("background-color","#6c757d59")
+                            $("grade_input").attr("disabled" ,true);
+                            $(".dc-title").text('New Admission - Confirm')
+                            $("#addstudform input").attr("disabled",true)
+                            $("#addstudform input").css("background-color","#6c757d59")
+
+                            $('#studentsubmit').html('Confirm');
+                            $("#studentsubmit").attr("onClick" ,"confirmSubmit()");
+                            $("#studentsubmit").removeAttr("id");
+
+                            $('.btn-secondary').html('Modify');
+                            $(".btn-secondary").attr("onClick" ,"modifySubmit()");
+                            $(".btn-secondary").removeAttr("id");
                         }
-                    });
-                }
+                    }
+                });
+            }
+
+        });
 
 
-                }else{
-                	$("#addstudform input").attr("disabled" ,true);
-              	  $('#studentsubmit').html('Confirm');
-              	/*jQuery(this).prev("#studentsubmit").attr("id","confirmSubmit");*/
-              	$("#studentsubmit").attr("onClick" ,"confirmSubmit()");
-              	$("#studentsubmit").removeAttr("id");
+        $(".dc-input").focusout(function(e) {
+            var errorMessageElementId = e.currentTarget.id+'_message';
+            var errorMessage = '';
 
-                }
-            });
-
-
-            $(".dc-input").focusout(function(e) {
-                var errorMessageElementId = e.currentTarget.id+'_message';
-                var errorMessage = '';
-                var inputElementId = e.currentTarget.id+'_input';
-                var inputText = $('#'+inputElementId).val();
-                console.log(inputText);
-                if($('#'+inputElementId).prop('required') && inputText==''){
+            var inputElementId = e.currentTarget.id+'_input';
+            var inputText = $('#'+inputElementId).val();
+            console.log(inputElementId.toString());
+            if($('#'+inputElementId).prop('required')){
+                if(inputText==''){
+                    $("#"+inputElementId).removeClass("is-valid")
+                    $("#"+inputElementId).addClass("is-invalid")
                     errorMessage = 'Field cannot be empty';
+                    $('#'+errorMessageElementId).text(errorMessage);
+                }else{
+                    $("#"+inputElementId).removeClass("is-invalid")
+                    $("#"+inputElementId).addClass("is-valid")
+                    errorMessage = '';
+                    $('#'+errorMessageElementId).text(errorMessage);
                 }
-                $('#'+errorMessageElementId).text(errorMessage);
-            });
-      //  });
+
+
+            }else if(e.currentTarget.id === 'blood_input'){
+                $("#"+inputElementId).removeClass("is-invalid")
+                $("#"+inputElementId).addClass("is-valid")
+            }else if(inputElementId === 'grade_input'){
+                console.log('Entered')
+                if(inputText==0){
+                    console.log('asdasddasdasda')
+                    $("#"+inputElementId).removeClass("is-valid")
+                    $("#"+inputElementId).addClass("is-invalid")
+                }else{
+                    $("#"+inputElementId).removeClass("is-invalid")
+                    $("#"+inputElementId).addClass("is-valid")
+                }
+
+            }
+
+        });
+        //  });
     </script>
 </div>
 </body>

@@ -8,7 +8,7 @@
 </head>
 <body>
 
-<div class="container" style="min-width: 80%" th:fragment="confirmpage" id="confirmpage">
+<div class="container-fluid" style="min-width: 80%" th:fragment="confirmpage" id="confirmpage">
                 <div  th:replace="fragments/sucessalert::sucessalert(class='alert alert-success')"></div>
                <div  th:replace="fragments/savebut::savebut(label='ADD STUDENT',buttonid='addnewstud')"></div>
                  <!--   <div  th:replace="fragments/backbut::backbut(name='HOME',buttonid='homebutton')"></div>  -->
@@ -16,8 +16,13 @@
                 </div>
                 
     <script th:inline="javascript">
-   
+
+        function modifySubit(){
+            console.log('SUCCESS')
+        }
+
     $(document).ready(function(){
+        $("#addnewstud").attr("onClick" ,"modifySubmit()");
     	 $("#addnewstud").click(function(e){
     			console.log("noooo");
     			e.preventDefault();
