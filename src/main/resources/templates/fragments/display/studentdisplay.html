@@ -53,7 +53,7 @@
       		<td th:text="${student.gender}">
       		<td th:text="${student.bloodGroup}">
       		<td> <a th:href="@{'/edit/'+ ${student.id}}">Edit</a></td>
-           <td><a th:href="@{'/delete/'+ ${student.id}}">Delete</a></td>
+           <td><a th:href="@{'/delete/'+ ${student.id}}" onclick="return confirm('Are you sure want to delete this ?');" id="delete">Delete</a></td>
       		
  
  </tr>
@@ -78,6 +78,14 @@ $(document).ready(function(){
 	})
 })
 </script>
+<!--  <script>
+$(document).ready(function(){
+	$("#delete").click(function(e){
+		alert("confirm delete");
+	});
+}
+</script>
+-->
 </div>
 </body>
 </html>

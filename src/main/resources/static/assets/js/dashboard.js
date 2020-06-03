@@ -14,7 +14,7 @@ $(document).ready(function(){
 	})
 })
 $(document).ready(function(){
-	$("#addteacher").click(function(e){
+	$("_addteacher").click(function(e){
 		e.preventDefault();
 		$.ajax({
 			method: "POST",
@@ -29,7 +29,7 @@ $(document).ready(function(){
 	})
 })
 $(document).ready(function(){
-	$("#addteachertimetable").click(function(e){
+	$("_addteachertimetable").click(function(e){
 		e.preventDefault();
 		$.ajax({
 			method: "POST",
@@ -59,7 +59,7 @@ $(document).ready(function(){
 	})
 })
 $(document).ready(function(){
-	$("#displayteacher").click(function(e){
+	$("_displayteacher").click(function(e){
 		e.preventDefault();
 		$.ajax({
 			method: "POST",
