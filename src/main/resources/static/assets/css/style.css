@@ -34,7 +34,7 @@ body{
 
 .dc-menu-header{
 	color: white;
-	background-color: black;
+	background-color: #061335e0;
 	font-size: larger;
 }
 
@@ -64,5 +64,10 @@ hr {
 .dc-secondary{
 	background-color: #6c757d59
 }
+
+.btn{
+	min-width: 120px;
+}
+
 
 	

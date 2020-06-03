@@ -6,7 +6,7 @@
     <link th:href="@{/assets/css/addstud.css}" rel="stylesheet"/>
 </head>
 <body>
-<div class="container" style="min-width: 80%" th:fragment="addstud" id="addstud">
+<div class="container" style="min-width: 80%" th:fragment="editstud" id="editstud">
     <h4 class="dc-title" align="left" style="font-size: 32px">New Admission</h4>
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
@@ -29,7 +29,7 @@
         <div class="alert alert-info" role="alert">
             * Marked fields are mandatory
         </div>
-        <form action="#" id="addstudform" method="post" th:object="${command}">
+        <form action="#" id="addstudform" method="post" th:object="${student}">
             <h3>
                 <small class="text-gray">Student Information</small>
             </h3>
@@ -38,19 +38,19 @@
                         required=true)"></div>
             <div th:replace="fragments/forminput::forminput(label='Name *',name='name',id='studentName',required=true)"></div>
             <div th:replace="fragments/textarea::textarea(label='Address',name='address', id='address')"></div>
-            <div th:replace="fragments/dropdown::dropdown(label='Bloodgroup *',name='dob',
-            bloodtitle='bloodGroup',id1='blood',required=true)"></div>
+            <div th:replace="fragments/dropdown::dropdown(label='Bloodgroup',bloodtitle='bloodGroup',name='dob',
+                        id1='blood')"></div>
             <div th:replace="fragments/radiobut::radiobut(label='Gender *',name='gender', required=true)"></div>
-            <div th:replace="fragments/nmbr::numberinput(label='Height',name='height' )"></div>
-            <div th:replace="fragments/nmbr::numberinput(label='Weight',name='weight' )"></div>
+            <div th:replace="fragments/forminput::forminput(label='Height',name='height' )"></div>
+            <div th:replace="fragments/forminput::forminput(label='Weight',name='weight' )"></div>
             <!-- <div class="from-label-group" th:replace="fragments/imagefile::imagefile(label='PHOTO',name='displayImage' )"></div>-->
 
 
             <div class="form-group row">
-                <label style="text-align: end;" class="col-sm-3 col-form-label">Class *</label>
+                <label style="text-align: end;" class="col-sm-3 col-form-label">Class</label>
                 <div class="col-sm-7">
                     <div class="form-group blu-margin dc-input" id="grade">
-                        <select class="form-control" th:field="${command.gradeid.id}" th:id="grade_input" th:required="true">
+                        <select class="form-control" th:value="${student.grade}" th:field="${student.grade.id}" th:id="grade_input" th:required="true">
                             <option value="0">Select class</option>
                             <option th:each="gradeCommand : ${gradeList}" th:value="${gradeCommand.id}"
                                     th:text="${gradeCommand.standard}+'  '+${gradeCommand.division}"></option>
@@ -66,7 +66,7 @@
             </h3><br/>
             <!-- <input type="text" th:field = "${command.parentid.pname}"  class="form-control" > -->
             <div class="from-label-group"
-                 th:replace="fragments/forminput::forminput(label='Parent Name',name='parentid.pname',required=true)"></div>
+                 th:replace="fragments/forminput::forminput(label='Parent Name *',name='parentid.pname',required=true)"></div>
             <div th:replace="fragments/forminput::forminput(label='Phone *',id='phoneParent', name='parentid.pphone',required=true)"></div>
             <div th:replace="fragments/forminput::forminput(label='Phone Secondary',name='parentid.paltPhone' )"></div>
             <!--            <div class="from-label-group"-->
@@ -92,7 +92,6 @@
             $("#addstudform select").attr("background-color","#ffffff")
             $('textarea[name ="address"]').css("background-color","#ffffff");
             $("#grade_input").css("background-color","#ffffff")
-            $("#blood_input").css("background-color","#ffffff")
         }
 
         function confirmSubmit(){
@@ -174,9 +173,6 @@
                             $("html, body").animate({ scrollTop: 0 }, "fast");
                             $('textarea[name ="address"]').attr("disabled" ,true);
                             $('textarea[name ="address"]').css("background-color","#6c757d59");
-                            
-                            $("#blood_input").css("background-color","#6c757d59")
-                            $("blood_input").attr("disabled" ,true)
 
                             $("#grade_input").css("background-color","#6c757d59")
                             $("grade_input").attr("disabled" ,true);

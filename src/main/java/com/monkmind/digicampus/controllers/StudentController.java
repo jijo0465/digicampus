@@ -106,6 +106,8 @@ public class StudentController {
 		}
 	}
 
+
+
 	@RequestMapping("/delete/{id}")
 	public String deleteStudent(@PathVariable Long id,Model model)
 	{
@@ -113,8 +115,22 @@ public class StudentController {
 		return "mydashboard";
 		
 	}
+	@RequestMapping("/studentUpdate/{studentId}")
+	public String updatestudent(@PathVariable String studentId,Model model) {
+		Student student = studentService.getStudentByStudentId(studentId);
+		if(student!=null){
+			model.addAttribute("response","exists");
+			model.addAttribute("student",student);
+
+		}else{
+			model.addAttribute("response","failed");
+		}
+		return "fragments/forms/editstud::editstud";
+	}
 	@RequestMapping("/studentupdate")
-	public String updatestudent() {
+	public String updatestudent(Model model) {
+		List<Grade> gradeCommands = gradeService.listAll();
+		model.addAttribute("gradeList", gradeCommands);
 		return "fragments/edit/studentedit::studentedit";
 	}
 

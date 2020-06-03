@@ -18,6 +18,7 @@ public interface StudentService{
 	public void delete(long id);
 	Student findById(long l);
 	RegisterCommand findCommandById(long l);
+
 	RegisterCommand saveRegisterCommand(RegisterCommand command);
 	public List<Student> findByGradeid(Grade grade);
 

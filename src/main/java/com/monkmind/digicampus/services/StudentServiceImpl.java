@@ -98,10 +98,14 @@ public class StudentServiceImpl implements StudentService {
 		// TODO Auto-generated method stub
 		
 		Student detachedStudent=registerCommandToStudent.convert(command);
+		Parent p = parentRepository.findByPhone(detachedStudent.getParent().getPhone()).orElse(null);
+		if(p!=null){
+			detachedStudent.setParent(p);
+		}
 		Student savedStudent=studentRepository.save(detachedStudent);
 		User user=new User();
 		user.setLoginId(savedStudent.getParent().getParentId());
-		long password = (long) Math.floor(Math.random() * 9000L) + 100L;
+		long password = (long) Math.floor(Math.random() * 90000L) + 1000L;
 		user.setPassword(Long.toString(password));
 		user.setUsertype(UserType.PARENT);
 		User saveduser=userService.saveUser(user);
