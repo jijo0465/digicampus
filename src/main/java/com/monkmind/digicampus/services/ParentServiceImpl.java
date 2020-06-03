@@ -11,6 +11,8 @@ import com.monkmind.digicampus.converters.ParentCommandToParent;
 import com.monkmind.digicampus.converters.ParentToParentCommand;
 import com.monkmind.digicampus.models.Grade;
 import com.monkmind.digicampus.models.Parent;
+import com.monkmind.digicampus.models.User;
+import com.monkmind.digicampus.models.UserType;
 import com.monkmind.digicampus.repositories.ParentRepository;
 
 import lombok.AllArgsConstructor;
@@ -26,6 +28,7 @@ public class ParentServiceImpl implements ParentService {
 	private final ParentRepository parentRepository;
 	private final ParentToParentCommand parentToParentCommand;
 	private final ParentCommandToParent parentCommandToParent;
+	private final UserService userService;
 	@Override
 	public Parent getParentByParentId(String parentId) {
 		// TODO Auto-generated method stub
@@ -62,9 +65,12 @@ public class ParentServiceImpl implements ParentService {
 	public ParentCommand saveParentCommand(ParentCommand parentcommand) {
 		// TODO Auto-generated method stub
 		Parent detachedParent=parentCommandToParent.convert(parentcommand);
+		
 		Parent savedParent=parentRepository.save(detachedParent);
+		
 		//log.debug("saved studentid :"+ savedStudent.getId());
 		return parentToParentCommand.convert(savedParent) ;
+		
 	}
 
 }

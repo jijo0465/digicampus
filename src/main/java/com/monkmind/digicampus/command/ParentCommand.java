@@ -23,7 +23,7 @@ public class ParentCommand {
 	private String paltPhone;
 	private BloodGroup bloodGroup;
 	private String dob;
-	private Long parentId;
+	private String parentId;
 	private String Password;
 	private String occupation;
 	 Set<RegisterCommand> students = new HashSet<>();

@@ -13,6 +13,8 @@ import com.monkmind.digicampus.models.Grade;
 import com.monkmind.digicampus.models.Parent;
 
 import com.monkmind.digicampus.models.Student;
+import com.monkmind.digicampus.models.User;
+import com.monkmind.digicampus.models.UserType;
 import com.monkmind.digicampus.repositories.ParentRepository;
 import com.monkmind.digicampus.repositories.StudentRepository;
 import lombok.AllArgsConstructor;
@@ -36,6 +38,7 @@ public class StudentServiceImpl implements StudentService {
     private final ParentRepository parentRepository;
     private final RegisterCommandToStudent registerCommandToStudent;
     private final StudentToRegisterCommand studentToRegisterCommand;
+    private final UserService userService;
     @Override
     public Student addStudent(Student student) {
 //        addParent(student.getParent());
@@ -44,6 +47,7 @@ public class StudentServiceImpl implements StudentService {
 		if(p!=null){
 			student.setParent(p);
 		}
+		
         return studentRepository.save(student);
     }
 
@@ -51,6 +55,7 @@ public class StudentServiceImpl implements StudentService {
         Parent p = parentRepository.findByPhone(parent.getPhone()).orElse(null);
         if(p==null){
 			parentRepository.save(parent);
+			
 		}
 
     }
@@ -94,6 +99,13 @@ public class StudentServiceImpl implements StudentService {
 		
 		Student detachedStudent=registerCommandToStudent.convert(command);
 		Student savedStudent=studentRepository.save(detachedStudent);
+		User user=new User();
+		user.setLoginId(savedStudent.getParent().getParentId());
+		long password = (long) Math.floor(Math.random() * 9000L) + 100L;
+		user.setPassword(Long.toString(password));
+		user.setUsertype(UserType.PARENT);
+		User saveduser=userService.saveUser(user);
+		System.out.println(user.getLoginId());
 		//log.debug("saved studentid :"+ savedStudent.getId());
 		return studentToRegisterCommand.convert(savedStudent) ;
 	}
