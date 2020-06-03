@@ -74,7 +74,7 @@ $(document).ready(function(){
 	})
 })
 $(document).ready(function(){
-	$("#editstudent").click(function(e){
+	$("_#editstudent").click(function(e){
 		e.preventDefault();
 		$.ajax({
 			method: "POST",

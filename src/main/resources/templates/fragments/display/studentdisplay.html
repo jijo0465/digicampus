@@ -42,7 +42,7 @@
     <th>Phone number</th>
     <th>Gender</th>
     <th>BloodGroup</th>
-    <th>Edit</th>
+    <!--  <th>Edit</th>-->
     <th>Delete</th>
   </tr>
  <tr th:each="student : ${liststudents}">
@@ -52,7 +52,7 @@
       		<td th:text="${student.phone}">
       		<td th:text="${student.gender}">
       		<td th:text="${student.bloodGroup}">
-      		<td> <a th:href="@{'/edit/'+ ${student.id}}">Edit</a></td>
+      		<!--  <td> <a th:href="@{'/edit/'+ ${student.id}}">Edit</a></td>-->
            <td><a th:href="@{'/delete/'+ ${student.id}}" onclick="return confirm('Are you sure want to delete this ?');" id="delete">Delete</a></td>
       		
  
