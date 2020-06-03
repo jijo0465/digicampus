@@ -20,7 +20,7 @@ public interface StudentService{
 	RegisterCommand findCommandById(long l);
 
 	RegisterCommand saveRegisterCommand(RegisterCommand command);
-	public List<Student> findByGradeid(Grade grade);
+	public List<Student> findByGradeid(Grade std);
 
 
 }

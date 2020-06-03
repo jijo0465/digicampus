@@ -133,5 +133,12 @@ public class StudentController {
 		model.addAttribute("gradeList", gradeCommands);
 		return "fragments/edit/studentedit::studentedit";
 	}
+	@RequestMapping("/displaystd/{std}")
+	public String viewclasswise(@PathVariable  Grade std ,Model model) {
+		System.out.println(std);
+		List<Student> students=studentService.findByGradeid(std);
+		model.addAttribute("students", students);
+		return "fragments/display/displaylist::displaylist";
+	}
 
 }
