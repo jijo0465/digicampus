@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8"/>
-    <title>Student </title>
+    <meta charset="UTF-8">
+    <link th:href="@{/assets/css/csss.css}" rel="stylesheet"/>
+    <link th:href="@{/assets/css/bootstrap.css}" rel="stylesheet"/>
+    <title>Santhinikethanam Central School</title>
 </head>
+<body th:align="center" style="background-color: #c4c7ea73">
 
-<body th:align="center">
-<h2>Digicampus Admin Portal Home</h2>
-<h4>Logged In As </h4>
-<h4 th:text="${userType}"></h4>
+<div class="body" style="background-color: #c4c7ea73">
+    <div th:replace="fragments/loginformfinal ::loginformfinal"></div>
+</div>
+<h6 th:text="${message}"></h6>
 
 </body>
+</html>

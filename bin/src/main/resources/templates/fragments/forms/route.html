@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    
+     <link th:href="@{/assets/css/bootstrap.css}" rel="stylesheet"/>
+<title>school bus route</title>
+<link th:href="@{/assets/css/addstud.css}" rel="stylesheet"/>
+</head>
+ <h5 align="center">ROUTE CREATION FORM</h5>
+ <body>
+<div class="container" th:fragment="schoolbusroute">
+    <div class="row">
+        <form action="#"  id="schoolbusroute" method="post" class=" ">
+                  <div th:replace="fragments/forminput::forminput(label='ROUTE:',name='busno' )"></div>
+                    <div  th:replace="fragments/forminput::forminput(label='STARTING TIME:',name='driver' )"></div>
+                     <div  th:replace="fragments/forminput::forminput(label='ARRIVAL:',name='gradeid' )"></div>
+                      <div  th:replace="fragments/forminput::forminput(label='DEPARTURE:',name='registration' )"></div>
+                       <div  th:replace="fragments/forminput::forminput(label='ENDING TIME:',name='routeidid' )"></div>
+                        <div  th:replace="fragments/forminput::forminput(label='SCHOOLBUS ID:',name='routeidid' )"></div>
+                  <div   th:replace="fragments/formbutton::formbutton(label='SUBMIT',name='submit',class='btn btn-lg btn-primary btn-block text-uppercase')"></div>
+            
+        </form>
+        </div>
+        </div>
+</body>
+</html>

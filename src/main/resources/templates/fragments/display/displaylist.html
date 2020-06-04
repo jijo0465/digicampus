@@ -14,7 +14,7 @@
     <th>Phone Number</th>
     <th>Gender</th>
     <th>Date of Birth</th>
-    <!--  <th>Edit</th>-->
+     <th></th>
     <th></th>
   </tr>
  <tr th:each="student : ${students}">
@@ -24,7 +24,7 @@
       		<td th:text="${student.parent.phone}">
       		<td th:text="${student.gender}">
       		<td th:text="${student.dateOfBirth}">
-      		<!--  <td> <a th:href="@{'/edit/'+ ${student.id}}">Edit</a></td>-->
+      		 <td> <a th:href="@{'/edit/'+ ${student.id}}">Edit</a></td>
            <td><a th:href="@{'/delete/'+ ${student.id}}" onclick="return confirm('Are you sure want to delete this ?');" id="delete">Delete</a></td>
       		
  

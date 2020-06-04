@@ -66,12 +66,12 @@ public class StudentServiceImpl implements StudentService {
 		return studentRepository.findByStudentId(student).orElse(null);
 	}
 
-	/*@Override
+    @Override
 	public void save(Student student) {
 		// TODO Auto-generated method stub
 		studentRepository.save(student);
 	}
-	*/
+	
 	
 
 	@Override

@@ -77,21 +77,24 @@ public class StudentController {
     */
 	
 //
-//	@RequestMapping("/edit/{id}")
-//	public String studentUpdate(@PathVariable String id,Model model) {
-//		//ModelAndView mav = new ModelAndView("edit_product");
-//		System.out.println(id);
-//	   RegisterCommand savedCommand = studentService.findCommandById(Long.valueOf(id));
-//	    model.addAttribute("savedCommand",savedCommand);
-//	     return "fragments/forms/updatestudent";
-//	}
+	@RequestMapping("/edit/{id}")
+	public String studentUpdate(@PathVariable Long id,Model model) {
+		//ModelAndView mav = new ModelAndView("edit_product");
+		System.out.println(id);
+		 List<Grade> gradeCommands = gradeService.listAll();
+	   Student savedCommand = studentService.findById(id);
+	   model.addAttribute("gradeList", gradeCommands);
+	    model.addAttribute("savedCommand",savedCommand);
+	     return "fragments/edit/editstudent";
+	}
 //	
 	@PostMapping
 	@RequestMapping("/updatestudent/{id}")
-	public String InsertStudent(@ModelAttribute  RegisterCommand  command,Model model) {
-		 RegisterCommand savedCommand=studentService.saveRegisterCommand(command);
-		// studentService.save(student);
-	    return "index";
+	public String InsertStudent(@ModelAttribute  Student savedCommand,Model model) {
+		// Student savedCommand=studentService.(command);
+		 studentService.save(savedCommand);
+		 System.out.println(savedCommand.getDateOfBirth());
+	    return "fragments/display/studentdisplay";
 	}
 
 	@ResponseBody

@@ -1,22 +1,15 @@
 <!DOCTYPE html>
-<html lang="en"
-xmlns:th="http://www.thymeleaf.org">>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-  <title>failure alert</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-<link th:href="@{/assets/css/csss.css}" rel="stylesheet"/>
+    <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+     <link th:href="@{/assets/css/bootstrap.css}" rel="stylesheet"/>
+    <title>Danger alert</title>
 </head>
 <body>
-<div th:fragments="alert">
-<div class="container">
-<div class="row">
-<div class="col-md-12">
-  <div class="alert alert-danger">
-    <strong>FAILED!</strong> 
-    </div>
-  </div>
-  </div>
+<div th:fragment="dangeralert">
+<div class="alert alert-danger">
+  <strong>Failed!</strong> Activity failed
 </div>
 </div>
 </body>

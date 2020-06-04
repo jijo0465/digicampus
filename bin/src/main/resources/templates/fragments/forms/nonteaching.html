@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    
+     <link th:href="@{/assets/css/bootstrap.css}" rel="stylesheet"/>
+<title>add nonteaching staff details</title>
+<link th:href="@{/assets/css/addstud.css}" rel="stylesheet"/>
+</head>
+ <h5 align="center">ADD NON TEACHING STAFF DETAILS</h5>
+ <body>
+<div class="container" th:fragment="addnonteaching">
+    <div class="row">
+        <form action="#"  id="addnonteaching" method="post" class=" ">
+           <div  th:replace="fragments/forminput::forminput(label='STAFF ID:',name='staffid' )"></div>
+                  <div  th:replace="fragments/forminput::forminput(label='NAME:',name='staffname' )"></div>
+           <div  th:replace="fragments/textarea::textarea(label='ADDRESS:',name='address' )"></div>
+           <div  th:replace="fragments/forminput::forminput(label='PHONE NO:',name='phoneno' )"></div>
+           <div  th:replace="fragments/forminput::forminput(label='ALTERNATIVE PHONE:',name='alternateno' )"></div>
+           <div  th:replace="fragments/date::date(label='DOB:',name='dob' )"></div>
+           <div  th:replace="fragments/dropdown::dropdown(label='BLOODGROUP:',name='bloodgroup' )"></div>
+ 
+           <div  th:replace="fragments/radiobut::radiobut(label='GENDER:',name='gender' )"></div>
+           <div  th:replace="fragments/imagefile::imagefile(label='PHOTO:',name='file' )"></div>
+           <div  th:replace="fragments/forminput::forminput(label='CATEGORY:',name='category' )"></div>
+           <div  th:replace="fragments/forminput::forminput(label='DESIGNATION:',name='designation' )"></div>
+           <div  th:replace="fragments/formbutton::formbutton(label='SUBMIT:',name='submit',class='btn btn-lg btn-primary btn-block text-uppercase')"></div> 
+        </form>
+        </div>
+        </div>
+</body>
+</html>

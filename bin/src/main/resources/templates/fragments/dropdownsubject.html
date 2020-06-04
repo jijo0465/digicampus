@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Dropdown Subject</title>
+</head>
+<body>
+
+
+<div>
+	<div class="form-group row" th:fragment ="dropdownsubject" >
+		<label th:text="${label}" style="text-align: end;" class="col-sm-3 col-form-label"></label>
+		<div class="col-sm-2">
+
+
+
+<!--  <div th:fragment ="dropdownsubject" >
+      <div class="form-label-group">
+              <div class="form-inline">
+              <label  th:text="${label}"   class="mr-sm-2" ></label>    -->
+
+<select  th:name="${name}">
+<option value = "SELECT">Select</option>
+	<option th:each="subject:${teachers[0].subjects}" th:value="${subject.id}" th:text="${subject.name}"></option>
+<!--	<option value = "teacherdisplay.html">PHYSICS</option>-->
+<!--	<option value = "Chemistry">CHEMISTRY</option>-->
+<!--	<option value = "Maths">MATHEMATICS</option>-->
+</select>
+        </div>
+         </div>
+          </div>
+</body>
+</html>
+
+

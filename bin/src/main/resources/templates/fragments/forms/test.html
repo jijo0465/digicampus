@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>test</title>
+</head>
+<body>
+
+<div class="container" th:fragment="test">
+<h5 align="center">Test</h5>
+<div class="row">
+
+<form action="#" id="test" method="post" class="">
+<div th:replace="fragments/date :: date(label='Date:',name='date')"></div>
+<div th:replace="fragments/forminput :: forminput(label='Duration:',name='duration')"></div>
+<div th:replace="fragments/forminput :: forminput(label='Pass Mark:',name='pmark')"></div>
+<div th:replace="fragments/forminput :: forminput(label='Time:',name='time')"></div>
+<div th:replace="fragments/forminput :: forminput(label='Total Mark:',name='tmark')"></div>
+<div th:replace="fragments/forminput :: forminput(label='Exam Id:',name='eid')"></div>
+<div th:replace="fragments/forminput :: forminput(label='Subject Name Id:',name='snid')"></div>
+<div th:replace="fragments/formbutton::formbutton(label='Submit',name='submit',class='btn btn-lg btn-primary btn-block text-uppercase')"></div>
+</form>
+</div>
+</div>
+</body>
+</html>
