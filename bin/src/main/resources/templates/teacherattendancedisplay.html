@@ -10,14 +10,16 @@
 <th>id</th>
 <th>date</th>
 <th>yes</th>
+<th>actions</th>
 </tr>
-<tr th:each="teacherattendance : ${teacherattendance}">
+<tr th:each="teacherattendance : ${teacherlists}">
 			<td th:text="${teacherattendance.teacher.id}">
       		<td th:text="${teacherattendance.date}">
       		<td th:text="${teacherattendance.yes}">
-      		</tr>   
-      		<tr><td>
-           
+      		   
+      		<td>
+           <a th:href="@{'/c/'+ ${teacherattendance.id}}">Edit</a>
+           <a th:href="@{'/v/'+ ${teacherattendance.id}}">Delete</a>
       	</td></tr>	
 </table>
 </body>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Edit student form</title>
+</head>
+<body>
+<div class="container" th:fragment="studentedit" >
+
+    <h4 align="left" style="font-size: 32px">Edit Student</h4>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item" id="home"><a href="/mydashboard">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Edit Student</li>
+        </ol>
+    </nav>
+
+    <div class="dc-form-body">
+        <div id="existPanel" class="alert alert-danger" role="alert" style="display: none">
+            Admission number you have entered does not exist
+        </div>
+
+        <form action="#" id="editstudform" method="post" >
+            <div th:replace="fragments/forminput::forminput(label='Admission Number:',name='studentId',id='admissionNumber' )"></div>
+            <div style="margin-top: 32px" class="btn-toolbar justify-content-center" role="toolbar" aria-label="Toolbar with button groups">
+                <div class="btn-group mr-2" role="group" aria-label="First group">
+                    <button type="button" class="btn btn-secondary" th:id="${id1}">   Back   </button>
+                </div>
+
+                <div class="btn-group" role="group" aria-label="Third group">
+                    <button type="button" class="btn btn-primary" id="next">   Next   </button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <script th:inline="javascript">
+
+
+        $("#next").click(function (e) {
+            $('#existPanel').show();
+
+            // console.log($("#admissionNumber_input").val())
+            // e.preventDefault();
+            // $.ajax({
+            //     method: "GET",
+            //     url: "/studentUpdate/"+$("#admissionNumber_input").val(),
+            //
+            //     success: function (status) {
+            //         console.log(status.body)
+            //         if (status.body['response']=='exists') {
+            //             $("#results").html(status)
+            //         }else{
+            //             $('#existPanel').show();
+            //
+            //         }
+            //     }
+            // });
+
+
+        });
+
+
+    </script>
+</div>
+
+</body>
+</html>

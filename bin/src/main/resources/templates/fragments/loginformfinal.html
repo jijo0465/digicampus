@@ -2,31 +2,42 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <link th:href="@{/assets/css/csss.css}" rel="stylesheet"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Login</title>
 </head>
 <body>
 <div class="container" th:fragment="loginformfinal">
-    
     <div class="row">
-    
-      <div class="col-sm-9 col-md-7 col-lg-5 mx-auto ">
-        <div class="card card-signin my-5">
-          <div class="card-body">
-            <h5 class="card-title text-center">Sign In</h5>
-        <form action="#" th:object="${logincommand}" id="loginformfinal" method="post" class="form-signin">
-            <div class="from-label-group" th:replace="fragments/forminput::forminput(label='USER ID',name='loginId' )"></div><br>
-            <div class="from-label-group" th:replace="fragments/forminput::forminput(label='PASSWORD',name='password' )"></div>
-            <div class="btn btn-lg btn-primary btn-block text-uppercase"  th:replace="fragments/formbutton::formbutton(name='login')"></div>
-            
-        </form>
+
+        <div class="col-sm-9 col-md-7 col-lg-5 mx-auto ">
+            <div class="card"  style="width: 30rem">
+                <div class="card card-signin my-5">
+                    <img style="height: 120px;
+                        padding-right: 0px;
+                        margin-top: -54px;
+                        margin-bottom: 12px;" src="/images/logo.jpeg" />
+                    <div class="card-body">
+                        <div class="head">
+                            <h6 class="card-title text-center">Sign In</h6></div>
+                        <br>
+
+                        <form th:action="@{/dashboard}" th:object="${logincommand}"  id="loginformfinal" method="post" class="form-signin form-inline ">
+                            <div class="form-group">
+                                <div class="form-control input-sm " th:replace="fragments/forminput::forminput(label='UserId',name='loginId' )"></div>
+
+                                <div class="form-control input-sm " th:replace="fragments/forminput::forminput(label='Password',name='password' )"></div>
+                                <div class="btn btn-lg  btn-primary btn-block "  th:replace="fragments/primary::primary(name='login',buttonid='loginbutton')"></div>
+
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-     </div>
-      </div>
-       </div>
-        
-        
 </div>
 </body>
+
 
 </html>

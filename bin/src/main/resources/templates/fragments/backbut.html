@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>submit</title>
+</head>
+<body>
+<div th:fragment ="backbut"  class="class">
+    <div style="margin-top: 32px" class="btn-toolbar justify-content-center" role="toolbar" aria-label="Toolbar with button groups">
+        
+        <div class="btn-group mr-2" role="group" aria-label="First group">
+            <input type="submit" th:value="${name}" class="btn btn-secondary" th:id="${buttonid}">
+        </div>
+    </div>
+     </div>
+    </body></html>

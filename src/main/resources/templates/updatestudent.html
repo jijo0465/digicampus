@@ -7,7 +7,7 @@
 <body bgcolor="#a8b5ac">
 <h1 align="center">update Student</h1>
 
-<form action="#" th:action="@{'/updatestudent/'+ ${student.id}}" th:object="${student}" method="post">
+<form action="#" th:action="@{'/updatestudent/'+ ${savedCommand.id}}" th:object="${savedCommand}" method="post">
 <label for="Name"> Name:</label>
 	<input type="text" id="name" th:field="*{name}">
 	<br>

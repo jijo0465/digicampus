@@ -43,13 +43,8 @@ public class StudentController {
 	@PostMapping
 	@RequestMapping("/addstudent")
 	public String Save(@ModelAttribute RegisterCommand command, Model model) {
-		System.out.println(command.getGradeid().getId());
-		System.out.println(command.getStudentId());
 		long parentid = (long) Math.floor(Math.random() * 9000000L) + 100000L;
-		
-		System.out.println(parentid);
 		command.getParentid().setParentId(Long.toString(parentid));
-		System.out.println(command.getParentid().getParentId());
 	   RegisterCommand savedCommand=studentService.saveRegisterCommand(command);
 	    return "fragments/forms/confirmpage::confirmpage";
 	}
@@ -77,21 +72,24 @@ public class StudentController {
     */
 	
 //
-//	@RequestMapping("/edit/{id}")
-//	public String studentUpdate(@PathVariable String id,Model model) {
-//		//ModelAndView mav = new ModelAndView("edit_product");
-//		System.out.println(id);
-//	   RegisterCommand savedCommand = studentService.findCommandById(Long.valueOf(id));
-//	    model.addAttribute("savedCommand",savedCommand);
-//	     return "fragments/forms/updatestudent";
-//	}
+	@RequestMapping("/edit/{id}")
+	public String studentUpdate(@PathVariable Long id,Model model) {
+		//ModelAndView mav = new ModelAndView("edit_product");
+		System.out.println(id);
+		 List<Grade> gradeCommands = gradeService.listAll();
+	   Student savedCommand = studentService.findById(id);
+	   model.addAttribute("gradeList", gradeCommands);
+	    model.addAttribute("savedCommand",savedCommand);
+	     return "fragments/edit/editstudent";
+	}
 //	
 	@PostMapping
 	@RequestMapping("/updatestudent/{id}")
-	public String InsertStudent(@ModelAttribute  RegisterCommand  command,Model model) {
-		 RegisterCommand savedCommand=studentService.saveRegisterCommand(command);
-		// studentService.save(student);
-	    return "index";
+	public String InsertStudent(@ModelAttribute  Student savedCommand,Model model) {
+		// Student savedCommand=studentService.(command);
+		 studentService.save(savedCommand);
+		 System.out.println(savedCommand.getDateOfBirth());
+	    return "fragments/display/studentdisplay";
 	}
 
 	@ResponseBody
@@ -133,10 +131,20 @@ public class StudentController {
 		model.addAttribute("gradeList", gradeCommands);
 		return "fragments/edit/studentedit::studentedit";
 	}
+
 	@RequestMapping("/get_edit_student_form")
 	public String getEditStudentForm(Model model) {
 		List<Grade> gradeCommands = gradeService.listAll();
 		return "fragments/dc-components/dc-screen-layout/dc-student-edit::dc-student-edit";
+	}
+
+
+	@RequestMapping("/displaystd/{std}")
+	public String viewclasswise(@PathVariable  Grade std ,Model model) {
+		System.out.println(std);
+		List<Student> students=studentService.findByGradeid(std);
+		model.addAttribute("students", students);
+		return "fragments/display/displaylist::displaylist";
 	}
 
 

@@ -3,21 +3,32 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>submit</title>
-<link th:href="@{/assets/css/formbutton.css}" rel="stylesheet"/>
 </head>
 <body>
-<div th:fragment ="formbutton" >
-  
-              <div class="form-label-group">
-               <div class="form-inline">
-                 <label  th:text="${label}"   class="mr-sm-2" ></label>
-                 <button  class=" btn btn-lg btn-primary btn-block text-uppercase"   th:name="${name}"  id="login" type="submit">LOGIN</button>
-                
-              </div>
-          </div>
-      </div>
+<div th:fragment ="formbutton"  class="class">
+    <div style="margin-top: 32px" class="btn-toolbar justify-content-center" role="toolbar" aria-label="Toolbar with button groups">
+        <div class="btn-group mr-2" role="group" aria-label="First group">
+            <button type="button" class="btn btn-secondary" th:id="${id1}">Back</button>
+        </div>
+      <!--   <div class="btn-group mr-2" role="group" aria-label="Second group">
+            <button type="button" class="btn btn-secondary">Save</button>
+
+        </div>-->
+        <div class="btn-group" role="group" aria-label="Third group">
+            <button type="button" class="btn btn-primary" th:id="${buttonid}">Submit</button>
+        </div>
+    </div>
+
+<!--              <div class="form-label-group">-->
+<!--              -->
+<!--                -->
+<!--                 <button th:class="${class}" th:text="${label}"  th:name="${name}"  id="login" type="submit"></button>-->
+<!--                -->
+<!--              </div>-->
+</div>
 </body>
 </html>
+
 
              
             

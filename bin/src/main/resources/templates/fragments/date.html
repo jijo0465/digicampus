@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>date of birth</title>
+</head>
+<body>
+    <div >
+        <div class="form-group row" th:fragment ="date">
+            <label th:text="${label}" style="text-align: end;" class="col-sm-3 col-form-label"></label>
+            <div class="col-sm-2">
+                <input class="form-control" type="date" th:name="${name}">
+            </div>
+	    </div>
+	</div> 
+</body>
+</html>

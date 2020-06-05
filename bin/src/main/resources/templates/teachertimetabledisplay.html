@@ -1,24 +1,25 @@
 <!DOCTYPE html>
-<html  lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="ISO-8859-1">
-<title>time table</title>
+<title> Teacher Timetable</title>
 </head>
 <body>
-<h1> time table</h1>
-<table><tr>
-<th>id</th>
-<th>day</th>
-<th>grade</th>
-</tr>
-<tr th:each="teachertimetable : ${teachertimetable}">
+	<h1>time table list</h1>
+	<table>
+		<tr>
+			<th>id</th>
+			<th>day</th>
+			<th>grade</th>
+			<th>actions</th>
+		</tr>
+		<tr th:each="teachertimetable : ${tchrtime}">
 			<td th:text="${teachertimetable.id}">
-      		<td th:text="${teachertimetable.day}">
-      		<td th:text="${teachertimetable.teacher.id}">
-      		</tr>   
-      		<tr><td>
-           <a th:href="@{'/d/'+ ${teachertimetable.id}}">Edit</a>
-      	</td></tr>	
-</table>
+			<td th:text="${teachertimetable.day}">
+			<td th:text="${teachertimetable.teacher}">
+			<td><a th:href="@{'/d/'+ ${teachertimetable.id}}">Edit</a> <a
+				th:href="@{'/tchrtime/'+ ${teachertimetable.id}}">Delete</a></td>
+		</tr>
+	</table>
 </body>
 </html>
