@@ -43,13 +43,8 @@ public class StudentController {
 	@PostMapping
 	@RequestMapping("/addstudent")
 	public String Save(@ModelAttribute RegisterCommand command, Model model) {
-		System.out.println(command.getGradeid().getId());
-		System.out.println(command.getStudentId());
 		long parentid = (long) Math.floor(Math.random() * 9000000L) + 100000L;
-		
-		System.out.println(parentid);
 		command.getParentid().setParentId(Long.toString(parentid));
-		System.out.println(command.getParentid().getParentId());
 	   RegisterCommand savedCommand=studentService.saveRegisterCommand(command);
 	    return "fragments/forms/confirmpage::confirmpage";
 	}
