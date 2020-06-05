@@ -4,14 +4,11 @@ import java.sql.Time;
 import java.util.HashSet;
 import java.util.Set;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -25,7 +22,6 @@ import lombok.ToString;
 @ToString
 @Table(name = "period")
 @Entity
-
 public class Period extends BaseEntity{
 	
 	@Column(name = "starting_time")
@@ -33,16 +29,21 @@ public class Period extends BaseEntity{
 	
 	@Column(name = "ending_time")
 	private Time endingTime;
-	
-	@ManyToOne
-	@NotNull
+
+	@JsonIgnore
+	@ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
 	private StudentTimeTable studentTimeTable;
-	
-	@ManyToOne
-	@NotNull
+
+	@JsonIgnore
+	@ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
 	private TeacherTimeTable teacherTimeTable;
 	
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "period")
-    Set<Subject> subjects = new HashSet<>();
+	@OneToOne
+    Subject subject;
+
+	@OneToOne
+	Grade grade;
+
+
 
 }

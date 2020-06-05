@@ -33,7 +33,6 @@ public class StudentTimeTable extends BaseEntity{
     private WeekDay day;
 	
 	@ManyToOne
-	@NotNull
 	private Grade grade;
 	
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "studentTimeTable")
