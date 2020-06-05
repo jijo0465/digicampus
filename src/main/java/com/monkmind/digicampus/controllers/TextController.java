@@ -48,5 +48,5 @@ public class TextController {
 	@RequestMapping("/edit")
 	public String getform() {
 		return "fragments/edit/studentedit";
-	}
+}
 }

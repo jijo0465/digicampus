@@ -133,5 +133,11 @@ public class StudentController {
 		model.addAttribute("gradeList", gradeCommands);
 		return "fragments/edit/studentedit::studentedit";
 	}
+	@RequestMapping("/get_edit_student_form")
+	public String getEditStudentForm(Model model) {
+		List<Grade> gradeCommands = gradeService.listAll();
+		return "fragments/dc-components/dc-screen-layout/dc-student-edit::dc-student-edit";
+	}
+
 
 }
