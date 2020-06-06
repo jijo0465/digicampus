@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+</head>
+<body>
+	<div class="form-group row" th:fragment ="dc-form-dropdown" >
+		<label th:text="${label}" style="text-align: end;" class="col-sm-3 col-form-label"></label>
+		<div class="col-sm-2">
+ <select class="form-control" th:name="${name}" th:id="${id}">
+        <option value="0">select</option>
+        <option th:each="option : ${options}"
+                th:value="${option.id}"
+                th:text="${option.name}"></option>
+    </select>
+        </div>
+         </div>
+</body>
+</html>
+

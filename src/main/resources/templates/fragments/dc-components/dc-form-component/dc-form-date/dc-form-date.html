@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+</head>
+<body>
+<div th:fragment ="dc-form-date" class="form-group row">
+        <label th:text="${label}" style="text-align: end;" class="col-sm-3 col-form-label"></label>
+        <div th:id="${id}" class="col-sm-2 dc-input">
+            <input class="form-control" type="date" th:name="${name}" th:required="${required}" th:id="${id}+'_input'">  	
+        </div>
+    </div>
+</body>
+</html>
+
+
+	
+		
+
+		

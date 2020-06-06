@@ -12,8 +12,9 @@ public class TextController {
 	public String getHome()
 	{ 
 
-
-		return "fragments/forms/addstud";
+		
+		//return "fragments/dc-components/dc-form-component/dc-form-dropdown/dc-form-dropdown::dc-form-dropdown";
+		return "fragments/dc-components/dc-alert/dc-sucess-alert::dc-sucess-alert";
 
 	}
 

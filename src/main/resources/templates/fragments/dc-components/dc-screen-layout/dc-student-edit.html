@@ -3,7 +3,6 @@
 <head>
     <meta charset="ISO-8859-1">
     <title>add student form</title>
-    
 </head>
 <body>
 <div class="container" style="min-width: 80%" th:fragment="dc-student-edit" id="student">
@@ -16,8 +15,7 @@
         </ol>
     </nav>
     <div class="dc-form-body col" id="formBody">
-  
-
+ 
         <div id="existPanel" class="alert alert-danger" role="alert" style="display: none">
             Admission number you have entered already exists
         </div>
@@ -41,7 +39,6 @@
             <div  th:replace="fragments/dc-components/dc-form-component/dc-text-input/dc-text-input.html::dc-text-input(label='Admission No *',name='studentId',id='admissionNumber',
                         required=true)"></div>
                         </div>
-            
             <div th:replace="fragments/formbutton::formbutton(label='ADD',name='submit',class='btn btn-lg btn-primary btn-block text-uppercase',buttonid='studentsubmit')"></div>
 
         </form>
