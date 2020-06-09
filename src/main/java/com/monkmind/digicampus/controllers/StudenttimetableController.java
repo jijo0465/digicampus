@@ -12,8 +12,16 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.monkmind.digicampus.models.Grade;
+import com.monkmind.digicampus.models.Period;
 import com.monkmind.digicampus.models.StudentTimeTable;
+import com.monkmind.digicampus.models.Subject;
+import com.monkmind.digicampus.models.WeekDay;
+import com.monkmind.digicampus.repositories.GradeRepository;
+import com.monkmind.digicampus.services.GradeService;
+import com.monkmind.digicampus.services.PeriodService;
 import com.monkmind.digicampus.services.StudentTimetableService;
+import com.monkmind.digicampus.services.SubjectService;
 
 import lombok.AllArgsConstructor;
 
@@ -22,6 +30,10 @@ import lombok.AllArgsConstructor;
 public class StudenttimetableController {
 	
 	private final StudentTimetableService studentTimetableService;
+	private final GradeRepository graderepository;
+	private final GradeService gradeservice;
+	private final PeriodService periodService;
+	private final SubjectService subjectService;
 	
 	 @RequestMapping("/studenttimetableform")
 	public String timetableForm(Model model) {
@@ -65,5 +77,23 @@ public class StudenttimetableController {
 		studentTimetableService.delete(id);
 		return "redirect:/";
 		
+	}
+	@RequestMapping("/timetable")
+	public String outtimetable() {
+		Long id=(long) 2;
+		Grade savedgrade=gradeservice.getGradeById(id);
+		List<StudentTimeTable> timetable=studentTimetableService.findByGrade(savedgrade);
+		for (StudentTimeTable studentTimeTable : timetable) {
+			System.out.println(studentTimeTable.getDay());
+			List<Period> periods=periodService.getByStudentTimeTable(studentTimeTable);
+			for (Period period : periods) {
+				System.out.println(period.getStartngTime());
+				List<Subject> subjects=subjectService.getByPeriodId(period);
+				for (Subject subject : subjects) {
+					System.out.println(subject.getName());
+				}
+			}
+		}
+		return("/index");
 	}
 }

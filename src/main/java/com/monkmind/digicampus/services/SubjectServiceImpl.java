@@ -1,7 +1,10 @@
 package com.monkmind.digicampus.services;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
+import com.monkmind.digicampus.models.Period;
 import com.monkmind.digicampus.models.Subject;
 import com.monkmind.digicampus.repositories.SubjectRepository;
 
@@ -25,6 +28,13 @@ public class SubjectServiceImpl implements SubjectService{
 	public Subject getById(Long subject) {
 		// TODO Auto-generated method stub
 		return subjectrepository.findById(subject).get();
+	}
+
+
+	@Override
+	public List<Subject> getByPeriodId(Period period) {
+		// TODO Auto-generated method stub
+		return subjectrepository.findByPeriod(period);
 	}
 
 

@@ -35,7 +35,6 @@ public class Period extends BaseEntity{
 	private Time endingTime;
 	
 	@ManyToOne
-	@NotNull
 	private StudentTimeTable studentTimeTable;
 	
 	@ManyToOne

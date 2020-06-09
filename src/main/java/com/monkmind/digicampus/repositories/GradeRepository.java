@@ -15,5 +15,6 @@ public interface GradeRepository extends CrudRepository<Grade, Long> {
 	List<Grade> findAll();
 	Optional<Grade> findById(Long id);
 	void save(GradeCommand gradecommand);
+	List<Grade> findByStandard(Integer standard);
 	
 }

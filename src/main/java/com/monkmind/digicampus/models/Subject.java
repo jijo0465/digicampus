@@ -47,6 +47,5 @@ public class Subject extends BaseEntity{
 	Set<Test> tests = new HashSet<>();
 	
 	@ManyToOne
-	@NotNull
 	private Period period;
 }

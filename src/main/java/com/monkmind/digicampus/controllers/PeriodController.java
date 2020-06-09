@@ -9,19 +9,27 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.monkmind.digicampus.models.Grade;
 import com.monkmind.digicampus.models.Period;
+import com.monkmind.digicampus.models.StudentTimeTable;
 import com.monkmind.digicampus.services.PeriodService;
+import com.monkmind.digicampus.services.StudentService;
+import com.monkmind.digicampus.services.StudentTimetableService;
 
 //Anand A B 18/05/2020
 
 @Controller
 public class PeriodController {
 	private final PeriodService periodService;
+	private final StudentTimetableService studentTimetableService;
 
-	public PeriodController(PeriodService periodService) {
+	
+	public PeriodController(PeriodService periodService, StudentTimetableService studentTimetableService) {
 		super();
 		this.periodService = periodService;
+		this.studentTimetableService = studentTimetableService;
 	}
+
 	@RequestMapping("/periodform")
 	public String periodinsert(Model model) {
 		model.addAttribute("period",new Period());
@@ -66,4 +74,16 @@ public class PeriodController {
 		return "redirect:/";
 		
 	}
+	@RequestMapping("/period")
+	public String period(){
+		Long id=(long) 2;
+		StudentTimeTable studentTimeTable=studentTimetableService.getById(id);
+		List<Period> periods=periodService.getByStudentTimeTable(studentTimeTable);
+		for (Period period : periods) {
+			System.out.println(period.getId());
+		}
+		
+		return "/dashboard";		
+	}
+	
 }
