@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import com.monkmind.digicampus.models.Period;
 import com.monkmind.digicampus.models.StudentTimeTable;
+import com.monkmind.digicampus.models.TeacherTimeTable;
 import com.monkmind.digicampus.repositories.PeriodRepository;
 
 import lombok.AllArgsConstructor;
@@ -41,6 +42,12 @@ public class PeriodServiceImpl implements PeriodService{
 		// TODO Auto-generated method stub
 		return periodRepository.findByStudentTimeTable(studentTimeTable);
 		
+	}
+
+	@Override
+	public List<Period> getByTeacherTimeTable(TeacherTimeTable teachertimetable) {
+		// TODO Auto-generated method stub
+		return periodRepository.findByTeacherTimeTable(teachertimetable);
 	}
 	
 	

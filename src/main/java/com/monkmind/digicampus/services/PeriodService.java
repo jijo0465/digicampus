@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.monkmind.digicampus.models.Period;
 import com.monkmind.digicampus.models.StudentTimeTable;
+import com.monkmind.digicampus.models.TeacherTimeTable;
 //Anand A B 18/05/2020
 
 public interface PeriodService {
@@ -12,4 +13,5 @@ public interface PeriodService {
 	public List<Period> listAll();
 	public void delete(Long id);
 	public List<Period> getByStudentTimeTable(StudentTimeTable studenttimetable);
+	public List<Period> getByTeacherTimeTable(TeacherTimeTable teachertimetable);
 }

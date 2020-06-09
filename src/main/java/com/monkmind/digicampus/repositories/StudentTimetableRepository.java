@@ -19,4 +19,6 @@ public interface StudentTimetableRepository extends CrudRepository<StudentTimeTa
 	List<StudentTimeTable> findByGrade(Grade grade);
 	
 	
+	
+	
 }
