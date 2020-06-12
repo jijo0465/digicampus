@@ -4,10 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import com.monkmind.digicampus.models.Grade;
 import com.monkmind.digicampus.models.Period;
@@ -75,10 +72,12 @@ public class TeacherTimeTableController {
 		return "redirect:/";
 
 	}
-	@RequestMapping("/teachertime")
-	public String Teachertime() {
+
+	@ResponseBody
+	@RequestMapping("/teachertime/{teacherId}")
+	public Object getTeacherTimeTable(@PathVariable(value = "teacherId") String teacherId) {
 		//Long id=(long) 13;
-		Teacher savedteacher=teacherservice.getTeacherByTeacherId("AS");
+		Teacher savedteacher=teacherservice.getTeacherByTeacherId(teacherId);
 		List<TeacherTimeTable> timetable=teachertimetableService.getByTeacherId(savedteacher);
 		for (TeacherTimeTable teacherTimeTable : timetable) {
 			System.out.println(teacherTimeTable.getDay());
@@ -94,7 +93,7 @@ public class TeacherTimeTableController {
 				}
 			}
 		}
-		return "dashboard";
+		return timetable;
 	}
 
 }

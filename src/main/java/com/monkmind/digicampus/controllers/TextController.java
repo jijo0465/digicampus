@@ -13,8 +13,8 @@ public class TextController {
 	{ 
 
 		
-		//return "fragments/dc-components/dc-form-component/dc-form-dropdown/dc-form-dropdown::dc-form-dropdown";
-		return "fragments/dc-components/dc-alert/dc-sucess-alert::dc-sucess-alert";
+		//return "fragments/dc-components/dc-dashboard-components/dc-breadcrumb/dc-breadcrumb.html::dc-breadcrumb";
+		return "fragments/dc-components/dc-screen-layout/dc-student-add.html::dc-student-add";
 
 	}
 

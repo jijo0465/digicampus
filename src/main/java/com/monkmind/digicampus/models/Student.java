@@ -14,6 +14,7 @@ import javax.persistence.Table;
 
 //import com.sun.istack.NotNull;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -36,26 +37,23 @@ public class Student extends Person{
 	
 	@Column(name = "weight")
     private Double weight;
-	
+
+	@JsonIgnore
 	@ManyToOne(cascade = CascadeType.ALL)
-	//@NotNull
     private Parent parent;
 	
 	@ManyToOne
-	//@NotNull
 	private SchoolBus schoolBus;
 	
 	@ManyToOne
-	//@NotNull
 	private Grade grade;
 	
 	@ManyToMany
 	private Set<Subject> subjects = new HashSet<>();
-	
+
+	@JsonIgnore
 	@OneToMany(mappedBy = "student")
 	private Set<StudentAttendance> studentAttendance = new HashSet<>();
 	
-	
-//	@Column(name = "rating")
-//	private String rating; 
+
 }
