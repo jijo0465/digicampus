@@ -28,7 +28,7 @@ public class Period extends BaseEntity{
 	private Time startngTime;
 
 	@Column(name = "period_no")
-	private int periodNo;
+	private Integer periodNo;
 
 	@Column(name = "ending_time")
 	private Time endingTime;
