@@ -8,12 +8,12 @@
         <label th:text="${label}" style="text-align: end;" class="col-sm-3 col-form-label"></label>
         <div  class="col-sm-7" id="${id}">
               <div class="custom-control custom-radio custom-control-inline" >
-                <input type="radio" id="${id}+'genderMale'" th:name="${name}" class="custom-control-input"  th:value="${value}"  th:required="${required}">
-                <label  th:text="${label}" style="text-align: end;" class="custom-control-label" ></label>
+                <input type="radio" id="${id}+'genderMale'" th:text="male" th:name="${name}" class="custom-control-input"  th:value="${value}"  th:required="${required}">
+              <!--    <label  th:text="${label}" style="text-align: end;" class="custom-control-label" ></label>-->
             </div>
             <div class="custom-control custom-radio custom-control-inline">
-                <input type="radio" id="${id}+'genderFemale'" th:name="${name}" class="custom-control-input" value="${value}"  th:required="${required}">
-                <label th:text="${label}" style="text-align: end;" class="custom-control-label" ></label>
+                <input type="radio" id="${id}+'genderFemale'" th:text="female" th:name="${name}" class="custom-control-input" value="${value}"  th:required="${required}">
+               <!--   <label th:text="${label}" style="text-align: end;" class="custom-control-label" ></label> -->
             </div>
             <small th:id="${id}+'_message'" class="form-text text-danger"></small>
             <small th:id="${id}+'_info'" class="form-text text-info"></small>

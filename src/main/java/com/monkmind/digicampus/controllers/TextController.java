@@ -20,7 +20,7 @@ public class TextController {
 
 	@RequestMapping("/gopika")
 	public String getForm() {
-		return "mydashboard";
+		return "fragments/dc-components/dc-screen-layout/dc-teacher-display::dc-teacher-display";
 	}
 
 	@RequestMapping("/display")

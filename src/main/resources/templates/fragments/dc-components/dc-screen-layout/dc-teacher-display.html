@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Teacher list dispaly</title>
+    <link th:href="@{/assets/css/studentdisplay.css}" rel="stylesheet"/>
+</head>
+<body>
+<div class="container" th:fragment="dc-teacher-display">
+<h4 align="left" style="font-size: 32px">Teacher Display</h4>
+<nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item" id="home"><a href="/mydashboard">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Display Teacher</li>
+        </ol>
+    </nav>
+<table style="width:100%">
+  <tr>
+    <th>Firstname</th>
+    <th>Phone</th> 
+    <th>Gender</th>
+    <th>Blood Group</th>
+  </tr>
+ <tr th:each="teachers : ${teachers}">
+			<td th:text="${teachers.name}">
+			<td th:text="${teachers.phone}">
+      		<td th:text="${teachers.gender}">
+      		<td th:text="${teachers.bloodGroup}">
+      		
+ 
+ </tr>
+</table>
+</div>
+</body>
+</html>
+
+
+
+
