@@ -4,17 +4,20 @@
 <meta charset="UTF-8">
 </head>
 <body>
-<div th:fragment ="dc-form-date" class="form-group row">
-        <label th:text="${label}"  class="col-sm-3 col-form-label"></label>
-        <div th:id="${id}"  class="col-sm-7 dc-input" >
-            <input class="form-control" type="date" th:name="${name}" th:required="${required}" th:id="${id}+'_input'">  	
-        </div>
-    </div>
+	<div th:fragment="dc-form-date" class="date">
+		<div class="form-group row">
+			<label th:text="${label}" style="text-align: end;"
+				class="col-sm-3 col-form-label"></label>
+			<div th:id="${id}" class="col dc-input">
+				<input class="form-control" type="date" th:name="${name}"
+					th:required="${required}" th:id="${id}+'_input'">
+			</div>
+		</div>
+	</div>
 </body>
 </html>
 
-<!--  style="text-align: end;"-->
-	
-		
 
-		
+
+
+
