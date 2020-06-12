@@ -10,7 +10,6 @@
     <script th:src="@{/webjars/bootstrap/4.4.1-1/js/bootstrap.min.js}"></script>
       <script th:src="@{/assets/js/dashboard.js}"></script>
 </head>
-
 <body>
 <form action="#" th:action="@{'/updatestudent/'+ ${savedCommand.id}}" th:object="${savedCommand}" method="post">
 <div  class="forminput">
@@ -21,7 +20,6 @@
             <small th:id="id_message" class="form-text text-danger"></small>
             <small th:id="id_info" class="form-text text-info"></small>
         </div>
-
     </div>
     </div>
     <div class="sample">

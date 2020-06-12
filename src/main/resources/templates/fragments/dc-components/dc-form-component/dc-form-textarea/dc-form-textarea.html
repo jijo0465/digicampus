@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+</head>
+<body>
+<div th:fragment ="dc-form-textarea" class="sample">
+    <div class="form-group row">
+              <label th:text="${label}" style="text-align: end;" class="col-sm-3 col-form-label"></label>
+        <div  class="col dc-input">
+              <textarea  class="form-control" th:name="${name}" ></textarea>
+                <small th:id="${id}+'_message'" class="form-text text-danger"></small>
+                <small th:id="${id}+'_info'" class="form-text text-info"></small>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+
+
+
+
+   
+     
+
+

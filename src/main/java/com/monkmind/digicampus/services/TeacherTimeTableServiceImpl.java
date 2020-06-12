@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.monkmind.digicampus.models.Teacher;
 import com.monkmind.digicampus.models.TeacherTimeTable;
 import com.monkmind.digicampus.repositories.TeacherTimeTableRepository;
 
@@ -35,6 +36,12 @@ private final TeacherTimeTableRepository teachertimetableRepository;
 	public void delete(long id) {
 		// TODO Auto-generated method stub
 		teachertimetableRepository.deleteById(id);
+	}
+
+	@Override
+	public List<TeacherTimeTable> getByTeacherId(Teacher teacher) {
+		// TODO Auto-generated method stub
+		return teachertimetableRepository.findByTeacher(teacher);
 	}
 
 }

@@ -37,19 +37,14 @@ public class StudentController {
         List<Grade> gradeCommands = gradeService.listAll();
 	    model.addAttribute("command", registerCommand);
 	    model.addAttribute("gradeList", gradeCommands);
-	    return "fragments/forms/addstud::addstud";
+	    return "fragments/dc-components/dc-screen-layout/dc-student-add.html::dc-student-add";
 	}
 
 	@PostMapping
 	@RequestMapping("/addstudent")
 	public String Save(@ModelAttribute RegisterCommand command, Model model) {
-		System.out.println(command.getGradeid().getId());
-		System.out.println(command.getStudentId());
 		long parentid = (long) Math.floor(Math.random() * 9000000L) + 100000L;
-		
-		System.out.println(parentid);
 		command.getParentid().setParentId(Long.toString(parentid));
-		System.out.println(command.getParentid().getParentId());
 	   RegisterCommand savedCommand=studentService.saveRegisterCommand(command);
 	    return "fragments/forms/confirmpage::confirmpage";
 	}
@@ -136,6 +131,14 @@ public class StudentController {
 		model.addAttribute("gradeList", gradeCommands);
 		return "fragments/edit/studentedit::studentedit";
 	}
+
+	@RequestMapping("/get_edit_student_form")
+	public String getEditStudentForm(Model model) {
+		List<Grade> gradeCommands = gradeService.listAll();
+		return "fragments/dc-components/dc-screen-layout/dc-student-edit::dc-student-edit";
+	}
+
+
 	@RequestMapping("/displaystd/{std}")
 	public String viewclasswise(@PathVariable  Grade std ,Model model) {
 		System.out.println(std);
@@ -143,5 +146,6 @@ public class StudentController {
 		model.addAttribute("students", students);
 		return "fragments/display/displaylist::displaylist";
 	}
+
 
 }

@@ -108,8 +108,12 @@ public class StudentServiceImpl implements StudentService {
 		long password = (long) Math.floor(Math.random() * 90000L) + 1000L;
 		user.setPassword(Long.toString(password));
 		user.setUsertype(UserType.PARENT);
-		User saveduser=userService.saveUser(user);
-		System.out.println(user.getLoginId());
+		userService.saveUser(user);
+		User studentuser=new User();
+		studentuser.setLoginId(savedStudent.getStudentId());
+		studentuser.setPassword(Long.toString(password));
+		studentuser.setUsertype(UserType.STUDENT);
+		userService.saveUser(studentuser);
 		//log.debug("saved studentid :"+ savedStudent.getId());
 		return studentToRegisterCommand.convert(savedStudent) ;
 	}

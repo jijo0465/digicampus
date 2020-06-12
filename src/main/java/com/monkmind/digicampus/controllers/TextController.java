@@ -12,8 +12,9 @@ public class TextController {
 	public String getHome()
 	{ 
 
-
-		return "fragments/forms/addstud";
+		
+		//return "fragments/dc-components/dc-dashboard-components/dc-breadcrumb/dc-breadcrumb.html::dc-breadcrumb";
+		return "fragments/dc-components/dc-screen-layout/dc-student-add.html::dc-student-add";
 
 	}
 
@@ -48,5 +49,5 @@ public class TextController {
 	@RequestMapping("/edit")
 	public String getform() {
 		return "fragments/edit/studentedit";
-	}
+}
 }

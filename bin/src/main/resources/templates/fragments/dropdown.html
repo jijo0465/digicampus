@@ -5,15 +5,7 @@
 	<title>Dropdown</title>
 </head>
 <body>
-<!--<div th:fragment ="dropdown" >
-      <div class="form-label-group">
-              <div class="form-inline">
-              <label  th:text="${label}"   class="mr-sm-2" ></label>
-  <select class="form-control"  name="dropdown" id="dropdown" required="required">
-                    <option disabled="disabled" selected="selected" >         </option>
-                    <option th:each="" : ${agencies}"  th:text="${agency.name}" ></option>
 
-                </select>  -->
 <div>
 	<div class="form-group row" th:fragment ="dropdown" >
 		<label th:text="${label}" style="text-align: end;" class="col-sm-3 col-form-label"></label>
@@ -31,24 +23,7 @@
 				<option th:value = "AB_NEG">AB-ve</option	>
 			</select>
 			<small th:id="${id1}+'_message'" class="form-text text-danger"></small>
-			<!--	<select class="form-control dropdown" th:name="${bloodtitle}">
-                  <option th:each="bloodGroup: ${T(com.monkmind.digicampus.models.BloodGroup).values()}"
-                  th:value="${bloodGroup.name()}"
-                  th:text="${bloodGroup.name()}"
-                  >Select</option>
-                  </select>
-                  -->
-			<!--			<div class="dropdown">-->
-			<!--				<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
-			<!--					Select-->
-			<!--				</button>-->
-			<!--				<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">-->
-			<!--					<a class="dropdown-item" href="#">O +ve</a>-->
-			<!--					<a class="dropdown-item" href="#">A +ve</a>-->
-			<!--					<a class="dropdown-item" href="#">A -ve</a>-->
-			<!--				</div>-->
-			<!--			</div>-->
-		</div>
+			</div>
 		<label style="text-align: end;" class="col-sm-2 col-form-label">Date of birth</label>
 		<div class="col-sm-2 dc-input" th:id="${id2}">
 			<input class="form-control" type="date" th:name="${name}" th:required="${requireddob}" th:id="${id2}+'_input'">

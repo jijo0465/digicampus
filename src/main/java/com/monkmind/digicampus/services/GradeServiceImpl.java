@@ -30,10 +30,10 @@ public class GradeServiceImpl implements GradeService {
 		return gradeRepository.findByDivision(division).get();
 	}
 
-	/*@Override
+	@Override
 	public Grade save(Grade grade) {
 		return gradeRepository.save(grade);
-	}*/
+	}
 
 	@Override
 	public Grade getGradeById(Long id) {
@@ -63,6 +63,5 @@ public class GradeServiceImpl implements GradeService {
 		return gradeToGradeCommand.convert(savedGrade) ;
 	}
 
-	
 
 }
