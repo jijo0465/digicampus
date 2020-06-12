@@ -10,6 +10,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -36,16 +37,20 @@ public class Grade extends BaseEntity{
 	
 	//@Column(name = "max_strength")
     //private Double max_strength;
-	
+
+	@JsonIgnore
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "grade")
     private Set<StudentTimeTable> studentTimeTable = new HashSet<>();
-	
+
+	@JsonIgnore
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "grade")
     private Set<Student> students = new HashSet<>();
-	
+
+	@JsonIgnore
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "grade")
 	private Set<Test> test  = new HashSet<>();
-	
+
+	@JsonIgnore
 	@OneToOne
     private Teacher classTeacher;
 	
