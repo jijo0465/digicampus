@@ -1,19 +1,37 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
 <title>card</title>
 </head>
 <body>
 <div th:fragment="dc-dashboard-card"> 
-<div class="card">
-      <div class="card-header dc-menu-header" th:text="card-head"></div>
+<div class="card-columns" style="column-gap: 40px">
+    <div class="card">
+      <div class="card-header dc-menu-header">Admissions</div>
       <div class="card-body dc-menu-body">
-        <div th:replace="fragments/alloptions :: option (name='Add Student',val='addstudent')"></div>
-        <div th:replace="fragments/alloptions :: option (name='Edit Student',val='editstudent')"></div>
-        <div th:replace="fragments/alloptions :: option (name='Display Student',val='displaystudent')"></div>
+        <div th:replace="fragments/dc-components/dc-dashboard-components/dc-option-links/dc-option-links.html::dc-option-links(name='Add Student',val='addstudent')"></div>
+        <div th:replace="fragments/dc-components/dc-dashboard-components/dc-option-links/dc-option-links.html::dc-option-links(name='Edit Student',val='editstudent')"></div>
+        <div th:replace="fragments/dc-components/dc-dashboard-components/dc-option-links/dc-option-links.html::dc-option-links(name='Display Student',val='displaystudent')"></div>
       </div>
-</div>
+    </div>
+   <div class="card">
+      <div class="card-header dc-menu-header">Teachers</div>
+      <div class="card-body dc-menu-body">
+        <div th:replace="fragments/dc-components/dc-dashboard-components/dc-option-links/dc-option-links.html::dc-option-links(name='Add Teacher',val='addteacher')"></div>
+        <div th:replace="fragments/dc-components/dc-dashboard-components/dc-option-links/dc-option-links.html::dc-option-links(name='Edit Teacher',val='editteacher')"></div>
+        <div th:replace="fragments/dc-components/dc-dashboard-components/dc-option-links/dc-option-links.html::dc-option-links(name='Display Teacher',val='displayteacher')"></div>
+      </div>
+    </div>
+   <div class="card">
+      <div class="card-header dc-menu-header">TimeTable</div>
+      <div class="card-body dc-menu-body">
+        <div th:replace="fragments/dc-components/dc-dashboard-components/dc-option-links/dc-option-links.html::dc-option-links(name='Add Teacher TimeTable',val='addteachertimetable')"></div>
+        <div th:replace="fragments/dc-components/dc-dashboard-components/dc-option-links/dc-option-links.html::dc-option-links(name='Edit Teacher TimeTable')"></div>
+        <div th:replace="fragments/dc-components/dc-dashboard-components/dc-option-links/dc-option-links.html::dc-option-links(name='Display Student TimeTable')"></div>
+      </div>
+    </div>
+    </div>
 </div>
 </body>
 </html>

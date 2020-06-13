@@ -12,13 +12,6 @@
     		dc-breadcrumb(active_item='Edit Student')"></div>
     <div class="dc-form-body col" id="formBody">
  
-        <div id="existPanel" class="alert alert-danger" role="alert" style="display: none">
-            Admission number you have entered already exists
-        </div>
-
-        <div id="errorPanel" class="alert alert-danger" role="alert" style="display: none">
-            Mandatory fields cannot be empty
-        </div>
         <div class="alert alert-warning" role="alert">
             Admission number should be unique for every student
         </div>
@@ -31,15 +24,19 @@
                 <small class="text-gray">Student Information</small>
             </h3>
             <br/>
-            <div class="col-sm-10 mx-auto">
+            <div class="col-sm-8 mx-auto">
             <div  th:replace="fragments/dc-components/dc-form-component/dc-text-input/dc-text-input.html::dc-text-input(label='Admission No *',name='studentId',id='admissionNumber',
                         required=true)"></div>
                         </div>
-            <div th:replace="fragments/formbutton::formbutton(label='ADD',name='submit',class='btn btn-lg btn-primary btn-block text-uppercase',buttonid='studentsubmit')"></div>
-
+            <div th:replace="fragments/dc-components/dc-form-component/dc-form-button/dc-form-button.html::dc-form-button(submit_id='studentsubmit')"></div>
         </form>
 </div>
+ <div id="dc-edit-body">
     </div>
+    </div>
+      <script th:src="@{js/dc-components/dc-screen-layout/dc-student-edit.js}">
+    </script>
+   
 </div>
 </body>
 </html>
