@@ -6,13 +6,13 @@
 <body>
 	<div class="dropdown" th:fragment ="dc-form-dropdown" >
 		<div class="form-group row">
-		<label th:text="${label}" style="text-align: end;" class="col-sm-6 col-form-label"></label>
+		<label th:text="${label}" style="text-align: end;" class="col-sm-3 col-form-label"></label>
 		 <div th:id="${id}" class="col dc-input">
- <select class="form-control" th:name="${name}" th:id="${id}">
+ <select class="form-control" th:name="${name}">
         <option value="0">select</option>
-        <option th:each="option : ${options}"
-                th:value="${optionid}"
-                th:text="${optionname}"></option>
+        <option th:each="option : ${__${options}__}"
+                th:value="${option.__${val}__}"
+                th:text="${option.__${text}__}+' '+${option.__${subtxt}__}"></option>
     </select>
         </div>
         </div>
