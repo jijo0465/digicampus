@@ -4,29 +4,24 @@
     <meta charset="UTF-8">
      <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Teacher list dispaly</title>
-    <link th:href="@{/assets/css/studentdisplay.css}" rel="stylesheet"/>
 </head>
 <body>
-<div class="container" th:fragment="dc-teacher-display">
+<div class="container dc-form-body" th:fragment="dc-teacher-display" >
 <h4 align="left" style="font-size: 32px">Teacher Display</h4>
-<nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item" id="home"><a href="/mydashboard">Home</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Display Teacher</li>
-        </ol>
-    </nav>
-<table style="width:100%">
+<div th:replace="fragments/dc-components/dc-dashboard-components/dc-breadcrumb/dc-breadcrumb.html::
+			dc-breadcrumb(active_item='Display Teacher')"></div>
+<table style="width:100%"  class="table table-condensed">
   <tr>
-    <th>Firstname</th>
-    <th>Phone</th> 
-    <th>Gender</th>
-    <th>Blood Group</th>
+    <th>Name</th>
+    <th>Teacher ID</th> 
+    <!-- <th>Gender</th>
+    <th>Blood Group</th> -->
   </tr>
  <tr th:each="teachers : ${teachers}">
 			<td th:text="${teachers.name}">
-			<td th:text="${teachers.phone}">
-      		<td th:text="${teachers.gender}">
-      		<td th:text="${teachers.bloodGroup}">
+			<td th:text="${teachers.teacherId}">
+      		<!--<td th:text="${teachers.gender}">
+      		<td th:text="${teachers.bloodGroup}">  -->
       		
  
  </tr>

@@ -22,6 +22,7 @@ public class TeacherRegisterCommand {
 	private long id;
 	private String name;
 	private String dob;
+	private String teacherId;
 	private Gender gender;
 	private byte[] displayImage;
 	private BloodGroup bloodGroup;

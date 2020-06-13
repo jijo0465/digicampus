@@ -6,7 +6,7 @@
     <title>Student list dispaly</title>
 </head>
 <body>
-<div class="container" th:fragment="studentdisplay" >
+<div class="container" th:fragment="dc-student-display" >
 <h4 align="left" style="font-size: 32px">Student Display</h4>
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
@@ -38,41 +38,8 @@
 
 <div id="stdbody">
 </div>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script th:inline="javascript">
-$(document).ready(function(){
-	$("#show").click(function(e){
-		e.preventDefault();
-		$.ajax({
-			method: "POST",
-			url: "/displaycls",
-			
-			success: function(status){
-				if(status) {
-					console.log(status);
-					$("#results").html(status)
-				}
-			}
-		});
-	})
-})
-$(document).ready(function(){
-	$('#std').change(function(){
-		var tcid=$(this).val();
-		$.ajax({
-			method: "GET",
-			url: "/displaystd/"+$("#std").val(),
-			success: function(status){
-				if(status) {
-					console.log(status);
-					$("#stdbody").html(status)
-				}
-			}
-		});
-		
-	})
-})
-</script>
+<script th:src="@{js/dc-components/dc-screen-layout/dc-student-display.js}">
+    </script>
 
     </div>
 </div>

@@ -25,13 +25,14 @@ public class TeacherController {
 	@RequestMapping("/teacher")
 	public String teacherform(Model model) {
 		model.addAttribute("teachercommand",new TeacherRegisterCommand());
-		return "fragments/forms/teacher::teacher";
+		return "fragments/dc-components/dc-screen-layout/dc-teacher-add.html::dc-teacher-add";
 	}
-	@PostMapping("/addteacher")
+	@PostMapping
+	@RequestMapping("/addteacher")
 	public String createteacher(@ModelAttribute TeacherRegisterCommand teachercommand,Model model) {
 		TeacherRegisterCommand savedCommand=teacherservice.saveTeacherRegisterCommand(teachercommand);
 		//teacherservice.save(savedcommand);
-		return "index";
+		return "fragments/forms/confirmpage::confirmpage";
 	}
 	
 	
@@ -40,7 +41,7 @@ public class TeacherController {
 	public String teacherDisplay(Model model) {
 		List<Teacher> teachers=teacherservice.findAll();
 		model.addAttribute("teachers",teachers);
-		return "fragments/display/teacherdisplay::teacherdisplay";
+		return "fragments/dc-components/dc-screen-layout/dc-teacher-display.html::dc-teacher-display";
 	}
 	
 	@RequestMapping("/t/{teacherId}")
