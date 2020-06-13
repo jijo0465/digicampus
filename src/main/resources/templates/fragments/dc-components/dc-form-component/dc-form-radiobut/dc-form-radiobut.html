@@ -6,19 +6,22 @@
 <body>
 <div th:fragment ="dc-form-radiobut"  class="form-group row">
 
+
+        
         <label th:text="${label}" style="text-align: end;" class="col-sm-3"></label>
-        <div class="col-sm-7" id="gender">
+        <div class="col" id="gender">
             <div class="custom-control custom-radio custom-control-inline" >
-                <input type="radio" id="genderMale" name="gender" class="custom-control-input" value="MALE" th:required="${required}">
+                <input type="radio" id="genderMale" th:name="${name}" class="custom-control-input" value="MALE" th:required="${required}">
                 <label class="custom-control-label" for="genderMale">Male</label>
             </div>
             <div class="custom-control custom-radio custom-control-inline">
-                <input type="radio" id="genderFemale" name="gender" class="custom-control-input" value="FEMALE">
+                <input type="radio" id="genderFemale" th:name="${name}" class="custom-control-input" value="FEMALE">
                 <label class="custom-control-label" for="genderFemale">Female</label>
             </div>
         </div>
-   
     </div>
+   
+   
 </body>
 </html>
 
