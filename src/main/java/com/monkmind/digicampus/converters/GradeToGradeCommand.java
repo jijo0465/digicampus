@@ -10,7 +10,19 @@ public class GradeToGradeCommand {
 
 	public GradeCommand convert(Grade savedGrade) {
 		// TODO Auto-generated method stub
-		return null;
+		if(savedGrade==null) {
+			return null;
+		}
+		
+		final GradeCommand gd=new GradeCommand();
+		gd.setId(savedGrade.getId());
+		gd.setStandard(savedGrade.getStandard());
+		gd.setDivision(savedGrade.getDivision());
+		gd.setStrength(savedGrade.getStrength());
+		return gd;
+		
+	}
+		
 	}
 
-}
+

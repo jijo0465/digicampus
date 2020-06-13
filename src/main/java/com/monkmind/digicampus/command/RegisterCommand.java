@@ -5,6 +5,7 @@ import java.util.Set;
 
 import com.monkmind.digicampus.models.BloodGroup;
 import com.monkmind.digicampus.models.Gender;
+import com.monkmind.digicampus.models.Grade;
 import com.monkmind.digicampus.models.Parent;
 import com.monkmind.digicampus.models.StudentAttendance;
 import com.monkmind.digicampus.models.Subject;

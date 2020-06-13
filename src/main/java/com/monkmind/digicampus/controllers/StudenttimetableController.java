@@ -30,7 +30,7 @@ import lombok.AllArgsConstructor;
 public class StudenttimetableController {
 	
 	private final StudentTimetableService studentTimetableService;
-	private final GradeRepository graderepository;
+	//private final GradeRepository graderepository;
 	private final GradeService gradeservice;
 	private final PeriodService periodService;
 	private final SubjectService subjectService;

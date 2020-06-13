@@ -38,7 +38,6 @@ public class Student extends Person{
     private Double weight;
 	
 	@ManyToOne(cascade = CascadeType.ALL)
-	//@NotNull
     private Parent parent;
 	
 	@ManyToOne
