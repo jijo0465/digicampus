@@ -34,7 +34,7 @@ public class TeacherTimeTableController {
 		model.addAttribute("teachertimetable", new TeacherTimeTable());
 		List<Teacher> teachers=teacherservice.findAll();
 		model.addAttribute("teachers",teachers);
-		return "fragments/forms/teachertimetable::teachertimetable";
+		return "fragments/dc-components/dc-screen-layout/dc-teacher-timetable.html::dc-teacher-timetable";
 	}
 
 	@PostMapping("/teacher_timetable")
@@ -48,7 +48,7 @@ public class TeacherTimeTableController {
 	public String TeacherTimeTableDisplayForm(Model model) {
 		List<TeacherTimeTable> tchrtime = teachertimetableService.findAll();
 		model.addAttribute("tchrtime", tchrtime);
-		return "teachertimetabledisplay";
+		return "dc-teacher-timetable-display";
 	}
 
 	@RequestMapping("/d/{id}")
