@@ -37,7 +37,7 @@ public class StudentController {
         List<Grade> gradeCommands = gradeService.listAll();
 	    model.addAttribute("command", registerCommand);
 	    model.addAttribute("gradeList", gradeCommands);
-	    return "fragments/forms/addstud::addstud";
+	    return "fragments/dc-components/dc-screen-layout/dc-student-add.html::dc-student-add";
 	}
 
 	@PostMapping
@@ -57,21 +57,18 @@ public class StudentController {
 		  List<Grade> gradeCommands = gradeService.listAll();
 		  model.addAttribute("gradeList", gradeCommands);
 		   model.addAttribute("liststudents",liststudents);
-		    return "fragments/display/studentdisplay::studentdisplay";
+		    return "fragments/dc-components/dc-screen-layout/dc-student-display.html::dc-student-display";
 
 		}
-	@PostMapping("/displaycls")
-	public String displaycls(@ModelAttribute Grade std) {
-		System.out.println(std.getId());
-		
-		return "mydashboard";
-	}
+	  @RequestMapping("/displaystd/{std}")
+		public String viewclasswise(@PathVariable  Grade std ,Model model) {
+			System.out.println(std);
+			List<Student> students=studentService.findByGradeid(std);
+			model.addAttribute("students", students);
+			return "fragments/dc-components/dc-screen-layout/dc-student-list.html::dc-student-list";
+		}
 
-	/*author:shijina
-    created date:16/5/2020
-    */
-	
-//
+
 	@RequestMapping("/edit/{id}")
 	public String studentUpdate(@PathVariable Long id,Model model) {
 		//ModelAndView mav = new ModelAndView("edit_product");
@@ -139,13 +136,7 @@ public class StudentController {
 	}
 
 
-	@RequestMapping("/displaystd/{std}")
-	public String viewclasswise(@PathVariable  Grade std ,Model model) {
-		System.out.println(std);
-		List<Student> students=studentService.findByGradeid(std);
-		model.addAttribute("students", students);
-		return "fragments/display/displaylist::displaylist";
-	}
+	
 
 
 }

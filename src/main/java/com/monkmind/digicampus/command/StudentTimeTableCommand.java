@@ -1,5 +1,6 @@
 package com.monkmind.digicampus.command;
 
+
 import java.util.HashSet;
 import java.util.Set;
 
@@ -21,4 +22,5 @@ public class StudentTimeTableCommand {
 	 private WeekDay day;
 	 private GradeCommand gradeid;
 	 private Set<PeriodCommand> periodid = new HashSet<>();
+
 }

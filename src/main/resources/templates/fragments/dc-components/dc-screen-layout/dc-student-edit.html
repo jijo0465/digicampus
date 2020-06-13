@@ -8,12 +8,8 @@
 <div class="container" style="min-width: 80%" th:fragment="dc-student-edit" id="student">
 
     <h4 class="dc-title" align="left" style="font-size: 32px">New Admission</h4>
-    <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item" id="home"><a href="/mydashboard">Home</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Add Student</li>
-        </ol>
-    </nav>
+    <div th:replace="fragments/dc-components/dc-dashboard-components/dc-breadcrumb/dc-breadcrumb.html::
+    		dc-breadcrumb(active_item='Edit Student')"></div>
     <div class="dc-form-body col" id="formBody">
  
         <div id="existPanel" class="alert alert-danger" role="alert" style="display: none">
@@ -44,8 +40,6 @@
         </form>
 </div>
     </div>
-
-    
 </div>
 </body>
 </html>

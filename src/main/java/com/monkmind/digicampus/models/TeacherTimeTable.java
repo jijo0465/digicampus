@@ -13,6 +13,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.ManyToAny;
 
 import lombok.AllArgsConstructor;
@@ -36,7 +37,8 @@ public class TeacherTimeTable extends BaseEntity{
 	
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "teacherTimeTable")
     Set<Period> periods = new HashSet<>();
-	
+
+	@JsonIgnore
 	@ManyToOne(cascade = CascadeType.ALL)
 	private Teacher teacher;
 }

@@ -14,7 +14,7 @@ $(document).ready(function(){
 	})
 })
 $(document).ready(function(){
-	$("_addteacher").click(function(e){
+	$("#addteacher").click(function(e){
 		e.preventDefault();
 		$.ajax({
 			method: "POST",
@@ -59,7 +59,7 @@ $(document).ready(function(){
 	})
 })
 $(document).ready(function(){
-	$("_displayteacher").click(function(e){
+	$("#displayteacher").click(function(e){
 		e.preventDefault();
 		$.ajax({
 			method: "POST",

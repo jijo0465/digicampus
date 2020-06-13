@@ -4,17 +4,20 @@
 <meta charset="UTF-8">
 </head>
 <body>
-	<div class="form-group row" th:fragment ="dc-form-dropdown" >
+	<div class="dropdown" th:fragment ="dc-form-dropdown" >
+		<div class="form-group row">
 		<label th:text="${label}" style="text-align: end;" class="col-sm-3 col-form-label"></label>
-		<div class="col-sm-2">
- <select class="form-control" th:name="${name}" th:id="${id}">
+		 <div th:id="${id}" class="col dc-input">
+ <select class="form-control" th:name="${name}">
         <option value="0">select</option>
-        <option th:each="option : ${options}"
-                th:value="${option.id}"
-                th:text="${option.name}"></option>
+        <option th:each="option : ${__${options}__}"
+                th:value="${option.__${val}__}"
+                th:text="${option.__${text}__}+' '+${option.__${subtxt}__}"></option>
     </select>
         </div>
-         </div>
+        </div>
+        </div>
+      
 </body>
 </html>
 
