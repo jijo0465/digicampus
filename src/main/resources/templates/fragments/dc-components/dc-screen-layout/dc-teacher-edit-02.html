@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Teacher list dispaly</title>
+</head>
+<body>
+<div class="container dc-form-body" th:fragment="dc-teacher-edit-02" >
+<table style="width:100%"  class="table table-condensed">
+  <tr>
+    <th>Name</th>
+    <th>Teacher ID</th> 
+    <!-- <th>Gender</th>
+    <th>Blood Group</th> -->
+  </tr>
+ <tr th:each="teachers : ${teacher}">
+			<td th:text="${teachers.name}">
+			<td th:text="${teachers.teacherId}">
+      		<!--<td th:text="${teachers.gender}">
+      		<td th:text="${teachers.bloodGroup}">  -->
+      		
+ 
+ </tr>
+</table>
+</div>
+</body>
+</html>
+
+
+
+

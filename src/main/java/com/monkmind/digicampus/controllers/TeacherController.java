@@ -25,13 +25,13 @@ public class TeacherController {
 	@RequestMapping("/teacher")
 	public String teacherform(Model model) {
 		model.addAttribute("teachercommand",new TeacherRegisterCommand());
-		return "fragments/forms/teacher::teacher";
+		return "fragments/dc-components/dc-screen-layout/dc-teacher-add.html::dc-teacher-add";
 	}
-	@PostMapping("/addteacher")
-	public String createteacher(@ModelAttribute TeacherRegisterCommand teachercommand,Model model) {
-		TeacherRegisterCommand savedCommand=teacherservice.saveTeacherRegisterCommand(teachercommand);
-		//teacherservice.save(savedcommand);
-		return "index";
+	@PostMapping
+	@RequestMapping("/addteacher")
+	public String createteacher(@ModelAttribute TeacherRegisterCommand teachercommand) {
+		teacherservice.saveTeacherRegisterCommand(teachercommand);
+		return "fragments/forms/confirmpage::confirmpage";
 	}
 	
 	
@@ -40,16 +40,19 @@ public class TeacherController {
 	public String teacherDisplay(Model model) {
 		List<Teacher> teachers=teacherservice.findAll();
 		model.addAttribute("teachers",teachers);
-		return "fragments/display/teacherdisplay::teacherdisplay";
+		return "fragments/dc-components/dc-screen-layout/dc-teacher-display.html::dc-teacher-display";
+	}
+	@RequestMapping("/edit/teacher")
+	public String getEditStudentForm(Model model) {
+		return "fragments/dc-components/dc-screen-layout/dc-teacher-edit::dc-teacher-edit";
 	}
 	
-	@RequestMapping("/t/{teacherId}")
+	@RequestMapping("/edit/teacher/{teacherId}")
 	public String teacherUpdate(@PathVariable String teacherId,Model model) {
-		//ModelAndView mav = new ModelAndView("edit_product");
 		System.out.println(teacherId);
-	    Teacher teacher = teacherservice.getById(new Long(teacherId));
-	    model.addAttribute("teacher",teacher);
-	     return "updateteacher";
+		Teacher teacher = teacherservice.getTeacherByTeacherId(teacherId);
+		model.addAttribute("teacher",teacher);
+		return "fragments/dc-components/dc-screen-layout/dc-teacher-edit-02.html::dc-teacher-edit-02";
 	}
 	
 	@PostMapping

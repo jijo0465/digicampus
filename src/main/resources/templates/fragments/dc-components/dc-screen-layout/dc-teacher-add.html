@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>teacher details</title>
+</head>
+
+<body>
+<div th:fragment="dc-teacher-add">
+    <div class="container" style="min-width:80%" th:fragment="dc-teacher-form" id="teacher"
+         th:object="${teachercommand}">
+        <h4 align="left" style="font-size: 32px">TeacherForm</h4>
+        <div th:replace="fragments/dc-components/dc-dashboard-components/dc-breadcrumb/dc-breadcrumb.html::dc-breadcrumb(active_item='Add Teacher')"></div>
+        <div class="dc-form-body">
+            <div id="errorPanel" class="alert alert-danger" role="alert" style="display: none">
+                Mandatory fields cannot be empty
+            </div>
+            <div class="alert alert-info" role="alert">
+                * Marked fields are mandatory
+            </div>
+            <form action="#" id="addteacher" method="post" th:object="${teachercommand}">
+                <div class="col-sm-10 ">
+                    <div th:replace="fragments/dc-components/dc-form-component/dc-text-input/dc-text-input.html::dc-text-input(label='Name *',name='name',id='name',required=true)"></div>
+                </div>
+                <div class="col-sm-10 ">
+                    <div th:replace="fragments/dc-components/dc-form-component/dc-form-textarea/dc-form-textarea.html::dc-form-textarea(label='Address ',name='address')"></div>
+                </div>
+                <div class="col-sm-10 ">
+                    <div th:replace="fragments/dc-components/dc-form-component/dc-text-input/dc-text-input.html::dc-text-input(label='Phone Number *',name='phone',id='phone',required=true)"></div>
+                </div>
+                <div class="col-sm-10 ">
+                    <div th:replace="fragments/dc-components/dc-form-component/dc-text-input/dc-text-input.html::dc-text-input(label='Alternative Phone',name='altPhone')"></div>
+                </div>
+                <div class="col-sm-10 ">
+                    <div th:replace="fragments/dc-components/dc-form-component/dc-form-bloodgroup/dc-form-bloodgroup.html::dc-form-bloodgroup(label='Blood Group *',name='bloodGroup')"></div>
+                </div>
+                <div th:replace="fragments/dc-components/dc-form-component/dc-form-radiobut/dc-form-radiobut.html::dc-form-radiobut(label='Gender *',name='gender',required=true)"></div>
+                <div th:replace="fragments/dc-components/dc-form-component/dc-form-date/dc-form-date.html::dc-form-date(label='Date of Birth*',id='date',name='dob', required=true)"></div>
+                <div class="col-sm-10 ">
+                    <div th:replace="fragments/dc-components/dc-form-component/dc-text-input/dc-text-input.html::dc-text-input(label='Teacher Id *',name='teacherId',id='tid',required=true)"></div>
+                </div>
+                <div th:replace="fragments/dc-components/dc-form-component/dc-form-button/dc-form-button.html::dc-form-button(label='Submit',submit_id='teachersubmit')"></div>
+            </form>
+        </div>
+        <script th:src="@{js/dc-components/dc-screen-layout/dc-teacher-add.js}">
+        </script>
+    </div>
+</div>
+</body>
+</html>

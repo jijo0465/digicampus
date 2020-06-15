@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>dc-form-bloodgroup</title>
+</head>
+<body>
+<div class="form-group row" th:fragment ="dc-form-bloodgroup" >
+    <label th:text="${label}" style="text-align: end;" class="col-sm-3 col-form-label"></label>
+    <div class="col dc-input" th:id="${id1}">
+
+        <select class="form-control" th:name="${name}" th:required="${required}" th:id="${id1}+'_input'">
+            <option th:value=0>Select</option>
+            <option th:value = "A_POS">A+ve</option>
+            <option th:value = "A_NEG">A-ve</option>
+            <option th:value = "B_POS">B+ve</option>
+            <option th:value = "B_NEG">B-ve</option>
+            <option th:value = "O_POS">O+ve</option>
+            <option th:value = "O_NEG">O-ve</option>
+            <option th:value = "AB_POS">AB+ve</option>
+            <option th:value = "AB_NEG">AB-ve</option	>
+        </select>
+        <small th:id="${id1}+'_message'" class="form-text text-danger"></small>
+    </div>
+
+</div>
+</body>
+</html>

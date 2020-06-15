@@ -23,9 +23,10 @@
      <div class="col-sm-7">
      <div class="form-group blu-margin dc-input" id="grade">
     
-    <select class="form-control">
+    <select class="form-control" id="std">
+    <option>select</option>
     <option th:each="gradeCommand : ${gradeList}" th:value="${gradeCommand.id}"
-                                    th:text="${gradeCommand.standard}">
+                                    th:text="${gradeCommand.standard}+'  '+${gradeCommand.division}">
     </option>
     </select>
     </div>
@@ -34,31 +35,9 @@
 <!--    <div th:replace="fragments/formbutton::formbutton(label='Submit',name='submit',class='btn btn-lg btn-primary btn-block text-uppercase',buttonid='studentsubmit')"></div>-->
 
     </form>
-<table style="width:100%">
-  <tr>
-    <th>Student ID</th>
-    <th>Name</th> 
-    <th>Alternative ph</th>
-    <th>Phone number</th>
-    <th>Gender</th>
-    <th>BloodGroup</th>
-    <!--  <th>Edit</th>-->
-    <th>Delete</th>
-  </tr>
- <tr th:each="student : ${liststudents}">
-			<td th:text="${student.id}">
-			<td th:text="${student.name}">
-      		<td th:text="${student.altPhone}">
-      		<td th:text="${student.phone}">
-      		<td th:text="${student.gender}">
-      		<td th:text="${student.bloodGroup}">
-      		<!--  <td> <a th:href="@{'/edit/'+ ${student.id}}">Edit</a></td>-->
-           <td><a th:href="@{'/delete/'+ ${student.id}}" onclick="return confirm('Are you sure want to delete this ?');" id="delete">Delete</a></td>
-      		
- 
- </tr>
-</table>
 
+<div id="stdbody">
+</div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script th:inline="javascript">
 $(document).ready(function(){
@@ -77,15 +56,24 @@ $(document).ready(function(){
 		});
 	})
 })
-</script>
-<!--  <script>
 $(document).ready(function(){
-	$("#delete").click(function(e){
-		alert("confirm delete");
-	});
-}
+	$('#std').change(function(){
+		var tcid=$(this).val();
+		$.ajax({
+			method: "GET",
+			url: "/displaystd/"+$("#std").val(),
+			success: function(status){
+				if(status) {
+					console.log(status);
+					$("#stdbody").html(status)
+				}
+			}
+		});
+		
+	})
+})
 </script>
--->
+
     </div>
 </div>
 </body>

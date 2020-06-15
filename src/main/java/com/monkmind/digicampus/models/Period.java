@@ -4,14 +4,10 @@ import java.sql.Time;
 import java.util.HashSet;
 import java.util.Set;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -30,19 +26,23 @@ public class Period extends BaseEntity{
 	
 	@Column(name = "starting_time")
 	private Time startngTime;
-	
+
+	@Column(name = "period_no")
+	private Integer periodNo;
+
 	@Column(name = "ending_time")
 	private Time endingTime;
-	
+
+	@JsonIgnore
 	@ManyToOne
-	@NotNull
 	private StudentTimeTable studentTimeTable;
-	
+
+	@JsonIgnore
 	@ManyToOne
 	@NotNull
 	private TeacherTimeTable teacherTimeTable;
 	
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "period")
-    Set<Subject> subjects = new HashSet<>();
+	@ManyToOne
+    Subject subject;
 
 }

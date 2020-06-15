@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+
+<title>Insert title here</title>
+<link th:href="@{/assets/css/addstud.css}" rel="stylesheet"/>
+</head>
+<body>
+<h5 align="center">Subject</h5>
+<div class="container" th:fragment="subject">
+
+<div class="row">
+<form action="#" id="subj" method="post" class="">
+<div th:replace="fragments/forminput :: forminput(label='Subject Name:',name='sname')"></div>
+<div th:replace="fragments/forminput :: forminput(label='Is Examable:',name='iexam')"></div>
+<div th:replace="fragments/forminput :: forminput(label='Optional:',name='opt')"></div>
+<div th:replace="fragments/forminput :: forminput(label='Period Id:',name='pid')"></div>
+</form>
+</div>
+</div>
+</body>
+</html>

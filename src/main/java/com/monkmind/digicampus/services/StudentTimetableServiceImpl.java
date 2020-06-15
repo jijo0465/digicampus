@@ -4,8 +4,11 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-
+import com.monkmind.digicampus.models.Grade;
+import com.monkmind.digicampus.models.Period;
 import com.monkmind.digicampus.models.StudentTimeTable;
+import com.monkmind.digicampus.models.Subject;
+import com.monkmind.digicampus.repositories.GradeRepository;
 import com.monkmind.digicampus.repositories.StudentTimetableRepository;
 
 import lombok.AllArgsConstructor;
@@ -15,6 +18,7 @@ import lombok.AllArgsConstructor;
 public class StudentTimetableServiceImpl implements StudentTimetableService{
 	
 	private final StudentTimetableRepository studenttimetableRepository;
+	
 
 	@Override
 	public StudentTimeTable getById(Long id) {
@@ -46,10 +50,12 @@ public class StudentTimetableServiceImpl implements StudentTimetableService{
 		studenttimetableRepository.deleteById(id);
 	}
 
-	
-	
-	
-	
+	@Override
+	public List<StudentTimeTable> findByGrade(Grade grade){
+		return studenttimetableRepository.findByGrade(grade);
+	}
+
+
 
 	
 	

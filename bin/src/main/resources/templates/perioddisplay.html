@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>periods list</title>
+</head>
+<body>
+	<h1>period listed here</h1>
+<table>
+<tr>
+<th>Period ID</th>
+<th>Starting time</th>
+<th>Ending time</th>
+<th>Student Timetable Id</th>
+<th>Teacher Timetable Id</th>
+<th>Actions</th>
+</tr>
+
+<tr th:each="period: ${periodlist}">
+<td th:text="${period.id}">
+<td th:text="${period.startngTime}">
+<td th:text="${period.endingTime}">
+<td th:text="${period.studentTimeTable.id}">
+<td th:text="${period.teacherTimeTable.id}">
+<td>
+<a th:href="@{'/pedit/'+${period.id}}">Edit</a>
+<a th:href="@{'/pdlt/'+${period.id}}">Delete</a>
+</td></tr>
+</table>
+
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" >
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    
+     <link th:href="@{/assets/css/bootstrap.css}" rel="stylesheet"/>
+<title>update Parent Details</title>
+<link th:href="@{/assets/css/addstud.css}" rel="stylesheet"/>
+</head>
+<h5 align="center">UPDATE PARENT DETAILS</h5>
+<body>
+<div th:fragment="parentupdate">
+        <form action="#"  id="parentupdate" method="post" class=" ">
+           <div  th:replace="fragments/forminput::forminput(label='PARENTID',name='parentid' )"></div>
+           <div  th:replace="fragments/forminput::forminput(label='PARENTNAME',name='parentname' )"></div>
+           <div  th:replace="fragments/textarea::textarea(label='ADDRESS',name='parentaddress' )"></div>
+           <div  th:replace="fragments/dropdown::dropdown(label='BLOODGROUP',name='parentbloodgroup' )"></div>
+              <div th:replace="fragments/forminput::forminput(label='PHONE NO',name='phoneno' )"></div>
+                 <div  th:replace="fragments/forminput::forminput(label='ALTERNATIVE PHONE',name='alternateno' )"></div>
+                      <div  th:replace="fragments/date::date(label='PARENT DOB',name='parentdob' )"></div>
+                                 <div  th:replace="fragments/forminput::forminput(label='OCCUPATION',name='occupation' )"></div>
+                                      <div  th:replace="fragments/imagefile::imagefile(label='GUARDIAN PHOTO',name='file' )"></div>
+                          <div  th:replace="fragments/radiobut::radiobut(label='GENDER',name='gender' )"></div>
+                                <div  th:replace="fragments/forminput::forminput(label='PASSWORD',name='password' )"></div>
+            <div  class="form-inline" th:replace="fragments/formbutton::formbutton(label='UPDATE',name='submit',class='btn btn-lg btn-primary btn-block text-uppercase')"></div>
+           
+        </form>
+        </div>
+</body>
+</html>

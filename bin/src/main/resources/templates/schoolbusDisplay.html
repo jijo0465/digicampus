@@ -5,6 +5,7 @@
 <title>schoolbus list</title>
 </head>
 <body>
+
 <h1> Schoolbus listed here</h1>
 <table><tr>
 
@@ -12,21 +13,24 @@
 <th>driver</th>
 <th>helper</th>
 <th>registration</th>
-
+<th>routeid</th>
+<th>actions</th>
 </tr>
 
-<tr th:each="schoolBus : ${schoolBus}">
+<tr th:each="schoolBus : ${listschoolbus}">
 			
       		<td th:text="${schoolBus.busNumber}">
       		<td th:text="${schoolBus.driver}">
       		<td th:text="${schoolBus.helper}">
       		<td th:text="${schoolBus.registration}">
+      		<td th:text="${schoolBus.id}">
       		
-      		
-      	</tr>
-      	<tr><td>
-      	<a th:href="@{'/edi/'+ ${schoolBus.busNumber}}">Edit</a>
-      	</td></tr>
+      	
+      	<td>
+      	
+ <a th:href="@{'/edi/'+ ${schoolBus.busNumber}}">Edit</a>
+<a th:href="@{'/dlt/'+ ${schoolBus.busNumber}}">Delete</a>
+      	</td></tr> 
 </table>
 
 </body>

@@ -46,7 +46,7 @@ public class AuthController {
         	if(dbUser.getUsertype()==UserType.ADMIN) {
         		
         		loginval=true;
-            	return "mydashboard";
+            	return "fragments/dc-components/dc-screen-layout/dc-dashboard.html";
             }
         	else if(dbUser.getUsertype()==UserType.TEACHER) {
             	
@@ -77,7 +77,7 @@ public class AuthController {
     {
     	if(loginval==true)
     	{
-    	return "mydashboard";
+    	return "fragments/dc-components/dc-screen-layout/dc-dashboard.html";
     	}
     	else
     	{

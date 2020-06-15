@@ -1,0 +1,146 @@
+ <!DOCTYPE html>
+<html  lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>edit student form</title>
+ <link rel="stylesheet" th:href="@{/webjars/bootstrap/4.4.1-1/css/bootstrap.min.css}" />
+    <link rel="stylesheet" th:href="@{/assets/css/style.css}" />
+    <!--  <link th:href="@{/assets/css/studentdisplay.css}" rel="stylesheet"/> -->
+    <script th:src="@{/webjars/jquery/3.5.0/jquery.min.js}"></script>
+    <script th:src="@{/webjars/bootstrap/4.4.1-1/js/bootstrap.min.js}"></script>
+      <script th:src="@{/assets/js/dashboard.js}"></script>
+</head>
+<body>
+<form action="#" th:action="@{'/updatestudent/'+ ${savedCommand.id}}" th:object="${savedCommand}" method="post">
+<div  class="forminput">
+    <div class="form-group row">
+        <label th:text="Name" style="text-align: end;" class="col-sm-3 col-form-label"></label>
+        <div th:id="id" class="col-sm-7 dc-input">
+            <input  th:id="id_input" type="text" th:field="*{name}" class="form-control" >
+            <small th:id="id_message" class="form-text text-danger"></small>
+            <small th:id="id_info" class="form-text text-info"></small>
+        </div>
+    </div>
+    </div>
+    <div class="sample">
+    <div class="form-group row">
+        <label th:text="Address" style="text-align: end;" class="col-sm-3 col-form-label"></label>
+        <div class="col-sm-7">
+            <textarea  class="form-control" th:field="*{address}" ></textarea>
+        </div>
+    </div>
+</div>
+<div class="form-group row" >
+		<label th:text="BloodGroup" style="text-align: end;" class="col-sm-3 col-form-label"></label>
+		<div class="col-sm-2 dc-input" th:id="idb">
+
+			<select class="form-control" th:field="*{bloodGroup}"  th:id="idb_input">
+				<option th:value=0>Select</option>
+				<option th:value = "A_POS">A+ve</option>
+				<option th:value = "A_NEG">A-ve</option>
+				<option th:value = "B_POS">B+ve</option>
+				<option th:value = "B_NEG">B-ve</option>
+				<option th:value = "O_POS">O+ve</option>
+				<option th:value = "O_NEG">O-ve</option>
+				<option th:value = "AB_POS">AB+ve</option>
+				<option th:value = "AB_NEG">AB-ve</option	>
+			</select>
+			<small class="form-text text-danger"></small>
+			</div>
+		<label style="text-align: end;" class="col-sm-2 col-form-label">Date of birth</label>
+		<div class="col-sm-2 dc-input" th:id="id2">
+			<input class="form-control" type="date" th:field="*{dateOfBirth}"  th:id="id2_input">
+		</div>
+	</div>
+	<div>
+    <div class="form-group row" >
+        <label th:text="Gender" style="text-align: end;" class="col-sm-3"></label>
+        <div class="col-sm-7" id="gender">
+            <div class="custom-control custom-radio custom-control-inline" >
+                <input type="radio" id="genderMale" th:field="*{gender}" class="custom-control-input" value="MALE" >
+                <label class="custom-control-label" for="genderMale">Male</label>
+            </div>
+            <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="genderFemale" th:field="*{gender}" class="custom-control-input" value="FEMALE">
+                <label class="custom-control-label" for="genderFemale">Female</label>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="forminput">
+    <div class="form-group row">
+        <label th:text="Height" style="text-align: end;" class="col-sm-3 col-form-label"></label>
+        <div th:id="hid" class="col-sm-7 dc-input">
+            <input th:text="${text}"  th:id="hid_input" type="number" th:field="*{height}" class="form-control" >
+            <small th:id="hid_message" class="form-text text-danger"></small>
+            <small th:id="hid_info" class="form-text text-info"></small>
+        </div>
+
+    </div>
+    </div>
+    <div class="forminput">
+    <div class="form-group row">
+        <label th:text="Weight" style="text-align: end;" class="col-sm-3 col-form-label"></label>
+        <div th:id="wid" class="col-sm-7 dc-input">
+            <input th:text="${text}"  th:id="wid_input" type="number" th:field="*{weight}" class="form-control" >
+            <small th:id="wid_message" class="form-text text-danger"></small>
+            <small th:id="wid_info" class="form-text text-info"></small>
+        </div>
+
+    </div>
+    </div>
+    
+    <div class="form-group row">
+                <label style="text-align: end;" class="col-sm-3 col-form-label">Class *</label>
+                <div class="col-sm-7">
+                    <div class="form-group blu-margin dc-input" id="grade">
+                        <select class="form-control" th:field="*{grade.id}" th:id="grade_input" th:required="true">
+                            <option value="0">Select class</option>
+                            <option th:each="gradeCommand : ${gradeList}" th:value="${gradeCommand.id}"
+                                    th:text="${gradeCommand.standard}+'  '+${gradeCommand.division}"></option>
+                        </select>
+                        <small id="grade+_message" class="form-text text-danger"></small>
+                    </div>
+                    </div>
+                    </div>
+                     <h3>
+                <small class="text-gray">Parent Information</small>
+               </h3><br/>
+             <div  class="forminput">
+        <div class="form-group row">
+        <label th:text="Parent_Name" style="text-align: end;" class="col-sm-3 col-form-label"></label>
+        <div th:id="pid" class="col-sm-7 dc-input">
+            <input  th:id="pid_input" type="text" th:field="*{parent.name}" class="form-control" >
+            <small th:id="pid_message" class="form-text text-danger"></small>
+            <small th:id="pid_info" class="form-text text-info"></small>
+        </div>
+
+    </div>
+    </div>
+     <div  class="forminput">
+        <div class="form-group row">
+        <label th:text="Phone_Number" style="text-align: end;" class="col-sm-3 col-form-label"></label>
+        <div th:id="pid" class="col-sm-7 dc-input">
+            <input  th:id="pid_input" type="text" th:field="*{parent}" class="form-control" >
+            <small th:id="pid_message" class="form-text text-danger"></small>
+            <small th:id="pid_info" class="form-text text-info"></small>
+        </div>
+
+    </div>
+    </div>
+     <div  class="forminput">
+        <div class="form-group row">
+        <label th:text="Alternative_Phone_Number" style="text-align: end;" class="col-sm-3 col-form-label"></label>
+        <div th:id="pid" class="col-sm-7 dc-input">
+            <input  th:id="pid_input" type="text" th:field="*{parent.altPhone}" class="form-control" >
+            <small th:id="pid_message" class="form-text text-danger"></small>
+            <small th:id="pid_info" class="form-text text-info"></small>
+        </div>
+
+    </div>
+    </div>
+    <input type="submit" value="submit">
+    
+</form>
+</body>
+</html>

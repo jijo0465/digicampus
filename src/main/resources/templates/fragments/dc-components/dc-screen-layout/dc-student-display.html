@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Student list dispaly</title>
+</head>
+<body>
+<div class="container" th:fragment="dc-student-display" >
+<h4 align="left" style="font-size: 32px">Student Display</h4>
+   <div th:replace="fragments/dc-components/dc-dashboard-components/dc-breadcrumb/dc-breadcrumb.html::
+    		dc-breadcrumb(active_item='Display Student')"></div>
+    
+    
+    <div class="dc-form-body">
+    <form action="#" th:object="${std}">
+     <div class="form-group row">
+     <label th:text="Standard" style="text-align: end;" class="col-sm-3 col-form-label"></label>
+     <div class="col-sm-7">
+     <div class="form-group blu-margin dc-input" id="grade">
+    
+    <select class="form-control" id="std">
+    <option>select</option>
+    <option th:each="gradeCommand : ${gradeList}" th:value="${gradeCommand.id}"
+                                    th:text="${gradeCommand.standard}+'  '+${gradeCommand.division}">
+    </option>
+    </select>
+    </div>
+    </div>
+    </div>
+<!--    <div th:replace="fragments/formbutton::formbutton(label='Submit',name='submit',class='btn btn-lg btn-primary btn-block text-uppercase',buttonid='studentsubmit')"></div>-->
+
+    </form>
+
+<div id="stdbody">
+</div>
+<script th:src="@{js/dc-components/dc-screen-layout/dc-student-display.js}">
+    </script>
+
+    </div>
+</div>
+</body>
+</html>
+
+
+
+
+
+
+

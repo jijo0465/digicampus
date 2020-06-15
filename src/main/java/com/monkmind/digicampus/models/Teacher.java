@@ -3,6 +3,7 @@ package com.monkmind.digicampus.models;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
@@ -39,6 +40,6 @@ public class Teacher extends Person{
 	@OneToMany(mappedBy = "teacher")
 	private Set<TeacherAttendance> teacherAttendance = new HashSet<>();
 	
-	@OneToOne(mappedBy = "teacher")
-    private TeacherTimeTable teacherTimeTable;
+	@OneToMany(cascade = CascadeType.ALL,mappedBy = "teacher")
+    private Set<TeacherTimeTable> teacherTimeTable;
 }

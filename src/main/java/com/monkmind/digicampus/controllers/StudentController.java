@@ -21,12 +21,7 @@ import org.springframework.web.bind.annotation.*;
 public class StudentController {
     private final StudentService studentService;
     private final GradeService gradeService;
-    //@PostMapping
-  //  @RequestMapping("/add_student")
-   // public String addStudent(){
-   //     return "fragments/forms/addstud";
-   // }
-    
+   
     /*author:shijina
     created date:15/5/2020
     */
@@ -37,61 +32,56 @@ public class StudentController {
         List<Grade> gradeCommands = gradeService.listAll();
 	    model.addAttribute("command", registerCommand);
 	    model.addAttribute("gradeList", gradeCommands);
-	    return "fragments/forms/addstud::addstud";
+	    return "fragments/dc-components/dc-screen-layout/dc-student-add.html::dc-student-add";
 	}
 
 	@PostMapping
 	@RequestMapping("/addstudent")
 	public String Save(@ModelAttribute RegisterCommand command, Model model) {
-		System.out.println(command.getGradeid().getId());
-		System.out.println(command.getStudentId());
 		long parentid = (long) Math.floor(Math.random() * 9000000L) + 100000L;
-		
-		System.out.println(parentid);
 		command.getParentid().setParentId(Long.toString(parentid));
-		System.out.println(command.getParentid().getParentId());
-	   RegisterCommand savedCommand=studentService.saveRegisterCommand(command);
+		studentService.saveRegisterCommand(command);
 	    return "fragments/forms/confirmpage::confirmpage";
 	}
 	
-	
-
-	  @RequestMapping("/studentdisplay")
-		public String studentdisplay(Model model) {
-		  List<Student> liststudents=studentService.listAll();
-		  List<Grade> gradeCommands = gradeService.listAll();
-		  model.addAttribute("gradeList", gradeCommands);
-		   model.addAttribute("liststudents",liststudents);
-		    return "fragments/display/studentdisplay::studentdisplay";
-
-		}
-	@PostMapping("/displaycls")
-	public String displaycls(@ModelAttribute Grade std) {
-		System.out.println(std.getId());
-		
-		return "mydashboard";
+	@RequestMapping("/studentdisplay")
+	public String studentdisplay(Model model) {
+		List<Student> liststudents=studentService.listAll();
+		List<Grade> gradeCommands = gradeService.listAll();
+		model.addAttribute("gradeList", gradeCommands);
+		model.addAttribute("liststudents",liststudents);
+		return "fragments/dc-components/dc-screen-layout/dc-student-display.html::dc-student-display";
+	}
+	@RequestMapping("/displaystd/{std}")
+	public String viewclasswise(@PathVariable  Grade std ,Model model) {
+		System.out.println(std);
+		List<Student> students=studentService.findByGradeid(std);
+		model.addAttribute("students", students);
+		return "fragments/dc-components/dc-screen-layout/dc-student-list.html::dc-student-list";
+	}
+	@RequestMapping("/edit/student")
+	public String getEditStudentForm(Model model) {
+		return "fragments/dc-components/dc-screen-layout/dc-student-edit::dc-student-edit";
 	}
 
-	/*author:shijina
-    created date:16/5/2020
-    */
-	
-//
-//	@RequestMapping("/edit/{id}")
-//	public String studentUpdate(@PathVariable String id,Model model) {
-//		//ModelAndView mav = new ModelAndView("edit_product");
-//		System.out.println(id);
-//	   RegisterCommand savedCommand = studentService.findCommandById(Long.valueOf(id));
-//	    model.addAttribute("savedCommand",savedCommand);
-//	     return "fragments/forms/updatestudent";
-//	}
-//	
+	@RequestMapping("/edit/student/{studentid}")
+	public String studentUpdate(@PathVariable String studentid,Model model) {
+		//ModelAndView mav = new ModelAndView("edit_product");
+		System.out.println(studentid);
+		List<Grade> gradeCommands = gradeService.listAll();
+		Student studentbyid = studentService.getStudentByStudentId(studentid);
+		model.addAttribute("gradeList", gradeCommands);
+		model.addAttribute("studentbyid",studentbyid);
+		return "fragments/dc-components/dc-screen-layout/dc-student-edit-02.html::dc-student-edit-02";
+	}
+
 	@PostMapping
 	@RequestMapping("/updatestudent/{id}")
-	public String InsertStudent(@ModelAttribute  RegisterCommand  command,Model model) {
-		 RegisterCommand savedCommand=studentService.saveRegisterCommand(command);
-		// studentService.save(student);
-	    return "index";
+	public String InsertStudent(@ModelAttribute  Student savedCommand,Model model) {
+		// Student savedCommand=studentService.(command);
+		 studentService.save(savedCommand);
+		 System.out.println(savedCommand.getDateOfBirth());
+	    return "fragments/display/studentdisplay";
 	}
 
 	@ResponseBody
@@ -133,5 +123,11 @@ public class StudentController {
 		model.addAttribute("gradeList", gradeCommands);
 		return "fragments/edit/studentedit::studentedit";
 	}
+
+	
+
+
+	
+
 
 }

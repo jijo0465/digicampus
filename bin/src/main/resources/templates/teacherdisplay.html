@@ -13,17 +13,26 @@
 <th>address</th>
 </tr>
 
-<tr th:each="teacher : ${teacher}">
+<tr th:each="teacher : ${teachers}">
 			<td th:text="${teacher.teacherId}">
       		<td th:text="${teacher.altPhone}">
       		<td th:text="${teacher.name}">
       		<td th:text="${teacher.address}">
       		
-      	</tr>
-      	<tr><td>
+      		<td>
       	<a th:href="@{'/t/'+ ${teacher.id}}">Edit</a>
+      	<a th:href="@{'/deletins/'+ ${teacher.id}}">Delete</a>
       	</td></tr>
+      		
+      
 </table>
-
+<div class="col-lg-3" th:object="${test}">
+    <select class="form-control" id="testOrder" name="testOrder">
+        <option value="">Select Test Order</option>
+        <option th:each="teacher : ${teachers}"
+                th:value="${teacher.name}"
+                th:text="${teacher.name}"></option>
+    </select>
+</div>
 </body>
 </html>

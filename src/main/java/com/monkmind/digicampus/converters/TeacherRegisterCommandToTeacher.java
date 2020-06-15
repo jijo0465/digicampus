@@ -35,6 +35,7 @@ public class TeacherRegisterCommandToTeacher implements Converter<TeacherRegiste
 		
 		final Teacher teacher =new Teacher();
 		teacher.setId(source.getId());
+		teacher.setTeacherId(source.getTeacherId());
 		teacher.setName(source.getName());
 		teacher.setAddress(source.getAddress());
 		teacher.setPhone(source.getPhone());

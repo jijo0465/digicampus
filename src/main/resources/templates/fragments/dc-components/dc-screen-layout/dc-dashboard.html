@@ -1,0 +1,24 @@
+<!-- gopika -->
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Santhinikethanam Central School</title>
+<meta name="viewport" content="width=device-width , initial-scale=1.0">
+
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/4.4.1-1/css/bootstrap.min.css}" />
+    <link rel="stylesheet" th:href="@{css/dc-components/dc-form-component/dc-screen-layout/dc-dashboard.css}" />
+    <link rel="stylesheet" th:href="@{/css/dc-components/dc-form-component/dc-screen-layout/dc-student-edit.css}"/>
+    <script th:src="@{/webjars/jquery/3.5.0/jquery.min.js}"></script>
+    <script th:src="@{/webjars/bootstrap/4.4.1-1/js/bootstrap.min.js}"></script>
+    <script th:src="@{js/dc-components/dc-screen-layout/dc-dashboard.js}"></script>
+</head>
+<body>
+<div id="dashboard">
+<div th:replace="fragments/dc-components/dc-dashboard-components/dc-appbar/dc-appbar.html::dc-appbar"></div>
+<div id="results" class="dcbody container-fluid">
+ <div th:replace="fragments/dc-components/dc-dashboard-components/dc-dashboard-card/dc-dashboard-card.html::dc-dashboard-card"  ></div>
+</div>
+</div>
+</body>
+</html>

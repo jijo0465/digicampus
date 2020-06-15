@@ -26,6 +26,6 @@ public class ParentCommand {
 	private String parentId;
 	private String Password;
 	private String occupation;
-	 Set<RegisterCommand> students = new HashSet<>();
+	Set<RegisterCommand> students = new HashSet<>();
 
 }

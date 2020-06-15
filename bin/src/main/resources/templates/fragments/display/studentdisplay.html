@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Student list dispaly</title>
+</head>
+<body>
+<div class="container" th:fragment="studentdisplay" >
+<h4 align="left" style="font-size: 32px">Student Display</h4>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item" id="home"><a href="/mydashboard">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Display Student</li>
+        </ol>
+    </nav>
+    
+    
+    <div class="dc-form-body">
+    <form action="#" th:object="${std}">
+     <div class="form-group row">
+     <label th:text="Standard" style="text-align: end;" class="col-sm-3 col-form-label"></label>
+     <div class="col-sm-7">
+     <div class="form-group blu-margin dc-input" id="grade">
+    
+    <select class="form-control" id="std">
+    <option>select</option>
+    <option th:each="gradeCommand : ${gradeList}" th:value="${gradeCommand.id}"
+                                    th:text="${gradeCommand.standard}+'  '+${gradeCommand.division}">
+    </option>
+    </select>
+    </div>
+    </div>
+    </div>
+<!--    <div th:replace="fragments/formbutton::formbutton(label='Submit',name='submit',class='btn btn-lg btn-primary btn-block text-uppercase',buttonid='studentsubmit')"></div>-->
+
+    </form>
+
+<div id="stdbody">
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script th:inline="javascript">
+$(document).ready(function(){
+	$("#show").click(function(e){
+		e.preventDefault();
+		$.ajax({
+			method: "POST",
+			url: "/displaycls",
+			
+			success: function(status){
+				if(status) {
+					console.log(status);
+					$("#results").html(status)
+				}
+			}
+		});
+	})
+})
+$(document).ready(function(){
+	$('#std').change(function(){
+		var tcid=$(this).val();
+		$.ajax({
+			method: "GET",
+			url: "/displaystd/"+$("#std").val(),
+			success: function(status){
+				if(status) {
+					console.log(status);
+					$("#stdbody").html(status)
+				}
+			}
+		});
+		
+	})
+})
+</script>
+<!--  <script>
+$(document).ready(function(){
+	$("#delete").click(function(e){
+		alert("confirm delete");
+	});
+}
+</script>
+-->
+    </div>
+</div>
+</body>
+</html>
+
+
+
+
+
+
+
