@@ -4,7 +4,6 @@ package com.monkmind.digicampus.controllers;
 import com.monkmind.digicampus.command.RegisterCommand;
 import com.monkmind.digicampus.models.Grade;
 import com.monkmind.digicampus.models.Student;
-import com.monkmind.digicampus.models.User;
 import com.monkmind.digicampus.services.GradeService;
 import com.monkmind.digicampus.services.StudentService;
 import lombok.AllArgsConstructor;
@@ -21,7 +20,7 @@ import org.springframework.web.bind.annotation.*;
 public class StudentController {
     private final StudentService studentService;
     private final GradeService gradeService;
-   
+
     /*author:shijina
     created date:15/5/2020
     */
