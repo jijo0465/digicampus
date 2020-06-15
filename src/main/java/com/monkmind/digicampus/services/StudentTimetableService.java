@@ -3,6 +3,8 @@ package com.monkmind.digicampus.services;
 
 import java.util.List;
 
+import com.monkmind.digicampus.command.RegisterCommand;
+import com.monkmind.digicampus.command.StudentTimeTableCommand;
 import com.monkmind.digicampus.models.Grade;
 import com.monkmind.digicampus.models.StudentTimeTable;
 
@@ -15,5 +17,6 @@ public interface StudentTimetableService {
 	 public List<StudentTimeTable> findAll();
 	 public void delete(long id);
 	 public List<StudentTimeTable> findByGrade(Grade grade);
+	 StudentTimeTableCommand saveStudentTimeTableCommand(StudentTimeTableCommand command);
 	
 }
