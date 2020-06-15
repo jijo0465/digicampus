@@ -78,7 +78,7 @@ $(document).ready(function(){
 		e.preventDefault();
 		$.ajax({
 			method: "POST",
-			url: "/get_edit_student_form",
+			url: "/edit/student",
 			success: function(status){
 				if(status) {
 					console.log(status);
@@ -87,7 +87,21 @@ $(document).ready(function(){
 			}
 		});
 	})
-
+})
+$(document).ready(function(){
+	$("#editteacher").click(function(e){
+		e.preventDefault();
+		$.ajax({
+			method: "POST",
+			url: "/edit/teacher",
+			success: function(status){
+				if(status) {
+					console.log(status);
+					$("#results").html(status)
+				}
+			}
+		});
+	})
 
 })
 

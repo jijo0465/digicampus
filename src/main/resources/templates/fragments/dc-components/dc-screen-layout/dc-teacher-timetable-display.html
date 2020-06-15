@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<div class="container  " th:fragment="dc-teacher-timetable-display">
+<table  class="table table-striped " >
+  <tr  class="table-dark">
+  <td>
+ <td>PERIOD<br>ONE
+ <td>PERIOD TWO
+ <td>PERIOD THREE
+  <td>
+ <td >PERIOD FOUR
+ <td>PERIOD FIVE
+ <td>PERIOD<br>SIX
+ <td>PERIOD SEVEN
+  </tr>
+  <tr >
+  <td>MON</td>
+ <td>
+ <select><option value = "SELECT">Select </option>
+	<option value = "i">I</option>
+	<option value = "ii">II</option>
+	<option value = "iii">III</option>
+	<option value = "iv">IV</option>
+	<option value = "v">V</option>
+	<option value = "vi">VI</option>
+	<option value = "vii">VII</option>
+ </select>
+ <select   style="width:70px"><option value = "SELECT">Select </option>
+	<option value = "english">ENGLISH</option>
+	<option value = "malayalam">MALAYALAM</option>
+	<option value = "hindi">HINDI</option>
+	<option value = "physics">PHYSICS</option>
+	<option value = "chemistry">CHEMISTRY</option>
+	<option value = "sanskrit">SANSKRIT</option>
+	<option value = "drill">DRILL</option>
+ </select>
+ </td>
+ <td>
+  <select><option value = "SELECT">Select </option>
+	<option value = "i">I</option>
+	<option value = "ii">II</option>
+	<option value = "iii">III</option>
+	<option value = "iv">IV</option>
+	<option value = "v">V</option>
+	<option value = "vi">VI</option>
+	<option value = "vii">VII</option>
+ </select>
+ <select  style="width:70px"><option value = "SELECT">Select </option>
+	<option value = "english">ENGLISH</option>
+	<option value = "malayalam">MALAYALAM</option>
+	<option value = "hindi">HINDI</option>
+	<option value = "physics">PHYSICS</option>
+	<option value = "chemistry">CHEMISTRY</option>
+	<option value = "sanskrit">SANSKRIT</option>
+	<option value = "drill">DRILL</option>
+ </select>
+ </td>
+ <td>
+  <select><option value = "SELECT">Select </option>
+	<option value = "i">I</option>
+	<option value = "ii">II</option>
+	<option value = "iii">III</option>
+	<option value = "iv">IV</option>
+	<option value = "v">V</option>
+	<option value = "vi">VI</option>
+	<option value = "vii">VII</option>
+ </select>
+ <select  style="width:70px"><option value = "SELECT">Select </option>
+	<option value = "english">ENGLISH</option>
+	<option value = "malayalam">MALAYALAM</option>
+	<option value = "hindi">HINDI</option>
+	<option value = "physics">PHYSICS</option>
+	<option value = "chemistry">CHEMISTRY</option>
+	<option value = "sanskrit">SANSKRIT</option>
+	<option value = "drill">DRILL</option>
+ </select>
+ </td>
+ <td rowspan="6">L<br>U<br>N<br>C<br>H<br>B<br>R<br>E<br>A<br>K
+ <td> 
+  <select><option value = "SELECT">Select </option>
+	<option value = "i">I</option>
+	<option value = "ii">II</option>
+	<option value = "iii">III</option>
+	<option value = "iv">IV</option>
+	<option value = "v">V</option>
+	<option value = "vi">VI</option>
+	<option value = "vii">VII</option>
+ </select>
+ <select  style="width:70px"><option value = "SELECT">Select </option>
+	<option value = "english">ENGLISH</option>
+	<option value = "malayalam">MALAYALAM</option>
+	<option value = "hindi">HINDI</option>
+	<option value = "physics">PHYSICS</option>
+	<option value = "chemistry">CHEMISTRY</option>
+	<option value = "sanskrit">SANSKRIT</option>
+	<option value = "drill">DRILL</option>
+ </select>
+ </td>
+ <td>
+  <select><option value = "SELECT">Select </option>
+	<option value = "i">I</option>
+	<option value = "ii">II</option>
+	<option value = "iii">III</option>
+	<option value = "iv">IV</option>
+	<option value = "v">V</option>
+	<option value = "vi">VI</option>
+	<option value = "vii">VII</option>
+ </select>
+ <select  style="width:70px"><option value = "SELECT">Select </option>
+	<option value = "english">ENGLISH</option>
+	<option value = "malayalam">MALAYALAM</option>
+	<option value = "hindi">HINDI</option>
+	<option value = "physics">PHYSICS</option>
+	<option value = "chemistry">CHEMISTRY</option>
+	<option value = "sanskrit">SANSKRIT</option>
+	<option value = "drill">DRILL</option>
+ </select>
+ </td>
+ <td>
+  <select><option value = "SELECT">Select </option>
+	<option value = "i">I</option>
+	<option value = "ii">II</option>
+	<option value = "iii">III</option>
+	<option value = "iv">IV</option>
+	<option value = "v">V</option>
+	<option value = "vi">VI</option>
+	<option value = "vii">VII</option>
+ </select>
+ <select  style="width:70px"><option value = "SELECT">Select </option>
+	<option value = "english">ENGLISH</option>
+	<option value = "malayalam">MALAYALAM</option>
+	<option value = "hindi">HINDI</option>
+	<option value = "physics">PHYSICS</option>
+	<option value = "chemistry">CHEMISTRY</option>
+	<option value = "sanskrit">SANSKRIT</option>
+	<option value = "drill">DRILL</option>
+ </select>
+ </td>
+ <td> 
+  <select><option value = "SELECT">Select </option>
+	<option value = "i">I</option>
+	<option value = "ii">II</option>
+	<option value = "iii">III</option>
+	<option value = "iv">IV</option>
+	<option value = "v">V</option>
+	<option value = "vi">VI</option>
+	<option value = "vii">VII</option>
+ </select>
+ <select  style="width:70px"><option value = "SELECT">Select </option>
+	<option value = "english">ENGLISH</option>
+	<option value = "malayalam">MALAYALAM</option>
+	<option value = "hindi">HINDI</option>
+	<option value = "physics">PHYSICS</option>
+	<option value = "chemistry">CHEMISTRY</option>
+	<option value = "sanskrit">SANSKRIT</option>
+	<option value = "drill">DRILL</option>
+ </select>
+ </td>
+ </tr>
+ <td>TUE
+ <td>
+  <select><option value = "SELECT">Select </option>
+	<option value = "i">I</option>
+	<option value = "ii">II</option>
+	<option value = "iii">III</option>
+	<option value = "iv">IV</option>
+	<option value = "v">V</option>
+	<option value = "vi">VI</option>
+	<option value = "vii">VII</option>
+ </select>
+ <select  style="width:70px"><option value = "SELECT">Select </option>
+	<option value = "english">ENGLISH</option>
+	<option value = "malayalam">MALAYALAM</option>
+	<option value = "hindi">HINDI</option>
+	<option value = "physics">PHYSICS</option>
+	<option value = "chemistry">CHEMISTRY</option>
+	<option value = "sanskrit">SANSKRIT</option>
+	<option value = "drill">DRILL</option>
+ </select>
+ </td>
+ <td>
+  <select><option value = "SELECT">Select </option>
+	<option value = "i">I</option>
+	<option value = "ii">II</option>
+	<option value = "iii">III</option>
+	<option value = "iv">IV</option>
+	<option value = "v">V</option>
+	<option value = "vi">VI</option>
+	<option value = "vii">VII</option>
+ </select>
+ <select  style="width:70px"><option value = "SELECT">Select </option>
+	<option value = "english">ENGLISH</option>
+	<option value = "malayalam">MALAYALAM</option>
+	<option value = "hindi">HINDI</option>
+	<option value = "physics">PHYSICS</option>
+	<option value = "chemistry">CHEMISTRY</option>
+	<option value = "sanskrit">SANSKRIT</option>
+	<option value = "drill">DRILL</option>
+ </select>
+ </td>
+ <td>
+  <select><option value = "SELECT">Select </option>
+	<option value = "i">I</option>
+	<option value = "ii">II</option>
+	<option value = "iii">III</option>
+	<option value = "iv">IV</option>
+	<option value = "v">V</option>
+	<option value = "vi">VI</option>
+	<option value = "vii">VII</option>
+ </select>
+ <select  style="width:70px"><option value = "SELECT">Select </option>
+	<option value = "english">ENGLISH</option>
+	<option value = "malayalam">MALAYALAM</option>
+	<option value = "hindi">HINDI</option>
+	<option value = "physics">PHYSICS</option>
+	<option value = "chemistry">CHEMISTRY</option>
+	<option value = "sanskrit">SANSKRIT</option>
+	<option value = "drill">DRILL</option>
+ </select>
+</td>
+ <td>
+  <select><option value = "SELECT">Select </option>
+	<option value = "i">I</option>
+	<option value = "ii">II</option>
+	<option value = "iii">III</option>
+	<option value = "iv">IV</option>
+	<option value = "v">V</option>
+	<option value = "vi">VI</option>
+	<option value = "vii">VII</option>
+ </select>
+ <select  style="width:70px"><option value = "SELECT">Select </option>
+	<option value = "english">ENGLISH</option>
+	<option value = "malayalam">MALAYALAM</option>
+	<option value = "hindi">HINDI</option>
+	<option value = "physics">PHYSICS</option>
+	<option value = "chemistry">CHEMISTRY</option>
+	<option value = "sanskrit">SANSKRIT</option>
+	<option value = "drill">DRILL</option>
+ </select>
+</td>
+ <td> 
+  <select><option value = "SELECT">Select </option>
+	<option value = "i">I</option>
+	<option value = "ii">II</option>
+	<option value = "iii">III</option>
+	<option value = "iv">IV</option>
+	<option value = "v">V</option>
+	<option value = "vi">VI</option>
+	<option value = "vii">VII</option>
+ </select>
+ <select  style="width:70px"><option value = "SELECT">Select </option>
+	<option value = "english">ENGLISH</option>
+	<option value = "malayalam">MALAYALAM</option>
+	<option value = "hindi">HINDI</option>
+	<option value = "physics">PHYSICS</option>
+	<option value = "chemistry">CHEMISTRY</option>
+	<option value = "sanskrit">SANSKRIT</option>
+	<option value = "drill">DRILL</option>
+ </select>
+ </td>
+ <td> 
+  <select><option value = "SELECT">Select </option>
+	<option value = "i">I</option>
+	<option value = "ii">II</option>
+	<option value = "iii">III</option>
+	<option value = "iv">IV</option>
+	<option value = "v">V</option>
+	<option value = "vi">VI</option>
+	<option value = "vii">VII</option>
+ </select>
+ <select  style="width:70px"><option value = "SELECT">Select </option>
+	<option value = "english">ENGLISH</option>
+	<option value = "malayalam">MALAYALAM</option>
+	<option value = "hindi">HINDI</option>
+	<option value = "physics">PHYSICS</option>
+	<option value = "chemistry">CHEMISTRY</option>
+	<option value = "sanskrit">SANSKRIT</option>
+	<option value = "drill">DRILL</option>
+ </select>
+</td>
+ <td> 
+  <select><option value = "SELECT">Select </option>
+	<option value = "i">I</option>
+	<option value = "ii">II</option>
+	<option value = "iii">III</option>
+	<option value = "iv">IV</option>
+	<option value = "v">V</option>
+	<option value = "vi">VI</option>
+	<option value = "vii">VII</option>
+ </select>
+ <select  style="width:70px"><option value = "SELECT">Select </option>
+	<option value = "english">ENGLISH</option>
+	<option value = "malayalam">MALAYALAM</option>
+	<option value = "hindi">HINDI</option>
+	<option value = "physics">PHYSICS</option>
+	<option value = "chemistry">CHEMISTRY</option>
+	<option value = "sanskrit">SANSKRIT</option>
+	<option value = "drill">DRILL</option>
+ </select>
+</td>
+</tr>
+<tr>
+ <td>WED
+ <td>
+  <select><option value = "SELECT">Select </option>
+	<option value = "i">I</option>
+	<option value = "ii">II</option>
+	<option value = "iii">III</option>
+	<option value = "iv">IV</option>
+	<option value = "v">V</option>
+	<option value = "vi">VI</option>
+	<option value = "vii">VII</option>
+ </select>
+ <select  style="width:70px"><option value = "SELECT">Select </option>
+	<option value = "english">ENGLISH</option>
+	<option value = "malayalam">MALAYALAM</option>
+	<option value = "hindi">HINDI</option>
+	<option value = "physics">PHYSICS</option>
+	<option value = "chemistry">CHEMISTRY</option>
+	<option value = "sanskrit">SANSKRIT</option>
+	<option value = "drill">DRILL</option>
+ </select>
+ </td>
+ <td>
+  <select><option value = "SELECT">Select </option>
+	<option value = "i">I</option>
+	<option value = "ii">II</option>
+	<option value = "iii">III</option>
+	<option value = "iv">IV</option>
+	<option value = "v">V</option>
+	<option value = "vi">VI</option>
+	<option value = "vii">VII</option>
+ </select>
+ <select  style="width:70px"><option value = "SELECT">Select </option>
+	<option value = "english">ENGLISH</option>
+	<option value = "malayalam">MALAYALAM</option>
+	<option value = "hindi">HINDI</option>
+	<option value = "physics">PHYSICS</option>
+	<option value = "chemistry">CHEMISTRY</option>
+	<option value = "sanskrit">SANSKRIT</option>
+	<option value = "drill">DRILL</option>
+ </select>
+ </td>
+ <td>
+  <select><option value = "SELECT">Select </option>
+	<option value = "i">I</option>
+	<option value = "ii">II</option>
+	<option value = "iii">III</option>
+	<option value = "iv">IV</option>
+	<option value = "v">V</option>
+	<option value = "vi">VI</option>
+	<option value = "vii">VII</option>
+ </select>
+ <select  style="width:70px"><option value = "SELECT">Select </option>
+	<option value = "english">ENGLISH</option>
+	<option value = "malayalam">MALAYALAM</option>
+	<option value = "hindi">HINDI</option>
+	<option value = "physics">PHYSICS</option>
+	<option value = "chemistry">CHEMISTRY</option>
+	<option value = "sanskrit">SANSKRIT</option>
+	<option value = "drill">DRILL</option>
+ </select>
+ </td>
+ <td>
+  <select><option value = "SELECT">Select </option>
+	<option value = "i">I</option>
+	<option value = "ii">II</option>
+	<option value = "iii">III</option>
+	<option value = "iv">IV</option>
+	<option value = "v">V</option>
+	<option value = "vi">VI</option>
+	<option value = "vii">VII</option>
+ </select>
+ <select  style="width:70px"><option value = "SELECT">Select </option>
+	<option value = "english">ENGLISH</option>
+	<option value = "malayalam">MALAYALAM</option>
+	<option value = "hindi">HINDI</option>
+	<option value = "physics">PHYSICS</option>
+	<option value = "chemistry">CHEMISTRY</option>
+	<option value = "sanskrit">SANSKRIT</option>
+	<option value = "drill">DRILL</option>
+ </select>
+ </td>
+ <td >
+  <select><option value = "SELECT">Select </option>
+	<option value = "i">I</option>
+	<option value = "ii">II</option>
+	<option value = "iii">III</option>
+	<option value = "iv">IV</option>
+	<option value = "v">V</option>
+	<option value = "vi">VI</option>
+	<option value = "vii">VII</option>
+ </select>
+ <select  style="width:70px"><option value = "SELECT">Select </option>
+	<option value = "english">ENGLISH</option>
+	<option value = "malayalam">MALAYALAM</option>
+	<option value = "hindi">HINDI</option>
+	<option value = "physics">PHYSICS</option>
+	<option value = "chemistry">CHEMISTRY</option>
+	<option value = "sanskrit">SANSKRIT</option>
+	<option value = "drill">DRILL</option>
+ </select>
+ </td>
+  <td> 
+  <select><option value = "SELECT">Select </option>
+	<option value = "i">I</option>
+	<option value = "ii">II</option>
+	<option value = "iii">III</option>
+	<option value = "iv">IV</option>
+	<option value = "v">V</option>
+	<option value = "vi">VI</option>
+	<option value = "vii">VII</option>
+ </select>
+ <select  style="width:70px"><option value = "SELECT">Select </option>
+	<option value = "english">ENGLISH</option>
+	<option value = "malayalam">MALAYALAM</option>
+	<option value = "hindi">HINDI</option>
+	<option value = "physics">PHYSICS</option>
+	<option value = "chemistry">CHEMISTRY</option>
+	<option value = "sanskrit">SANSKRIT</option>
+	<option value = "drill">DRILL</option>
+ </select>
+ </td>
+  <td> 
+  <select><option value = "SELECT">Select </option>
+	<option value = "i">I</option>
+	<option value = "ii">II</option>
+	<option value = "iii">III</option>
+	<option value = "iv">IV</option>
+	<option value = "v">V</option>
+	<option value = "vi">VI</option>
+	<option value = "vii">VII</option>
+ </select>
+ <select  style="width:70px"><option value = "SELECT">Select </option>
+	<option value = "english">ENGLISH</option>
+	<option value = "malayalam">MALAYALAM</option>
+	<option value = "hindi">HINDI</option>
+	<option value = "physics">PHYSICS</option>
+	<option value = "chemistry">CHEMISTRY</option>
+	<option value = "sanskrit">SANSKRIT</option>
+	<option value = "drill">DRILL</option>
+ </select>
+ </td>
+</tr>
+<tr>
+ <td>THU
+ <td >
+  <select><option value = "SELECT">Select </option>
+	<option value = "i">I</option>
+	<option value = "ii">II</option>
+	<option value = "iii">III</option>
+	<option value = "iv">IV</option>
+	<option value = "v">V</option>
+	<option value = "vi">VI</option>
+	<option value = "vii">VII</option>
+ </select>
+ <select  style="width:70px"><option value = "SELECT">Select </option>
+	<option value = "english">ENGLISH</option>
+	<option value = "malayalam">MALAYALAM</option>
+	<option value = "hindi">HINDI</option>
+	<option value = "physics">PHYSICS</option>
+	<option value = "chemistry">CHEMISTRY</option>
+	<option value = "sanskrit">SANSKRIT</option>
+	<option value = "drill">DRILL</option>
+ </select>
+</td>
+ <td >
+  <select><option value = "SELECT">Select </option>
+	<option value = "i">I</option>
+	<option value = "ii">II</option>
+	<option value = "iii">III</option>
+	<option value = "iv">IV</option>
+	<option value = "v">V</option>
+	<option value = "vi">VI</option>
+	<option value = "vii">VII</option>
+ </select>
+ <select  style="width:70px"><option value = "SELECT">Select </option>
+	<option value = "english">ENGLISH</option>
+	<option value = "malayalam">MALAYALAM</option>
+	<option value = "hindi">HINDI</option>
+	<option value = "physics">PHYSICS</option>
+	<option value = "chemistry">CHEMISTRY</option>
+	<option value = "sanskrit">SANSKRIT</option>
+	<option value = "drill">DRILL</option>
+ </select>
+ </td>
+ <td >
+  <select><option value = "SELECT">Select </option>
+	<option value = "i">I</option>
+	<option value = "ii">II</option>
+	<option value = "iii">III</option>
+	<option value = "iv">IV</option>
+	<option value = "v">V</option>
+	<option value = "vi">VI</option>
+	<option value = "vii">VII</option>
+ </select>
+ <select  style="width:70px"><option value = "SELECT">Select </option>
+	<option value = "english">ENGLISH</option>
+	<option value = "malayalam">MALAYALAM</option>
+	<option value = "hindi">HINDI</option>
+	<option value = "physics">PHYSICS</option>
+	<option value = "chemistry">CHEMISTRY</option>
+	<option value = "sanskrit">SANSKRIT</option>
+	<option value = "drill">DRILL</option>
+ </select>
+</td>
+ <td >
+  <select ><option value = "SELECT">Select </option>
+	<option value = "i">I</option>
+	<option value = "ii">II</option>
+	<option value = "iii">III</option>
+	<option value = "iv">IV</option>
+	<option value = "v">V</option>
+	<option value = "vi">VI</option>
+	<option value = "vii">VII</option>
+ </select>
+ <select  style="width:70px"><option value = "SELECT">Select </option>
+	<option value = "english">ENGLISH</option>
+	<option value = "malayalam">MALAYALAM</option>
+	<option value = "hindi">HINDI</option>
+	<option value = "physics">PHYSICS</option>
+	<option value = "chemistry">CHEMISTRY</option>
+	<option value = "sanskrit">SANSKRIT</option>
+	<option value = "drill">DRILL</option>
+ </select>
+ </td>
+ <td >
+  <select><option value = "SELECT">Select </option>
+	<option value = "i">I</option>
+	<option value = "ii">II</option>
+	<option value = "iii">III</option>
+	<option value = "iv">IV</option>
+	<option value = "v">V</option>
+	<option value = "vi">VI</option>
+	<option value = "vii">VII</option>
+ </select>
+ <select  style="width:70px"><option value = "SELECT">Select </option>
+	<option value = "english">ENGLISH</option>
+	<option value = "malayalam">MALAYALAM</option>
+	<option value = "hindi">HINDI</option>
+	<option value = "physics">PHYSICS</option>
+	<option value = "chemistry">CHEMISTRY</option>
+	<option value = "sanskrit">SANSKRIT</option>
+	<option value = "drill">DRILL</option>
+ </select>
+ </td>
+ <td >
+  <select><option value = "SELECT">Select </option>
+	<option value = "i">I</option>
+	<option value = "ii">II</option>
+	<option value = "iii">III</option>
+	<option value = "iv">IV</option>
+	<option value = "v">V</option>
+	<option value = "vi">VI</option>
+	<option value = "vii">VII</option>
+ </select>
+ <select  style="width:70px"><option value = "SELECT">Select </option>
+	<option value = "english">ENGLISH</option>
+	<option value = "malayalam">MALAYALAM</option>
+	<option value = "hindi">HINDI</option>
+	<option value = "physics">PHYSICS</option>
+	<option value = "chemistry">CHEMISTRY</option>
+	<option value = "sanskrit">SANSKRIT</option>
+	<option value = "drill">DRILL</option>
+ </select>
+ </td>
+ <td >
+  <select><option value = "SELECT">Select </option>
+	<option value = "i">I</option>
+	<option value = "ii">II</option>
+	<option value = "iii">III</option>
+	<option value = "iv">IV</option>
+	<option value = "v">V</option>
+	<option value = "vi">VI</option>
+	<option value = "vii">VII</option>
+ </select>
+ <select  style="width:70px"><option value = "SELECT">Select </option>
+	<option value = "english">ENGLISH</option>
+	<option value = "malayalam">MALAYALAM</option>
+	<option value = "hindi">HINDI</option>
+	<option value = "physics">PHYSICS</option>
+	<option value = "chemistry">CHEMISTRY</option>
+	<option value = "sanskrit">SANSKRIT</option>
+	<option value = "drill">DRILL</option>
+ </select>
+ </td>
+</tr>
+<tr>
+ <td>FRI
+ <td >
+  <select  ><option value = "SELECT">Select </option>
+	<option value = "i">I</option>
+	<option value = "ii">II</option>
+	<option value = "iii">III</option>
+	<option value = "iv">IV</option>
+	<option value = "v">V</option>
+	<option value = "vi">VI</option>
+	<option value = "vii">VII</option>
+ </select>
+ <select  style="width:70px"><option value = "SELECT">Select </option>
+	<option value = "english">ENGLISH</option>
+	<option value = "malayalam">MALAYALAM</option>
+	<option value = "hindi">HINDI</option>
+	<option value = "physics">PHYSICS</option>
+	<option value = "chemistry">CHEMISTRY</option>
+	<option value = "sanskrit">SANSKRIT</option>
+	<option value = "drill">DRILL</option>
+ </select>
+ </td>
+ <td >
+  <select><option value = "SELECT">Select </option>
+	<option value = "i">I</option>
+	<option value = "ii">II</option>
+	<option value = "iii">III</option>
+	<option value = "iv">IV</option>
+	<option value = "v">V</option>
+	<option value = "vi">VI</option>
+	<option value = "vii">VII</option>
+ </select>
+ <select  style="width:70px"><option value = "SELECT">Select </option>
+	<option value = "english">ENGLISH</option>
+	<option value = "malayalam">MALAYALAM</option>
+	<option value = "hindi">HINDI</option>
+	<option value = "physics">PHYSICS</option>
+	<option value = "chemistry">CHEMISTRY</option>
+	<option value = "sanskrit">SANSKRIT</option>
+	<option value = "drill">DRILL</option>
+ </select>
+ </td>
+ <td >
+  <select><option value = "SELECT">Select </option>
+	<option value = "i">I</option>
+	<option value = "ii">II</option>
+	<option value = "iii">III</option>
+	<option value = "iv">IV</option>
+	<option value = "v">V</option>
+	<option value = "vi">VI</option>
+	<option value = "vii">VII</option>
+ </select>
+ <select  style="width:70px"><option value = "SELECT">Select </option>
+	<option value = "english">ENGLISH</option>
+	<option value = "malayalam">MALAYALAM</option>
+	<option value = "hindi">HINDI</option>
+	<option value = "physics">PHYSICS</option>
+	<option value = "chemistry">CHEMISTRY</option>
+	<option value = "sanskrit">SANSKRIT</option>
+	<option value = "drill">DRILL</option>
+ </select>
+ </td>
+ <td >
+  <select><option value = "SELECT">Select </option>
+	<option value = "i">I</option>
+	<option value = "ii">II</option>
+	<option value = "iii">III</option>
+	<option value = "iv">IV</option>
+	<option value = "v">V</option>
+	<option value = "vi">VI</option>
+	<option value = "vii">VII</option>
+ </select>
+ <select  style="width:70px"><option value = "SELECT">Select </option>
+	<option value = "english">ENGLISH</option>
+	<option value = "malayalam">MALAYALAM</option>
+	<option value = "hindi">HINDI</option>
+	<option value = "physics">PHYSICS</option>
+	<option value = "chemistry">CHEMISTRY</option>
+	<option value = "sanskrit">SANSKRIT</option>
+	<option value = "drill">DRILL</option>
+ </select>
+ </td>
+ <td >
+  <select><option value = "SELECT">Select </option>
+	<option value = "i">I</option>
+	<option value = "ii">II</option>
+	<option value = "iii">III</option>
+	<option value = "iv">IV</option>
+	<option value = "v">V</option>
+	<option value = "vi">VI</option>
+	<option value = "vii">VII</option>
+ </select>
+ <select  style="width:70px"><option value = "SELECT">Select </option>
+	<option value = "english">ENGLISH</option>
+	<option value = "malayalam">MALAYALAM</option>
+	<option value = "hindi">HINDI</option>
+	<option value = "physics">PHYSICS</option>
+	<option value = "chemistry">CHEMISTRY</option>
+	<option value = "sanskrit">SANSKRIT</option>
+	<option value = "drill">DRILL</option>
+ </select>
+ </td>
+<td >
+  <select><option value = "SELECT">Select </option>
+	<option value = "i">I</option>
+	<option value = "ii">II</option>
+	<option value = "iii">III</option>
+	<option value = "iv">IV</option>
+	<option value = "v">V</option>
+	<option value = "vi">VI</option>
+	<option value = "vii">VII</option>
+ </select>
+ <select  style="width:70px"><option value = "SELECT">Select </option>
+	<option value = "english">ENGLISH</option>
+	<option value = "malayalam">MALAYALAM</option>
+	<option value = "hindi">HINDI</option>
+	<option value = "physics">PHYSICS</option>
+	<option value = "chemistry">CHEMISTRY</option>
+	<option value = "sanskrit">SANSKRIT</option>
+	<option value = "drill">DRILL</option>
+ </select>
+ </td>
+<td >
+  <select><option value = "SELECT">Select </option>
+	<option value = "i">I</option>
+	<option value = "ii">II</option>
+	<option value = "iii">III</option>
+	<option value = "iv">IV</option>
+	<option value = "v">V</option>
+	<option value = "vi">VI</option>
+	<option value = "vii">VII</option>
+ </select>
+ <select  style="width:70px"><option value = "SELECT">Select </option>
+	<option value = "english">ENGLISH</option>
+	<option value = "malayalam">MALAYALAM</option>
+	<option value = "hindi">HINDI</option>
+	<option value = "physics">PHYSICS</option>
+	<option value = "chemistry">CHEMISTRY</option>
+	<option value = "sanskrit">SANSKRIT</option>
+	<option value = "drill">DRILL</option>
+ </select>
+ </td>
+</tr>
+<tr>
+ <td >SAT
+ <td >
+  <select><option value = "SELECT">Select </option>
+	<option value = "i">I</option>
+	<option value = "ii">II</option>
+	<option value = "iii">III</option>
+	<option value = "iv">IV</option>
+	<option value = "v">V</option>
+	<option value = "vi">VI</option>
+	<option value = "vii">VII</option>
+ </select>
+ <select  style="width:70px"><option value = "SELECT">Select </option>
+	<option value = "english">ENGLISH</option>
+	<option value = "malayalam">MALAYALAM</option>
+	<option value = "hindi">HINDI</option>
+	<option value = "physics">PHYSICS</option>
+	<option value = "chemistry">CHEMISTRY</option>
+	<option value = "sanskrit">SANSKRIT</option>
+	<option value = "drill">DRILL</option>
+ </select>
+ </td>
+ 
+ <td >
+  <select><option value = "SELECT">Select </option>
+	<option value = "i">I</option>
+	<option value = "ii">II</option>
+	<option value = "iii">III</option>
+	<option value = "iv">IV</option>
+	<option value = "v">V</option>
+	<option value = "vi">VI</option>
+	<option value = "vii">VII</option>
+ </select>
+ <select  style="width:70px"><option value = "SELECT">Select </option>
+	<option value = "english">ENGLISH</option>
+	<option value = "malayalam">MALAYALAM</option>
+	<option value = "hindi">HINDI</option>
+	<option value = "physics">PHYSICS</option>
+	<option value = "chemistry">CHEMISTRY</option>
+	<option value = "sanskrit">SANSKRIT</option>
+	<option value = "drill">DRILL</option>
+ </select>
+ </td>
+ <td >
+  <select><option value = "SELECT">Select </option>
+	<option value = "i">I</option>
+	<option value = "ii">II</option>
+	<option value = "iii">III</option>
+	<option value = "iv">IV</option>
+	<option value = "v">V</option>
+	<option value = "vi">VI</option>
+	<option value = "vii">VII</option>
+ </select>
+ <select  style="width:70px"><option value = "SELECT">Select </option>
+	<option value = "english">ENGLISH</option>
+	<option value = "malayalam">MALAYALAM</option>
+	<option value = "hindi">HINDI</option>
+	<option value = "physics">PHYSICS</option>
+	<option value = "chemistry">CHEMISTRY</option>
+	<option value = "sanskrit">SANSKRIT</option>
+	<option value = "drill">DRILL</option>
+ </select>
+ </td>
+ <td >
+  <select><option value = "SELECT">Select </option>
+	<option value = "i">I</option>
+	<option value = "ii">II</option>
+	<option value = "iii">III</option>
+	<option value = "iv">IV</option>
+	<option value = "v">V</option>
+	<option value = "vi">VI</option>
+	<option value = "vii">VII</option>
+ </select>
+ <select  style="width:70px"><option value = "SELECT">Select </option>
+	<option value = "english">ENGLISH</option>
+	<option value = "malayalam">MALAYALAM</option>
+	<option value = "hindi">HINDI</option>
+	<option value = "physics">PHYSICS</option>
+	<option value = "chemistry">CHEMISTRY</option>
+	<option value = "sanskrit">SANSKRIT</option>
+	<option value = "drill">DRILL</option>
+ </select>
+ </td>
+<td >
+  <select><option value = "SELECT">Select </option>
+	<option value = "i">I</option>
+	<option value = "ii">II</option>
+	<option value = "iii">III</option>
+	<option value = "iv">IV</option>
+	<option value = "v">V</option>
+	<option value = "vi">VI</option>
+	<option value = "vii">VII</option>
+ </select>
+ <select  style="width:70px"><option value = "SELECT">Select </option>
+	<option value = "english">ENGLISH</option>
+	<option value = "malayalam">MALAYALAM</option>
+	<option value = "hindi">HINDI</option>
+	<option value = "physics">PHYSICS</option>
+	<option value = "chemistry">CHEMISTRY</option>
+	<option value = "sanskrit">SANSKRIT</option>
+	<option value = "drill">DRILL</option>
+ </select>
+ </td>
+ <td >
+  <select><option value = "SELECT">Select </option>
+	<option value = "i">I</option>
+	<option value = "ii">II</option>
+	<option value = "iii">III</option>
+	<option value = "iv">IV</option>
+	<option value = "v">V</option>
+	<option value = "vi">VI</option>
+	<option value = "vii">VII</option>
+ </select>
+ <select  style="width:70px"><option value = "SELECT">Select </option>
+	<option value = "english">ENGLISH</option>
+	<option value = "malayalam">MALAYALAM</option>
+	<option value = "hindi">HINDI</option>
+	<option value = "physics">PHYSICS</option>
+	<option value = "chemistry">CHEMISTRY</option>
+	<option value = "sanskrit">SANSKRIT</option>
+	<option value = "drill">DRILL</option>
+ </select>
+ </td>
+   <td >
+  <select><option value = "SELECT">Select </option>
+	<option value = "i">I</option>
+	<option value = "ii">II</option>
+	<option value = "iii">III</option>
+	<option value = "iv">IV</option>
+	<option value = "v">V</option>
+	<option value = "vi">VI</option>
+	<option value = "vii">VII</option>
+ </select>
+ <select  style="width:70px"><option value = "SELECT">Select </option>
+	<option value = "english">ENGLISH</option>
+	<option value = "malayalam">MALAYALAM</option>
+	<option value = "hindi">HINDI</option>
+	<option value = "physics">PHYSICS</option>
+	<option value = "chemistry">CHEMISTRY</option>
+	<option value = "sanskrit">SANSKRIT</option>
+	<option value = "drill">DRILL</option>
+ </select>
+ </td>
+</tr>
+</table>
+</div>
+</body>
+</html>
+
+
+
+
+
+
+

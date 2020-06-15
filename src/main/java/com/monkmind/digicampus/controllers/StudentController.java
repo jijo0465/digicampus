@@ -21,12 +21,7 @@ import org.springframework.web.bind.annotation.*;
 public class StudentController {
     private final StudentService studentService;
     private final GradeService gradeService;
-    //@PostMapping
-  //  @RequestMapping("/add_student")
-   // public String addStudent(){
-   //     return "fragments/forms/addstud";
-   // }
-    
+   
     /*author:shijina
     created date:15/5/2020
     */
@@ -45,41 +40,41 @@ public class StudentController {
 	public String Save(@ModelAttribute RegisterCommand command, Model model) {
 		long parentid = (long) Math.floor(Math.random() * 9000000L) + 100000L;
 		command.getParentid().setParentId(Long.toString(parentid));
-	   RegisterCommand savedCommand=studentService.saveRegisterCommand(command);
+		studentService.saveRegisterCommand(command);
 	    return "fragments/forms/confirmpage::confirmpage";
 	}
 	
-	
-
-	  @RequestMapping("/studentdisplay")
-		public String studentdisplay(Model model) {
-		  List<Student> liststudents=studentService.listAll();
-		  List<Grade> gradeCommands = gradeService.listAll();
-		  model.addAttribute("gradeList", gradeCommands);
-		   model.addAttribute("liststudents",liststudents);
-		    return "fragments/dc-components/dc-screen-layout/dc-student-display.html::dc-student-display";
-
-		}
-	  @RequestMapping("/displaystd/{std}")
-		public String viewclasswise(@PathVariable  Grade std ,Model model) {
-			System.out.println(std);
-			List<Student> students=studentService.findByGradeid(std);
-			model.addAttribute("students", students);
-			return "fragments/dc-components/dc-screen-layout/dc-student-list.html::dc-student-list";
-		}
-
-
-	@RequestMapping("/edit/{id}")
-	public String studentUpdate(@PathVariable Long id,Model model) {
-		//ModelAndView mav = new ModelAndView("edit_product");
-		System.out.println(id);
-		 List<Grade> gradeCommands = gradeService.listAll();
-	   Student savedCommand = studentService.findById(id);
-	   model.addAttribute("gradeList", gradeCommands);
-	    model.addAttribute("savedCommand",savedCommand);
-	     return "fragments/edit/editstudent";
+	@RequestMapping("/studentdisplay")
+	public String studentdisplay(Model model) {
+		List<Student> liststudents=studentService.listAll();
+		List<Grade> gradeCommands = gradeService.listAll();
+		model.addAttribute("gradeList", gradeCommands);
+		model.addAttribute("liststudents",liststudents);
+		return "fragments/dc-components/dc-screen-layout/dc-student-display.html::dc-student-display";
 	}
-//	
+	@RequestMapping("/displaystd/{std}")
+	public String viewclasswise(@PathVariable  Grade std ,Model model) {
+		System.out.println(std);
+		List<Student> students=studentService.findByGradeid(std);
+		model.addAttribute("students", students);
+		return "fragments/dc-components/dc-screen-layout/dc-student-list.html::dc-student-list";
+	}
+	@RequestMapping("/edit/student")
+	public String getEditStudentForm(Model model) {
+		return "fragments/dc-components/dc-screen-layout/dc-student-edit::dc-student-edit";
+	}
+
+	@RequestMapping("/edit/student/{studentid}")
+	public String studentUpdate(@PathVariable String studentid,Model model) {
+		//ModelAndView mav = new ModelAndView("edit_product");
+		System.out.println(studentid);
+		List<Grade> gradeCommands = gradeService.listAll();
+		Student studentbyid = studentService.getStudentByStudentId(studentid);
+		model.addAttribute("gradeList", gradeCommands);
+		model.addAttribute("studentbyid",studentbyid);
+		return "fragments/dc-components/dc-screen-layout/dc-student-edit-02.html::dc-student-edit-02";
+	}
+
 	@PostMapping
 	@RequestMapping("/updatestudent/{id}")
 	public String InsertStudent(@ModelAttribute  Student savedCommand,Model model) {
@@ -129,11 +124,7 @@ public class StudentController {
 		return "fragments/edit/studentedit::studentedit";
 	}
 
-	@RequestMapping("/get_edit_student_form")
-	public String getEditStudentForm(Model model) {
-		List<Grade> gradeCommands = gradeService.listAll();
-		return "fragments/dc-components/dc-screen-layout/dc-student-edit::dc-student-edit";
-	}
+	
 
 
 	
