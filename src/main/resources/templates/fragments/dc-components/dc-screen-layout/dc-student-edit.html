@@ -18,7 +18,7 @@
         <div class="alert alert-info" role="alert">
             * Marked fields are mandatory
         </div>
-        <div class="justify-content-center align-items-center">
+        <div class="justify-content-center align-items-center" id="dc-edit-body">
         <form action="#" id="addstudform" method="post" th:object="${command}">
             <h3>
                 <small class="text-gray">Student Information</small>
@@ -31,8 +31,7 @@
             <div th:replace="fragments/dc-components/dc-form-component/dc-form-button/dc-form-button.html::dc-form-button(submit_id='studentsubmit')"></div>
         </form>
 </div>
- <div id="dc-edit-body">
-    </div>
+
     </div>
       <script th:src="@{js/dc-components/dc-screen-layout/dc-student-edit.js}">
     </script>

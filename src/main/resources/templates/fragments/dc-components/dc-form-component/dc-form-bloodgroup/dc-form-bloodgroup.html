@@ -9,7 +9,7 @@
     <label th:text="${label}" style="text-align: end;" class="col-sm-6 col-form-label"></label>
     <div class="col-sm-6 dc-input" th:id="${id1}">
 
-        <select class="form-control" th:name="${name}" th:required="${required}" th:id="${id1}+'_input'">
+        <select class="form-control" th:name="${name}" th:required="${required}" th:id="${id1}+'_input'" th:value="${__${value}__}">
             <option th:value=0>Select</option>
             <option th:value = "A_POS">A+ve</option>
             <option th:value = "A_NEG">A-ve</option>
