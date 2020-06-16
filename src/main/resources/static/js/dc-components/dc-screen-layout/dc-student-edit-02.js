@@ -2,12 +2,12 @@ $(document).ready(function(){
 	$("#studentupdate").click(function(e){
 			$.ajax({
 			method: "POST",
-			url: "/updatestudent",
-			 data: $('#updatestudform').serialize(),
+			url: "/addstudent",
+			 data: $('#addstudform').serialize(),
 			success: function(status){
 				if(status) {
 					console.log(status);
-					$("updatestudentid").html(status)
+					$("#updatestudentid").html(status)
 				}
 			}
 		});
