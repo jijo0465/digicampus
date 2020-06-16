@@ -75,12 +75,12 @@ public class StudentController {
 	}
 
 	@PostMapping
-	@RequestMapping("/updatestudent/{id}")
-	public String InsertStudent(@ModelAttribute  Student savedCommand,Model model) {
+	@RequestMapping("/updatestudent")
+	public String UpdateStudent(@ModelAttribute  Student savedCommand,Model model) {
 		// Student savedCommand=studentService.(command);
 		 studentService.save(savedCommand);
-		 System.out.println(savedCommand.getDateOfBirth());
-	    return "fragments/display/studentdisplay";
+		// System.out.println(savedCommand.getDateOfBirth());
+	    return "dashboard";
 	}
 
 	@ResponseBody
