@@ -8,7 +8,7 @@
 		<div class="form-group row">
 		<label th:text="${label}" style="text-align: end;" class="col-sm-3 col-form-label"></label>
 		 <div th:id="${id}" class="col dc-input">
- <select class="form-control">
+ <select class="form-control" th:value="${__${value}__}">
         <option value="0">select</option>
         <option th:each="option : ${__${options}__}"
                 th:value="${option.__${index}__}"

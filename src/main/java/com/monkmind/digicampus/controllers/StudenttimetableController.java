@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.monkmind.digicampus.command.StudentTimeTableCommand;
 import com.monkmind.digicampus.models.Grade;
 import com.monkmind.digicampus.models.Period;
 import com.monkmind.digicampus.models.StudentTimeTable;
@@ -37,15 +38,15 @@ public class StudenttimetableController {
 	
 	 @RequestMapping("/studenttimetableform")
 	public String timetableForm(Model model) {
-	    model.addAttribute("studentTimetable", new StudentTimeTable());
+	    model.addAttribute("studentTimetable", new StudentTimeTableCommand());
 	    return "studenttimetable_form";
 	}
 
 	@PostMapping
 	@RequestMapping("/timetableinsert")
-	public String createTimeTable(@ModelAttribute StudentTimeTable studentTimetable,Model model) {
-	    StudentTimeTable timetable=studentTimetableService.save(studentTimetable);
-	    model.addAttribute("studentTimetable",timetable);
+	public String createTimeTable(@ModelAttribute StudentTimeTableCommand studentTimetable,Model model) {
+	   // StudentTimeTable timetable=studentTimetableService.save(studentTimetable);
+	//    model.addAttribute("studentTimetable",timetable);
 	    return "index";
 	}
 	
