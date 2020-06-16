@@ -29,7 +29,7 @@ public class TeacherTimeTableController {
 	private final SubjectService subjectservice;
 	private final GradeService gradeservice;
 
-	@RequestMapping("/timetableform")
+	@RequestMapping("/addteachertimetable")
 	public String TeacherTimeTableForm(Model model) {
 		model.addAttribute("teachertimetable", new TeacherTimeTable());
 		List<Teacher> teachers=teacherservice.findAll();

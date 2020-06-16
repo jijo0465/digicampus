@@ -29,11 +29,11 @@ $(document).ready(function(){
 	})
 })
 $(document).ready(function(){
-	$("_addteachertimetable").click(function(e){
+	$("#addteachertimetable").click(function(e){
 		e.preventDefault();
 		$.ajax({
 			method: "POST",
-			url: "/timetableform",
+			url: "/addteachertimetable",
 			success: function(status){
 				if(status) {
 					console.log(status);

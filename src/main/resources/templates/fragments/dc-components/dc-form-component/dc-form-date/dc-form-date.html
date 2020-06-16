@@ -7,9 +7,9 @@
 	<div th:fragment="dc-form-date" class="date">
 		<div class="form-group row">
 			<label th:text="${label}" style="text-align: end;"
-				class="col-sm-3 col-form-label"></label>
-			<div th:id="${id}" class="col dc-input">
-				<input class="form-control" type="date" th:name="${name}"
+				class="col-sm-6 col-form-label"></label>
+			<div th:id="${id}" class="col-sm-6 dc-input">
+				<input class="form-control" type="date" th:name="${name}" th:value="${__${value}__}"
 					th:required="${required}" th:id="${id}+'_input'">
 			</div>
 		</div>

@@ -31,11 +31,17 @@
                 <div class="col-sm-10 ">
                     <div th:replace="fragments/dc-components/dc-form-component/dc-text-input/dc-text-input.html::dc-text-input(label='Alternative Phone',name='altPhone')"></div>
                 </div>
-                <div class="col-sm-10 ">
-                    <div th:replace="fragments/dc-components/dc-form-component/dc-form-bloodgroup/dc-form-bloodgroup.html::dc-form-bloodgroup(label='Blood Group *',name='bloodGroup')"></div>
+                <div class="form-group row">
+                    <div class="col-sm-5">
+                        <div th:replace="fragments/dc-components/dc-form-component/dc-form-bloodgroup/dc-form-bloodgroup.html::dc-form-bloodgroup(label='Blood Group *',name='bloodGroup')"></div>
+                    </div>
+                    <div class="col-sm-5">
+                        <div th:replace="fragments/dc-components/dc-form-component/dc-form-date/dc-form-date.html::dc-form-date(label='Date of Birth*',id='date',name='dob', required=true)"></div>
+                    </div>
                 </div>
-                <div th:replace="fragments/dc-components/dc-form-component/dc-form-radiobut/dc-form-radiobut.html::dc-form-radiobut(label='Gender *',name='gender',required=true)"></div>
-                <div th:replace="fragments/dc-components/dc-form-component/dc-form-date/dc-form-date.html::dc-form-date(label='Date of Birth*',id='date',name='dob', required=true)"></div>
+                <div class="col-sm-10 ">
+                    <div th:replace="fragments/dc-components/dc-form-component/dc-form-radiobut/dc-form-radiobut.html::dc-form-radiobut(label='Gender *',name='gender',required=true)"></div>
+                </div>
                 <div class="col-sm-10 ">
                     <div th:replace="fragments/dc-components/dc-form-component/dc-text-input/dc-text-input.html::dc-text-input(label='Teacher Id *',name='teacherId',id='tid',required=true)"></div>
                 </div>
