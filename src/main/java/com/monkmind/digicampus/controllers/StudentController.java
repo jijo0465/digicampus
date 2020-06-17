@@ -34,14 +34,14 @@ public class StudentController {
 	    return "fragments/dc-components/dc-screen-layout/dc-student-add.html::dc-student-add";
 	}
 
-	/*@PostMapping
+	@PostMapping
 	@RequestMapping("/addstudent")
 	public String Save(@ModelAttribute RegisterCommand command, Model model) {
 		long parentid = (long) Math.floor(Math.random() * 9000000L) + 100000L;
 		command.getParentid().setParentId(Long.toString(parentid));
 		studentService.saveRegisterCommand(command);
 	    return "fragments/forms/confirmpage::confirmpage";
-	}*/
+	}
 	
 	@RequestMapping("/studentdisplay")
 	public String studentdisplay(Model model) {
@@ -73,9 +73,9 @@ public class StudentController {
 		Student studentbyid = studentService.getStudentByStudentId(studentid);
 		model.addAttribute("gradeList", gradeCommands);
 		model.addAttribute("studentbyid",studentbyid);
-		return "fragments/dc-components/dc-screen-layout/dc-student-add.html::dc-student-add";
+		return "fragments/dc-components/dc-screen-layout/dc-student-edit-02.html::dc-student-edit-02";
 	}
-	
+	/*
 	@PostMapping
 	@RequestMapping("/addstudent")
 	public String Save(@ModelAttribute RegisterCommand command, Model model) {
@@ -83,15 +83,15 @@ public class StudentController {
 		command.getParentid().setParentId(Long.toString(parentid));
 		studentService.saveRegisterCommand(command);
 	    return "fragments/forms/confirmpage::confirmpage";
-	}
-	/*@PostMapping
+	}*/
+	@PostMapping
 	@RequestMapping("/updatestudent")
 	public String UpdateStudent(@ModelAttribute  Student savedCommand,Model model) {
 		// Student savedCommand=studentService.(command);
 		 studentService.save(savedCommand);
 		// System.out.println(savedCommand.getDateOfBirth());
 	    return "dashboard";
-	}*/
+	}
 
 	@ResponseBody
 	@RequestMapping("/validateStudentId/{studentId}")
