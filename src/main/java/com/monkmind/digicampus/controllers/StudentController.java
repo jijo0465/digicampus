@@ -95,6 +95,7 @@ public class StudentController {
     public String UpdateStudent(@ModelAttribute RegisterCommand savedCommand, Model model) {
         // Student savedCommand=studentService.(command);
         studentService.saveRegisterCommand(savedCommand);
+        System.out.println(savedCommand.getId());
         // System.out.println(savedCommand.getDateOfBirth());
         return "dashboard";
     }
