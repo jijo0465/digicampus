@@ -67,13 +67,23 @@ public class StudentController {
 	public String studentUpdate(@PathVariable String studentid,Model model) {
 		//ModelAndView mav = new ModelAndView("edit_product");
 		System.out.println(studentid);
+		RegisterCommand registerCommand = new RegisterCommand();
+		model.addAttribute("command",registerCommand);
 		List<Grade> gradeCommands = gradeService.listAll();
 		Student studentbyid = studentService.getStudentByStudentId(studentid);
 		model.addAttribute("gradeList", gradeCommands);
 		model.addAttribute("studentbyid",studentbyid);
 		return "fragments/dc-components/dc-screen-layout/dc-student-edit-02.html::dc-student-edit-02";
 	}
-
+	/*
+	@PostMapping
+	@RequestMapping("/addstudent")
+	public String Save(@ModelAttribute RegisterCommand command, Model model) {
+		long parentid = (long) Math.floor(Math.random() * 9000000L) + 100000L;
+		command.getParentid().setParentId(Long.toString(parentid));
+		studentService.saveRegisterCommand(command);
+	    return "fragments/forms/confirmpage::confirmpage";
+	}*/
 	@PostMapping
 	@RequestMapping("/updatestudent")
 	public String UpdateStudent(@ModelAttribute  Student savedCommand,Model model) {
@@ -94,6 +104,7 @@ public class StudentController {
 			return "notExists";
 		}
 	}
+	
 
 
 

@@ -6,39 +6,39 @@
 </head>
 <body>
 <div class="container dc-form-body" th:fragment="dc-student-edit-02" id="updatestudentid" >
-    <form action="#" id="updatestudform" method="post" th:object="${savedCommand}">
+    <form action="updatestudent" id="updatestudform" method="post" >
         <h3>
             <small class="text-gray">Student Information</small>
         </h3>
         <br/>
         <div class="col-sm-10 ">
-            <div th:replace="fragments/dc-components/dc-form-component/dc-text-input/dc-text-input.html::dc-text-input(label='Admission No *',value='studentbyid.studentId',id='admissionNumber',name='studentId',
+            <div th:replace="fragments/dc-components/dc-form-component/dc-text-input/dc-text-input.html::dc-text-input(label='Admission No *',value='studentbyid.studentId',id='admissionNumber',
                         required=true)"></div>
         </div>
         <div class="col-sm-10 ">
-            <div th:replace="fragments/dc-components/dc-form-component/dc-text-input/dc-text-input.html::dc-text-input(label='Name *',value='studentbyid.name',id='studentName',required=true,name='name')"></div>
+            <div th:replace="fragments/dc-components/dc-form-component/dc-text-input/dc-text-input.html::dc-text-input(label='Name *',value='studentbyid.name',id='studentName',required=true)"></div>
         </div>
         <div class="col-sm-10 ">
-            <div th:replace="fragments/dc-components/dc-form-component/dc-form-textarea/dc-form-textarea.html::dc-form-textarea(label='Address',value='studentbyid.address', id='address',name='address')"></div>
+            <div th:replace="fragments/dc-components/dc-form-component/dc-form-textarea/dc-form-textarea.html::dc-form-textarea(label='Address',value='studentbyid.address', id='address')"></div>
         </div>
 
         <div class="form-group row">
             <div class="col-sm-5">
-                <div th:replace="fragments/dc-components/dc-form-component/dc-form-bloodgroup/dc-form-bloodgroup.html::dc-form-bloodgroup(label='Bloodgroup *',value='studentbyid.bloodGroup',id1='blood',required=true,name='bloodGroup')">
+                <div th:replace="fragments/dc-components/dc-form-component/dc-form-bloodgroup/dc-form-bloodgroup.html::dc-form-bloodgroup(label='Bloodgroup *',value='studentbyid.bloodGroup',id1='blood',required=true)">
                 </div>
             </div>
             <div class="col-sm-5">
-                <div th:replace="fragments/dc-components/dc-form-component/dc-form-date/dc-form-date.html::dc-form-date(label='Date of Birth*',id='date',value='studentbyid.dateOfBirth', required=true,name='dateOfBirth')"></div>
+                <div th:replace="fragments/dc-components/dc-form-component/dc-form-date/dc-form-date.html::dc-form-date(label='Date of Birth*',id='date',value='studentbyid.dateOfBirth', required=true)"></div>
             </div>
         </div>
         <div class="col-sm-10 ">
-            <div th:replace="fragments/dc-components/dc-form-component/dc-form-radiobut/dc-form-radiobut.html::dc-form-radiobut(label='Gender *',value='studentbyid.gender',requrired=true,name='gender')"></div>
+            <div th:replace="fragments/dc-components/dc-form-component/dc-form-radiobut/dc-form-radiobut.html::dc-form-radiobut(label='Gender *',value='studentbyid.gender',requrired=true)"></div>
         </div>
         <div class="col-sm-10 ">
-            <div th:replace="fragments/dc-components/dc-form-component/dc-number-input/dc-number-input.html::dc-number-input(label='Height',value='studentbyid.height',name='height')"></div>
+            <div th:replace="fragments/dc-components/dc-form-component/dc-number-input/dc-number-input.html::dc-number-input(label='Height',value='studentbyid.height')"></div>
         </div>
         <div class="col-sm-10 ">
-            <div th:replace="fragments/dc-components/dc-form-component/dc-number-input/dc-number-input.html::dc-number-input(label='Weight',value='studentbyid.weight',name='weight' )"></div>
+            <div th:replace="fragments/dc-components/dc-form-component/dc-number-input/dc-number-input.html::dc-number-input(label='Weight',value='studentbyid.weight')"></div>
         </div>
         <!-- <div class="from-label-group" th:replace="fragments/imagefile::imagefile(label='PHOTO',name='displayImage' )"></div>-->
         <div class="col-sm-10 ">
@@ -61,13 +61,13 @@
         </h3><br/>
         <!-- <input type="text" th:field = "${command.parentid.pname}"  class="form-control" > -->
         <div class="col-sm-10 ">
-            <div th:replace="fragments/dc-components/dc-form-component/dc-text-input/dc-text-input.html::dc-text-input(label='Parent Name',value='studentbyid.parent.name',required=true,name='parent.name')"></div>
+            <div th:replace="fragments/dc-components/dc-form-component/dc-text-input/dc-text-input.html::dc-text-input(label='Parent Name',value='studentbyid.parent.name',required=true)"></div>
         </div>
         <div class="col-sm-10 ">
-            <div th:replace="fragments/dc-components/dc-form-component/dc-number-input/dc-number-input.html::dc-number-input(label='Phone *',id='phoneParent', value='studentbyid.parent.phone',required=true,name='parent.phone')"></div>
+            <div th:replace="fragments/dc-components/dc-form-component/dc-number-input/dc-number-input.html::dc-number-input(label='Phone *',id='phoneParent', value='studentbyid.parent.phone',required=true)"></div>
         </div>
         <div class="col-sm-10 ">
-            <div th:replace="fragments/dc-components/dc-form-component/dc-number-input/dc-number-input.html::dc-number-input(label='Phone Secondary',value='studentbyid.parent.altPhone',name='parent.altPhone' )"></div>
+            <div th:replace="fragments/dc-components/dc-form-component/dc-number-input/dc-number-input.html::dc-number-input(label='Phone Secondary',value='studentbyid.parent.altPhone')"></div>
         </div>
         <div th:replace="fragments/dc-components/dc-form-component/dc-form-button/dc-form-button.html::dc-form-button(submit_id='studentupdate')"></div>
     </form>

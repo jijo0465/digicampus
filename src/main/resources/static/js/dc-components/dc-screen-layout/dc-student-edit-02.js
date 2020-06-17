@@ -7,7 +7,7 @@ $(document).ready(function(){
 			success: function(status){
 				if(status) {
 					console.log(status);
-					$("updatestudentid").html(status)
+					$("#updatestudentid").html(status)
 				}
 			}
 		});
