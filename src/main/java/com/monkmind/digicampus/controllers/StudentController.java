@@ -69,15 +69,13 @@ public class StudentController {
     public String studentUpdate(@PathVariable String studentid, Model model) {
         //ModelAndView mav = new ModelAndView("edit_product");
         System.out.println(studentid);
-        RegisterCommand registerCommand = new RegisterCommand();
+        Student registerCommand = new Student();
         model.addAttribute("command", registerCommand);
         List<Grade> gradeCommands = gradeService.listAll();
-        Student student, student1 = new Student();
+        Student student = new Student();
         student = studentService.getStudentByStudentId(studentid);
-        long id = student.getId();
-        student1 = studentService.findById(id);
         model.addAttribute("gradeList", gradeCommands);
-        model.addAttribute("studentbyid", student1);
+        model.addAttribute("studentbyid", student);
         return "fragments/dc-components/dc-screen-layout/dc-student-edit-02.html::dc-student-edit-02";
     }
 
@@ -92,10 +90,10 @@ public class StudentController {
     }*/
     @PostMapping
     @RequestMapping("updatestudent")
-    public String UpdateStudent(@ModelAttribute RegisterCommand savedCommand, Model model) {
+    public String UpdateStudent(@ModelAttribute Student studentbyid, Model model) {
         // Student savedCommand=studentService.(command);
-        studentService.saveRegisterCommand(savedCommand);
-        System.out.println(savedCommand.getId());
+        studentService.save(studentbyid);
+
         // System.out.println(savedCommand.getDateOfBirth());
         return "dashboard";
     }

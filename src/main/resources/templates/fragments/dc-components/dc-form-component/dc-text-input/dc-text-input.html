@@ -9,7 +9,8 @@
         <label th:text="${label}" style="text-align: end;" class="col-form-label col-sm-3"></label>
         <div th:id="${id}" class="col dc-input">
             <input  th:value="${__${value}__}" th:required="${required}"
-            	th:id="${id}+'_input'" type="text" th:name="${name}" class="form-control" >
+            	th:id="${id}+'_input'" type="text" th:name="${name}" class="form-control">
+
             <small th:id="${id}+'_message'" class="form-text text-danger"></small>
             <small th:id="${id}+'_info'" class="form-text text-info"></small>
         </div>
