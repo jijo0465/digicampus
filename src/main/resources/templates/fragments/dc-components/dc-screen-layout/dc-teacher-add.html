@@ -7,8 +7,7 @@
 
 <body>
 <div th:fragment="dc-teacher-add">
-    <div class="container" style="min-width:80%" th:fragment="dc-teacher-form" id="teacher"
-         th:object="${teachercommand}">
+    <div class="container" style="min-width:80%" th:fragment="dc-teacher-form" id="teacher">
         <h4 align="left" style="font-size: 32px">TeacherForm</h4>
         <div th:replace="fragments/dc-components/dc-dashboard-components/dc-breadcrumb/dc-breadcrumb.html::dc-breadcrumb(active_item='Add Teacher')"></div>
         <div class="dc-form-body">
@@ -18,7 +17,7 @@
             <div class="alert alert-info" role="alert">
                 * Marked fields are mandatory
             </div>
-            <form action="#" id="addteacher" method="post" th:object="${teachercommand}">
+            <form  th:action="@{/addteacher}" id="addteacher" method="post" th:object="${teachercommand}">
                 <div class="col-sm-10 ">
                     <div th:replace="fragments/dc-components/dc-form-component/dc-text-input/dc-text-input.html::dc-text-input(label='Name *',name='name',id='name',required=true)"></div>
                 </div>
