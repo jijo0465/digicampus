@@ -6,23 +6,39 @@
     <title>Teacher list dispaly</title>
 </head>
 <body>
-<div class="container dc-form-body" th:fragment="dc-teacher-edit-02" >
-<table style="width:100%"  class="table table-condensed">
-  <tr>
-    <th>Name</th>
-    <th>Teacher ID</th> 
-    <!-- <th>Gender</th>
-    <th>Blood Group</th> -->
-  </tr>
- <tr th:each="teachers : ${teacher}">
-			<td th:text="${teachers.name}">
-			<td th:text="${teachers.teacherId}">
-      		<!--<td th:text="${teachers.gender}">
-      		<td th:text="${teachers.bloodGroup}">  -->
-      		
- 
- </tr>
-</table>
+<div class="container dc-form-body" th:fragment="dc-teacher-edit-02" th:id="updateteacherbody">
+     <form th:action="@{/updateteacher/}" th:id="updateteacherform" method="post" th:object="${teacher}">
+         <input type="hidden" th:field="*{id}">
+         <div class="col-sm-10 ">
+             <div th:replace="fragments/dc-components/dc-form-component/dc-text-input/dc-text-input.html::dc-text-input(label='Name *',name='name',value='teacher.name',id='name',required=true)"></div>
+         </div>
+         <div class="col-sm-10 ">
+             <div th:replace="fragments/dc-components/dc-form-component/dc-form-textarea/dc-form-textarea.html::dc-form-textarea(label='Address ',value='teacher.address',name='address')"></div>
+         </div>
+         <div class="col-sm-10 ">
+             <div th:replace="fragments/dc-components/dc-form-component/dc-text-input/dc-text-input.html::dc-text-input(label='Phone Number *',name='phone',value='teacher.phone',id='phone',required=true)"></div>
+         </div>
+         <div class="col-sm-10 ">
+             <div th:replace="fragments/dc-components/dc-form-component/dc-text-input/dc-text-input.html::dc-text-input(label='Alternative Phone',name='altPhone',value='teacher.altPhone')"></div>
+         </div>
+         <div class="form-group row">
+             <div class="col-sm-5">
+                 <div th:replace="fragments/dc-components/dc-form-component/dc-form-bloodgroup/dc-form-bloodgroup.html::dc-form-bloodgroup(label='Blood Group *',name='bloodGroup',value='teacher.bloodGroup')"></div>
+             </div>
+             <div class="col-sm-5">
+                 <div th:replace="fragments/dc-components/dc-form-component/dc-form-date/dc-form-date.html::dc-form-date(label='Date of Birth*',id='date',name='dateOfBirth',value='teacher.dateOfBirth', required=true)"></div>
+             </div>
+         </div>
+         <div class="col-sm-10 ">
+             <div th:replace="fragments/dc-components/dc-form-component/dc-form-radiobut/dc-form-radiobut.html::dc-form-radiobut(label='Gender *',name='gender',value='teacher.gender',required=true)"></div>
+         </div>
+         <div class="col-sm-10 ">
+             <div th:replace="fragments/dc-components/dc-form-component/dc-text-input/dc-text-input.html::dc-text-input(label='Teacher Id *',name='teacherId',value='teacher.teacherId',id='tid',required=true)"></div>
+         </div>
+         <div th:replace="fragments/dc-components/dc-form-component/dc-form-button/dc-form-button.html::dc-form-button(label='Submit',submit_id='teacherupdate')"></div>
+     </form>
+    <script th:src="@{js/dc-components/dc-screen-layout/dc-teacher-edit-02.js}">
+    </script>
 </div>
 </body>
 </html>

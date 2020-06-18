@@ -56,10 +56,10 @@ public class TeacherController {
 	}
 	
 	@PostMapping
-	@RequestMapping("/updateteacher/{id}")
+	@RequestMapping("updateteacher")
 	public String Insertteacher(@ModelAttribute Teacher teacher,Model model) {
 	    teacherservice.save(teacher);
-	    return "index";
+	    return "fragments/forms/confirmpage::confirmpage";
 	}
 	
 	@RequestMapping("/deletins/{id}")
