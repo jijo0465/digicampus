@@ -21,6 +21,7 @@ public interface StudentService{
 
 	RegisterCommand saveRegisterCommand(RegisterCommand command);
 	public List<Student> findByGradeid(Grade std);
+	public RegisterCommand getStudentByadmno(String student);
 
 
 }

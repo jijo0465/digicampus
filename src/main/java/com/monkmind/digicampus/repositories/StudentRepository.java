@@ -19,5 +19,6 @@ public interface StudentRepository extends CrudRepository<Student,Long> {
 	List<Student> findAll();
 	void save(RegisterCommand registercommand);
 	List<Student> findByGrade(Grade grade);
+	Optional<RegisterCommand> findStudentByStudentId(String student);
 	
 }

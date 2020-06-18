@@ -3,8 +3,10 @@ package com.monkmind.digicampus.controllers;
 
 import com.monkmind.digicampus.command.RegisterCommand;
 import com.monkmind.digicampus.models.Grade;
+import com.monkmind.digicampus.models.Parent;
 import com.monkmind.digicampus.models.Student;
 import com.monkmind.digicampus.services.GradeService;
+import com.monkmind.digicampus.services.ParentService;
 import com.monkmind.digicampus.services.StudentService;
 import lombok.AllArgsConstructor;
 
@@ -20,6 +22,7 @@ import org.springframework.web.bind.annotation.*;
 public class StudentController {
     private final StudentService studentService;
     private final GradeService gradeService;
+    private final ParentService parentService;
 
     /*author:shijina
     created date:15/5/2020
@@ -73,7 +76,9 @@ public class StudentController {
         model.addAttribute("command", registerCommand);
         List<Grade> gradeCommands = gradeService.listAll();
         Student student = new Student();
-        student = studentService.getStudentByStudentId(studentid);
+         student = studentService.getStudentByStudentId(studentid);
+         Parent parent=new Parent();
+         parent=parentService.getParentByParentId(studentid);
         model.addAttribute("gradeList", gradeCommands);
         model.addAttribute("studentbyid", student);
         return "fragments/dc-components/dc-screen-layout/dc-student-edit-02.html::dc-student-edit-02";

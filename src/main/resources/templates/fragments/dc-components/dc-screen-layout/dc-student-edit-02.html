@@ -12,7 +12,7 @@
         </h3>
         <br/>
         <div class="col-sm-10 ">
-<input type="text" th:field="*{id}">
+<input type="hidden" th:field="*{id}">
             <div th:replace="fragments/dc-components/dc-form-component/dc-text-input/dc-text-input.html::dc-text-input(label='Admission No *',name='studentId',id='admissionNumber',
                         value='studentbyid.studentId',required=true)"></div>
         </div>
@@ -29,7 +29,7 @@
                 </div>
             </div>
             <div class="col-sm-5">
-                <div th:replace="fragments/dc-components/dc-form-component/dc-form-date/dc-form-date.html::dc-form-date(label='Date of Birth*',id='date',value='studentbyid.dateOfBirth',name='dob', required=true)"></div>
+                <div th:replace="fragments/dc-components/dc-form-component/dc-form-date/dc-form-date.html::dc-form-date(label='Date of Birth*',id='date',value='studentbyid.dateOfBirth',name='dateOfBirth', required=true)"></div>
             </div>
         </div>
         <div class="col-sm-10 ">
@@ -60,6 +60,7 @@
         <h3>
             <small class="text-gray">Parent Information</small>
         </h3><br/>
+        <input type="hidden" th:field="*{parent.id}">
         <!-- <input type="text" th:field = "${command.parentid.pname}"  class="form-control" > -->
         <div class="col-sm-10 ">
             <div th:replace="fragments/dc-components/dc-form-component/dc-text-input/dc-text-input.html::dc-text-input(label='Parent Name',value='studentbyid.parent.name',name='parent.name',required=true)"></div>
