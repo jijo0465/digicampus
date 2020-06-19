@@ -134,4 +134,13 @@ public class StudentServiceImpl implements StudentService {
 	public List<Student> findByGradeid(Grade grade){
 		return studentRepository.findByGrade(grade);
 	}
+
+	
+
+	@Override
+	public RegisterCommand getStudentByadmno(String student) {
+		// TODO Auto-generated method stub
+	 Optional<RegisterCommand> studentoptional=studentRepository.findStudentByStudentId(student);
+	 return studentoptional.get();
+	}
 }
