@@ -28,7 +28,7 @@ public class AuthController {
     @RequestMapping("/login")
     public String getLoginPage(Model model){
     	model.addAttribute("logincommand",new LoginCommand());
-        return "loginfinal";
+        return "fragments/dc-components/dc-screen-layout/dc-login";
     }
 
     @PostMapping
