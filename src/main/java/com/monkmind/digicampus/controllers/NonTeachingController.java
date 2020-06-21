@@ -20,10 +20,10 @@ public class NonTeachingController {
 		//super();
 		this.nonteachingservice = nonteachingservice;
 	}
-	@RequestMapping("/nonteaching")
+	@RequestMapping("/addnonteaching")
 	public String nonTeaching(Model model) {
 		model.addAttribute("nonteachingstaff",new NonTeachingStaff());
-		return "nonteaching_form";
+		return "fragments/dc-components/dc-screen-layout/dc-nonteachingstaff-add.html::dc-nonteaching-add";
 	}
 	@PostMapping("/nonteachingstaff")
 	public String createnonteaching(@ModelAttribute NonTeachingStaff nonteachingstaff,Model model) {
