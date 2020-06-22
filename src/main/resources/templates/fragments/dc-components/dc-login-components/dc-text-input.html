@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+<div th:fragment ="dc-text-input" class="forminput">
+    <div class="form-group row">
+        <label th:text="${label}" style="text-align: end;" class="col-sm-3 col-form-label"></label>
+        <div th:id="${id}" class="col-sm-7 dc-input">
+            <input th:required="${required}" th:id="${id}+'_input'" type="text" th:name="${name}" class="form-control" >
+            <small th:id="${id}+'_message'" class="form-text text-danger"></small>
+            <small th:id="${id}+'_info'" class="form-text text-info"></small>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+
+
+
