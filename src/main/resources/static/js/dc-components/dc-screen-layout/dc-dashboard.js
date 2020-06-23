@@ -107,6 +107,18 @@ $(document).ready(function(){
 			}
 		});
 	})
+	$("#displaynonteachingstaff").click(function(e){
+		e.preventDefault();
+		$.ajax({
+			method: "POST",
+			url: "/nonteachingdisplay",
+			success: function(status){
+				if(status) {
+					$("#results").html(status)
+				}
+			}
+		});
+	})
 
 
 })

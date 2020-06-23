@@ -36,7 +36,7 @@ public class NonTeachingController {
 	public String nonteachingDisplay(Model model) {
 		List<NonTeachingStaff> listteachings=nonteachingservice.listAll();
 		model.addAttribute("listteachings",listteachings);
-		return "nonteachingdisplay";
+		return "fragments/dc-components/dc-screen-layout/dc-nonteachingstaff-display.html::dc-nonteachingstaff-display";
 	}
 	
 	@RequestMapping("/editnonteachingstaff")
