@@ -17,7 +17,7 @@
             <div class="alert alert-info" role="alert">
                 * Marked fields are mandatory
             </div>
-            <form  th:action="@{/addteacher}" id="addteacher" method="post" th:object="${teachercommand}">
+            <form  th:action="@{/nonteachingstaff}" id="nonteachingstaff" method="post" th:object="${nonTeachingStaffCommand}">
                 <div class="col-sm-10 ">
                     <div th:replace="fragments/dc-components/dc-form-component/dc-text-input/dc-text-input.html::dc-text-input(label='Name *',name='name',id='name',required=true)"></div>
                 </div>
@@ -42,10 +42,10 @@
                     <div th:replace="fragments/dc-components/dc-form-component/dc-form-radiobut/dc-form-radiobut.html::dc-form-radiobut(label='Gender *',name='gender',required=true,id='gender')"></div>
                 </div>
                 <div class="col-sm-10 ">
-                    <div th:replace="fragments/dc-components/dc-form-component/dc-text-input/dc-text-input.html::dc-text-input(label='Teacher Id *',name='Staff Id',id='tid',required=true)"></div>
+                    <div th:replace="fragments/dc-components/dc-form-component/dc-text-input/dc-text-input.html::dc-text-input(label='Staff Id *',name='StaffId',id='tid',required=true)"></div>
                 </div>
                 <div class="col-sm-10 ">
-                    <div th:replace="fragments/dc-components/dc-form-component/dc-text-input/dc-text-input.html::dc-text-input(label='Catogory *',name='Catogory',id='tid',required=true)"></div>
+                    <div th:replace="fragments/dc-components/dc-form-component/dc-text-input/dc-text-input.html::dc-text-input(label='Category *',name='Category',id='tid',required=true)"></div>
                 </div>
                 <div class="col-sm-10 ">
                     <div th:replace="fragments/dc-components/dc-form-component/dc-text-input/dc-text-input.html::dc-text-input(label='Designation *',name='Designation',id='tid',required=true)"></div>
@@ -53,7 +53,7 @@
                 <div th:replace="fragments/dc-components/dc-form-component/dc-form-button/dc-form-button.html::dc-form-button(label='Submit',submit_id='nonteachingsubmit')"></div>
             </form>
         </div>
-        <script th:src="@{js/dc-components/dc-screen-layout/dc--add.js}">
+        <script th:src="@{js/dc-components/dc-screen-layout/dc-nonteachingstaff-add.js}">
         </script>
     </div>
 </div>

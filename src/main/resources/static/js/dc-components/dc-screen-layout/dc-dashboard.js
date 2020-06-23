@@ -95,6 +95,18 @@ $(document).ready(function(){
 			}
 		});
 	})
+	$("#editnonteachingstaff").click(function(e){
+		e.preventDefault();
+		$.ajax({
+			method: "POST",
+			url: "/editnonteachingstaff",
+			success: function(status){
+				if(status) {
+					$("#results").html(status)
+				}
+			}
+		});
+	})
 
 
 })

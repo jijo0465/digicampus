@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Edit</title>
+</head>
+<body>
+<div class="container" style="min-width: 80%" th:fragment="dc-nonteachingstaff-edit" id="nonteachingstaff">
+
+    <h4 class="dc-title" align="left" style="font-size: 32px">New Admission</h4>
+    <div th:replace="fragments/dc-components/dc-dashboard-components/dc-breadcrumb/dc-breadcrumb.html::
+    		dc-breadcrumb(active_item='Edit NonTeachingStaff')"></div>
+    <div class="dc-form-body col" id="formBody">
+ 
+        <div class="alert alert-warning" role="alert">
+            Staff ID should be unique for every Staff
+        </div>
+        <div class="alert alert-info" role="alert">
+            * Marked fields are mandatory
+        </div>
+        <div class="justify-content-center align-items-center" th:id="dc-nonteachingstaff-edit">
+        <form action="#" id="nonteachingstaffedit" method="post" >
+            <h3>
+                <small class="text-gray">Staff Information</small>
+            </h3>
+            <br/>
+            <div class="col-sm-8 mx-auto">
+            <div  th:replace="fragments/dc-components/dc-form-component/dc-text-input/dc-text-input.html::dc-text-input
+            (label='Staff ID*',name='StaffId',id='staffid',required=true)"></div>
+            </div>
+            <div th:replace="fragments/dc-components/dc-form-component/dc-form-button/dc-form-button.html::dc-form-button
+            (submit_id='nonteachingstaffsubmit')"></div>
+        </form>
+</div>
+
+    </div>
+      <script th:src="@{js/dc-components/dc-screen-layout/dc-nonteachingstaff-edit.js}">
+    </script>
+   
+</div>
+</body>
+</html>
