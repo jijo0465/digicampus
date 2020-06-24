@@ -25,7 +25,7 @@
 
         <div class="form-group row">
             <div class="col-sm-5">
-                <div th:replace="fragments/dc-components/dc-form-component/dc-form-bloodgroup/dc-form-bloodgroup.html::dc-form-bloodgroup(label='Bloodgroup *',value='studentbyid.bloodGroup',id1='blood',name='bloodGroup',required=true)">
+                <div th:replace="fragments/dc-components/dc-form-component/dc-form-bloodgroup/dc-form-bloodgroup.html::dc-form-bloodgroup(label='Bloodgroup *',blood='studentbyid.bloodGroup',id1='blood',name='bloodGroup',required=true)">
                 </div>
             </div>
             <div class="col-sm-5">
@@ -73,7 +73,14 @@
     </form>
       <script th:src="@{js/dc-components/dc-screen-layout/dc-student-edit-02.js}">
     </script>
-
+    <script>
+        $(document).ready(function() {
+            /*<![CDATA[*/
+            var message = /*[[${studentbyid.bloodGroup}]]*/ 'default';
+            console.log(message);
+            /*]]>*/
+        })
+    </script>
 </div>
 </body>
 </html>

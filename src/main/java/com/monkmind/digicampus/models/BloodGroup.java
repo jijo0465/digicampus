@@ -1,5 +1,8 @@
 package com.monkmind.digicampus.models;
 
+import lombok.Getter;
+
+@Getter
 public enum BloodGroup {
 	
 	O_POS("O+"),
