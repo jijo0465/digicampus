@@ -31,7 +31,7 @@ public class TeacherController {
 	@RequestMapping("/addteacher")
 	public String createteacher(@ModelAttribute TeacherRegisterCommand teachercommand) {
 		teacherservice.saveTeacherRegisterCommand(teachercommand);
-		return "fragments/forms/confirmpage::confirmpage";
+		return "fragments/dc-components/dc-screen-layout/dc-student-confirm.html::dc-student-confirm";
 	}
 	
 	
@@ -59,7 +59,7 @@ public class TeacherController {
 	@RequestMapping("updateteacher")
 	public String Insertteacher(@ModelAttribute Teacher teacher,Model model) {
 	    teacherservice.save(teacher);
-	    return "fragments/forms/confirmpage::confirmpage";
+	    return "fragments/dc-components/dc-screen-layout/dc-student-confirm.html::dc-student-confirm";
 	}
 	
 	@RequestMapping("/deletins/{id}")

@@ -43,7 +43,7 @@ public class StudentController {
         long parentid = (long) Math.floor(Math.random() * 9000000L) + 100000L;
         command.getParentid().setParentId(Long.toString(parentid));
         studentService.saveRegisterCommand(command);
-        return "fragments/forms/confirmpage::confirmpage";
+        return "fragments/dc-components/dc-screen-layout/dc-student-confirm.html::dc-student-confirm";
     }
 
     @RequestMapping("/studentdisplay")

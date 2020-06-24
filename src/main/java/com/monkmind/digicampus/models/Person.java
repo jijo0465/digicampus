@@ -5,6 +5,7 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.Lob;
 import javax.persistence.MappedSuperclass;
+import javax.validation.constraints.Null;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
@@ -13,6 +14,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+import org.hibernate.annotations.ColumnDefault;
+import org.springframework.beans.factory.annotation.Value;
 
 @Getter
 @Setter
@@ -49,5 +52,5 @@ public class Person extends BaseEntity{
 	
 	@Column(name = "alternate_phone")
 	private String altPhone;
-	
+
 }
