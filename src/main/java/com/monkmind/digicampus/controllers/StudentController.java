@@ -100,7 +100,7 @@ public class StudentController {
         studentService.save(studentbyid);
 
         // System.out.println(savedCommand.getDateOfBirth());
-        return "dashboard";
+        return "fragments/dc-components/dc-screen-layout/dc-student-confirm.html::dc-student-confirm";
     }
 
     @ResponseBody

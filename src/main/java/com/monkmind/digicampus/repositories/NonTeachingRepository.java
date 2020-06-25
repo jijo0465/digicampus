@@ -17,6 +17,7 @@ public interface NonTeachingRepository extends CrudRepository<NonTeachingStaff,L
 	List<NonTeachingStaff> findAll();
 	//Optional<NonTeachingStaffCommand> findByNonTeachingStaffId(String nonteachingstaff);
 	void save(NonTeachingStaffCommand nonTeachingStaffCommand);
+	//List<NonTeachingStaffCommand> findAll();
 	
 
 }
