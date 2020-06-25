@@ -8,7 +8,7 @@
     <div class="form-group row">
               <label th:text="${label}" style="text-align: end;" class="col-sm-3 col-form-label"></label>
         <div  class="col dc-input">
-              <textarea  class="form-control" th:name="${name}" th:value="${__${value}__}"></textarea>
+              <textarea  class="form-control" th:name="${name}" th:text="${__${value}__}" ></textarea>
                 <small th:id="${id}+'_message'" class="form-text text-danger"></small>
                 <small th:id="${id}+'_info'" class="form-text text-info"></small>
         </div>
