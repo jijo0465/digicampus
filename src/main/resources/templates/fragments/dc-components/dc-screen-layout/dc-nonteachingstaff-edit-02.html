@@ -23,7 +23,7 @@
          </div>
          <div class="form-group row">
              <div class="col-sm-5">
-                 <div th:replace="fragments/dc-components/dc-form-component/dc-form-bloodgroup/dc-form-bloodgroup.html::dc-form-bloodgroup(label='Blood Group *',name='bloodGroup',value='nonteachingstaff.bloodGroup')"></div>
+                 <div th:replace="fragments/dc-components/dc-form-component/dc-form-bloodgroup/dc-form-bloodgroup.html::dc-form-bloodgroup(label='Blood Group *',name='bloodGroup',id1='blood',blood='nonteachingstaff.bloodGroup',required=true)"></div>
              </div>
              <div class="col-sm-5">
                  <div th:replace="fragments/dc-components/dc-form-component/dc-form-date/dc-form-date.html::dc-form-date(label='Date of Birth*',id='date',name='dateOfBirth',value='nonteachingstaff.dateOfBirth', required=true)"></div>
@@ -33,7 +33,7 @@
              <div th:replace="fragments/dc-components/dc-form-component/dc-form-radiobut/dc-form-radiobut.html::dc-form-radiobut(label='Gender *',name='gender',value='nonteachingstaff.gender',required=true)"></div>
          </div>
          <div class="col-sm-10 ">
-             <div th:replace="fragments/dc-components/dc-form-component/dc-text-input/dc-text-input.html::dc-text-input(label='Staff Id *',name='staffId',value='nonteachingstaff.staffId',id='tid',required=true)"></div>
+             <div th:replace="fragments/dc-components/dc-form-component/dc-text-input/dc-text-input.html::dc-text-input(label='Staff Id *',name='staffId',value='nonteachingstaff.staffId',id='tid',required=true,readonly=true)"></div>
          </div>
          <div class="col-sm-10 ">
              <div th:replace="fragments/dc-components/dc-form-component/dc-text-input/dc-text-input.html::dc-text-input(label='Category *',name='category',value='nonteachingstaff.category',id='tid',required=true)"></div>
