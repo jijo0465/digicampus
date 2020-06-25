@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Search</title>
+</head>
+<body>
+<div class="container dc-form-body" th:fragment="dc-student-search" >
+<h4 align="left" style="font-size: 32px">SEARCH....</h4>
+<div th:replace="fragments/dc-components/dc-dashboard-components/dc-breadcrumb/dc-breadcrumb.html::
+			dc-breadcrumb(active_item='Search Student Details')"></div>
+	<div class="col-sm-10 ">
+                <div th:replace="fragments/dc-components/dc-form-component/dc-text-input/dc-text-input.html::dc-text-input(label='Search *',name='keyword',id='admissionNumber',
+                        required=true)"></div>
+            </div>
+           <div th:replace="fragments/dc-components/dc-form-component/dc-form-button/dc-form-button.html::dc-form-button(submit_id='studentsubmit',id1='studsubmit')"></div>
+       
+        <table style="width:100%"  class="table table-condensed">
+  <tr>
+    <th>Name</th>
+    <th>address</th> 
+    <!-- <th>Gender</th>
+    <th>Blood Group</th> -->
+  </tr>
+ <tr th:each="liststudents : ${liststudents}">
+			<td th:text="${liststudents.name}">
+			<td th:text="${liststudents.address}">
+      		<!--<td th:text="${teachers.gender}">
+      		<td th:text="${teachers.bloodGroup}">  -->
+      		
+ 
+ </tr>
+</table>
+        
+ </div>
+
+</body>
+</html>

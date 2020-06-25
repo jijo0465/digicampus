@@ -35,6 +35,18 @@ $(document).ready(function(){
 			}
 		});
 	})
+	$("#searchstudent").click(function(e){
+		e.preventDefault();
+		$.ajax({
+			method: "POST",
+			url: "/searchstudent",
+			success: function(status){
+				if(status) {
+					$("#results").html(status)
+				}
+			}
+		});
+	})
 	$("#addteacher").click(function(e){
 		e.preventDefault();
 		$.ajax({
