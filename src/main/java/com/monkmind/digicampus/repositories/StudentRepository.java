@@ -8,6 +8,7 @@ import com.monkmind.digicampus.models.Student;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
@@ -20,5 +21,8 @@ public interface StudentRepository extends CrudRepository<Student,Long> {
 	void save(RegisterCommand registercommand);
 	List<Student> findByGrade(Grade grade);
 	Optional<RegisterCommand> findStudentByStudentId(String student);
-	
+	 @Query("SELECT p FROM Student p WHERE p.name LIKE %?1%"
+	            + " OR p.address LIKE %?1%"
+	            + " OR altphone(p.phone, '') LIKE %?1%")
+	 public List<Student> search(String keyword);
 }

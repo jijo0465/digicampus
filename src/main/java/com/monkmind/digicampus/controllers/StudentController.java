@@ -12,6 +12,7 @@ import lombok.AllArgsConstructor;
 
 import java.util.List;
 
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -45,6 +46,7 @@ public class StudentController {
         studentService.saveRegisterCommand(command);
         return "fragments/dc-components/dc-screen-layout/dc-student-confirm.html::dc-student-confirm";
     }
+   
 
     @RequestMapping("/studentdisplay")
     public String studentdisplay(Model model) {
@@ -130,6 +132,15 @@ public class StudentController {
         List<Grade> gradeCommands = gradeService.listAll();
         model.addAttribute("gradeList", gradeCommands);
         return "fragments/edit/studentedit::studentedit";
+    }
+    
+    @RequestMapping("/searchstudent")
+    public String searchstudent(@Param("keyword") String keyword,Model model )
+    {
+       List<Student> liststudents = studentService.listAll(keyword);
+            model.addAttribute("liststudents", liststudents);
+            //model.addAttribute("keyword", keyword);
+    	return "fragments/dc-components/dc-screen-layout/dc-student-search.html::dc-student-search";
     }
 
 
