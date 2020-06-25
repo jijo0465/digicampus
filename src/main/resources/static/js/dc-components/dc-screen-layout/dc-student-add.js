@@ -1,4 +1,5 @@
-  $( document ).ready(function() {
+
+$( document ).ready(function() {
             $('#phoneParent_info').text('Previously entered numbers are validated');
         });
 

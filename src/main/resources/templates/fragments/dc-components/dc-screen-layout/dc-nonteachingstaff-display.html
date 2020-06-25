@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Staff list dispaly</title>
+</head>
+<body>
+<div class="container dc-form-body" th:fragment="dc-nonteachingstaff-display" >
+<h4 align="left" style="font-size: 32px">Staff Display</h4>
+<div th:replace="fragments/dc-components/dc-dashboard-components/dc-breadcrumb/dc-breadcrumb.html::
+			dc-breadcrumb(active_item='Display Staff')"></div>
+<table style="width:100%"  class="table table-condensed">
+  <tr>
+    <th>Name</th>
+    <th>Staff ID</th> 
+     <th>Gender</th>
+    <th>phone</th> 
+    <th>category</th> 
+    <th>designation</th> 
+  </tr>
+ <tr th:each="listteachings : ${listteachings}">
+			<td th:text="${listteachings.name}">
+			<td th:text="${listteachings.staffId}">
+      		<td th:text="${listteachings.gender}">
+      		<td th:text="${listteachings.phone}">  
+      		<td th:text="${listteachings.category}">
+      		<td th:text="${listteachings.designation}">
+ 
+ </tr>
+</table>
+</div>
+</body>
+</html>
+
+
+
+

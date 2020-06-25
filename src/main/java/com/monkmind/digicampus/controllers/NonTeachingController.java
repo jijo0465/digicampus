@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.monkmind.digicampus.command.NonTeachingStaffCommand;
 import com.monkmind.digicampus.models.NonTeachingStaff;
 import com.monkmind.digicampus.services.NonTeachinService;
 
@@ -20,46 +21,51 @@ public class NonTeachingController {
 		//super();
 		this.nonteachingservice = nonteachingservice;
 	}
-	@RequestMapping("/nonteaching")
+	@RequestMapping("/addnonteaching")
 	public String nonTeaching(Model model) {
-		model.addAttribute("nonteachingstaff",new NonTeachingStaff());
-		return "nonteaching_form";
+		model.addAttribute("nonTeachingStaffCommand",new NonTeachingStaffCommand());
+		return "fragments/dc-components/dc-screen-layout/dc-nonteachingstaff-add.html::dc-nonteaching-add";
 	}
 	@PostMapping("/nonteachingstaff")
-	public String createnonteaching(@ModelAttribute NonTeachingStaff nonteachingstaff,Model model) {
-		NonTeachingStaff staff=nonteachingservice.save(nonteachingstaff);
-		model.addAttribute("nonteachingstaff",staff);
-		return "redirect:/";
+	public String createnonteaching(@ModelAttribute NonTeachingStaffCommand nonTeachingStaffCommand,Model model) {
+		nonteachingservice.saveNonTeachingStaffCommand(nonTeachingStaffCommand);
+		return "fragments/dc-components/dc-screen-layout/dc-student-confirm.html::dc-student-confirm";
 	}
-	
+
 	@RequestMapping("/nonteachingdisplay")
 	public String nonteachingDisplay(Model model) {
 		List<NonTeachingStaff> listteachings=nonteachingservice.listAll();
 		model.addAttribute("listteachings",listteachings);
-		return "nonteachingdisplay";
+		return "fragments/dc-components/dc-screen-layout/dc-nonteachingstaff-display.html::dc-nonteachingstaff-display";
 	}
-	
-	@RequestMapping("/change/{id}")
-	public String nonteachingEdit(@PathVariable String id,Model model) {
-		System.out.println(id);
-	    NonTeachingStaff nonTeachingstaff = nonteachingservice.getById(new Long(id));
-	    model.addAttribute("nonTeachingstaff",nonTeachingstaff);
-	     return "updatenonteachingstaff";
+
+	@RequestMapping("/editnonteachingstaff")
+	public String getEditNonTeachingStaffForm(Model model) {
+		return "fragments/dc-components/dc-screen-layout/dc-nonteachingstaff-edit::dc-nonteachingstaff-edit";
 	}
-	
+
+
+	@RequestMapping("/edit/nonteachingstaff/{staffId}")
+	public String nonteachingEdit(@PathVariable String  staffId,Model model) {
+		System.out.println(staffId);
+		NonTeachingStaff nonteachingstaff = nonteachingservice.getNonTeachingStaffByStaffId(staffId);
+		model.addAttribute("nonteachingstaff",nonteachingstaff);
+		return "fragments/dc-components/dc-screen-layout/dc-nonteachingstaff-edit-02.html::dc-nonteachingstaff-edit-02";
+	}
+
 	@PostMapping
-	@RequestMapping("/updatenonteaching/{id}")
-	public String insertNonteaching(@ModelAttribute   NonTeachingStaff nonTeachingstaff ,Model model) {
-		nonteachingservice.save(nonTeachingstaff);
-	    return "index";
+	@RequestMapping("/updatenonteachingstaff")
+	public String insertNonteaching(@ModelAttribute   NonTeachingStaff nonteachingstaff ,Model model) {
+		nonteachingservice.save(nonteachingstaff);
+		return "fragments/dc-components/dc-screen-layout/dc-student-confirm.html::dc-student-confirm";
 	}
-	
+
 	@RequestMapping("/dele/{id}")
 	public String deleteNonteaching(@PathVariable Long id,Model model)
 	{
 		nonteachingservice.delete(id);
 		return "redirect:/";
-		
+
 	}
 
 

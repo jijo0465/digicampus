@@ -2,8 +2,13 @@ package com.monkmind.digicampus.services;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.stereotype.Service;
 
+import com.monkmind.digicampus.command.NonTeachingStaffCommand;
+import com.monkmind.digicampus.converters.NonTeachingStaffCommandToNonTeachingStaff;
+import com.monkmind.digicampus.converters.NonTeachingStaffToNonTeachingStaffCommand;
 import com.monkmind.digicampus.models.NonTeachingStaff;
 import com.monkmind.digicampus.repositories.NonTeachingRepository;
 
@@ -17,31 +22,52 @@ import lombok.AllArgsConstructor;
 @Service
 @AllArgsConstructor
 public class NonTeachingServiceImpl implements NonTeachinService {
-	private final NonTeachingRepository nonteachingRepository;
+	private final NonTeachingRepository nonTeachingRepository;
+	private final NonTeachingStaffCommandToNonTeachingStaff nonTeachingStaffCommandToNonTeachingStaff;
+	private final NonTeachingStaffToNonTeachingStaffCommand nonTeachingStaffToNonTeachingStaffCommand;
 
 	
 	@Override
 	public NonTeachingStaff getById(long id) {
 		// TODO Auto-generated method stub
-		return nonteachingRepository.findById(id).get();
+		return nonTeachingRepository.findById(id).get();
 	}
 	@Override
 	public NonTeachingStaff save(NonTeachingStaff nonteachingstaff) {
 		// TODO Auto-generated method stub
-		return nonteachingRepository.save(nonteachingstaff);
+		return nonTeachingRepository.save(nonteachingstaff);
 	}
 
 	@Override
 	public List<NonTeachingStaff> listAll() {
 		// TODO Auto-generated method stub
-		return nonteachingRepository.findAll();
+		return nonTeachingRepository.findAll();
 	}
 
 	@Override
 	public void delete(long id){
 		// TODO Auto-generated method stub
-		nonteachingRepository.deleteById(id);
+		nonTeachingRepository.deleteById(id);
 	}
+
+	
+	@Override
+	@Transactional
+	public NonTeachingStaffCommand saveNonTeachingStaffCommand(NonTeachingStaffCommand staffcommand) {
+		// TODO Auto-generated method stub
+		NonTeachingStaff detachedNonTEachingStaff=nonTeachingStaffCommandToNonTeachingStaff.convert(staffcommand);
+		NonTeachingStaff savedNonTeachingStaff=nonTeachingRepository.save(detachedNonTEachingStaff);
+		return nonTeachingStaffToNonTeachingStaffCommand.convert(savedNonTeachingStaff);
+		
+		
+	}
+	@Override
+	public NonTeachingStaff getNonTeachingStaffByStaffId(String staffid) {
+		// TODO Auto-generated method stub
+		return nonTeachingRepository.findByStaffId(staffid).orElse(null);
+	}
+
+	
 
 
 
