@@ -20,16 +20,17 @@
  <tr th:each="student : ${students}">
 			<td th:text="${student.studentId}">
 			<td th:text="${student.name}">
-      		<!--<td th:text="${student.parent.name}">
-      		<td th:text="${student.parent.phone}">
-      		<td th:text="${student.gender}">
-      		<td th:text="${student.dateOfBirth}">
-      		   <td> <a th:href="@{'/edit/'+ ${student.id}}">Edit</a></td>
-           <td><a th:href="@{'/delete/'+ ${student.id}}" onclick="return confirm('Are you sure want to delete this ?');" id="delete">Delete</a></td>
-      		-->
- 
+     <!--<td th:text="${student.parent.name} ? ${student.parent.name} : 'null value!'"/>
+     <td th:text="${student.parent.phone}">
+     <td th:text="${student.gender}">
+
+     <td th:text="${student.dateOfBirth}">
+        <td> <a th:href="@{'/edit/'+ ${student.id}}">Edit</a></td>
+  <td><a th:href="@{'/delete/'+ ${student.id}}" onclick="return confirm('Are you sure want to delete this ?');" id="delete">Delete</a></td>
+-->
  </tr>
 </table>
+
 </div>
 </body>
 </html>

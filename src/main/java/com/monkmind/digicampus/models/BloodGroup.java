@@ -1,7 +1,11 @@
 package com.monkmind.digicampus.models;
 
+import lombok.Getter;
+
+@Getter
 public enum BloodGroup {
 	
+	NO_ANSWER("NA"),
 	O_POS("O+"),
 	O_NEG("O-"),
 	A_POS("A+"),
@@ -9,8 +13,8 @@ public enum BloodGroup {
 	B_POS("B+"),
 	B_NEG("B-"),
 	AB_POS("AB+"),
-	AB_NEG("AB-"),
-	NO_ANSWER("NA");
+	AB_NEG("AB-");
+	
 	//NO_ANSWER("NA");
 
 	private String group;
