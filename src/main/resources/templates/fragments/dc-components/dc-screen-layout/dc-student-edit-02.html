@@ -3,16 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <title>Student Classwise</title>
-<script>
-    $(document).ready(function(){
-        $("input[type='button']").click(function(){
-            var radioValue = $("input[name='gender']:checked").val();
-            if(radioValue){
-                alert("Your are a - " + radioValue);
-            }
-        });
-    });
-</script>
 </head>
 <body>
 <div class="container dc-form-body" th:fragment="dc-student-edit-02" id="updatestudentid" >
