@@ -1,34 +1,33 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="UTF-8">
-<title>Student Classwise</title>
+    <meta charset="UTF-8">
+    <title>Student Classwise</title>
 </head>
 <body>
 <div class="container dc-form-body" th:fragment="dc-student-list">
-<table style="width:100%" class="table table-condensed">
-  <tr>
-    <th>Admission No</th>
-    <th>Name</th> 
-    <th>Parent Name</th>
-    <th>Phone Number</th>
-    <th>Gender</th>
-    <th>Date of Birth</th>
-     <th></th>
-    <th></th>
-  </tr>
- <tr th:each="student : ${students}" th:if="${student.isDelete}==false">
-			<td th:text="${student.studentId}">
-			<td th:text="${student.name}">
-     <!--<td th:text="${student.parent.name}=='null'?:NULL">
-     <td th:text="${student.parent.phone}">-->
-     <td th:text="${student.gender}">
-     <td th:text="${student.dateOfBirth}">
-        <td> <a th:href="@{'/edit/'+ ${student.id}}">Edit</a></td>
-  <td><a th:href="@{'/delete/'+ ${student.id}}" onclick="return confirm('Are you sure want to delete this ?');" id="delete">Delete</a></td>
+    <table style="width:100%" class="table table-condensed">
+        <tr>
+            <th>Admission No</th>
+            <th>Name</th>
+            <th>Parent Name</th>
+            <th>Phone Number</th>
+            <th>Gender</th>
+            <th>Date of Birth</th>
+            <th></th>
+            <th></th>
+        </tr>
+        <tr th:each="student : ${students}" th:if="${student.isDelete}==false">
+            <td th:text="${student.studentId}">
+            <td th:text="${student?.name}">
+            <td th:text="${student?.parent?.name}">
+            <td th:text="${student?.parent?.phone}">
+            <td th:text="${student?.gender}">
+            <td th:text="${student?.dateOfBirth}">
+            <td><a th:href="@{'/delete/'+ ${student.id}}" onclick="return confirm('Are you sure want to delete this ?');" id="delete">Delete</a></td>
 
- </tr>
-</table>
+        </tr>
+    </table>
 
 </div>
 </body>
