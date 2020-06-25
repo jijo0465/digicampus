@@ -70,36 +70,23 @@ public class StudentController {
 
     @RequestMapping("/edit/student/{studentid}")
     public String studentUpdate(@PathVariable String studentid, Model model) {
-        //ModelAndView mav = new ModelAndView("edit_product");
         System.out.println(studentid);
         Student registerCommand = new Student();
         model.addAttribute("command", registerCommand);
         List<Grade> gradeCommands = gradeService.listAll();
         Student student = new Student();
-         student = studentService.getStudentByStudentId(studentid);
-         Parent parent=new Parent();
-         parent=parentService.getParentByParentId(studentid);
+        student = studentService.getStudentByStudentId(studentid);
+        Parent parent=new Parent();
+        parent=parentService.getParentByParentId(studentid);
         model.addAttribute("gradeList", gradeCommands);
         model.addAttribute("studentbyid", student);
         return "fragments/dc-components/dc-screen-layout/dc-student-edit-02.html::dc-student-edit-02";
     }
 
-    /*
-    @PostMapping
-    @RequestMapping("/addstudent")
-    public String Save(@ModelAttribute RegisterCommand command, Model model) {
-        long parentid = (long) Math.floor(Math.random() * 9000000L) + 100000L;
-        command.getParentid().setParentId(Long.toString(parentid));
-        studentService.saveRegisterCommand(command);
-        return "fragments/forms/confirmpage::confirmpage";
-    }*/
     @PostMapping
     @RequestMapping("updatestudent")
     public String UpdateStudent(@ModelAttribute Student studentbyid, Model model) {
-        // Student savedCommand=studentService.(command);
         studentService.save(studentbyid);
-
-        // System.out.println(savedCommand.getDateOfBirth());
         return "fragments/dc-components/dc-screen-layout/dc-student-confirm.html::dc-student-confirm";
     }
 
@@ -118,8 +105,10 @@ public class StudentController {
 
     @RequestMapping("/delete/{id}")
     public String deleteStudent(@PathVariable Long id, Model model) {
-        studentService.delete(id);
-        return "mydashboard";
+        Student student=studentService.findById(id);
+        student.setIsDelete(true);
+        studentService.save(student);
+        return "redirect:/mydashboard";
 
     }
 

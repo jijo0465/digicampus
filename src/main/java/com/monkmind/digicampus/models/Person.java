@@ -53,4 +53,7 @@ public class Person extends BaseEntity{
 	@Column(name = "alternate_phone")
 	private String altPhone;
 
+	@Column(name = "isDelete")
+	private Boolean isDelete=false;
+
 }
