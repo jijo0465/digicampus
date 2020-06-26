@@ -62,7 +62,7 @@ public class TeacherController {
 	    return "fragments/dc-components/dc-screen-layout/dc-student-confirm.html::dc-student-confirm";
 	}
 	
-	@RequestMapping("/deletins/{id}")
+	@RequestMapping("/deleted/{id}")
 	public String deleteTeacher(@PathVariable Long id,Model model)
 	{
 		Teacher teacher=teacherservice.findById(id);
