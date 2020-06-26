@@ -10,14 +10,15 @@
 <h4 align="left" style="font-size: 32px">SEARCH TEACHER</h4>
 <div th:replace="fragments/dc-components/dc-dashboard-components/dc-breadcrumb/dc-breadcrumb.html::
 			dc-breadcrumb(active_item='Search Teacher Details')"></div>
-    <form action="#" id="addstudform" method="post" th:object="${teachers}">
-	<div class="col-sm-10 ">
-                <div th:replace="fragments/dc-components/dc-form-component/dc-text-input/dc-text-input.html::dc-text-input(label='Search *',name='keyword',id='keyword',
-                        required=true)"></div>
+    <form action="#" id="addstudform" method="post">
+        <div class="form-group row" align="center">
+            <label style="text-align: end;" class="col-form-label col-sm-3">Enter Name/Admission Number</label>
+            <div class="col dc-input">
+        <input type="text" oninput="myFunction()" id="searching">
             </div>
-           <div th:replace="fragments/dc-components/dc-form-component/dc-form-button/dc-form-button.html::dc-form-button(submit_id='teachersearch')"></div>
+        </div>
     </form>
-    <div th:id="dc-searching">
+    <div th:id="dc-search">
 
     </div>
 
