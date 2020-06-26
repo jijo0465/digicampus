@@ -10,29 +10,19 @@
 <h4 align="left" style="font-size: 32px">SEARCH....</h4>
 <div th:replace="fragments/dc-components/dc-dashboard-components/dc-breadcrumb/dc-breadcrumb.html::
 			dc-breadcrumb(active_item='Search Student Details')"></div>
+    <form action="#" id="addstudform" method="post" th:object="${command}">
 	<div class="col-sm-10 ">
-                <div th:replace="fragments/dc-components/dc-form-component/dc-text-input/dc-text-input.html::dc-text-input(label='Search *',name='keyword',id='admissionNumber',
+                <div th:replace="fragments/dc-components/dc-form-component/dc-text-input/dc-text-input.html::dc-text-input(label='Search *',name='keyword',id='keyword',
                         required=true)"></div>
             </div>
-           <div th:replace="fragments/dc-components/dc-form-component/dc-form-button/dc-form-button.html::dc-form-button(submit_id='studentsubmit',id1='studsubmit')"></div>
-       
-        <table style="width:100%"  class="table table-condensed">
-  <tr>
-    <th>Name</th>
-    <th>address</th> 
-    <!-- <th>Gender</th>
-    <th>Blood Group</th> -->
-  </tr>
- <tr th:each="liststudents : ${liststudents}">
-			<td th:text="${liststudents.name}">
-			<td th:text="${liststudents.address}">
-      		<!--<td th:text="${teachers.gender}">
-      		<td th:text="${teachers.bloodGroup}">  -->
-      		
- 
- </tr>
-</table>
-        
+           <div th:replace="fragments/dc-components/dc-form-component/dc-form-button/dc-form-button.html::dc-form-button(submit_id='studentsearch')"></div>
+    </form>
+    <div th:id="dc-search">
+
+    </div>
+
+    <script th:src="@{js/dc-components/dc-screen-layout/dc-student-search.js}">
+    </script>
  </div>
 
 </body>

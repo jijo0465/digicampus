@@ -18,6 +18,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 
+
 @AllArgsConstructor
 @Controller
 public class StudentController {
@@ -135,13 +136,17 @@ public class StudentController {
     }
     
     @RequestMapping("/searchstudent")
-    public String searchstudent(@Param("keyword") String keyword,Model model )
+    public String searchstudent(Model model)
     {
-       List<Student> liststudents = studentService.listAll(keyword);
-            model.addAttribute("liststudents", liststudents);
-            //model.addAttribute("keyword", keyword);
     	return "fragments/dc-components/dc-screen-layout/dc-student-search.html::dc-student-search";
     }
-
+    @RequestMapping("/student/search/{keyword}")
+    public String studentsearch(@PathVariable String keyword,Model model)
+    {
+        List<Student> liststudents = studentService.listAll(keyword);
+        model.addAttribute("students", liststudents);
+        //model.addAttribute("keyword", keyword);
+        return "fragments/dc-components/dc-screen-layout/dc-student-list.html::dc-student-list";
+    }
 
 }
