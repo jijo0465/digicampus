@@ -138,14 +138,21 @@ public class StudentController {
     @RequestMapping("/searchstudent")
     public String searchstudent(Model model)
     {
+        List<Student> students=studentService.listAll();
+        model.addAttribute("students",students);
     	return "fragments/dc-components/dc-screen-layout/dc-student-search.html::dc-student-search";
     }
     @RequestMapping("/student/search/{keyword}")
     public String studentsearch(@PathVariable String keyword,Model model)
     {
-        List<Student> liststudents = studentService.listAll(keyword);
-        model.addAttribute("students", liststudents);
-        //model.addAttribute("keyword", keyword);
+        if(keyword!= "null") {
+            List<Student> liststudents = studentService.listAll(keyword);
+            model.addAttribute("students", liststudents);
+        }
+        else{
+            List<Student> students=studentService.listAll();
+            model.addAttribute("students",students);
+        }
         return "fragments/dc-components/dc-screen-layout/dc-student-list.html::dc-student-list";
     }
 
