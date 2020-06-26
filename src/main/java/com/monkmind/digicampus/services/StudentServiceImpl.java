@@ -150,7 +150,7 @@ public class StudentServiceImpl implements StudentService {
 		if (keyword != null) {
             return studentRepository.search(keyword);
         }
-		else {
+		else{
 			return studentRepository.findAll();
 		}
 	}
