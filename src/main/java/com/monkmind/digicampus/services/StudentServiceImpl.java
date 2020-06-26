@@ -143,4 +143,15 @@ public class StudentServiceImpl implements StudentService {
 	 Optional<RegisterCommand> studentoptional=studentRepository.findStudentByStudentId(student);
 	 return studentoptional.get();
 	}
+
+	@Override
+	public List<Student> listAll(String keyword) {
+		// TODO Auto-generated method stub
+		if (keyword != null) {
+            return studentRepository.search(keyword);
+        }
+		else {
+			return studentRepository.findAll();
+		}
+	}
 }

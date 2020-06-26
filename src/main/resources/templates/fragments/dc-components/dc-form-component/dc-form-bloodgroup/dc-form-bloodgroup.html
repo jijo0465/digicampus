@@ -5,7 +5,7 @@
     <title>dc-form-bloodgroup</title>
 </head>
 <body>
-<div class="form-group row" th:fragment ="dc-form-bloodgroup" >
+<div class="row" th:fragment ="dc-form-bloodgroup" >
     <label th:text="${label}" style="text-align: end;" class="col-sm-6 col-form-label"></label>
     <div class="col-sm-6 dc-input" th:id="${id1}">
         <select class="form-control" name="color" th:name="${name}" th:required="${required}" th:id="${id1}+'_input'">
