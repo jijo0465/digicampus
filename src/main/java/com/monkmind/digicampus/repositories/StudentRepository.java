@@ -24,6 +24,6 @@ public interface StudentRepository extends CrudRepository<Student,Long> {
 	Optional<RegisterCommand> findStudentByStudentId(String student);
 	 @Query("SELECT p FROM Student p WHERE p.name LIKE ?1%"
 	            + " OR p.address LIKE ?1%"
-	            + " OR p.phone LIKE ?1%")
+	            + " OR p.studentId LIKE ?1%")
 	 public List<Student> search(String keyword);
 }
