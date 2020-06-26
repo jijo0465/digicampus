@@ -1,6 +1,7 @@
 package com.monkmind.digicampus.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.transaction.Transactional;
 
@@ -9,6 +10,7 @@ import org.springframework.stereotype.Service;
 import com.monkmind.digicampus.command.TeacherRegisterCommand;
 import com.monkmind.digicampus.converters.TeacherRegisterCommandToTeacher;
 import com.monkmind.digicampus.converters.TeacherToTeacherRegisterCommand;
+import com.monkmind.digicampus.models.Student;
 import com.monkmind.digicampus.models.Teacher;
 //import com.monkmind.digicampus.repositories.ParentRepository;
 //import com.monkmind.digicampus.repositories.StudentRepository;
@@ -54,6 +56,12 @@ public class TeacherServiceImpl implements TeacherService{
 		Teacher detachedTeacher=teacherRegisterCommandToTeacher.convert(teachercommand);
 		Teacher savedTeacher=teacherRepository.save(detachedTeacher);
 		return teacherToTeacherRegisterCommand.convert(savedTeacher) ;
+	}
+	@Override
+	public Teacher findById(long l) {
+		// TODO Auto-generated method stub
+		Optional<Teacher> teacheroptional=teacherRepository.findById(l);
+		return teacheroptional.get();
 	}
 
 }

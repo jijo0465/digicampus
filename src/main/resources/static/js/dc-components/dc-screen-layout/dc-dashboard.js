@@ -83,6 +83,18 @@ $(document).ready(function(){
 			}
 		});
 	})
+	$("#searchteacher").click(function(e){
+		e.preventDefault();
+		$.ajax({
+			method: "POST",
+			url: "/searchteacher",
+			success: function(status){
+				if(status) {
+					$("#results").html(status)
+				}
+			}
+		});
+	})
 	$("#addteachertimetable").click(function(e){
 		e.preventDefault();
 		$.ajax({
