@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Search</title>
+</head>
+<body>
+<div class="container dc-form-body" th:fragment="dc-teacher-search" >
+<h4 align="left" style="font-size: 32px">SEARCH TEACHER</h4>
+<div th:replace="fragments/dc-components/dc-dashboard-components/dc-breadcrumb/dc-breadcrumb.html::
+			dc-breadcrumb(active_item='Search Teacher Details')"></div>
+    <form action="#" id="addstudform" method="post">
+        <div class="form-group row" align="center">
+            <label style="text-align: end;" class="col-form-label col-sm-3">Enter Name/Admission Number</label>
+            <div class="col dc-input">
+        <input type="text" oninput="myFunction()" id="searching">
+            </div>
+        </div>
+    </form>
+    <div th:id="dc-search">
+    <table style="width:100%" class="table table-condensed">
+        <tr>
+            <th>Teacher Id</th>
+            <th>Name</th>
+            <th>Gender</th>
+            <!--  <th>Phone Number</th>
+            <th>Gender</th>
+            <th>Date of Birth</th>-->
+            <th></th>
+            <th></th>
+        </tr>
+        <tr th:each="teachers : ${teachers}" th:if="${teachers.isDelete}==false">
+			<td th:text="${teachers?.name}">
+			<td th:text="${teachers?.teacherId}">
+      		<td th:text="${teachers?.gender}">
+      		<!--  <td th:text="${teachers.teacherid}"> --> 
+      		<td><a th:href="@{'/deleted/'+ ${teachers.id}}" onclick="return confirm('Are you sure want to delete this ?');" id="delete">Delete</a></td>
+      		
+      		
+ 
+ </tr>
+    </table>
+    
+
+    </div>
+
+    <script th:src="@{js/dc-components/dc-screen-layout/dc-teacher-search.js}">
+    </script>
+ </div>
+
+</body>
+</html>

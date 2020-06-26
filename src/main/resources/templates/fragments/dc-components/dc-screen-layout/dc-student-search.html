@@ -7,18 +7,42 @@
 </head>
 <body>
 <div class="container dc-form-body" th:fragment="dc-student-search" >
-<h4 align="left" style="font-size: 32px">SEARCH....</h4>
+<h4 align="left" style="font-size: 32px">SEARCH STUDENT</h4>
 <div th:replace="fragments/dc-components/dc-dashboard-components/dc-breadcrumb/dc-breadcrumb.html::
 			dc-breadcrumb(active_item='Search Student Details')"></div>
-    <form action="#" id="addstudform" method="post" th:object="${command}">
-	<div class="col-sm-10 ">
-                <div th:replace="fragments/dc-components/dc-form-component/dc-text-input/dc-text-input.html::dc-text-input(label='Search *',name='keyword',id='keyword',
-                        required=true)"></div>
+    <form action="#" id="addstudform" method="post">
+        <div class="col-sm-10">
+        <div class="form-group row">
+            <label style="text-align: end;" class="col-form-label col-sm-5">Enter Name/Admission Number</label>
+            <div class="col dc-input">
+        <input type="text" class="form-control" oninput="myFunction()" id="search">
             </div>
-           <div th:replace="fragments/dc-components/dc-form-component/dc-form-button/dc-form-button.html::dc-form-button(submit_id='studentsearch')"></div>
+        </div>
+        </div>
     </form>
     <div th:id="dc-search">
+        <table style="width:100%" class="table table-condensed">
+            <tr>
+                <th>Admission No</th>
+                <th>Name</th>
+                <th>Parent Name</th>
+                <th>Phone Number</th>
+                <th>Gender</th>
+                <th>Date of Birth</th>
+                <th></th>
+                <th></th>
+            </tr>
+            <tr th:each="student : ${students}" th:if="${student.isDelete}==false">
+                <td th:text="${student.studentId}">
+                <td th:text="${student?.name}">
+                <td th:text="${student?.parent?.name}">
+                <td th:text="${student?.parent?.phone}">
+                <td th:text="${student?.gender}">
+                <td th:text="${student?.dateOfBirth}">
+                <td><a th:href="@{'/delete/'+ ${student.id}}" onclick="return confirm('Are you sure want to delete this ?');" id="delete">Delete</a></td>
 
+            </tr>
+        </table>
     </div>
 
     <script th:src="@{js/dc-components/dc-screen-layout/dc-student-search.js}">

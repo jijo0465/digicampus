@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.monkmind.digicampus.command.TeacherRegisterCommand;
+import com.monkmind.digicampus.models.Student;
 import com.monkmind.digicampus.models.Teacher;
 import com.monkmind.digicampus.services.TeacherService;
 
@@ -62,11 +63,29 @@ public class TeacherController {
 	    return "fragments/dc-components/dc-screen-layout/dc-student-confirm.html::dc-student-confirm";
 	}
 	
-	@RequestMapping("/deletins/{id}")
+	@RequestMapping("/deleted/{id}")
 	public String deleteTeacher(@PathVariable Long id,Model model)
 	{
-		teacherservice.delete(id);
-		return "redirect:/";
+		Teacher teacher=teacherservice.findById(id);
+		teacher.setIsDelete(true);
+		teacherservice.save(teacher);
+		return "redirect:/mydashboard";
 		
 	}
+	
+	 @RequestMapping("/searchteacher")
+	    public String searchTeacher(Model model)
+	    {
+		    List<Teacher> teacher=teacherservice.listAll();
+	        model.addAttribute("teachers",teacher);
+	    	return "fragments/dc-components/dc-screen-layout/dc-teacher-search.html::dc-teacher-search";
+	    }
+	 @RequestMapping("/teacher/search/{keyword}")
+	    public String teacherSearch(@PathVariable String keyword,Model model)
+	    {
+	        List<Teacher> teachers = teacherservice.listAll(keyword);
+	        model.addAttribute("teachers", teachers);
+	        //model.addAttribute("keyword", keyword);
+	        return "fragments/dc-components/dc-screen-layout/dc-teacher-list.html::dc-teacher-list";
+	    }
 }
