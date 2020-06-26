@@ -145,14 +145,8 @@ public class StudentController {
     @RequestMapping("/student/search/{keyword}")
     public String studentsearch(@PathVariable String keyword,Model model)
     {
-        if(keyword!= "null") {
-            List<Student> liststudents = studentService.listAll(keyword);
-            model.addAttribute("students", liststudents);
-        }
-        else{
-            List<Student> students=studentService.listAll();
-            model.addAttribute("students",students);
-        }
+        List<Student> liststudents = studentService.listAll(keyword);
+        model.addAttribute("students", liststudents);
         return "fragments/dc-components/dc-screen-layout/dc-student-list.html::dc-student-list";
     }
 
