@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.monkmind.digicampus.command.TeacherRegisterCommand;
+import com.monkmind.digicampus.models.Student;
 import com.monkmind.digicampus.models.Teacher;
 import com.monkmind.digicampus.services.TeacherService;
 
@@ -76,5 +77,13 @@ public class TeacherController {
 	    public String searchTeacher(Model model)
 	    {
 	    	return "fragments/dc-components/dc-screen-layout/dc-teacher-search.html::dc-teacher-search";
+	    }
+	 @RequestMapping("/teacher/search/{keyword}")
+	    public String teacherSearch(@PathVariable String keyword,Model model)
+	    {
+	        List<Teacher> teachers = teacherservice.listAll(keyword);
+	        model.addAttribute("teachers", teachers);
+	        //model.addAttribute("keyword", keyword);
+	        return "fragments/dc-components/dc-screen-layout/dc-teacher-list.html::dc-teacher-list";
 	    }
 }

@@ -63,5 +63,15 @@ public class TeacherServiceImpl implements TeacherService{
 		Optional<Teacher> teacheroptional=teacherRepository.findById(l);
 		return teacheroptional.get();
 	}
+	@Override
+	public List<Teacher> listAll(String keyword) {
+		// TODO Auto-generated method stub
+		if (keyword != null) {
+            return teacherRepository.search(keyword);
+        }
+		else {
+			return teacherRepository.findAll();
+		}
+	}
 
 }
