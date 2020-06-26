@@ -13,6 +13,7 @@ public interface TeacherService {
     public Teacher getById(Long teacher);
     public List<Teacher> findAll();
     public void delete(long id);
+    public Teacher findById(long l);
    
     TeacherRegisterCommand saveTeacherRegisterCommand(TeacherRegisterCommand teachercommand);
 

@@ -62,11 +62,19 @@ public class TeacherController {
 	    return "fragments/dc-components/dc-screen-layout/dc-student-confirm.html::dc-student-confirm";
 	}
 	
-	@RequestMapping("/deletins/{id}")
+	@RequestMapping("/deleted/{id}")
 	public String deleteTeacher(@PathVariable Long id,Model model)
 	{
-		teacherservice.delete(id);
-		return "redirect:/";
+		Teacher teacher=teacherservice.findById(id);
+		teacher.setIsDelete(true);
+		teacherservice.save(teacher);
+		return "redirect:/mydashboard";
 		
 	}
+	
+	 @RequestMapping("/searchteacher")
+	    public String searchTeacher(Model model)
+	    {
+	    	return "fragments/dc-components/dc-screen-layout/dc-teacher-search.html::dc-teacher-search";
+	    }
 }
