@@ -76,6 +76,8 @@ public class TeacherController {
 	 @RequestMapping("/searchteacher")
 	    public String searchTeacher(Model model)
 	    {
+		    List<Teacher> teacher=teacherservice.listAll();
+	        model.addAttribute("teachers",teacher);
 	    	return "fragments/dc-components/dc-screen-layout/dc-teacher-search.html::dc-teacher-search";
 	    }
 	 @RequestMapping("/teacher/search/{keyword}")

@@ -13,6 +13,7 @@ public interface TeacherService {
     public Teacher getTeacherByTeacherId(String string);
     public Teacher getById(Long teacher);
     public List<Teacher> findAll();
+    public List<Teacher> listAll();
     public void delete(long id);
     public Teacher findById(long l);
     public List<Teacher> listAll(String keyword);
