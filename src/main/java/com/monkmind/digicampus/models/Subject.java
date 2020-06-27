@@ -32,6 +32,13 @@ public class Subject extends BaseEntity{
 
 	@Column(name = "optional")
 	private Boolean optional;
+	
+	@Column(name = "subject_id")
+	private String subjectId ;
+	
+	@Enumerated(EnumType.STRING)
+	//@Column(name = "subject_group")
+	private SubjectGroup subjectgroup;
 
 	@JsonIgnore
 	@ManyToMany

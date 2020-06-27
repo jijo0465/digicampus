@@ -53,7 +53,8 @@ public class Grade extends BaseEntity{
 	//@ManyToMany
 	//@JoinTable(name="grade_exams",joinColumns=@JoinColumn(name="grade_id"),inverseJoinColumns =@JoinColumn(name="exam_id"))
 	
-	
+	@OneToOne(mappedBy="grade")
+	private SubjectSchema subjectschema;
 	
 	
 //	@Column(name = "rating")
