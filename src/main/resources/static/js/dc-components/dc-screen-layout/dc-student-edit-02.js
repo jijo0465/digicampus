@@ -6,7 +6,6 @@ $(document).ready(function(){
 			 data: $('#updatestudform').serialize(),
 			success: function(status){
 				if(status) {
-					console.log(status);
 					$("#updatestudentid").html(status)
 				}
 			}

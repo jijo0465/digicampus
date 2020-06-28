@@ -36,7 +36,7 @@ public class StudentController {
         List<Grade> gradeCommands = gradeService.listAll();
         model.addAttribute("command", registerCommand);
         model.addAttribute("gradeList", gradeCommands);
-        return "fragments/dc-components/dc-screen-layout/dc-student-add.html::dc-student-add";
+        return "fragments/dc-components/dc-screen-layout/dc-student/dc-student-add.html::dc-student-add";
     }
 
     @PostMapping

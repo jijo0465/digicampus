@@ -37,7 +37,6 @@ public class Subject extends BaseEntity{
 	private String subjectId ;
 	
 	@Enumerated(EnumType.STRING)
-	//@Column(name = "subject_group")
 	private SubjectGroup subjectgroup;
 
 	@JsonIgnore
