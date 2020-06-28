@@ -2,6 +2,8 @@ package com.monkmind.digicampus.controllers;
 
 import java.util.List;
 
+import com.monkmind.digicampus.models.Subject;
+import com.monkmind.digicampus.services.SubjectService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,10 +22,15 @@ public class SubjectSchemaController {
 	
 	 private final GradeService gradeService;
 	 private final StudentService studentService;
+	 private final SubjectService subjectService;
 	
 	@RequestMapping("/addschemas")
 	public String addSchema(Model model)
 	{
+		List<Grade> gradeCommands = gradeService.listAll();
+		Iterable<Subject> subjectList=subjectService.findall();
+		model.addAttribute("subjectList",subjectList);
+		model.addAttribute("gradeList", gradeCommands);
 		return "fragments/dc-components/dc-screen-layout/dc-schema-add.html::dc-schema-add";
 	}
 

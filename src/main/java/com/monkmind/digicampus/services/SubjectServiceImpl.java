@@ -36,6 +36,10 @@ public class SubjectServiceImpl implements SubjectService{
 		// TODO Auto-generated method stub
 		return subjectrepository.findByPeriod(period);
 	}
+	@Override
+	public Iterable<Subject> findall(){
+		return subjectrepository.findAll();
+	}
 
 
 }
