@@ -34,7 +34,7 @@ public class TeacherTimeTableController {
 		model.addAttribute("teachertimetable", new TeacherTimeTable());
 		List<Teacher> teachers=teacherservice.findAll();
 		model.addAttribute("teachers",teachers);
-		return "fragments/dc-components/dc-screen-layout/dc-teacher-timetable.html::dc-teacher-timetable";
+		return "fragments/dc-components/dc-screen-layout/dc-teacher-timetable/dc-teacher-timetable.html::dc-teacher-timetable";
 	}
 
 	@PostMapping("/teacher_timetable")

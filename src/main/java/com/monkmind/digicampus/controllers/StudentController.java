@@ -55,7 +55,7 @@ public class StudentController {
         List<Grade> gradeCommands = gradeService.listAll();
         model.addAttribute("gradeList", gradeCommands);
         model.addAttribute("liststudents", liststudents);
-        return "fragments/dc-components/dc-screen-layout/dc-student-display.html::dc-student-display";
+        return "fragments/dc-components/dc-screen-layout/dc-student/dc-student-display.html::dc-student-display";
     }
 
     @RequestMapping("/displaystd/{std}")
@@ -63,12 +63,12 @@ public class StudentController {
         System.out.println(std);
         List<Student> students = studentService.findByGradeid(std);
         model.addAttribute("students", students);
-        return "fragments/dc-components/dc-screen-layout/dc-student-list.html::dc-student-list";
+        return "fragments/dc-components/dc-screen-layout/dc-student/dc-student-list.html::dc-student-list";
     }
 
     @RequestMapping("/edit/student")
     public String getEditStudentForm(Model model) {
-        return "fragments/dc-components/dc-screen-layout/dc-student-edit::dc-student-edit";
+        return "fragments/dc-components/dc-screen-layout/dc-student/dc-student-edit::dc-student-edit";
     }
 
     @RequestMapping("/edit/student/{studentid}")
@@ -83,7 +83,7 @@ public class StudentController {
         parent=parentService.getParentByParentId(studentid);
         model.addAttribute("gradeList", gradeCommands);
         model.addAttribute("studentbyid", student);
-        return "fragments/dc-components/dc-screen-layout/dc-student-edit-02.html::dc-student-edit-02";
+        return "fragments/dc-components/dc-screen-layout/dc-student/dc-student-edit-02.html::dc-student-edit-02";
     }
 
     @PostMapping
@@ -115,39 +115,19 @@ public class StudentController {
 
     }
 
-    @RequestMapping("/studentUpdate/{studentId}")
-    public String updatestudent(@PathVariable String studentId, Model model) {
-        Student student = studentService.getStudentByStudentId(studentId);
-        if (student != null) {
-            model.addAttribute("response", "exists");
-            model.addAttribute("student", student);
-
-        } else {
-            model.addAttribute("response", "failed");
-        }
-        return "fragments/forms/editstud::editstud";
-    }
-
-    @RequestMapping("/studentupdate")
-    public String updatestudent(Model model) {
-        List<Grade> gradeCommands = gradeService.listAll();
-        model.addAttribute("gradeList", gradeCommands);
-        return "fragments/edit/studentedit::studentedit";
-    }
-    
     @RequestMapping("/searchstudent")
     public String searchstudent(Model model)
     {
         List<Student> students=studentService.listAll();
         model.addAttribute("students",students);
-    	return "fragments/dc-components/dc-screen-layout/dc-student-search.html::dc-student-search";
+    	return "fragments/dc-components/dc-screen-layout/dc-student/dc-student-search.html::dc-student-search";
     }
     @RequestMapping("/student/search/{keyword}")
     public String studentsearch(@PathVariable String keyword,Model model)
     {
         List<Student> liststudents = studentService.listAll(keyword);
         model.addAttribute("students", liststudents);
-        return "fragments/dc-components/dc-screen-layout/dc-student-list.html::dc-student-list";
+        return "fragments/dc-components/dc-screen-layout/dc-student/dc-student-list.html::dc-student-list";
     }
 
 }

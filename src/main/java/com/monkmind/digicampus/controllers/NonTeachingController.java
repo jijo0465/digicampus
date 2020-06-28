@@ -24,7 +24,7 @@ public class NonTeachingController {
 	@RequestMapping("/addnonteaching")
 	public String nonTeaching(Model model) {
 		model.addAttribute("nonTeachingStaffCommand",new NonTeachingStaffCommand());
-		return "fragments/dc-components/dc-screen-layout/dc-nonteachingstaff-add.html::dc-nonteaching-add";
+		return "fragments/dc-components/dc-screen-layout/dc-nonteaching/dc-nonteachingstaff-add.html::dc-nonteaching-add";
 	}
 	@PostMapping("/nonteachingstaff")
 	public String createnonteaching(@ModelAttribute NonTeachingStaffCommand nonTeachingStaffCommand,Model model) {
@@ -36,12 +36,12 @@ public class NonTeachingController {
 	public String nonteachingDisplay(Model model) {
 		List<NonTeachingStaff> listteachings=nonteachingservice.listAll();
 		model.addAttribute("listteachings",listteachings);
-		return "fragments/dc-components/dc-screen-layout/dc-nonteachingstaff-display.html::dc-nonteachingstaff-display";
+		return "fragments/dc-components/dc-screen-layout/dc-nonteaching/dc-nonteachingstaff-display.html::dc-nonteachingstaff-display";
 	}
 
 	@RequestMapping("/editnonteachingstaff")
 	public String getEditNonTeachingStaffForm(Model model) {
-		return "fragments/dc-components/dc-screen-layout/dc-nonteachingstaff-edit::dc-nonteachingstaff-edit";
+		return "fragments/dc-components/dc-screen-layout/dc-nonteaching/dc-nonteachingstaff-edit::dc-nonteachingstaff-edit";
 	}
 
 
@@ -50,7 +50,7 @@ public class NonTeachingController {
 		System.out.println(staffId);
 		NonTeachingStaff nonteachingstaff = nonteachingservice.getNonTeachingStaffByStaffId(staffId);
 		model.addAttribute("nonteachingstaff",nonteachingstaff);
-		return "fragments/dc-components/dc-screen-layout/dc-nonteachingstaff-edit-02.html::dc-nonteachingstaff-edit-02";
+		return "fragments/dc-components/dc-screen-layout/dc-nonteaching/dc-nonteachingstaff-edit-02.html::dc-nonteachingstaff-edit-02";
 	}
 
 	@PostMapping

@@ -21,20 +21,17 @@
     <div th:id="dc-search">
     <table style="width:100%" class="table table-condensed">
         <tr>
-            <th>Teacher Id</th>
-            <th>Name</th>
+            <th>Teacher Name</th>
+            <th>Teacher ID</th>
             <th>Gender</th>
-            <!--  <th>Phone Number</th>
-            <th>Gender</th>
-            <th>Date of Birth</th>-->
-            <th></th>
+            <th>Phone Number</th>
             <th></th>
         </tr>
         <tr th:each="teachers : ${teachers}" th:if="${teachers.isDelete}==false">
 			<td th:text="${teachers?.name}">
 			<td th:text="${teachers?.teacherId}">
       		<td th:text="${teachers?.gender}">
-      		<!--  <td th:text="${teachers.teacherid}"> --> 
+            <td th:text="${teachers?.phone}">
       		<td><a th:href="@{'/deleted/'+ ${teachers.id}}" onclick="return confirm('Are you sure want to delete this ?');" id="delete">Delete</a></td>
       		
       		
