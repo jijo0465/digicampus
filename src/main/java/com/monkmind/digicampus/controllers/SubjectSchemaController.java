@@ -38,7 +38,7 @@ public class SubjectSchemaController {
 		model.addAttribute("subjectSchema",subjectSchema);
 		model.addAttribute("subjectList",subjectList);
 		model.addAttribute("gradeList", gradeCommands);
-		return "fragments/dc-components/dc-screen-layout/dc-schema-add.html::dc-schema-add";
+		return "fragments/dc-components/dc-screen-layout/dc-subject-schema/dc-schema-add.html::dc-schema-add";
 	}
 
 	@PostMapping
@@ -46,6 +46,13 @@ public class SubjectSchemaController {
 	public String insertSchema(@ModelAttribute  SubjectSchema subjectSchema)
 	{
 		subjectSchemaService.save(subjectSchema);
-        return "/fragments/dc-components/dc-screen-layout/dc-student-confirm.html::dc-student-confirm";
+        return "fragments/dc-components/dc-screen-layout/dc-student-confirm.html::dc-student-confirm";
+	}
+	@RequestMapping("edit/schema")
+	public String editSchema(Model model)
+	{
+		List<Grade> gradeList=gradeService.listAll();
+		model.addAttribute("gradeList",gradeList);
+		return "fragments/dc-components/dc-screen-layout/dc-subject-schema/dc-schema-edit.html";
 	}
 }
