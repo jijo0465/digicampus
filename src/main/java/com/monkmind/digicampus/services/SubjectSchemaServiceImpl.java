@@ -20,5 +20,10 @@ public class SubjectSchemaServiceImpl implements SubjectSchemaService{
 		// TODO Auto-generated method stub
 		return subjectSchemaRepository.findAll();
 	}
+	@Override
+	public void delete(long id) {
+		// TODO Auto-generated method stub
+		subjectSchemaRepository.deleteById(id);
+	}
 
 }

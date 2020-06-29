@@ -2,7 +2,7 @@ $(document).ready(function(){
 	$("#addstudent").click(function(e){
 		e.preventDefault();
 		$.ajax({
-			method: "POST",
+			method: "GET",
 			url: "/add_student",
 			success: function(status){
 				if(status) {
@@ -14,7 +14,7 @@ $(document).ready(function(){
 	$("#editstudent").click(function(e){
 		e.preventDefault();
 		$.ajax({
-			method: "POST",
+			method: "GET",
 			url: "/edit/student",
 			success: function(status){
 				if(status) {
@@ -26,7 +26,7 @@ $(document).ready(function(){
 	$("#displaystudent").click(function(e){
 		e.preventDefault();
 		$.ajax({
-			method: "POST",
+			method: "GET",
 			url: "/studentdisplay",
 			success: function(status){
 				if(status) {
@@ -38,7 +38,7 @@ $(document).ready(function(){
 	$("#searchstudent").click(function(e){
 		e.preventDefault();
 		$.ajax({
-			method: "POST",
+			method: "GET",
 			url: "/searchstudent",
 			success: function(status){
 				if(status) {
@@ -50,7 +50,7 @@ $(document).ready(function(){
 	$("#addteacher").click(function(e){
 		e.preventDefault();
 		$.ajax({
-			method: "POST",
+			method: "GET",
 			url: "/teacher",
 			success: function(status){
 				if(status) {
@@ -62,7 +62,7 @@ $(document).ready(function(){
 	$("#displayteacher").click(function(e){
 		e.preventDefault();
 		$.ajax({
-			method: "POST",
+			method: "GET",
 			url: "/teacherdisplay",
 			success: function(status){
 				if(status) {
@@ -74,7 +74,7 @@ $(document).ready(function(){
 	$("#editteacher").click(function(e){
 		e.preventDefault();
 		$.ajax({
-			method: "POST",
+			method: "GET",
 			url: "/edit/teacher",
 			success: function(status){
 				if(status) {
@@ -86,7 +86,7 @@ $(document).ready(function(){
 	$("#searchteacher").click(function(e){
 		e.preventDefault();
 		$.ajax({
-			method: "POST",
+			method: "GET",
 			url: "/searchteacher",
 			success: function(status){
 				if(status) {
@@ -98,7 +98,7 @@ $(document).ready(function(){
 	$("#addteachertimetable").click(function(e){
 		e.preventDefault();
 		$.ajax({
-			method: "POST",
+			method: "GET",
 			url: "/addteachertimetable",
 			success: function(status){
 				if(status) {
@@ -110,7 +110,7 @@ $(document).ready(function(){
 	$("#addnonteaching").click(function(e){
 		e.preventDefault();
 		$.ajax({
-			method: "POST",
+			method: "GET",
 			url: "/addnonteaching",
 			success: function(status){
 				if(status) {
@@ -122,7 +122,7 @@ $(document).ready(function(){
 	$("#editnonteachingstaff").click(function(e){
 		e.preventDefault();
 		$.ajax({
-			method: "POST",
+			method: "GET",
 			url: "/editnonteachingstaff",
 			success: function(status){
 				if(status) {
@@ -134,7 +134,7 @@ $(document).ready(function(){
 	$("#displaynonteachingstaff").click(function(e){
 		e.preventDefault();
 		$.ajax({
-			method: "POST",
+			method: "GET",
 			url: "/nonteachingdisplay",
 			success: function(status){
 				if(status) {
@@ -146,7 +146,7 @@ $(document).ready(function(){
 	$("#addschemas").click(function(e){
 		e.preventDefault();
 		$.ajax({
-			method: "POST",
+			method: "GET",
 			url: "/addschemas",
 			success: function(status){
 				if(status) {
@@ -160,7 +160,7 @@ $(document).ready(function(){
 	$("#displayschemas").click(function(e){
 		e.preventDefault();
 		$.ajax({
-			method: "POST",
+			method: "GET",
 			url: "/schemadisplay",
 			success: function(status){
 				if(status) {

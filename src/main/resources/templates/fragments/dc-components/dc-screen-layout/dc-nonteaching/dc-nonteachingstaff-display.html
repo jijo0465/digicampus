@@ -19,13 +19,15 @@
     <th>category</th> 
     <th>designation</th> 
   </tr>
- <tr th:each="listteachings : ${listteachings}">
+ <tr th:each="listteachings : ${listteachings}" th:if="${listteachings.isDelete}==false">
 			<td th:text="${listteachings.name}">
 			<td th:text="${listteachings.staffId}">
       		<td th:text="${listteachings.gender}">
       		<td th:text="${listteachings.phone}">  
       		<td th:text="${listteachings.category}">
       		<td th:text="${listteachings.designation}">
+      		<td><a th:href="@{'/delet/'+ ${listteachings.id}}" onclick="return confirm('Are you sure want to delete this ?');" id="delete">Delete</a></td>
+      		
  
  </tr>
 </table>

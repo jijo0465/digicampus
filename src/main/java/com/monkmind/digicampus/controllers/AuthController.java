@@ -25,14 +25,13 @@ public class AuthController {
         this.teacherService=teacherService;
     }
 
-    @RequestMapping("/login")
+    @GetMapping("/login")
     public String getLoginPage(Model model){
         model.addAttribute("logincommand",new LoginCommand());
         return "fragments/dc-components/dc-screen-layout/dc-login";
     }
 
-    @PostMapping
-    @RequestMapping(value="/dashboard")
+    @PostMapping(path="/dashboard")
     public String validateLogin(@ModelAttribute LoginCommand logincommand, Model model){
         User dbUser = userService.getUserByLoginId(logincommand.getLoginId());
 
@@ -71,7 +70,7 @@ public class AuthController {
 
 
 
-    @RequestMapping(value="/mydashboard" , method=RequestMethod.GET)
+    @GetMapping(value="/mydashboard")
     public String dashboard(Model model)
     {
         if(loginval==true)
