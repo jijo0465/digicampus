@@ -158,7 +158,7 @@ $(document).ready(function(){
 	$("#editschemas").click(function(e){
 		e.preventDefault();
 		$.ajax({
-			method: "POST",
+			method: "GET",
 			url: "/edit/schema",
 			success: function(status){
 				if(status) {

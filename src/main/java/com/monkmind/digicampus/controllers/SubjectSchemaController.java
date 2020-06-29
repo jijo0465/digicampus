@@ -1,6 +1,7 @@
 package com.monkmind.digicampus.controllers;
 
 import java.util.List;
+import java.util.Optional;
 
 import com.monkmind.digicampus.models.Subject;
 import com.monkmind.digicampus.models.SubjectSchema;
@@ -50,18 +51,38 @@ public class SubjectSchemaController {
 		subjectSchemaService.save(subjectSchema);
         return "fragments/dc-components/dc-screen-layout/dc-student-confirm.html::dc-student-confirm";
 	}
-	@GetMapping("edit/schema")
-	public String editSchema(Model model)
+	@GetMapping(path="edit/schema")
+	public String schemaClassWise(Model model)
 	{
 		List<Grade> gradeList=gradeService.listAll();
 		model.addAttribute("gradeList",gradeList);
-		return "fragments/dc-components/dc-screen-layout/dc-subject-schema/dc-schema-edit.html";
+		return "fragments/dc-components/dc-screen-layout/dc-subject-schema/dc-schema-classwise.html";
+	}
+	@GetMapping(path = "schema/classwise/{grade}")
+	public String editSchemaclasswise(@PathVariable Grade grade,Model model){
+		List<SubjectSchema> subjectSchemas=subjectSchemaService.findByGrade(grade);
+		model.addAttribute("schemaList",subjectSchemas);
+		return "fragments/dc-components/dc-screen-layout/dc-subject-schema/dc-schema-display.html::dc-schema-display";
+	}
+	@PostMapping(path = "schema/edit/{schemaId}")
+	public String editSchema(@PathVariable Long schemaId, Model model){
+		Optional<SubjectSchema> subjectSchema=subjectSchemaService.findById(schemaId);
+		System.out.println(subjectSchema);
+		List<Grade> gradeList=gradeService.listAll();
+		model.addAttribute("gradeList",gradeList);
+		model.addAttribute("subjectSchema",subjectSchema);
+		return "fragments/dc-components/dc-screen-layout/dc-subject-schema/dc-schema-edit.html::dc-schema-edit";
+	}
+	@PostMapping(path="/updateschema")
+	public String updateSchema(@ModelAttribute SubjectSchema subjectSchema){
+		subjectSchemaService.save(subjectSchema);
+		return "/";
 	}
 	
 	@GetMapping("/schemadisplay")
 	public String schemaDisplay(Model model) {
 		List<SubjectSchema> schemas=subjectSchemaService.findAll();
-		model.addAttribute("schemas",schemas);
+		model.addAttribute("schemaList",schemas);
 		return "fragments/dc-components/dc-screen-layout/dc-subject-schema/dc-schema-display.html::dc-schema-display";
 	}
 	

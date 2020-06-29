@@ -6,7 +6,7 @@
     <title>Scheme of studies dispaly</title>
 </head>
 <body>
-<div class="container dc-form-body" th:fragment="dc-schema-display" >
+<div class="container dc-form-body" th:fragment="dc-schema-display" th:id="dc-edit-schema">
 <h4 align="left" style="font-size: 32px">Schema Display</h4>
 <div th:replace="fragments/dc-components/dc-dashboard-components/dc-breadcrumb/dc-breadcrumb.html::
 			dc-breadcrumb(active_item='Display Scheme of Studies')"></div>
@@ -21,12 +21,12 @@
      <th>Subject5</th>
      <th>Subject6</th>
      <th>Subject7</th>
-  
-     
+    <th></th>
+      <th></th>
   </tr>
- <tr th:each="schemas : ${schemas}">
+ <tr th:each="schemas : ${schemaList}">
 			<td th:text="${schemas?.schemaName}">
-			<td th:text="${schemas?.grade?.id}">
+			<td th:text="${schemas?.grade?.standard}">
       		<td th:text="${schemas?.subject1?.name}">
       		<td th:text="${schemas?.subject2?.name}">
       		<td th:text="${schemas?.subject3?.name}">
@@ -34,14 +34,14 @@
       		<td th:text="${schemas?.subject5?.name}">
       		<td th:text="${schemas?.subject6?.name}">
       		<td th:text="${schemas?.subject7?.name}">
-      		<!--  <td th:text="${teachers.teacherid}"> --> 
+            <input type="hidden" th:value="${schemas.id}">
+            <td><a href="#" th:id="'schemaedit'+${schemas?.id}">Edit</a></td>
       		<td><a th:href="@{'/deleted/'+ ${schemas.id}}" onclick="return confirm('Are you sure want to delete this ?');" id="delete">Delete</a></td>
-      		
-      		
- 
  </tr>
 </table>
 
+    <script th:src="@{js/dc-components/dc-screen-layout/dc-schema-display.js}">
+    </script>
 </div>
 </body>
 </html>
