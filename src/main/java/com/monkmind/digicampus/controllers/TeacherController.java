@@ -26,7 +26,7 @@ public class TeacherController {
 	@RequestMapping("/teacher")
 	public String teacherform(Model model) {
 		model.addAttribute("teachercommand",new TeacherRegisterCommand());
-		return "fragments/dc-components/dc-screen-layout/dc-teacher-add.html::dc-teacher-add";
+		return "fragments/dc-components/dc-screen-layout/dc-teacher/dc-teacher-add.html::dc-teacher-add";
 	}
 	@PostMapping
 	@RequestMapping("/addteacher")
@@ -41,11 +41,11 @@ public class TeacherController {
 	public String teacherDisplay(Model model) {
 		List<Teacher> teachers=teacherservice.findAll();
 		model.addAttribute("teachers",teachers);
-		return "fragments/dc-components/dc-screen-layout/dc-teacher-display.html::dc-teacher-display";
+		return "fragments/dc-components/dc-screen-layout/dc-teacher/dc-teacher-display.html::dc-teacher-display";
 	}
 	@RequestMapping("/edit/teacher")
 	public String getEditStudentForm(Model model) {
-		return "fragments/dc-components/dc-screen-layout/dc-teacher-edit::dc-teacher-edit";
+		return "fragments/dc-components/dc-screen-layout/dc-teacher/dc-teacher-edit::dc-teacher-edit";
 	}
 	
 	@RequestMapping("/edit/teacher/{teacherId}")
@@ -53,7 +53,7 @@ public class TeacherController {
 		System.out.println(teacherId);
 		Teacher teacher = teacherservice.getTeacherByTeacherId(teacherId);
 		model.addAttribute("teacher",teacher);
-		return "fragments/dc-components/dc-screen-layout/dc-teacher-edit-02.html::dc-teacher-edit-02";
+		return "fragments/dc-components/dc-screen-layout/dc-teacher/dc-teacher-edit-02.html::dc-teacher-edit-02";
 	}
 	
 	@PostMapping
@@ -78,7 +78,7 @@ public class TeacherController {
 	    {
 		    List<Teacher> teacher=teacherservice.listAll();
 	        model.addAttribute("teachers",teacher);
-	    	return "fragments/dc-components/dc-screen-layout/dc-teacher-search.html::dc-teacher-search";
+	    	return "fragments/dc-components/dc-screen-layout/dc-teacher/dc-teacher-search.html::dc-teacher-search";
 	    }
 	 @RequestMapping("/teacher/search/{keyword}")
 	    public String teacherSearch(@PathVariable String keyword,Model model)
@@ -86,6 +86,6 @@ public class TeacherController {
 	        List<Teacher> teachers = teacherservice.listAll(keyword);
 	        model.addAttribute("teachers", teachers);
 	        //model.addAttribute("keyword", keyword);
-	        return "fragments/dc-components/dc-screen-layout/dc-teacher-list.html::dc-teacher-list";
+	        return "fragments/dc-components/dc-screen-layout/dc-teacher/dc-teacher-list.html::dc-teacher-list";
 	    }
 }

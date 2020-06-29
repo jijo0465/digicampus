@@ -2,8 +2,6 @@ package com.monkmind.digicampus.services;
 
 import java.util.List;
 
-import org.springframework.stereotype.Service;
-
 import com.monkmind.digicampus.models.Period;
 import com.monkmind.digicampus.models.Subject;
 
@@ -14,7 +12,7 @@ import com.monkmind.digicampus.models.Subject;
 public interface SubjectService {
 	
 	public Subject save(Subject subject);
-
+	public Iterable<Subject> findall();
 	public Subject getById(Long subject);
 	public List<Subject> getByPeriodId(Period period);
 

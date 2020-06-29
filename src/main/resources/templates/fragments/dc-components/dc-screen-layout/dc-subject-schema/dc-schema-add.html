@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>scheme of studies</title>
+</head>
+
+<body>
+<div th:fragment="dc-schemas-add">
+    <div class="container" style="min-width:80%" th:fragment="dc-schema-add" >
+        <h4 align="left" style="font-size: 32px">SCHEME OF STUDIES</h4>
+        <div th:replace="fragments/dc-components/dc-dashboard-components/dc-breadcrumb/dc-breadcrumb.html::dc-breadcrumb(active_item='Add Schemas')"></div>
+        <div class="dc-form-body" id="dc-schema-add">
+            <div id="errorPanel" class="alert alert-danger" role="alert" style="display: none">
+                Mandatory fields cannot be empty
+            </div>
+            <div class="alert alert-info" role="alert">
+                * Marked fields are mandatory
+            </div>
+            <form  th:action="@{/saveschema}" id="addschema" method="post" th:object="${subjectSchema}">
+                <div class="col-sm-10 ">
+                    <div th:replace="fragments/dc-components/dc-form-component/dc-text-input/dc-text-input.html::dc-text-input(label='Schema Name *',name='schemaName',id='name',required=true)"></div>
+                </div>
+                <div class="col-sm-10 ">
+                <div class="form-group row">
+                    <label th:text="Standard" style="text-align: end;" class="col-sm-3 col-form-label"></label>
+                    <div class="col dc-input">
+                        <select class="form-control" th:id="grade_input" th:required="true" th:name="grade">
+                            <option value="0">Select class</option>
+                            <option th:each="gradeCommand : ${gradeList}" th:value="${gradeCommand.id}"
+                                    th:text="${gradeCommand.standard}+'  '+${gradeCommand.division}"></option>
+                        </select>
+                    </div>
+                </div>
+                </div>
+                <div class="col-sm-10">
+                    <div th:replace="fragments/dc-components/dc-form-component/dc-form-subject-list/dc-form-subject-list.html::dc-subject-list
+                    (label='Subject 1 *',options='subjectList',index='id',text='name',
+                    name='subject1',subtxt='subjectId',group='GROUP_L',required=true)"></div>
+
+                </div>
+                <div class="col-sm-10">
+                    <div th:replace="fragments/dc-components/dc-form-component/dc-form-subject-list/dc-form-subject-list.html::dc-subject-list
+                    (label='Subject 2 *',options='subjectList',index='id',text='name',
+                    name='subject2',subtxt='subjectId',group='GROUP_S',required=true)"></div>
+
+                </div>
+                <div class="col-sm-10">
+                    <div th:replace="fragments/dc-components/dc-form-component/dc-form-subject-list/dc-form-subject-list.html::dc-subject-list
+                    (label='Subject 3 *',options='subjectList',index='id',text='name',
+                    name='subject3',subtxt='subjectId',group='GROUP_S',required=true)"></div>
+
+                </div>
+                <div class="col-sm-10">
+                    <div th:replace="fragments/dc-components/dc-form-component/dc-form-subject-list/dc-form-subject-list.html::dc-subject-list
+                    (label='Subject 4 *',options='subjectList',index='id',text='name',
+                    name='subject4',subtxt='subjectId',group='GROUP_S',required=true)"></div>
+
+                </div>
+                <div class="col-sm-10">
+                    <div th:replace="fragments/dc-components/dc-form-component/dc-form-subject-list/dc-form-subject-list.html::dc-subject-list
+                    (label='Subject 5 *',options='subjectList',index='id',text='name',
+                    name='subject5',subtxt='subjectId',group='GROUP_S',required=true)"></div>
+
+                </div>
+                <div class="col-sm-10">
+                    <div th:replace="fragments/dc-components/dc-form-component/dc-form-subject-list/dc-form-subject-list.html::dc-subject-list
+                    (label='Subject 6 *',options='subjectList',index='id',text='name',
+                    name='subject6',subtxt='subjectId',group='GROUP_S',required=true)"></div>
+
+                </div>
+                <div class="col-sm-10">
+                    <div th:replace="fragments/dc-components/dc-form-component/dc-form-subject-list/dc-form-subject-list.html::dc-subject-list
+                    (label='Subject 7 *',options='subjectList',index='id',text='name',
+                    name='subject7',subtxt='subjectId',group='GROUP_S',required=true)"></div>
+
+                </div>
+
+               
+                <div th:replace="fragments/dc-components/dc-form-component/dc-form-button/dc-form-button.html::dc-form-button(label='Submit',submit_id='schemasubmit')"></div>
+            </form>
+        </div>
+        <script th:src="@{js/dc-components/dc-screen-layout/dc-schema-add.js}">
+        </script>
+    </div>
+</div>
+</body>
+</html>

@@ -15,7 +15,7 @@ public interface SubjectRepository extends CrudRepository<Subject, Long>{
 	
 	
 	List<Subject> findByPeriod(Period period);
-	
+	List<Subject> findAll();
 
 	
 	

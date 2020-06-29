@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+</head>
+<body>
+<div class="container" style="min-width: 80%" th:fragment="dc-teacher-timetable" id="dc-teacher-timetable">
+    <div th:replace="fragments/dc-components/dc-dashboard-components/dc-breadcrumb/dc-breadcrumb.html::dc-breadcrumb(active_item='Teacher TimeTable')"></div>
+    <div class="dc-form-body">
+        <form action="#" id="teachertimetable" method="post" class="" >
+            <div style="padding-bottom: 22px">
+                <h1 style="font-size: x-large" >TimeTable Information</h1>
+            </div>
+            <div th:replace="fragments/dc-components/dc-form-component/dc-form-dropdown/dc-form-dropdown.html :: dc-form-dropdown(label='Teacher Name',name='teachername',
+                    options='teachers',index='id',text='name',subtxt='teacherId')"></div>
+            <!--  <div th:replace="fragments/dropdownsubject :: dropdownsubject(label='Subject Name',name='subjectname')"></div>-->
+            <div th:replace="fragments/dc-components/dc-screen-layout/dc-teacher-timetable/dc-teacher-timetable-display::dc-teacher-timetable-display"></div>
+        </form>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script th:inline="javascript">
+        $(document).ready(function(){
+            $('#teacherinput').change(function(){
+                var tcid=$(this).val();
+                alert(tcid);
+
+            })
+        })
+    </script>
+</div>
+</body>
+</html>
+
+ 
+   
+
+         
+       
+       
+      
