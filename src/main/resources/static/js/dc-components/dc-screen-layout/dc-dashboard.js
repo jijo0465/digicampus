@@ -146,7 +146,7 @@ $(document).ready(function(){
 	$("#addschemas").click(function(e){
 		e.preventDefault();
 		$.ajax({
-			method: "POST",
+			method: "GET",
 			url: "/addschemas",
 			success: function(status){
 				if(status) {
@@ -160,7 +160,7 @@ $(document).ready(function(){
 	$("#displayschemas").click(function(e){
 		e.preventDefault();
 		$.ajax({
-			method: "POST",
+			method: "GET",
 			url: "/schemadisplay",
 			success: function(status){
 				if(status) {
