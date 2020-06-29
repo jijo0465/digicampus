@@ -12,15 +12,28 @@
 			dc-breadcrumb(active_item='Display Scheme of Studies')"></div>
 <table style="width:100%"  class="table table-condensed">
   <tr>
-    <th>Name</th>
-    <th>Teacher ID</th> 
-     <th>Gender</th>
-    <th>Blood Group</th> 
+    <th>Schema Name</th>
+    <th>Standard</th> 
+     <th>Subject1</th>
+     <th>Subject2</th>
+     <th>Subject3</th>
+     <th>Subject4</th>
+     <th>Subject5</th>
+     <th>Subject6</th>
+     <th>Subject7</th>
+  
+     
   </tr>
- <tr th:each="schemas : ${schemas}" th:if="${schemas.isDelete}==false">
-			<td th:text="${schemas.schemaname}">
-			<td th:text="${schemas.gradeid}">
-      		<td th:text="${schemas.subject1}">
+ <tr th:each="schemas : ${schemas}">
+			<td th:text="${schemas?.schemaName}">
+			<td th:text="${schemas?.grade?.id}">
+      		<td th:text="${schemas?.subject?.subject1}">
+      		<td th:text="${schemas?.subject?.subject2}">
+      		<td th:text="${schemas?.subject?.subject3}">
+      		<td th:text="${schemas?.subject?.subject4}">
+      		<td th:text="${schemas?.subject?.subject5}">
+      		<td th:text="${schemas?.subject?.subject6}">
+      		<td th:text="${schemas?.subject?.subject7}">
       		<!--  <td th:text="${teachers.teacherid}"> --> 
       		<td><a th:href="@{'/deleted/'+ ${schemas.id}}" onclick="return confirm('Are you sure want to delete this ?');" id="delete">Delete</a></td>
       		

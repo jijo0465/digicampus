@@ -54,6 +54,6 @@ public class SubjectSchemaController {
 	public String schemaDisplay(Model model) {
 		List<SubjectSchema> schemas=subjectSchemaService.findAll();
 		model.addAttribute("schemas",schemas);
-		return "fragments/dc-components/dc-screen-layout/dc-teacher/dc-teacher-display.html::dc-teacher-display";
+		return "fragments/dc-components/dc-screen-layout/dc-subject-schema/dc-schema-display.html::dc-schema-display";
 	}
 }
