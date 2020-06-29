@@ -15,7 +15,8 @@
                         th:if="${option.subjectgroup}==${T(com.monkmind.digicampus.models.SubjectGroup).__${group}__}"
                         th:value="${option.__${index}__}"
                         th:text="${option.__${text}__}+' '+${option.__${subtxt}__}"
-                        th:id="${id}+'_input'"></option>
+                        th:id="${id}+'_input'"
+                        th:selected="${__${subject}__}==${option.__${text}__} ? true : false"></option>
             </select>
         </div>
     </div>
