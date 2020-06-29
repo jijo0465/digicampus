@@ -29,7 +29,7 @@ public class TeacherTimeTableController {
 	private final SubjectService subjectservice;
 	private final GradeService gradeservice;
 
-	@RequestMapping("/addteachertimetable")
+	@GetMapping("/addteachertimetable")
 	public String TeacherTimeTableForm(Model model) {
 		model.addAttribute("teachertimetable", new TeacherTimeTable());
 		List<Teacher> teachers=teacherservice.findAll();
@@ -37,21 +37,21 @@ public class TeacherTimeTableController {
 		return "fragments/dc-components/dc-screen-layout/dc-teacher-timetable/dc-teacher-timetable.html::dc-teacher-timetable";
 	}
 
-	@PostMapping("/teacher_timetable")
+	@PostMapping(path="/teacher_timetable")
 	public String createTimetable(@ModelAttribute TeacherTimeTable teachertimetable, Model model) {
 		TeacherTimeTable timeTable = teachertimetableService.save(teachertimetable);
 		model.addAttribute("teachertimetable", timeTable);
 		return "redirect:/";
 	}
 
-	@RequestMapping("/teachertimetabledisplayform")
+	@GetMapping("/teachertimetabledisplayform")
 	public String TeacherTimeTableDisplayForm(Model model) {
 		List<TeacherTimeTable> tchrtime = teachertimetableService.findAll();
 		model.addAttribute("tchrtime", tchrtime);
 		return "dc-teacher-timetable-display";
 	}
 
-	@RequestMapping("/d/{id}")
+	@GetMapping("/d/{id}")
 	public String timetableTeacher(@PathVariable String id, Model model) {
 		System.out.println(id);
 		TeacherTimeTable teacherTimetable = teachertimetableService.getById(new Long(id));
@@ -59,14 +59,13 @@ public class TeacherTimeTableController {
 		return "updateteachertimetable";
 	}
 
-	@PostMapping
-	@RequestMapping("/updateteachertimetable/{id}")
+	@PostMapping(path="/updateteachertimetable/{id}")
 	public String InsertTeachertimetable(@ModelAttribute TeacherTimeTable teacherTimetable, Model model) {
 		teachertimetableService.save(teacherTimetable);
 		return "index";
 	}
 
-	@RequestMapping("/tchrtime/{id}")
+	@GetMapping("/tchrtime/{id}")
 	public String deleteParent(@PathVariable Long id, Model model) {
 		teachertimetableService.delete(id);
 		return "redirect:/";
@@ -74,7 +73,7 @@ public class TeacherTimeTableController {
 	}
 
 	@ResponseBody
-	@RequestMapping("/teachertime/{teacherId}")
+	@GetMapping("/teachertime/{teacherId}")
 	public Object getTeacherTimeTable(@PathVariable(value = "teacherId") String teacherId) {
 		//Long id=(long) 13;
 		Teacher savedteacher=teacherservice.getTeacherByTeacherId(teacherId);

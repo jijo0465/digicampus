@@ -10,6 +10,7 @@ import com.monkmind.digicampus.models.NonTeachingStaff;
 public interface NonTeachinService {
 	public NonTeachingStaff getById(long id);
 	public NonTeachingStaff save(NonTeachingStaff nonteachingstaff);
+	public NonTeachingStaff findById(long id);
 	//public List< NonTeachingStaff> findAll();
 	public List<NonTeachingStaff> listAll();
 	public void delete(long id);

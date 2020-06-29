@@ -30,7 +30,7 @@ public class StudentController {
     created date:15/5/2020
     */
 
-    @RequestMapping("/add_student")
+    @GetMapping("/add_student")
     public String studentForm(Model model) {
         RegisterCommand registerCommand = new RegisterCommand();
         List<Grade> gradeCommands = gradeService.listAll();
@@ -39,8 +39,7 @@ public class StudentController {
         return "fragments/dc-components/dc-screen-layout/dc-student/dc-student-add.html::dc-student-add";
     }
 
-    @PostMapping
-    @RequestMapping("/addstudent")
+    @PostMapping(path="/addstudent")
     public String Save(@ModelAttribute RegisterCommand command, Model model) {
         long parentid = (long) Math.floor(Math.random() * 9000000L) + 100000L;
         command.getParentid().setParentId(Long.toString(parentid));
@@ -49,7 +48,7 @@ public class StudentController {
     }
    
 
-    @RequestMapping("/studentdisplay")
+    @GetMapping("/studentdisplay")
     public String studentdisplay(Model model) {
         List<Student> liststudents = studentService.listAll();
         List<Grade> gradeCommands = gradeService.listAll();
@@ -58,7 +57,7 @@ public class StudentController {
         return "fragments/dc-components/dc-screen-layout/dc-student/dc-student-display.html::dc-student-display";
     }
 
-    @RequestMapping("/displaystd/{std}")
+    @GetMapping("/displaystd/{std}")
     public String viewclasswise(@PathVariable Grade std, Model model) {
         System.out.println(std);
         List<Student> students = studentService.findByGradeid(std);
@@ -66,12 +65,12 @@ public class StudentController {
         return "fragments/dc-components/dc-screen-layout/dc-student/dc-student-list.html::dc-student-list";
     }
 
-    @RequestMapping("/edit/student")
+    @GetMapping("/edit/student")
     public String getEditStudentForm(Model model) {
         return "fragments/dc-components/dc-screen-layout/dc-student/dc-student-edit::dc-student-edit";
     }
 
-    @RequestMapping("/edit/student/{studentid}")
+    @GetMapping("/edit/student/{studentid}")
     public String studentUpdate(@PathVariable String studentid, Model model) {
         System.out.println(studentid);
         Student registerCommand = new Student();
@@ -86,15 +85,14 @@ public class StudentController {
         return "fragments/dc-components/dc-screen-layout/dc-student/dc-student-edit-02.html::dc-student-edit-02";
     }
 
-    @PostMapping
-    @RequestMapping("updatestudent")
+    @PostMapping(path="/updatestudent")
     public String UpdateStudent(@ModelAttribute Student studentbyid, Model model) {
         studentService.save(studentbyid);
         return "fragments/dc-components/dc-screen-layout/dc-student-confirm.html::dc-student-confirm";
     }
 
     @ResponseBody
-    @RequestMapping("/validateStudentId/{studentId}")
+    @GetMapping("/validateStudentId/{studentId}")
     public String InsertStudent(@PathVariable String studentId, Model model) {
         System.out.println(studentId);
         Student s = studentService.getStudentByStudentId(studentId);
@@ -106,7 +104,7 @@ public class StudentController {
     }
 
 
-    @RequestMapping("/delete/{id}")
+    @GetMapping("/delete/{id}")
     public String deleteStudent(@PathVariable Long id, Model model) {
         Student student=studentService.findById(id);
         student.setIsDelete(true);
@@ -115,14 +113,14 @@ public class StudentController {
 
     }
 
-    @RequestMapping("/searchstudent")
+    @GetMapping("/searchstudent")
     public String searchstudent(Model model)
     {
         List<Student> students=studentService.listAll();
         model.addAttribute("students",students);
     	return "fragments/dc-components/dc-screen-layout/dc-student/dc-student-search.html::dc-student-search";
     }
-    @RequestMapping("/student/search/{keyword}")
+    @GetMapping("/student/search/{keyword}")
     public String studentsearch(@PathVariable String keyword,Model model)
     {
         List<Student> liststudents = studentService.listAll(keyword);
