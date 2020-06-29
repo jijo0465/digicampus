@@ -53,8 +53,8 @@ public class Grade extends BaseEntity{
 	//@ManyToMany
 	//@JoinTable(name="grade_exams",joinColumns=@JoinColumn(name="grade_id"),inverseJoinColumns =@JoinColumn(name="exam_id"))
 	
-	@OneToOne(mappedBy="grade")
-	private SubjectSchema subjectschema;
+	@OneToMany(cascade = CascadeType.ALL,mappedBy="grade")
+	private Set<SubjectSchema> subjectschema =new HashSet<>();
 	
 	
 //	@Column(name = "rating")

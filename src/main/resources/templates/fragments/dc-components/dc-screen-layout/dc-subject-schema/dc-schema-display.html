@@ -27,13 +27,13 @@
  <tr th:each="schemas : ${schemas}">
 			<td th:text="${schemas?.schemaName}">
 			<td th:text="${schemas?.grade?.id}">
-      		<td th:text="${schemas?.subject?.subject1}">
-      		<td th:text="${schemas?.subject?.subject2}">
-      		<td th:text="${schemas?.subject?.subject3}">
-      		<td th:text="${schemas?.subject?.subject4}">
-      		<td th:text="${schemas?.subject?.subject5}">
-      		<td th:text="${schemas?.subject?.subject6}">
-      		<td th:text="${schemas?.subject?.subject7}">
+      		<td th:text="${schemas?.subject1?.name}">
+      		<td th:text="${schemas?.subject2?.name}">
+      		<td th:text="${schemas?.subject3?.name}">
+      		<td th:text="${schemas?.subject4?.name}">
+      		<td th:text="${schemas?.subject5?.name}">
+      		<td th:text="${schemas?.subject6?.name}">
+      		<td th:text="${schemas?.subject7?.name}">
       		<!--  <td th:text="${teachers.teacherid}"> --> 
       		<td><a th:href="@{'/deleted/'+ ${schemas.id}}" onclick="return confirm('Are you sure want to delete this ?');" id="delete">Delete</a></td>
       		
