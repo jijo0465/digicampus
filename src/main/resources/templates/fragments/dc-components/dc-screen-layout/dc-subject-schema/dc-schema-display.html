@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Scheme of studies dispaly</title>
+</head>
+<body>
+<div class="container dc-form-body" th:fragment="dc-schema-display" >
+<h4 align="left" style="font-size: 32px">Schema Display</h4>
+<div th:replace="fragments/dc-components/dc-dashboard-components/dc-breadcrumb/dc-breadcrumb.html::
+			dc-breadcrumb(active_item='Display Scheme of Studies')"></div>
+<table style="width:100%"  class="table table-condensed">
+  <tr>
+    <th>Name</th>
+    <th>Teacher ID</th> 
+     <th>Gender</th>
+    <th>Blood Group</th> 
+  </tr>
+ <tr th:each="schemas : ${schemas}" th:if="${schemas.isDelete}==false">
+			<td th:text="${schemas.schemaname}">
+			<td th:text="${schemas.gradeid}">
+      		<td th:text="${schemas.subject1}">
+      		<!--  <td th:text="${teachers.teacherid}"> --> 
+      		<td><a th:href="@{'/deleted/'+ ${schemas.id}}" onclick="return confirm('Are you sure want to delete this ?');" id="delete">Delete</a></td>
+      		
+      		
+ 
+ </tr>
+</table>
+
+</div>
+</body>
+</html>
+
+
+
+

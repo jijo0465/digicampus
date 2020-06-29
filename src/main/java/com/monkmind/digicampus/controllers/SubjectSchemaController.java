@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.monkmind.digicampus.models.Subject;
 import com.monkmind.digicampus.models.SubjectSchema;
+import com.monkmind.digicampus.models.Teacher;
 import com.monkmind.digicampus.services.SubjectSchemaService;
 import com.monkmind.digicampus.services.SubjectService;
 import org.springframework.stereotype.Controller;
@@ -47,5 +48,12 @@ public class SubjectSchemaController {
 	{
 		subjectSchemaService.save(subjectSchema);
         return "/fragments/dc-components/dc-screen-layout/dc-student-confirm.html::dc-student-confirm";
+	}
+	
+	@RequestMapping("/schemadisplay")
+	public String schemaDisplay(Model model) {
+		List<SubjectSchema> schemas=subjectSchemaService.findAll();
+		model.addAttribute("schemas",schemas);
+		return "fragments/dc-components/dc-screen-layout/dc-teacher/dc-teacher-display.html::dc-teacher-display";
 	}
 }
