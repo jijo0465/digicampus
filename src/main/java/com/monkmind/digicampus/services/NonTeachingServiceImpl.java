@@ -1,6 +1,7 @@
 package com.monkmind.digicampus.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.transaction.Transactional;
 
@@ -10,6 +11,7 @@ import com.monkmind.digicampus.command.NonTeachingStaffCommand;
 import com.monkmind.digicampus.converters.NonTeachingStaffCommandToNonTeachingStaff;
 import com.monkmind.digicampus.converters.NonTeachingStaffToNonTeachingStaffCommand;
 import com.monkmind.digicampus.models.NonTeachingStaff;
+import com.monkmind.digicampus.models.Teacher;
 import com.monkmind.digicampus.repositories.NonTeachingRepository;
 
 import lombok.AllArgsConstructor;
@@ -65,6 +67,12 @@ public class NonTeachingServiceImpl implements NonTeachinService {
 	public NonTeachingStaff getNonTeachingStaffByStaffId(String staffid) {
 		// TODO Auto-generated method stub
 		return nonTeachingRepository.findByStaffId(staffid).orElse(null);
+	}
+	@Override
+	public NonTeachingStaff findById(long id) {
+		// TODO Auto-generated method stub
+		Optional<NonTeachingStaff> staffoptional=nonTeachingRepository.findById(id);
+		return staffoptional.get();
 	}
 
 	

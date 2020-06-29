@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -23,32 +24,29 @@ public class TeacherController {
 	
 	private final TeacherService teacherservice;
 	
-	@RequestMapping("/teacher")
+	@GetMapping("/teacher")
 	public String teacherform(Model model) {
 		model.addAttribute("teachercommand",new TeacherRegisterCommand());
 		return "fragments/dc-components/dc-screen-layout/dc-teacher/dc-teacher-add.html::dc-teacher-add";
 	}
-	@PostMapping
-	@RequestMapping("/addteacher")
+	@PostMapping(path="/addteacher")
 	public String createteacher(@ModelAttribute TeacherRegisterCommand teachercommand) {
 		teacherservice.saveTeacherRegisterCommand(teachercommand);
 		return "fragments/dc-components/dc-screen-layout/dc-student-confirm.html::dc-student-confirm";
 	}
 	
-	
-
-	@RequestMapping("/teacherdisplay")
+	@GetMapping("/teacherdisplay")
 	public String teacherDisplay(Model model) {
 		List<Teacher> teachers=teacherservice.findAll();
 		model.addAttribute("teachers",teachers);
 		return "fragments/dc-components/dc-screen-layout/dc-teacher/dc-teacher-display.html::dc-teacher-display";
 	}
-	@RequestMapping("/edit/teacher")
+	@GetMapping("/edit/teacher")
 	public String getEditStudentForm(Model model) {
 		return "fragments/dc-components/dc-screen-layout/dc-teacher/dc-teacher-edit::dc-teacher-edit";
 	}
 	
-	@RequestMapping("/edit/teacher/{teacherId}")
+	@GetMapping("/edit/teacher/{teacherId}")
 	public String teacherUpdate(@PathVariable String teacherId,Model model) {
 		System.out.println(teacherId);
 		Teacher teacher = teacherservice.getTeacherByTeacherId(teacherId);
@@ -56,31 +54,28 @@ public class TeacherController {
 		return "fragments/dc-components/dc-screen-layout/dc-teacher/dc-teacher-edit-02.html::dc-teacher-edit-02";
 	}
 	
-	@PostMapping
-	@RequestMapping("updateteacher")
+	@PostMapping(path="/updateteacher")
 	public String Insertteacher(@ModelAttribute Teacher teacher,Model model) {
 	    teacherservice.save(teacher);
 	    return "fragments/dc-components/dc-screen-layout/dc-student-confirm.html::dc-student-confirm";
 	}
 	
-	@RequestMapping("/deleted/{id}")
+	@GetMapping("/deleted/{id}")
 	public String deleteTeacher(@PathVariable Long id,Model model)
 	{
 		Teacher teacher=teacherservice.findById(id);
 		teacher.setIsDelete(true);
 		teacherservice.save(teacher);
 		return "redirect:/mydashboard";
-		
 	}
-	
-	 @RequestMapping("/searchteacher")
-	    public String searchTeacher(Model model)
-	    {
-		    List<Teacher> teacher=teacherservice.listAll();
+	@GetMapping("/searchteacher")
+	public String searchTeacher(Model model)
+	{
+			List<Teacher> teacher=teacherservice.listAll();
 	        model.addAttribute("teachers",teacher);
 	    	return "fragments/dc-components/dc-screen-layout/dc-teacher/dc-teacher-search.html::dc-teacher-search";
-	    }
-	 @RequestMapping("/teacher/search/{keyword}")
+	 }
+	 @GetMapping("/teacher/search/{keyword}")
 	    public String teacherSearch(@PathVariable String keyword,Model model)
 	    {
 	        List<Teacher> teachers = teacherservice.listAll(keyword);
