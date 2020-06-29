@@ -155,6 +155,18 @@ $(document).ready(function(){
 			}
 		});
 	})
+	$("#editschemas").click(function(e){
+		e.preventDefault();
+		$.ajax({
+			method: "POST",
+			url: "/edit/schema",
+			success: function(status){
+				if(status) {
+					$("#results").html(status)
+				}
+			}
+		});
+	})
 
 	
 	$("#displayschemas").click(function(e){
