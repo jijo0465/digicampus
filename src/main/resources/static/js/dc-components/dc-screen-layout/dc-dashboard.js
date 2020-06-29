@@ -156,6 +156,20 @@ $(document).ready(function(){
 		});
 	})
 
+	
+	$("#displayschemas").click(function(e){
+		e.preventDefault();
+		$.ajax({
+			method: "POST",
+			url: "/schemadisplay",
+			success: function(status){
+				if(status) {
+					$("#results").html(status)
+				}
+			}
+		});
+	})
+
 
 })
 

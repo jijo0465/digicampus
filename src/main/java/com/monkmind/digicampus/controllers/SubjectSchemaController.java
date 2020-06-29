@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.monkmind.digicampus.models.Subject;
 import com.monkmind.digicampus.models.SubjectSchema;
+import com.monkmind.digicampus.models.Teacher;
 import com.monkmind.digicampus.services.SubjectSchemaService;
 import com.monkmind.digicampus.services.SubjectService;
 import org.springframework.stereotype.Controller;
@@ -54,5 +55,12 @@ public class SubjectSchemaController {
 		List<Grade> gradeList=gradeService.listAll();
 		model.addAttribute("gradeList",gradeList);
 		return "fragments/dc-components/dc-screen-layout/dc-subject-schema/dc-schema-edit.html";
+	}
+	
+	@RequestMapping("/schemadisplay")
+	public String schemaDisplay(Model model) {
+		List<SubjectSchema> schemas=subjectSchemaService.findAll();
+		model.addAttribute("schemas",schemas);
+		return "fragments/dc-components/dc-screen-layout/dc-subject-schema/dc-schema-display.html::dc-schema-display";
 	}
 }

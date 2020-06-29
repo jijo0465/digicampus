@@ -27,7 +27,7 @@ public class SubjectSchema extends BaseEntity{
 	@ManyToOne
 	private Subject subject1,subject2,subject3,subject4,subject5,subject6,subject7;
 	
-	@OneToOne()
+	@ManyToOne
 	private Grade grade;
 	
 }
