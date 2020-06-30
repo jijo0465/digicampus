@@ -62,7 +62,7 @@ public class SubjectSchemaController {
 	public String editSchemaclasswise(@PathVariable Grade grade,Model model){
 		List<SubjectSchema> subjectSchemas=subjectSchemaService.findByGrade(grade);
 		model.addAttribute("schemaList",subjectSchemas);
-		return "fragments/dc-components/dc-screen-layout/dc-subject-schema/dc-schema-display.html::dc-schema-display";
+		return "fragments/dc-components/dc-screen-layout/dc-subject-schema/dc-schema-display.html::dc-schema-classwise";
 	}
 	@PostMapping(path = "schema/edit/{schemaId}")
 	public String editSchema(@PathVariable Long schemaId, Model model){
