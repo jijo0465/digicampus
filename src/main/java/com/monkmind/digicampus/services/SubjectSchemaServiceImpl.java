@@ -1,10 +1,12 @@
 package com.monkmind.digicampus.services;
 
+import com.monkmind.digicampus.models.Grade;
 import com.monkmind.digicampus.models.SubjectSchema;
 import com.monkmind.digicampus.repositories.SubjectSchemaRepository;
 import lombok.AllArgsConstructor;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
@@ -24,6 +26,18 @@ public class SubjectSchemaServiceImpl implements SubjectSchemaService{
 	public void delete(long id) {
 		// TODO Auto-generated method stub
 		subjectSchemaRepository.deleteById(id);
+	}
+
+	@Override
+	public List<SubjectSchema> findByGrade(Grade grade){
+    	 return subjectSchemaRepository.findByGrade(grade);
+	}
+
+	@Override
+	public SubjectSchema findById(Long subjectSchema)
+	{
+    	Optional<SubjectSchema> schema= subjectSchemaRepository.findById(subjectSchema);
+    	return schema.get();
 	}
 
 }
