@@ -12,7 +12,7 @@ public interface SubjectSchemaService {
     public List<SubjectSchema> findAll();
     public void delete(long id);
     public List<SubjectSchema> findByGrade(Grade grade);
-    public Optional<SubjectSchema> findById(Long subjectSchema);
+    public SubjectSchema findById(Long subjectSchema);
     
 
 }

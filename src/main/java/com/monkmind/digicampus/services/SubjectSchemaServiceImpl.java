@@ -34,9 +34,10 @@ public class SubjectSchemaServiceImpl implements SubjectSchemaService{
 	}
 
 	@Override
-	public Optional<SubjectSchema> findById(Long subjectSchema)
+	public SubjectSchema findById(Long subjectSchema)
 	{
-    	return subjectSchemaRepository.findById(subjectSchema);
+    	Optional<SubjectSchema> schema= subjectSchemaRepository.findById(subjectSchema);
+    	return schema.get();
 	}
 
 }

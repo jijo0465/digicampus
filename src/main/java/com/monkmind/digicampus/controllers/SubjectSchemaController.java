@@ -66,9 +66,10 @@ public class SubjectSchemaController {
 	}
 	@PostMapping(path = "schema/edit/{schemaId}")
 	public String editSchema(@PathVariable Long schemaId, Model model){
-		Optional<SubjectSchema> subjectSchema=subjectSchemaService.findById(schemaId);
-		System.out.println(subjectSchema);
+		SubjectSchema subjectSchema=subjectSchemaService.findById(schemaId);
+		Iterable<Subject> subjectList=subjectService.findall();
 		List<Grade> gradeList=gradeService.listAll();
+		model.addAttribute("subjectList",subjectList);
 		model.addAttribute("gradeList",gradeList);
 		model.addAttribute("subjectSchema",subjectSchema);
 		return "fragments/dc-components/dc-screen-layout/dc-subject-schema/dc-schema-edit.html::dc-schema-edit";
