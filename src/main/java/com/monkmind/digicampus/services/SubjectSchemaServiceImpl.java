@@ -39,5 +39,10 @@ public class SubjectSchemaServiceImpl implements SubjectSchemaService{
     	Optional<SubjectSchema> schema= subjectSchemaRepository.findById(subjectSchema);
     	return schema.get();
 	}
+	@Override
+	public List<SubjectSchema> listAll() {
+		// TODO Auto-generated method stub
+		return subjectSchemaRepository.findAll();
+	}
 
 }

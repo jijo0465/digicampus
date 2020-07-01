@@ -9,6 +9,7 @@ import com.monkmind.digicampus.models.Grade;
 import com.monkmind.digicampus.models.Parent;
 import com.monkmind.digicampus.models.StudentAttendance;
 import com.monkmind.digicampus.models.Subject;
+import com.monkmind.digicampus.models.SubjectSchema;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -35,6 +36,8 @@ public class RegisterCommand {
 	private GradeCommand gradeid;
 	
 	private ParentCommand parentid;
+	
+	private SubjectSchema subjectSchema;
 	
 	private SchoolBusCommand schoolBusid;
 	private Set<Subject> subjects = new HashSet<>();

@@ -19,7 +19,7 @@ public interface StudentRepository extends CrudRepository<Student,Long> {
 	Optional<Student> findByStudentId(String student);
 	Optional<Student> findById(Long student);
 	List<Student> findAll();
-	void save(RegisterCommand registercommand);
+	//void save(RegisterCommand registercommand);
 	List<Student> findByGrade(Grade grade);
 	Optional<RegisterCommand> findStudentByStudentId(String student);
 	 @Query("SELECT p FROM Student p WHERE p.name LIKE ?1%"

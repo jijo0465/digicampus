@@ -10,6 +10,7 @@ import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 //import com.sun.istack.NotNull;
@@ -54,6 +55,9 @@ public class Student extends Person{
 	@JsonIgnore
 	@OneToMany(mappedBy = "student")
 	private Set<StudentAttendance> studentAttendance = new HashSet<>();
+	
+	@OneToOne()
+	private SubjectSchema subjectschema;
 	
 
 }

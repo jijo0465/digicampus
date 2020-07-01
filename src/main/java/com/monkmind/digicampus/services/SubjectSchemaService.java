@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import com.monkmind.digicampus.models.Grade;
+import com.monkmind.digicampus.models.Student;
 import com.monkmind.digicampus.models.SubjectSchema;
 
 
@@ -13,6 +14,7 @@ public interface SubjectSchemaService {
     public void delete(long id);
     public List<SubjectSchema> findByGrade(Grade grade);
     public SubjectSchema findById(Long subjectSchema);
+    public List<SubjectSchema> listAll();
     
 
 }
