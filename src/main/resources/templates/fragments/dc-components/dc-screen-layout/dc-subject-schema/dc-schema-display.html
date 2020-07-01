@@ -2,46 +2,48 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Scheme of studies dispaly</title>
 </head>
 <body>
 <div class="container dc-form-body" th:fragment="dc-schema-display" th:id="dc-edit-schema">
-<h4 align="left" style="font-size: 32px">Schema Display</h4>
-<div th:replace="fragments/dc-components/dc-dashboard-components/dc-breadcrumb/dc-breadcrumb.html::
+    <h4 align="left" style="font-size: 32px">Schema Display</h4>
+    <div th:replace="fragments/dc-components/dc-dashboard-components/dc-breadcrumb/dc-breadcrumb.html::
 			dc-breadcrumb(active_item='Display Scheme of Studies')"></div>
-<table style="width:100%"  class="table table-condensed">
-  <tr>
-    <th>Schema Name</th>
-    <th>Standard</th> 
-     <th>Subject1</th>
-     <th>Subject2</th>
-     <th>Subject3</th>
-     <th>Subject4</th>
-     <th>Subject5</th>
-     <th>Subject6</th>
-     <th>Subject7</th>
-    <th></th>
-      <th></th>
-  </tr>
- <tr th:each="schemas : ${schemaList}">
-			<td th:text="${schemas?.schemaName}">
-			<td th:text="${schemas?.grade?.standard}">
-      		<td th:text="${schemas?.subject1?.name}">
-      		<td th:text="${schemas?.subject2?.name}">
-      		<td th:text="${schemas?.subject3?.name}">
-      		<td th:text="${schemas?.subject4?.name}">
-      		<td th:text="${schemas?.subject5?.name}">
-      		<td th:text="${schemas?.subject6?.name}">
-      		<td th:text="${schemas?.subject7?.name}">
-            <input type="hidden" th:value="${schemas.id}">
-            <td><a href="#" th:id="'schemaedit'+${schemas?.id}">Edit</a></td>
-      		<td><a th:href="@{'/deleted/'+ ${schemas.id}}" onclick="return confirm('Are you sure want to delete this ?');" id="delete">Delete</a></td>
- </tr>
-</table>
+    <div th:fragment="dc-schema-classwise">
+        <table style="width:100%"  class="table table-condensed">
+            <tr>
+                <th>Schema Name</th>
+                <th>Standard</th>
+                <th>Subject1</th>
+                <th>Subject2</th>
+                <th>Subject3</th>
+                <th>Subject4</th>
+                <th>Subject5</th>
+                <th>Subject6</th>
+                <th>Subject7</th>
+                <th></th>
+                <th></th>
+            </tr>
+            <tr th:each="schemas : ${schemaList}">
+                <td th:text="${schemas?.schemaName}">
+                <td th:text="${schemas?.grade?.standard}">
+                <td th:text="${schemas?.subject1?.name}">
+                <td th:text="${schemas?.subject2?.name}">
+                <td th:text="${schemas?.subject3?.name}">
+                <td th:text="${schemas?.subject4?.name}">
+                <td th:text="${schemas?.subject5?.name}">
+                <td th:text="${schemas?.subject6?.name}">
+                <td th:text="${schemas?.subject7?.name}">
+                    <input type="hidden" th:value="${schemas.id}">
+                <td><a href="#" th:id="'schemaedit'+${schemas?.id}">Edit</a></td>
+                <td><a th:href="@{'/deleted/'+ ${schemas.id}}" onclick="return confirm('Are you sure want to delete this ?');" id="delete">Delete</a></td>
+            </tr>
+        </table>
 
-    <script th:src="@{js/dc-components/dc-screen-layout/dc-schema-display.js}">
-    </script>
+        <script th:src="@{js/dc-components/dc-screen-layout/dc-schema-display.js}">
+        </script>
+    </div>
 </div>
 </body>
 </html>

@@ -30,4 +30,7 @@ public class SubjectSchema extends BaseEntity{
 	@ManyToOne
 	private Grade grade;
 	
+	@OneToOne(mappedBy="subjectschema")
+	private Student student;
+	
 }

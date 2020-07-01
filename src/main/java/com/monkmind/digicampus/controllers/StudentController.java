@@ -5,9 +5,12 @@ import com.monkmind.digicampus.command.RegisterCommand;
 import com.monkmind.digicampus.models.Grade;
 import com.monkmind.digicampus.models.Parent;
 import com.monkmind.digicampus.models.Student;
+import com.monkmind.digicampus.models.SubjectSchema;
 import com.monkmind.digicampus.services.GradeService;
 import com.monkmind.digicampus.services.ParentService;
 import com.monkmind.digicampus.services.StudentService;
+import com.monkmind.digicampus.services.SubjectSchemaService;
+
 import lombok.AllArgsConstructor;
 
 import java.util.List;
@@ -25,6 +28,7 @@ public class StudentController {
     private final StudentService studentService;
     private final GradeService gradeService;
     private final ParentService parentService;
+    private final SubjectSchemaService subjectSchemaService;
 
     /*author:shijina
     created date:15/5/2020
@@ -34,8 +38,10 @@ public class StudentController {
     public String studentForm(Model model) {
         RegisterCommand registerCommand = new RegisterCommand();
         List<Grade> gradeCommands = gradeService.listAll();
+        List<SubjectSchema> schema =subjectSchemaService.listAll();
         model.addAttribute("command", registerCommand);
         model.addAttribute("gradeList", gradeCommands);
+        model.addAttribute("schemaList", schema);
         return "fragments/dc-components/dc-screen-layout/dc-student/dc-student-add.html::dc-student-add";
     }
 

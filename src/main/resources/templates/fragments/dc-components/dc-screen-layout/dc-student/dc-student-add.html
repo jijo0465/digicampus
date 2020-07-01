@@ -68,6 +68,16 @@
                     <option th:each="gradeCommand : ${gradeList}" th:value="${gradeCommand.id}"
                             th:text="${gradeCommand.standard}+'  '+${gradeCommand.division}"></option>
                 </select>
+                </div>
+                     <div class="form-group row">
+                    <label th:text="Schema" style="text-align: end;" class="col-sm-3 col-form-label"></label>
+                    <div th:id="${id}" class="col dc-input">
+                <select class="form-control" th:field="${command.subjectSchema.id}" th:id="grade_input" th:required="true">
+                    <option value="0">Select schema</option>
+                    <option th:each="schemas : ${schemaList}" th:value="${schemas.id}"
+                            th:text="${schemas.schemaName}"></option>
+                </select>
+                    </div>
                     </div>
             </div>
             </div>

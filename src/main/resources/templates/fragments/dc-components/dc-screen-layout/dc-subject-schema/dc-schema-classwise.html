@@ -6,7 +6,7 @@
     <title>Student list dispaly</title>
 </head>
 <body>
-<div class="container" th:fragment="dc-student-display" >
+<div class="container" th:fragment="dc-student-display" th:id="dc-edit-schema">
     <h4 align="left" style="font-size: 32px">Student Display</h4>
     <div th:replace="fragments/dc-components/dc-dashboard-components/dc-breadcrumb/dc-breadcrumb.html::
     		dc-breadcrumb(active_item='Edit Schema')"></div>
