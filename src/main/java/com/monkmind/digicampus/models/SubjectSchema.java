@@ -32,5 +32,7 @@ public class SubjectSchema extends BaseEntity{
 	
 	@OneToOne(mappedBy="subjectschema")
 	private Student student;
+	@OneToMany(mappedBy="subjectschema")
+	private Set<StudentTimeTable>studentTimetable;
 	
 }

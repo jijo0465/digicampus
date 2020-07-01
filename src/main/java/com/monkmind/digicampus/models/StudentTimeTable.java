@@ -37,4 +37,6 @@ public class StudentTimeTable extends BaseEntity{
 	
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "studentTimeTable")
     private Set<Period> periods = new HashSet<>();
+	@ManyToOne
+	private SubjectSchema subjectschema;
 }
