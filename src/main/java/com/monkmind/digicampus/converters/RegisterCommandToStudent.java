@@ -50,6 +50,7 @@ public class RegisterCommandToStudent implements Converter<RegisterCommand, Stud
 		st.setWeight(source.getWeight());
 		st.setGender(source.getGender());
 		st.setStudentId(source.getStudentId());
+		st.setSubjectschema(source.getSubjectSchema());
 		st.setGrade(gradeConverter.convert(source.getGradeid()));
 		st.setParent(parentConverter.convert(source.getParentid()));
 		st.setSchoolBus(schoolBusConverter.convert(source.getSchoolBusid()));
