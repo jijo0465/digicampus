@@ -1,10 +1,12 @@
-package com.monkmind.digicampus.services;
+package com.monkmind.digicampus.services.serviceImpl;
 
 import java.util.List;
 
 import org.springframework.stereotype.Service;
 import com.monkmind.digicampus.models.TeacherAttendance;
 import com.monkmind.digicampus.repositories.TeacherAttendanceRepository;
+import com.monkmind.digicampus.services.TeacherAttendanceService;
+
 import lombok.AllArgsConstructor;
 @Service
 @AllArgsConstructor

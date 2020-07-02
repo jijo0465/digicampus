@@ -1,6 +1,8 @@
-package com.monkmind.digicampus.services;
+package com.monkmind.digicampus.services.serviceImpl;
 
 import com.monkmind.digicampus.models.ExamTest;
+import com.monkmind.digicampus.services.ExamTestService;
+
 import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Service;
 

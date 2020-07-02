@@ -1,7 +1,9 @@
-package com.monkmind.digicampus.services;
+package com.monkmind.digicampus.services.serviceImpl;
 
 import com.monkmind.digicampus.models.User;
 import com.monkmind.digicampus.repositories.UserRepository;
+import com.monkmind.digicampus.services.UserService;
+
 import org.springframework.stereotype.Service;
 
 @Service

@@ -1,4 +1,4 @@
-package com.monkmind.digicampus.services;
+package com.monkmind.digicampus.services.serviceImpl;
 
 import java.util.List;
 
@@ -8,6 +8,7 @@ import com.monkmind.digicampus.models.Period;
 import com.monkmind.digicampus.models.StudentTimeTable;
 import com.monkmind.digicampus.models.TeacherTimeTable;
 import com.monkmind.digicampus.repositories.PeriodRepository;
+import com.monkmind.digicampus.services.PeriodService;
 
 import lombok.AllArgsConstructor;
 //Anand A B 18/05/2020

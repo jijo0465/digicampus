@@ -1,4 +1,4 @@
-package com.monkmind.digicampus.services;
+package com.monkmind.digicampus.services.serviceImpl;
 
 import java.util.List;
 
@@ -11,6 +11,7 @@ import com.monkmind.digicampus.converters.RouteCommandToRoute;
 import com.monkmind.digicampus.converters.RouteToRouteCommand;
 import com.monkmind.digicampus.models.Route;
 import com.monkmind.digicampus.repositories.RouteRepository;
+import com.monkmind.digicampus.services.RouteService;
 
 import lombok.AllArgsConstructor;
 

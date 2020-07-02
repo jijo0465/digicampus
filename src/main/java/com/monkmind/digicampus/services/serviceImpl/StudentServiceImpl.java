@@ -4,7 +4,7 @@
  */
 
 
-package com.monkmind.digicampus.services;
+package com.monkmind.digicampus.services.serviceImpl;
 
 import com.monkmind.digicampus.command.RegisterCommand;
 import com.monkmind.digicampus.converters.RegisterCommandToStudent;
@@ -17,6 +17,9 @@ import com.monkmind.digicampus.models.User;
 import com.monkmind.digicampus.models.UserType;
 import com.monkmind.digicampus.repositories.ParentRepository;
 import com.monkmind.digicampus.repositories.StudentRepository;
+import com.monkmind.digicampus.services.StudentService;
+import com.monkmind.digicampus.services.UserService;
+
 import lombok.AllArgsConstructor;
 
 import java.util.List;

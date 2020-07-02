@@ -1,4 +1,4 @@
-package com.monkmind.digicampus.services;
+package com.monkmind.digicampus.services.serviceImpl;
 
 import java.util.List;
 import java.util.Optional;
@@ -13,6 +13,7 @@ import com.monkmind.digicampus.converters.NonTeachingStaffToNonTeachingStaffComm
 import com.monkmind.digicampus.models.NonTeachingStaff;
 import com.monkmind.digicampus.models.Teacher;
 import com.monkmind.digicampus.repositories.NonTeachingRepository;
+import com.monkmind.digicampus.services.NonTeachinService;
 
 import lombok.AllArgsConstructor;
 

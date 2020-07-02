@@ -1,4 +1,4 @@
-package com.monkmind.digicampus.services;
+package com.monkmind.digicampus.services.serviceImpl;
 
 import java.util.List;
 
@@ -12,6 +12,7 @@ import com.monkmind.digicampus.converters.SchoolBusToSchoolBusCommand;
 import com.monkmind.digicampus.models.SchoolBus;
 
 import com.monkmind.digicampus.repositories.SchoolbusRepository;
+import com.monkmind.digicampus.services.SchoolbusService;
 
 import lombok.AllArgsConstructor;
 

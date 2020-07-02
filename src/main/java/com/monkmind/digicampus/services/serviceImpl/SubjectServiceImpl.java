@@ -1,4 +1,4 @@
-package com.monkmind.digicampus.services;
+package com.monkmind.digicampus.services.serviceImpl;
 
 import java.util.List;
 
@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import com.monkmind.digicampus.models.Period;
 import com.monkmind.digicampus.models.Subject;
 import com.monkmind.digicampus.repositories.SubjectRepository;
+import com.monkmind.digicampus.services.SubjectService;
 
 import lombok.AllArgsConstructor;
 

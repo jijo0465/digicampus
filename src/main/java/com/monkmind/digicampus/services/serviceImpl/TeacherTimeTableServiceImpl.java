@@ -1,4 +1,4 @@
-package com.monkmind.digicampus.services;
+package com.monkmind.digicampus.services.serviceImpl;
 
 import java.util.List;
 
@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import com.monkmind.digicampus.models.Teacher;
 import com.monkmind.digicampus.models.TeacherTimeTable;
 import com.monkmind.digicampus.repositories.TeacherTimeTableRepository;
+import com.monkmind.digicampus.services.TeacherTimeTableService;
 
 import lombok.AllArgsConstructor;
 

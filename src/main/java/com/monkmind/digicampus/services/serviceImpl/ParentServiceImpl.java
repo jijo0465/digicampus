@@ -1,4 +1,4 @@
-package com.monkmind.digicampus.services;
+package com.monkmind.digicampus.services.serviceImpl;
 
 import java.util.List;
 
@@ -14,6 +14,8 @@ import com.monkmind.digicampus.models.Parent;
 import com.monkmind.digicampus.models.User;
 import com.monkmind.digicampus.models.UserType;
 import com.monkmind.digicampus.repositories.ParentRepository;
+import com.monkmind.digicampus.services.ParentService;
+import com.monkmind.digicampus.services.UserService;
 
 import lombok.AllArgsConstructor;
 

@@ -1,4 +1,4 @@
-package com.monkmind.digicampus.services;
+package com.monkmind.digicampus.services.serviceImpl;
 
 import java.util.List;
 
@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import com.monkmind.digicampus.models.StudentAttendance;
 import com.monkmind.digicampus.repositories.StudentAttendanceRepository;
+import com.monkmind.digicampus.services.StudentAttendanceService;
 
 import lombok.AllArgsConstructor;
 //haritha

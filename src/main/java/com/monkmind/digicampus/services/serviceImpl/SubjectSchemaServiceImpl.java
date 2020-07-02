@@ -1,8 +1,10 @@
-package com.monkmind.digicampus.services;
+package com.monkmind.digicampus.services.serviceImpl;
 
 import com.monkmind.digicampus.models.Grade;
 import com.monkmind.digicampus.models.SubjectSchema;
 import com.monkmind.digicampus.repositories.SubjectSchemaRepository;
+import com.monkmind.digicampus.services.SubjectSchemaService;
+
 import lombok.AllArgsConstructor;
 
 import java.util.List;
