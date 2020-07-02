@@ -181,6 +181,18 @@ $(document).ready(function(){
 			}
 		});
 	})
+	$("#addstudenttimetable").click(function(e){
+		e.preventDefault();
+		$.ajax({
+			method: "GET",
+			url: "/addstudenttimetable",
+			success: function(status){
+				if(status) {
+					$("#results").html(status)
+				}
+			}
+		});
+	})
 
 
 })

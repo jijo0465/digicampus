@@ -7,10 +7,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import com.monkmind.digicampus.command.StudentTimeTableCommand;
 import com.monkmind.digicampus.models.Grade;
@@ -36,10 +33,11 @@ public class StudenttimetableController {
 	private final PeriodService periodService;
 	private final SubjectService subjectService;
 	
-	 @RequestMapping("/studenttimetableform")
+	 @GetMapping("/addstudenttimetable")
 	public String timetableForm(Model model) {
 	    model.addAttribute("studentTimetable", new StudentTimeTableCommand());
-	    return "studenttimetable_form";
+	    model.addAttribute("gradeList",gradeservice.listAll());
+	    return "fragments/dc-components/dc-screen-layout/dc-student-timetable/dc-student-timetable-add.html::dc-schema-add";
 	}
 
 	@PostMapping
