@@ -1,4 +1,4 @@
-package com.monkmind.digicampus.services.serviceImpl;
+package com.monkmind.digicampus.services.service_impl;
 
 import com.monkmind.digicampus.models.Grade;
 import com.monkmind.digicampus.models.SubjectSchema;

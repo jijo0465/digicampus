@@ -1,4 +1,4 @@
-package com.monkmind.digicampus.services.serviceImpl;
+package com.monkmind.digicampus.services.service_impl;
 
 import com.monkmind.digicampus.models.ExamTest;
 import com.monkmind.digicampus.services.ExamTestService;

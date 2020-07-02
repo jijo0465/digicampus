@@ -4,7 +4,7 @@
  */
 
 
-package com.monkmind.digicampus.services.serviceImpl;
+package com.monkmind.digicampus.services.service_impl;
 
 import com.monkmind.digicampus.command.RegisterCommand;
 import com.monkmind.digicampus.converters.RegisterCommandToStudent;

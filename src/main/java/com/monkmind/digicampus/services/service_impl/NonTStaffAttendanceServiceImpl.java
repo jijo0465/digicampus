@@ -1,5 +1,5 @@
 
-package com.monkmind.digicampus.services.serviceImpl;
+package com.monkmind.digicampus.services.service_impl;
 
 import java.util.List;
 
