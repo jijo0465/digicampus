@@ -32,7 +32,7 @@ public class TeacherController {
 	@PostMapping(path="/addteacher")
 	public String createteacher(@ModelAttribute TeacherRegisterCommand teachercommand) {
 		teacherservice.saveTeacherRegisterCommand(teachercommand);
-		return "fragments/dc-components/dc-screen-layout/dc-student-confirm.html::dc-student-confirm";
+		return "fragments/dc-components/dc-screen-layout/dc-teacher/dc-teacher-confirm.html::dc-teacher-confirm";
 	}
 	
 	@GetMapping("/teacherdisplay")

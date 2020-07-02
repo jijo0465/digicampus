@@ -25,7 +25,7 @@ $(document).ready(function(){
                     data: $('#addteacher').serialize(),
                     success: function(status){
                         if(status) {
-                           $(".body").html(status)
+                           $("#teacherconfirmbody").html(status)
                         }
                     }
                 });
