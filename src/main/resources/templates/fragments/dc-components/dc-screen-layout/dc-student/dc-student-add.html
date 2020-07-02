@@ -72,10 +72,10 @@
                     </div>
                     <label th:text="Schema" style="text-align: end;" class="col-sm-3 col-form-label"></label>
                     <div class="col dc-input">
-                        <select class="form-control" th:field="${command.subjectSchema.id}" th:id="grade_input" th:required="true">
+                        <select class="form-control" th:field="${command.subjectSchema.id}" th:id="schema_input" th:required="true">
                             <option value="0">Select schema</option>
-                            <option th:each="schemas : ${schemaList}" th:value="${schemas.id}"
-                                    th:text="${schemas.schemaName}"></option>
+                           <!-- <option th:each="schemas : ${schemaList}" th:value="${schemas.id}"
+                                    th:text="${schemas.schemaName}"></option>-->
                         </select>
                     </div>
                 </div>
@@ -100,6 +100,7 @@
 
     <script th:src="@{js/dc-components/dc-screen-layout/dc-student-add.js}">
     </script>
+
 </div>
 
 </body>

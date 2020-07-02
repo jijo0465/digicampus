@@ -4,6 +4,7 @@ import javax.persistence.*;
 
 //import javax.persistence.OneToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -26,12 +27,16 @@ public class SubjectSchema extends BaseEntity{
 
 	@ManyToOne
 	private Subject subject1,subject2,subject3,subject4,subject5,subject6,subject7;
-	
+
+	@JsonIgnore
 	@ManyToOne
 	private Grade grade;
-	
+
+	@JsonIgnore
 	@OneToOne(mappedBy="subjectschema")
 	private Student student;
+
+	@JsonIgnore
 	@OneToMany(mappedBy="subjectschema")
 	private Set<StudentTimeTable>studentTimetable;
 	

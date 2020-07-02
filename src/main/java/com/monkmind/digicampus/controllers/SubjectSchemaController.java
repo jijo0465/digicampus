@@ -1,7 +1,9 @@
 package com.monkmind.digicampus.controllers;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
+import java.util.Set;
 
 import com.monkmind.digicampus.models.Subject;
 import com.monkmind.digicampus.models.SubjectSchema;
@@ -10,12 +12,7 @@ import com.monkmind.digicampus.services.SubjectSchemaService;
 import com.monkmind.digicampus.services.SubjectService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import com.monkmind.digicampus.models.Grade;
 import com.monkmind.digicampus.models.Student;
@@ -86,7 +83,13 @@ public class SubjectSchemaController {
 		model.addAttribute("schemaList",schemas);
 		return "fragments/dc-components/dc-screen-layout/dc-subject-schema/dc-schema-display.html::dc-schema-display";
 	}
-	
+
+	@GetMapping(path = "classwiseschema/{grade}")
+	@ResponseBody
+	public List<SubjectSchema> classwiseSchema(@PathVariable Grade grade,Model model){
+		List<SubjectSchema> subjectSchemas= subjectSchemaService.findByGrade(grade);
+		return subjectSchemas;
+	}
 	
 
 }
