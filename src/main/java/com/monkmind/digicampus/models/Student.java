@@ -56,7 +56,7 @@ public class Student extends Person{
 	@OneToMany(mappedBy = "student")
 	private Set<StudentAttendance> studentAttendance = new HashSet<>();
 	
-	@OneToOne()
+	@ManyToOne
 	private SubjectSchema subjectschema;
 	
 
