@@ -37,13 +37,56 @@
                         </div>
                     </div>
                 </div>
+<!--Time Table Structure
+-->
 
-
+                <ul class="nav nav-tabs">
+                <li class="nav-item">
+                    <a class="nav-link" href="#monday">Monday</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#tuesday">Tuesday</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#wednesday">Wednesday</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#thursday">Thursday</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#friday">Friday</a>
+                </li>
+            </ul>
+                <div class="tab-content" style="margin-top: 20px">
+                    <div id="monday" class="tab-pane fade in active">
+                        <div th:replace="fragments/dc-components/dc-form-component/dc-form-student-timetable/dc-form-student-timetable.html::dc-student-timetable"></div>
+                    </div>
+                    <div id="tuesday" class="tab-pane fade">
+                        <div th:replace="fragments/dc-components/dc-form-component/dc-form-student-timetable/dc-form-student-timetable.html::dc-student-timetable"></div>
+                    </div>
+                    <div id="wednesday" class="tab-pane fade">
+                        <div th:replace="fragments/dc-components/dc-form-component/dc-form-student-timetable/dc-form-student-timetable.html::dc-student-timetable"></div>
+                    </div>
+                    <div id="thursday" class="tab-pane fade">
+                        <div th:replace="fragments/dc-components/dc-form-component/dc-form-student-timetable/dc-form-student-timetable.html::dc-student-timetable"></div>
+                    </div>
+                    <div id="friday" class="tab-pane fade">
+                        <div th:replace="fragments/dc-components/dc-form-component/dc-form-student-timetable/dc-form-student-timetable.html::dc-student-timetable"></div>
+                    </div>
+                </div>
                 <div th:replace="fragments/dc-components/dc-form-component/dc-form-button/dc-form-button.html::dc-form-button(label='Submit',submit_id='schemasubmit')"></div>
             </form>
+
         </div>
         <script th:src="@{js/dc-components/dc-screen-layout/dc-student-timetable-add.js}">
         </script>
+        <script th:inline="javascript">
+            $(document).ready(function(){
+                $(".nav-tabs a").click(function(){
+                    $(this).tab('show');
+                });
+            });
+            </script>
     </div>
 </div>
 

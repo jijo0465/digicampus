@@ -37,7 +37,8 @@ public class SubjectSchema extends BaseEntity{
 	private Set<Student> student;
 
 	@JsonIgnore
-	@OneToMany(mappedBy="subjectschema")
-	private Set<StudentTimeTable>studentTimetable;
+	@OneToOne
+	private StudentTimeTable studentTimetable;
+
 	
 }

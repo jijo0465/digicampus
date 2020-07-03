@@ -3,14 +3,7 @@ package com.monkmind.digicampus.models;
 import java.util.HashSet;
 import java.util.Set;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 import lombok.AllArgsConstructor;
@@ -37,6 +30,7 @@ public class StudentTimeTable extends BaseEntity{
 	
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "studentTimeTable")
     private Set<Period> periods = new HashSet<>();
-	@ManyToOne
+
+	@OneToOne
 	private SubjectSchema subjectschema;
 }

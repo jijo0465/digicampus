@@ -39,10 +39,15 @@ public class Period extends BaseEntity{
 
 	@JsonIgnore
 	@ManyToOne
-	@NotNull
 	private TeacherTimeTable teacherTimeTable;
 	
 	@ManyToOne
-    Subject subject;
+    private Subject subject;
+
+	@Enumerated(EnumType.STRING)
+	private WeekDay weekDay;
+
+	@ManyToOne
+	private SubjectSchema subjectSchema;
 
 }

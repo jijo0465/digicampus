@@ -37,6 +37,7 @@ public class StudenttimetableController {
 	public String timetableForm(Model model) {
 	    model.addAttribute("studentTimetable", new StudentTimeTableCommand());
 	    model.addAttribute("gradeList",gradeservice.listAll());
+	    model.addAttribute("subjectList",subjectService.findall());
 	    return "fragments/dc-components/dc-screen-layout/dc-student-timetable/dc-student-timetable-add.html::dc-schema-add";
 	}
 

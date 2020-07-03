@@ -21,5 +21,20 @@
         </div>
     </div>
 </div>
+<div class="dropdown" th:fragment ="dc-subject-list-all">
+    <div class="form-group row">
+        <label th:text="${label}" style="text-align: end;" class="col-sm-3 col-form-label"></label>
+        <div th:id="${id}" class="col-sm-3 dc-input">
+            <select class="form-control ui fluid search dropdown" th:name="${name}" th:value="${__${value}__}">
+                <option value="0">select</option>
+                <option th:each="option : ${__${options}__}"
+                        th:value="${option.__${index}__}"
+                        th:text="${option.__${text}__}+' '+${option.__${subtxt}__}"
+                        th:id="${id}+'_input'"
+                        th:selected="${__${subject}__}==${option.__${text}__} ? true : false"></option>
+            </select>
+        </div>
+    </div>
+</div>
 </body>
 </html>
