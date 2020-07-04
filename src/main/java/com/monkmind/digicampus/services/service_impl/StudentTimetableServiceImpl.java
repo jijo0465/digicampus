@@ -40,11 +40,6 @@ public class StudentTimetableServiceImpl implements StudentTimetableService{
 		 return studenttimetableRepository.save(studentTimetable);
 	}
 
-	@Override
-	public StudentTimeTable getByDay(Long day) {
-		// TODO Auto-generated method stub
-		return studenttimetableRepository.findByDay(day).get();
-	}
 
 	@Override
 	public List<StudentTimeTable> findAll() {
@@ -56,11 +51,6 @@ public class StudentTimetableServiceImpl implements StudentTimetableService{
 	public void delete(long id) {
 		// TODO Auto-generated method stub
 		studenttimetableRepository.deleteById(id);
-	}
-
-	@Override
-	public List<StudentTimeTable> findByGrade(Grade grade){
-		return studenttimetableRepository.findByGrade(grade);
 	}
 
 	@Transactional

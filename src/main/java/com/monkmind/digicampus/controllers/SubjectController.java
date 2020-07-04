@@ -53,15 +53,15 @@ public class SubjectController {
 	    return "index";
 	}
 	
-	@RequestMapping("/subjectperiod")
-	public String SubjectPeriod() {
-		Long id=(long) 2;
-		Period period=periodservice.getByPeriodId(id);
-		List<Subject> subjects=subjectservice.getByPeriodId(period);
-		for (Subject subject : subjects) {
-			System.out.println(subject.getName());
-		}
-		return "dashboard";
-	}
+//	@RequestMapping("/subjectperiod")
+//	public String SubjectPeriod() {
+//		Long id=(long) 2;
+//		Period period=periodservice.getByPeriodId(id);
+//		List<Subject> subjects=subjectservice.getByPeriodId(period);
+//		for (Subject subject : subjects) {
+//			System.out.println(subject.getName());
+//		}
+//		return "dashboard";
+//	}
 	
 }

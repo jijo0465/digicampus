@@ -72,27 +72,27 @@ public class TeacherTimeTableController {
 
 	}
 
-	@ResponseBody
-	@GetMapping("/teachertime/{teacherId}")
-	public Object getTeacherTimeTable(@PathVariable(value = "teacherId") String teacherId) {
-		//Long id=(long) 13;
-		Teacher savedteacher=teacherservice.getTeacherByTeacherId(teacherId);
-		List<TeacherTimeTable> timetable=teachertimetableService.getByTeacherId(savedteacher);
-		for (TeacherTimeTable teacherTimeTable : timetable) {
-			System.out.println(teacherTimeTable.getDay());
-			List<Period> periods=periodservice.getByTeacherTimeTable(teacherTimeTable);
-			for (Period period : periods) {
-				System.out.println(period.getStartngTime());
-				Grade savedgrade=period.getStudentTimeTable().getGrade();
-				Long id=savedgrade.getId();
-				System.out.println(gradeservice.getGradeById(id).getStandard());
-				List<Subject> subjects=subjectservice.getByPeriodId(period);
-				for (Subject subject : subjects) {
-					System.out.println(subject.getName());
-				}
-			}
-		}
-		return timetable;
-	}
+//	@ResponseBody
+//	@GetMapping("/teachertime/{teacherId}")
+//	public Object getTeacherTimeTable(@PathVariable(value = "teacherId") String teacherId) {
+//		//Long id=(long) 13;
+//		Teacher savedteacher=teacherservice.getTeacherByTeacherId(teacherId);
+//		List<TeacherTimeTable> timetable=teachertimetableService.getByTeacherId(savedteacher);
+//		for (TeacherTimeTable teacherTimeTable : timetable) {
+//			System.out.println(teacherTimeTable.getDay());
+//			List<Period> periods=periodservice.getByTeacherTimeTable(teacherTimeTable);
+//			for (Period period : periods) {
+//				System.out.println(period.getStartngTime());
+//				Grade savedgrade=period.getStudentTimeTable().getGrade();
+//				Long id=savedgrade.getId();
+//				System.out.println(gradeservice.getGradeById(id).getStandard());
+//				//List<Subject> subjects=subjectservice.getByPeriodId(period);
+//				//for (Subject subject : subjects) {
+//					//System.out.println(subject.getName());
+//				}
+//			}
+//		}
+//		return timetable;
+//	}
 
 }

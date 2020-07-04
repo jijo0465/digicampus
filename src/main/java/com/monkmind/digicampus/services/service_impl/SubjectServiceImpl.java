@@ -32,11 +32,11 @@ public class SubjectServiceImpl implements SubjectService{
 	}
 
 
-	@Override
-	public List<Subject> getByPeriodId(Period period) {
-		// TODO Auto-generated method stub
-		return subjectrepository.findByPeriod(period);
-	}
+//	@Override
+//	public List<Subject> getByPeriodId(Period period) {
+//		// TODO Auto-generated method stub
+//		return subjectrepository.findByPeriod(period);
+//	}
 	@Override
 	public Iterable<Subject> findall(){
 		return subjectrepository.findAll();

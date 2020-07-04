@@ -35,18 +35,21 @@ public class StudenttimetableController {
 	
 	 @GetMapping("/addstudenttimetable")
 	public String timetableForm(Model model) {
-	    model.addAttribute("studentTimetable", new StudentTimeTableCommand());
+	 	StudentTimeTable studentTimeTable=new StudentTimeTable();
+	 	for(int i=0;i<35;i++){
+	 		studentTimeTable.getPeriods().add(new Period());
+		}
+	    model.addAttribute("studentTimetable", studentTimeTable);
 	    model.addAttribute("gradeList",gradeservice.listAll());
 	    model.addAttribute("subjectList",subjectService.findall());
 	    return "fragments/dc-components/dc-screen-layout/dc-student-timetable/dc-student-timetable-add.html::dc-schema-add";
 	}
 
-	@PostMapping
-	@RequestMapping("/timetableinsert")
-	public String createTimeTable(@ModelAttribute StudentTimeTableCommand studentTimetable,Model model) {
-	   // StudentTimeTable timetable=studentTimetableService.save(studentTimetable);
-	//    model.addAttribute("studentTimetable",timetable);
-	    return "index";
+	@PostMapping(path = "/savestudenttimetable")
+	public String createTimeTable(@ModelAttribute StudentTimeTable studentTimetable,Model model) {
+	 	System.out.println(studentTimetable.getPeriods());
+
+	    return "fragments/dc-components/dc-screen-layout/dc-student-confirm.html::dc-student-confirm";
 	}
 	
 	
@@ -78,22 +81,22 @@ public class StudenttimetableController {
 		return "redirect:/";
 		
 	}
-	@RequestMapping("/timetable")
-	public String outtimetable() {
-		Long id=(long) 2;
-		Grade savedgrade=gradeservice.getGradeById(id);
-		List<StudentTimeTable> timetable=studentTimetableService.findByGrade(savedgrade);
-		for (StudentTimeTable studentTimeTable : timetable) {
-			System.out.println(studentTimeTable.getDay());
-			List<Period> periods=periodService.getByStudentTimeTable(studentTimeTable);
-			for (Period period : periods) {
-				System.out.println(period.getStartngTime());
-				List<Subject> subjects=subjectService.getByPeriodId(period);
-				for (Subject subject : subjects) {
-					System.out.println(subject.getName());
-				}
-			}
-		}
-		return("/index");
-	}
+//	@RequestMapping("/timetable")
+//	public String outtimetable() {
+//		Long id=(long) 2;
+//		Grade savedgrade=gradeservice.getGradeById(id);
+//		List<StudentTimeTable> timetable=studentTimetableService.findByGrade(savedgrade);
+//		for (StudentTimeTable studentTimeTable : timetable) {
+//			System.out.println(studentTimeTable.getDay());
+//			List<Period> periods=periodService.getByStudentTimeTable(studentTimeTable);
+//			for (Period period : periods) {
+//				System.out.println(period.getStartngTime());
+//				List<Subject> subjects=subjectService.getByPeriodId(period);
+//				for (Subject subject : subjects) {
+//					System.out.println(subject.getName());
+//				}
+//			}
+//		}
+//		return("/index");
+//	}
 }

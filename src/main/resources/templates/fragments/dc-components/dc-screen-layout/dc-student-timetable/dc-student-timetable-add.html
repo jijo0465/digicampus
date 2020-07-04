@@ -16,12 +16,12 @@
             <div class="alert alert-info" role="alert">
                 * Marked fields are mandatory
             </div>
-            <form  th:action="@{/saveschema}" id="addschema" method="post">
+            <form  th:action="@{/studenttimtable}" id="addtimetable" method="post" th:object="${studentTimetable}">
                 <div class="col-sm-10 ">
                     <div class="form-group row">
                         <label th:text="Standard" style="text-align: end;" class="col-sm-3 col-form-label"></label>
                         <div class="col dc-input">
-                            <select class="form-control" th:id="grade_input" th:required="true" th:name="grade">
+                            <select class="form-control" th:id="grade_input" th:required="true" >
                                 <option value="0">Select class</option>
                                 <option th:each="gradeCommand : ${gradeList}" th:value="${gradeCommand.id}"
                                         th:text="${gradeCommand.standard}+'  '+${gradeCommand.division}"></option>
@@ -31,7 +31,7 @@
                     <div class="form-group row">
                         <label th:text="Schema" style="text-align: end;" class="col-sm-3 col-form-label"></label>
                         <div class="col dc-input">
-                            <select class="form-control" th:id="schema_input" th:required="true" th:name="grade">
+                            <select class="form-control" th:id="schema_input" th:required="true" th:name="subjectschema">
                                 <option value="0">Select Schema</option>
                             </select>
                         </div>
@@ -40,8 +40,8 @@
 <!--Time Table Structure
 -->
 
-                <ul class="nav nav-tabs">
-                <li class="nav-item">
+                <ul class="nav nav-tabs" style="padding-left: 30%;">
+                <li class="nav-item active">
                     <a class="nav-link" href="#monday">Monday</a>
                 </li>
                 <li class="nav-item">
@@ -59,22 +59,36 @@
             </ul>
                 <div class="tab-content" style="margin-top: 20px">
                     <div id="monday" class="tab-pane fade in active">
-                        <div th:replace="fragments/dc-components/dc-form-component/dc-form-student-timetable/dc-form-student-timetable.html::dc-student-timetable"></div>
+                        <table>
+                        <tr th:each="period : ${studentTimetable.periods}">
+                            <td>   <input type="hidden" th:name="period.weekDay" th:value="MONDAY"></td>
+                            <td><input type="hidden" th:name="period.subject" th:value="1"></td>
+
+                        </tr>
+                        </table>
+
+                        <!--                        <div th:replace="fragments/dc-components/dc-form-component/dc-form-student-timetable/dc-form-student-timetable.html::dc-student-timetable"></div>-->
                     </div>
                     <div id="tuesday" class="tab-pane fade">
+
+                        <input type="hidden" th:name="period.weekDay" th:value="TUESDAY">
                         <div th:replace="fragments/dc-components/dc-form-component/dc-form-student-timetable/dc-form-student-timetable.html::dc-student-timetable"></div>
                     </div>
                     <div id="wednesday" class="tab-pane fade">
-                        <div th:replace="fragments/dc-components/dc-form-component/dc-form-student-timetable/dc-form-student-timetable.html::dc-student-timetable"></div>
+                        <input type="hidden" th:name="period.weekday" th:value="WEDNESDAY">
+<!--                        <div th:replace="fragments/dc-components/dc-form-component/dc-form-student-timetable/dc-form-student-timetable.html::dc-student-timetable"></div>-->
+
                     </div>
                     <div id="thursday" class="tab-pane fade">
+                        <input type="hidden" th:name="period.weekDay" th:value="THURSDAY">
                         <div th:replace="fragments/dc-components/dc-form-component/dc-form-student-timetable/dc-form-student-timetable.html::dc-student-timetable"></div>
                     </div>
                     <div id="friday" class="tab-pane fade">
+                        <input type="hidden" th:name="period.weekDay" th:value="FRIDAY">
                         <div th:replace="fragments/dc-components/dc-form-component/dc-form-student-timetable/dc-form-student-timetable.html::dc-student-timetable"></div>
                     </div>
                 </div>
-                <div th:replace="fragments/dc-components/dc-form-component/dc-form-button/dc-form-button.html::dc-form-button(label='Submit',submit_id='schemasubmit')"></div>
+                <div th:replace="fragments/dc-components/dc-form-component/dc-form-button/dc-form-button.html::dc-form-button(label='Submit',submit_id='timetablesubmit')"></div>
             </form>
 
         </div>
@@ -85,6 +99,23 @@
                 $(".nav-tabs a").click(function(){
                     $(this).tab('show');
                 });
+                $("#timetablesubmit").click(function(e){
+                    values= $('#addtimetable').serialize()
+                    console.log(values);
+                    $.ajax({
+                        method: "POST",
+                        url: "/savestudenttimetable",
+                        data: values,
+                        success: function(status){
+                            if(status) {
+                               // console.log(status);
+                               // $("#teacherconfirmbody").html(status)
+                            }
+                        }
+                    });
+
+                });
+
             });
             </script>
     </div>

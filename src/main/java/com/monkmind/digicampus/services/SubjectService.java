@@ -14,6 +14,6 @@ public interface SubjectService {
 	public Subject save(Subject subject);
 	public Iterable<Subject> findall();
 	public Subject getById(Long subject);
-	public List<Subject> getByPeriodId(Period period);
+//	public List<Subject> getByPeriodId(Period period);
 
 }

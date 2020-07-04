@@ -20,13 +20,6 @@ import lombok.Setter;
 @Entity
 
 public class StudentTimeTable extends BaseEntity{
-
-	@Enumerated(EnumType.STRING)
-	@Column(name = "day")
-    private WeekDay day;
-	
-	@ManyToOne
-	private Grade grade;
 	
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "studentTimeTable")
     private Set<Period> periods = new HashSet<>();
