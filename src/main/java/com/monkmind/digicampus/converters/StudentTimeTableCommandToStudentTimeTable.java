@@ -34,8 +34,6 @@ public class StudentTimeTableCommandToStudentTimeTable implements Converter<Stud
 		
 		final StudentTimeTable studenttimetable=new StudentTimeTable();
 		studenttimetable.setId(source.getId());
-		studenttimetable.setDay(source.getDay());
-		studenttimetable.setGrade(gradeConverter.convert(source.getGradeid()));
 		//studenttimetable.setPeriod(periodC(source.getPeriodid());
 		return studenttimetable;
 	}

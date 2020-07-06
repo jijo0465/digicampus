@@ -32,9 +32,7 @@ public class Grade extends BaseEntity{
 	
 	//@Column(name = "max_strength")
     //private Double max_strength;
-	
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "grade")
-    private Set<StudentTimeTable> studentTimeTable = new HashSet<>();
+
 
 	@JsonIgnore
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "grade")

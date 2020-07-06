@@ -15,9 +15,7 @@ public interface StudentTimetableRepository extends CrudRepository<StudentTimeTa
 	
 	
 	Optional<StudentTimeTable> findById(Long id);
-	Optional<StudentTimeTable> findByDay(Long day);
 	List<StudentTimeTable> findAll();
-	List<StudentTimeTable> findByGrade(Grade grade);
 	void save(StudentTimeTableCommand studentTimetable);
 	
 	

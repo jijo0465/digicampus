@@ -25,8 +25,8 @@ public class SubjectSchema extends BaseEntity{
 	@Column(name="schemaName")
 	private String schemaName;
 
-	@ManyToOne
-	private Subject subject1,subject2,subject3,subject4,subject5,subject6,subject7;
+	@ManyToMany
+	private Set<Subject> subjects;
 
 	@JsonIgnore
 	@ManyToOne

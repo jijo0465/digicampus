@@ -51,7 +51,6 @@ public class Subject extends BaseEntity{
 	@OneToMany(mappedBy = "subjectName")
 	Set<Test> tests = new HashSet<>();
 
-	@JsonIgnore
-	@OneToMany(mappedBy = "subject")
-	private Set<Period> period;
+	@ManyToMany(mappedBy = "subjects")
+	Set<SubjectSchema> subjectSchemas;
 }
