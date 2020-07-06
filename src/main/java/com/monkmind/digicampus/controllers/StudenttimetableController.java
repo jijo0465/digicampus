@@ -3,18 +3,16 @@
     */
 package com.monkmind.digicampus.controllers;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import com.monkmind.digicampus.configurations.TimeTableConfig;
+import com.monkmind.digicampus.models.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import com.monkmind.digicampus.command.StudentTimeTableCommand;
-import com.monkmind.digicampus.models.Grade;
-import com.monkmind.digicampus.models.Period;
-import com.monkmind.digicampus.models.StudentTimeTable;
-import com.monkmind.digicampus.models.Subject;
-import com.monkmind.digicampus.models.WeekDay;
 import com.monkmind.digicampus.repositories.GradeRepository;
 import com.monkmind.digicampus.services.GradeService;
 import com.monkmind.digicampus.services.PeriodService;
@@ -35,18 +33,36 @@ public class StudenttimetableController {
 	
 	 @GetMapping("/addstudenttimetable")
 	public String timetableForm(Model model) {
-	    model.addAttribute("studentTimetable", new StudentTimeTableCommand());
+	 	StudentTimeTable studentTimeTable = new StudentTimeTable();
+	 	List<Period> periods = new ArrayList<>();
+	 	List<String> weekDays = new ArrayList<>();
+	 	weekDays.add("monday");
+	 	weekDays.add("tuesday");
+	 	weekDays.add("wednesday");
+	 	weekDays.add("thursday");
+	 	weekDays.add("friday");
+	 	for(int i=0;i<35;i++){
+	 		periods.add(new Period());
+	 		studentTimeTable.addPeriod(new Period());
+		}
+	 	model.addAttribute("weekDays",weekDays);
+	 	model.addAttribute("config",new TimeTableConfig());
+	    model.addAttribute("studentTimeTable", studentTimeTable);
 	    model.addAttribute("gradeList",gradeservice.listAll());
 	    model.addAttribute("subjectList",subjectService.findall());
 	    return "fragments/dc-components/dc-screen-layout/dc-student-timetable/dc-student-timetable-add.html::dc-schema-add";
 	}
 
-	@PostMapping
-	@RequestMapping("/timetableinsert")
-	public String createTimeTable(@ModelAttribute StudentTimeTableCommand studentTimetable,Model model) {
+	@RequestMapping("/saveTimeTable")
+	public String saveTimeTable(@ModelAttribute StudentTimeTable studentTimetable,Model model) {
+		System.out.println("HIEHIHIHIEIHI");
+		for(Period p : studentTimetable.getPeriods()){
+			System.out.println(p.getSubject().getName());
+		}
+//	 	System.out.println(studentTimetable.getPeriods().size());
 	   // StudentTimeTable timetable=studentTimetableService.save(studentTimetable);
 	//    model.addAttribute("studentTimetable",timetable);
-	    return "index";
+		return "fragments/dc-components/dc-screen-layout/dc-student-timetable/dc-student-timetable-add.html::dc-schema-add";
 	}
 	
 	

@@ -16,7 +16,7 @@
             <div class="alert alert-info" role="alert">
                 * Marked fields are mandatory
             </div>
-            <form  th:action="@{/saveschema}" id="addschema" method="post">
+            <form  th:action="@{/saveTimeTable}" id="saveTimeTable" method="post" th:object="${studentTimeTable}">
                 <div class="col-sm-10 ">
                     <div class="form-group row">
                         <label th:text="Standard" style="text-align: end;" class="col-sm-3 col-form-label"></label>
@@ -31,14 +31,20 @@
                     <div class="form-group row">
                         <label th:text="Schema" style="text-align: end;" class="col-sm-3 col-form-label"></label>
                         <div class="col dc-input">
-                            <select class="form-control" th:id="schema_input" th:required="true" th:name="grade">
+                            <select class="form-control" th:id="schema_input" th:required="true" th:name="subjectschema">
                                 <option value="0">Select Schema</option>
                             </select>
                         </div>
                     </div>
+
                 </div>
+
 <!--Time Table Structure
 -->
+<!--                <tr th:each="period, itemStat : *{books}">-->
+<!--                    <td><input th:field="*{books[__${itemStat.index}__].title}" /></td>-->
+<!--                    <td><input th:field="*{books[__${itemStat.index}__].author}" /></td>-->
+<!--                </tr>-->
 
                 <ul class="nav nav-tabs">
                 <li class="nav-item">
@@ -57,24 +63,91 @@
                     <a class="nav-link" href="#friday">Friday</a>
                 </li>
             </ul>
+
                 <div class="tab-content" style="margin-top: 20px">
-                    <div id="monday" class="tab-pane fade in active">
-                        <div th:replace="fragments/dc-components/dc-form-component/dc-form-student-timetable/dc-form-student-timetable.html::dc-student-timetable"></div>
-                    </div>
-                    <div id="tuesday" class="tab-pane fade">
-                        <div th:replace="fragments/dc-components/dc-form-component/dc-form-student-timetable/dc-form-student-timetable.html::dc-student-timetable"></div>
-                    </div>
-                    <div id="wednesday" class="tab-pane fade">
-                        <div th:replace="fragments/dc-components/dc-form-component/dc-form-student-timetable/dc-form-student-timetable.html::dc-student-timetable"></div>
-                    </div>
-                    <div id="thursday" class="tab-pane fade">
-                        <div th:replace="fragments/dc-components/dc-form-component/dc-form-student-timetable/dc-form-student-timetable.html::dc-student-timetable"></div>
-                    </div>
-                    <div id="friday" class="tab-pane fade">
-                        <div th:replace="fragments/dc-components/dc-form-component/dc-form-student-timetable/dc-form-student-timetable.html::dc-student-timetable"></div>
-                    </div>
+                    <th:block th:each="day, dayStat : ${weekDays}">
+                        <div th:id="${day}" class="tab-pane fade in active">
+                            <div>
+                                <tr th:each="i : ${#numbers.sequence(0, config.maxPeriod - 1)}">
+<!--                                <tr th:each="period, itemStat : *{periods}">-->
+                                    <td>
+                                        <div class="col-sm-8 ">
+                                            <div class="form-group row" th:with="idx = ${dayStat.index * config.maxPeriod + i}, periodNo=${i+1}">
+                                                <label th:text="Period +' '+${periodNo}" style="text-align: end;" class="col-sm-3 col-form-label"></label>
+                                                <div class="col dc-input">
+                                                    <select class="form-control" th:id="subject_input" th:required="true" th:field="*{periods[__${idx}__].subject}">
+                                                        <option value="0">Select Subject</option>
+                                                        <option th:each="subject : ${subjectList}" th:value="${subject.id}"
+                                                                th:text="${subject.name}+'  '+${subject.subjectId}"></option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </div>
+                        </div>
+                    </th:block>
                 </div>
-                <div th:replace="fragments/dc-components/dc-form-component/dc-form-button/dc-form-button.html::dc-form-button(label='Submit',submit_id='schemasubmit')"></div>
+
+
+<!--                <div class="tab-content" style="margin-top: 20px">-->
+<!--                    <div id="monday" class="tab-pane fade in active">-->
+<!--                        <div>-->
+<!--                            <tr th:each="period, itemStat : *{periods}">-->
+<!--                                <td>-->
+<!--                                    <div class="col-sm-8 ">-->
+<!--                                        <div class="form-group row">-->
+<!--                                            <label th:text="Subject" style="text-align: end;" class="col-sm-3 col-form-label"></label>-->
+<!--                                            <div class="col dc-input">-->
+<!--                                                <select class="form-control" th:id="subject_input" th:required="true" th:field="*{periods[__${itemStat.index}__].subject}">-->
+<!--                                                    <option value="0">Select Subject</option>-->
+<!--                                                    <option th:each="subject : ${subjectList}" th:value="${subject.id}"-->
+<!--                                                            th:text="${subject.name}+'  '+${subject.subjectId}"></option>-->
+<!--                                                </select>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </td>-->
+<!--                            </tr>-->
+<!--                        </div>-->
+
+
+<!--&lt;!&ndash;                        <div th:replace="fragments/dc-components/dc-form-component/dc-form-student-timetable/dc-form-student-timetable.html::dc-student-timetable"></div>&ndash;&gt;-->
+<!--                    </div>-->
+<!--                    <div id="tuesday" class="tab-pane fade">-->
+<!--                        <div>-->
+<!--                            <tr th:each="period, itemStat : *{periods}">-->
+<!--                                <td>-->
+<!--                                    <div class="col-sm-8 ">-->
+<!--                                        <div class="form-group row">-->
+<!--                                            <label th:text="Subject" style="text-align: end;" class="col-sm-3 col-form-label"></label>-->
+<!--                                            <div class="col dc-input" th:with="indx=${itemStat.index} + ${counter.counter}">-->
+<!--                                                <select class="form-control" th:id="subject_input" th:required="true" th:field="*{periods[__${indx}__].subject}">-->
+<!--                                                    <option value="0">Select Subject</option>-->
+<!--                                                    <option th:each="subject : ${subjectList}" th:value="${subject.id}"-->
+<!--                                                            th:text="${subject.name}+'  '+${subject.subjectId}"></option>-->
+<!--                                                </select>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </td>-->
+<!--                            </tr>-->
+<!--                        </div>-->
+<!--&lt;!&ndash;                        <div th:replace="fragments/dc-components/dc-form-component/dc-form-student-timetable/dc-form-student-timetable.html::dc-student-timetable"></div>&ndash;&gt;-->
+<!--                    </div>-->
+<!--                    <div id="wednesday" class="tab-pane fade">-->
+<!--                        <div th:replace="fragments/dc-components/dc-form-component/dc-form-student-timetable/dc-form-student-timetable.html::dc-student-timetable"></div>-->
+<!--                    </div>-->
+<!--                    <div id="thursday" class="tab-pane fade">-->
+<!--                        <div th:replace="fragments/dc-components/dc-form-component/dc-form-student-timetable/dc-form-student-timetable.html::dc-student-timetable"></div>-->
+<!--                    </div>-->
+<!--                    <div id="friday" class="tab-pane fade">-->
+<!--                        <div th:replace="fragments/dc-components/dc-form-component/dc-form-student-timetable/dc-form-student-timetable.html::dc-student-timetable"></div>-->
+<!--                    </div>-->
+<!--                </div>-->
+                <input type="submit"/>
+<!--                <div th:replace="fragments/dc-components/dc-form-component/dc-form-button/dc-form-button.html::dc-form-button(label='Submit',submit_id='timeTableSubmit')"></div>-->
             </form>
 
         </div>
@@ -82,7 +155,9 @@
         </script>
         <script th:inline="javascript">
             $(document).ready(function(){
-                $(".nav-tabs a").click(function(){
+                $(".nav-tabs a").click(function(e){
+                    e.preventDefault();
+
                     $(this).tab('show');
                 });
             });

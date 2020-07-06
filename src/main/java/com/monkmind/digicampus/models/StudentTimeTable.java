@@ -1,6 +1,8 @@
 package com.monkmind.digicampus.models;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.*;
@@ -18,7 +20,6 @@ import lombok.Setter;
 //@ToString
 @Table(name = "student_time_table")
 @Entity
-
 public class StudentTimeTable extends BaseEntity{
 
 	@Enumerated(EnumType.STRING)
@@ -29,8 +30,13 @@ public class StudentTimeTable extends BaseEntity{
 	private Grade grade;
 	
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "studentTimeTable")
-    private Set<Period> periods = new HashSet<>();
+    private List<Period> periods = new ArrayList<>();
 
 	@OneToOne
 	private SubjectSchema subjectschema;
+
+	public void addPeriod(Period period){
+		this.periods.add(period);
+	}
+
 }
