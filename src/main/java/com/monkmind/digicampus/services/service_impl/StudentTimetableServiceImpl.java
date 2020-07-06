@@ -34,12 +34,7 @@ public class StudentTimetableServiceImpl implements StudentTimetableService{
 		return studenttimetableRepository.findById(id).get();
 	}
 
-	@Override
-	public StudentTimeTable  save(StudentTimeTable studentTimetable) {
-		// TODO Auto-generated method stub
-		 return studenttimetableRepository.save(studentTimetable);
-	}
-
+	
 
 	@Override
 	public List<StudentTimeTable> findAll() {
@@ -60,6 +55,14 @@ public class StudentTimetableServiceImpl implements StudentTimetableService{
 		StudentTimeTable savedStudentTimeTable=studenttimetableRepository.save(detachedStudentTimeTable);
 		//log.debug("saved studentid :"+ savedStudent.getId());
 		return studentTimeTableToStudentTimeTableCommand.convert(savedStudentTimeTable) ;
+	}
+
+
+
+	@Override
+	public StudentTimeTable save(StudentTimeTable studentTimetable) {
+		// TODO Auto-generated method stub
+		 return studenttimetableRepository.save( studentTimetable);
 	}
 		
 	
