@@ -94,7 +94,7 @@ public class StudenttimetableController {
 		return "redirect:/";
 		
 	}
-	@RequestMapping("/timetable")
+	/*@RequestMapping("/timetable")
 	public String outtimetable() {
 		Long id=(long) 2;
 		Grade savedgrade=gradeservice.getGradeById(id);
@@ -111,5 +111,5 @@ public class StudenttimetableController {
 			}
 		}
 		return("/index");
-	}
+	}*/
 }
