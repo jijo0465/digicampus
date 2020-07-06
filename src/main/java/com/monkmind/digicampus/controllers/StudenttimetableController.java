@@ -54,11 +54,12 @@ public class StudenttimetableController {
 	}
 
 	@RequestMapping("/saveTimeTable")
-	public String saveTimeTable(@ModelAttribute StudentTimeTable studentTimetable,Model model) {
-		System.out.println("HIEHIHIHIEIHI");
-		for(Period p : studentTimetable.getPeriods()){
+	public String saveTimeTable(@ModelAttribute StudentTimeTable studentTimeTable,Model model) {
+		//System.out.println("HIEHIHIHIEIHI");
+		for(Period p : studentTimeTable.getPeriods()){
 			System.out.println(p.getSubject().getName());
 		}
+		studentTimetableService.save(studentTimeTable);
 //	 	System.out.println(studentTimetable.getPeriods().size());
 	   // StudentTimeTable timetable=studentTimetableService.save(studentTimetable);
 	//    model.addAttribute("studentTimetable",timetable);
