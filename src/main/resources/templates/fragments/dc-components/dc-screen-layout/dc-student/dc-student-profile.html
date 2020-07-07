@@ -11,7 +11,7 @@
 
 <div class="container py-3" th:fragment="dc-student-profile">
     <div class="row">
-        <div class="col-10 mx-auto">
+        <div class="col-12 mx-auto">
             <ul class="nav nav-tabs small justify-content-end" role="tablist">
                 <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#tab1" role="tab">Basic Info</a></li>
                 <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#tab2" role="tab">School Bus Details</a></li>
@@ -19,13 +19,20 @@
             </ul>
             <div class="tab-content py-2">
                 <div id="tab1" class="tab-pane active">
+                    <h1 th:text="${student.name}" ></h1>
                     <table class="table table-hover table-striped">
                         <tbody>
                         <tr>
-                            <th>Name</th><th th:text="${student.name}"></th>
+                            <th>Student Id</th><th th:text="${student.studentId}"></th>
+                        </tr>
+                        <tr>
+                            <th>Gender</th><th th:text="${student.gender}"></th>
                         </tr>
                         <tr>
                             <th>Address</th><th th:text="${student.address}"></th>
+                        </tr>
+                        <tr>
+                            <th>Parent Name</th><th th:text="${student.parent.name}"></th>
                         </tr>
                         <tr>
                             <th>Phone</th><th th:text="${student.parent.phone}"></th>
@@ -37,18 +44,23 @@
                             <th>Standard</th><th th:text="${student.grade.standard}"></th>
                         </tr>
                         <tr>
-                            <th>Parent Name</th><th th:text="${student.parent.name}"></th>
+                            <th>Division</th><th th:text="${student.grade.division}"></th>
                         </tr>
                         <tr>
-                            <th>Class Teachere</th>
+                            <th>Class Teacher</th><th></th>
+                        </tr>
+                        <tr>
+                            <th>Schema</th><th th:text="${student.subjectschema.schemaName}"></th>
                         </tr>
                         </tbody>
                     </table>
                 </div>
                 <div id="tab2" class="tab-pane fade">
-
+                    <h1>School Bus Details</h1>
                 </div>
-
+                <div id="tab3" class="tab-pane fade">
+                    <h1>Fee Details</h1>
+                </div>
             </div>
                 </div>
             </div>
