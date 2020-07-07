@@ -36,11 +36,11 @@ public class StudenttimetableController {
 	 	StudentTimeTable studentTimeTable = new StudentTimeTable();
 	 	List<Period> periods = new ArrayList<>();
 	 	List<String> weekDays = new ArrayList<>();
-	 	weekDays.add("monday");
-	 	weekDays.add("tuesday");
-	 	weekDays.add("wednesday");
-	 	weekDays.add("thursday");
-	 	weekDays.add("friday");
+	 	weekDays.add("MONDAY");
+	 	weekDays.add("TUESDAY");
+	 	weekDays.add("WEDNESDAY");
+	 	weekDays.add("THURSDAY");
+	 	weekDays.add("FRIDAY");
 	 	for(int i=0;i<35;i++){
 	 		periods.add(new Period());
 	 		studentTimeTable.addPeriod(new Period());
