@@ -15,26 +15,18 @@
             <tr>
                 <th>Schema Name</th>
                 <th>Standard</th>
-                <th>Subject1</th>
-                <th>Subject2</th>
-                <th>Subject3</th>
-                <th>Subject4</th>
-                <th>Subject5</th>
-                <th>Subject6</th>
-                <th>Subject7</th>
+                <th>Subjects</th>
                 <th></th>
                 <th></th>
             </tr>
             <tr th:each="schemas : ${schemaList}">
                 <td th:text="${schemas?.schemaName}">
                 <td th:text="${schemas?.grade?.standard}">
-                <td th:text="${schemas?.subject1?.name}">
-                <td th:text="${schemas?.subject2?.name}">
-                <td th:text="${schemas?.subject3?.name}">
-                <td th:text="${schemas?.subject4?.name}">
-                <td th:text="${schemas?.subject5?.name}">
-                <td th:text="${schemas?.subject6?.name}">
-                <td th:text="${schemas?.subject7?.name}">
+                <td>
+        <span th:each="subject,iterStat : ${schemas.subjects}">
+        <span th:text="${subject.name}"/><th:block th:if="${!iterStat.last}">,</th:block>
+        </span>
+            </td>
                     <input type="hidden" th:value="${schemas.id}">
                 <td><a href="#" th:id="'schemaedit'+${schemas?.id}">Edit</a></td>
                 <td><a th:href="@{'/deleted/'+ ${schemas.id}}" onclick="return confirm('Are you sure want to delete this ?');" id="delete">Delete</a></td>

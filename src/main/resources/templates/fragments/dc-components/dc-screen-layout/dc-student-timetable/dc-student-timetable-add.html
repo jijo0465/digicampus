@@ -59,7 +59,7 @@
 
                 <div class="tab-content py-3">
                     <th:block th:each="day, dayStat : ${weekDays}">
-                        <div th:id="${day}" class="tab-pane" th:if="${day}=='MONDAY'" th:class="active">
+                        <div th:id="${day}" class="tab-pane">
                             <div>
                                 <tr th:each="i : ${#numbers.sequence(0, config.maxPeriod - 1)}">
                                     <td>

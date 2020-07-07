@@ -59,6 +59,10 @@ public class StudenttimetableController {
 		for(Period p : studentTimeTable.getPeriods()){
 			System.out.println(p.getSubject().getName());
 		}
+		for(Period p : studentTimeTable.getPeriods()){
+			p.setStudentTimeTable(studentTimeTable);
+
+		}
 		studentTimetableService.save(studentTimeTable);
 //	 	System.out.println(studentTimetable.getPeriods().size());
 	   // StudentTimeTable timetable=studentTimetableService.save(studentTimetable);

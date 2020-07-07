@@ -5,7 +5,7 @@
     <title>Student Classwise</title>
 </head>
 <body>
-<div class="container dc-form-body" th:fragment="dc-student-list">
+<div class="container dc-form-body" th:fragment="dc-student-list" th:id="dc-profile">
     <table style="width:100%" class="table table-condensed">
         <tr>
             <th>Admission No</th>
@@ -16,6 +16,7 @@
             <th>Date of Birth</th>
             <th></th>
             <th></th>
+            <th></th>
         </tr>
         <tr th:each="student : ${students}" th:if="${student.isDelete}==false">
             <td th:text="${student.studentId}">
@@ -24,10 +25,13 @@
             <td th:text="${student?.parent?.phone}">
             <td th:text="${student?.gender}">
             <td th:text="${student?.dateOfBirth}">
+            <td><a href="#" th:id="'view'+${student?.id}">View</a></td>
             <td><a th:href="@{'/delete/'+ ${student.id}}" onclick="return confirm('Are you sure want to delete this ?');" id="delete">Delete</a></td>
 
         </tr>
     </table>
+    <script th:src="@{js/dc-components/dc-screen-layout/dc-student-list.js}">
+    </script>
 
 </div>
 </body>

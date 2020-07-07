@@ -133,5 +133,10 @@ public class StudentController {
         model.addAttribute("students", liststudents);
         return "fragments/dc-components/dc-screen-layout/dc-student/dc-student-list.html::dc-student-list";
     }
+    @PostMapping("/student/profile/{id}")
+    public String studentProfile(@PathVariable Long id,Model model){
+        model.addAttribute("student",studentService.findById(id));
+        return "fragments/dc-components/dc-screen-layout/dc-student/dc-student-profile::dc-student-profile";
+    }
 
 }

@@ -9,7 +9,7 @@
 </head>
 <body>
 
-<div class="container py-3">
+<div class="container py-3" th:fragment="dc-student-profile">
     <div class="row">
         <div class="col-10 mx-auto">
             <ul class="nav nav-tabs small justify-content-end" role="tablist">
@@ -22,22 +22,22 @@
                     <table class="table table-hover table-striped">
                         <tbody>
                         <tr>
-                            <th>Name</th>
+                            <th>Name</th><th th:text="${student.name}"></th>
                         </tr>
                         <tr>
-                            <th>Address</th>
+                            <th>Address</th><th th:text="${student.address}"></th>
                         </tr>
                         <tr>
-                            <th>Phone</th>
+                            <th>Phone</th><th th:text="${student.parent.phone}"></th>
                         </tr>
                         <tr>
-                            <th>Blood Group</th>
+                            <th>Blood Group</th><th th:text="${student.bloodGroup}"></th>
                         </tr>
                         <tr>
-                            <th>Standard</th>
+                            <th>Standard</th><th th:text="${student.grade.standard}"></th>
                         </tr>
                         <tr>
-                            <th>Parent Name</th>
+                            <th>Parent Name</th><th th:text="${student.parent.name}"></th>
                         </tr>
                         <tr>
                             <th>Class Teachere</th>
