@@ -111,7 +111,7 @@ public class StudentController {
     @GetMapping("/student/search/{keyword}")
     public String studentsearch(@PathVariable String keyword,Model model)
     {
-        model.addAttribute("students", studentService.listAll());
+        model.addAttribute("students", studentService.listAll(keyword));
         return "fragments/dc-components/dc-screen-layout/dc-student/dc-student-list.html::dc-student-list";
     }
     @PostMapping("/student/profile/{id}")

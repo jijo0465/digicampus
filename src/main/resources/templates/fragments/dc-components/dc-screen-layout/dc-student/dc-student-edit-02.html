@@ -47,12 +47,14 @@
                 <div class="form-group row">
                      <label th:text="Standard" style="text-align: end;" class="col-sm-3 col-form-label"></label>
                      <div class="col dc-input">
-                         <select class="form-control" th:field="*{gradeid.id}" th:id="grade_input" th:required="true">
+                         <select class="form-control" th:name="gradeid.id" th:id="grade_input" th:required="true">
                              <option value="0">Select class</option>
                              <option th:each="gradeCommand : ${gradeList}" th:value="${gradeCommand.id}"
-                                     th:text="${gradeCommand.standard}+'  '+${gradeCommand.division}"></option>
+                                     th:text="${gradeCommand.standard}+'  '+${gradeCommand.division}"
+                                     th:selected="${gradeCommand}==${studentbyid.grade} ? true : false"></option>
                          </select>
                      </div>
+<!--                    <input type="text" th:value="s">-->
             </div>
         </div>
         <h3>
