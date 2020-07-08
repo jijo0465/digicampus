@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="/images/santhinikethanam_logo.png">
+    <link rel="shortcut icon" href="/static/images/santhinikethanam_logo.png">
     <title>Santhinikethanam Central School</title>
     <link rel="stylesheet" href="css/dc-components/dc-form-component/dc-screen-layout/dc-login.css">
 </head>
@@ -12,13 +12,15 @@
     <img src="images/santhinikethanam_logo.png" class="emblem">
     <h1>Sign In</h1>
     <form style="float: left;" th:action="@{/dashboard}" th:object="${logincommand}"  id="loginformfinal" method="post">
+
         <label> Username:</label>
         <input type="text" th:name='loginId'>
         <label> Password:</label>
         <input type="password" th:name='password'>
         <input type="submit" th:id="loginbutton" value="Login">
-
     </form>
+
 </div>
+<div th:text="${message}" class="text-center"></div>
 </body>
 </html>
