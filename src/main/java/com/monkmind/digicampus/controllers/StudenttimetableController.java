@@ -35,12 +35,12 @@ public class StudenttimetableController {
 	public String timetableForm(Model model) {
 	 	StudentTimeTable studentTimeTable = new StudentTimeTable();
 	 	List<Period> periods = new ArrayList<>();
-	 	List<String> weekDays = new ArrayList<>();
-	 	weekDays.add("MONDAY");
-	 	weekDays.add("TUESDAY");
-	 	weekDays.add("WEDNESDAY");
-	 	weekDays.add("THURSDAY");
-	 	weekDays.add("FRIDAY");
+	 	List<WeekDay> weekDays = new ArrayList<>();
+	 	weekDays.add(WeekDay.MONDAY);
+	 	weekDays.add(WeekDay.TUESDAY);
+	 	weekDays.add(WeekDay.WEDNESDAY);
+	 	weekDays.add(WeekDay.THURSDAY);
+	 	weekDays.add(WeekDay.FRIDAY);
 	 	for(int i=0;i<35;i++){
 	 		periods.add(new Period());
 	 		studentTimeTable.addPeriod(new Period());
@@ -58,6 +58,7 @@ public class StudenttimetableController {
 		//System.out.println("HIEHIHIHIEIHI");
 		for(Period p : studentTimeTable.getPeriods()){
 			System.out.println(p.getSubject().getName());
+			System.out.println(p.getWeekDay());
 		}
 		for(Period p : studentTimeTable.getPeriods()){
 			p.setStudentTimeTable(studentTimeTable);

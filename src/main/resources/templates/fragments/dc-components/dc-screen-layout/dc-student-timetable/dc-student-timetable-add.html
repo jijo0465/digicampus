@@ -63,8 +63,10 @@
                             <div>
                                 <tr th:each="i : ${#numbers.sequence(0, config.maxPeriod - 1)}">
                                     <td>
+
                                         <div class="col-sm-8 ">
                                             <div class="form-group row" th:with="idx = ${dayStat.index * config.maxPeriod + i}, periodNo=${i+1}">
+                                                <input type="hidden" th:value="${day}" th:name="periods[__${idx}__].weekDay">
                                                 <label th:text="Period +' '+${periodNo}" style="text-align: end;" class="col-sm-3 col-form-label"></label>
                                                 <div class="col dc-input">
                                                     <select class="form-control" th:id="subject_input" th:required="true" th:field="*{periods[__${idx}__].subject}">

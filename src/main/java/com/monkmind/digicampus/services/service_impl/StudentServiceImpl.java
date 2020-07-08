@@ -130,7 +130,7 @@ public class StudentServiceImpl implements StudentService {
 	@Override
 	public List<Student> listAll(String keyword) {
 		// TODO Auto-generated method stub
-		if (keyword != null) {
+		if (keyword != null||keyword !=" ") {
             return studentRepository.search(keyword);
         }
 		else{

@@ -1,9 +1,10 @@
-package com.monkmind.digicampus.services;
+package com.monkmind.digicampus.services.service_impl;
 
 import java.util.List;
 
 import javax.transaction.Transactional;
 
+import com.monkmind.digicampus.services.GradeService;
 import org.springframework.stereotype.Service;
 
 import com.monkmind.digicampus.command.GradeCommand;

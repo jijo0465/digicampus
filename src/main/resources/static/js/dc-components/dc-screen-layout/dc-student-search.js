@@ -11,16 +11,5 @@ function myFunction(){
             }
         });
     }
-    else{
-        $.ajax({
-            method: "GET",
-            url: "/student/search/null",
-            success: function (status) {
-                if (status) {
-                    $("#dc-search").html(status)
-                }
-            }
-        });
 
-    }
 }
