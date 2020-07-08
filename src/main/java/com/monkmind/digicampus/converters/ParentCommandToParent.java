@@ -23,6 +23,7 @@ public class ParentCommandToParent implements Converter<ParentCommand, Parent> {
 		return null;
 	    }
 		final Parent parent = new Parent();
+		parent.setId(source.getId());
 		parent.setName(source.getPname());
 		parent.setParentId(source.getParentId());
 		parent.setAltPhone(source.getPaltPhone());

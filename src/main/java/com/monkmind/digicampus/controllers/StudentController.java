@@ -36,19 +36,14 @@ public class StudentController {
 
     @GetMapping("/add_student")
     public String studentForm(Model model) {
-        RegisterCommand registerCommand = new RegisterCommand();
-        List<Grade> gradeCommands = gradeService.listAll();
-        List<SubjectSchema> schema =subjectSchemaService.listAll();
-        model.addAttribute("command", registerCommand);
-        model.addAttribute("gradeList", gradeCommands);
-        model.addAttribute("schemaList", schema);
+        model.addAttribute("command", new RegisterCommand());
+        model.addAttribute("gradeList", gradeService.listAll());
+        model.addAttribute("schemaList", subjectSchemaService.listAll());
         return "fragments/dc-components/dc-screen-layout/dc-student/dc-student-add.html::dc-student-add";
     }
 
     @PostMapping(path="/addstudent")
     public String Save(@ModelAttribute RegisterCommand command, Model model) {
-        long parentid = (long) Math.floor(Math.random() * 9000000L) + 100000L;
-        command.getParentid().setParentId(Long.toString(parentid));
         studentService.saveRegisterCommand(command);
         return "fragments/dc-components/dc-screen-layout/dc-student-confirm.html::dc-student-confirm";
     }
@@ -56,18 +51,14 @@ public class StudentController {
 
     @GetMapping("/studentdisplay")
     public String studentdisplay(Model model) {
-        List<Student> liststudents = studentService.listAll();
-        List<Grade> gradeCommands = gradeService.listAll();
-        model.addAttribute("gradeList", gradeCommands);
-        model.addAttribute("liststudents", liststudents);
+        model.addAttribute("gradeList", gradeService.listAll());
+        model.addAttribute("liststudents", studentService.listAll());
         return "fragments/dc-components/dc-screen-layout/dc-student/dc-student-display.html::dc-student-display";
     }
 
     @GetMapping("/displaystd/{std}")
     public String viewclasswise(@PathVariable Grade std, Model model) {
-        System.out.println(std);
-        List<Student> students = studentService.findByGradeid(std);
-        model.addAttribute("students", students);
+        model.addAttribute("students", studentService.findByGradeid(std));
         return "fragments/dc-components/dc-screen-layout/dc-student/dc-student-list.html::dc-student-list";
     }
 
@@ -76,31 +67,23 @@ public class StudentController {
         return "fragments/dc-components/dc-screen-layout/dc-student/dc-student-edit::dc-student-edit";
     }
 
-    @GetMapping("/edit/student/{studentid}")
-    public String studentUpdate(@PathVariable String studentid, Model model) {
-        System.out.println(studentid);
-        Student registerCommand = new Student();
-        model.addAttribute("command", registerCommand);
-        List<Grade> gradeCommands = gradeService.listAll();
-        Student student = new Student();
-        student = studentService.getStudentByStudentId(studentid);
-        Parent parent=new Parent();
-        parent=parentService.getParentByParentId(studentid);
-        model.addAttribute("gradeList", gradeCommands);
-        model.addAttribute("studentbyid", student);
+    @GetMapping("/edit/student/{studentId}")
+    public String studentUpdate(@PathVariable String studentId, Model model) {
+        model.addAttribute("command", new RegisterCommand());
+        model.addAttribute("gradeList", gradeService.listAll());
+        model.addAttribute("studentbyid", studentService.getStudentByStudentId(studentId));
         return "fragments/dc-components/dc-screen-layout/dc-student/dc-student-edit-02.html::dc-student-edit-02";
     }
 
     @PostMapping(path="/updatestudent")
-    public String UpdateStudent(@ModelAttribute Student studentbyid, Model model) {
-        studentService.save(studentbyid);
+    public String UpdateStudent(@ModelAttribute RegisterCommand command, Model model) {
+        studentService.updateRegisterCommand(command);
         return "fragments/dc-components/dc-screen-layout/dc-student-confirm.html::dc-student-confirm";
     }
 
     @ResponseBody
     @GetMapping("/validateStudentId/{studentId}")
     public String InsertStudent(@PathVariable String studentId, Model model) {
-        System.out.println(studentId);
         Student s = studentService.getStudentByStudentId(studentId);
         if (s != null) {
             return "exists";
@@ -122,15 +105,13 @@ public class StudentController {
     @GetMapping("/searchstudent")
     public String searchstudent(Model model)
     {
-        List<Student> students=studentService.listAll();
-        model.addAttribute("students",students);
+        model.addAttribute("students",studentService.listAll());
     	return "fragments/dc-components/dc-screen-layout/dc-student/dc-student-search.html::dc-student-search";
     }
     @GetMapping("/student/search/{keyword}")
     public String studentsearch(@PathVariable String keyword,Model model)
     {
-        List<Student> liststudents = studentService.listAll(keyword);
-        model.addAttribute("students", liststudents);
+        model.addAttribute("students", studentService.listAll());
         return "fragments/dc-components/dc-screen-layout/dc-student/dc-student-list.html::dc-student-list";
     }
     @PostMapping("/student/profile/{id}")

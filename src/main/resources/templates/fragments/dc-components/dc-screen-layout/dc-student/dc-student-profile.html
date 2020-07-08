@@ -19,32 +19,33 @@
             </ul>
             <div class="tab-content py-2">
                 <div id="tab1" class="tab-pane active">
-                    <h1 th:text="${student.name}" ></h1>
+                    <img src="..." class="rounded float-right" alt="Student Img" width="200" height="200" border="1">
+                    <h1 th:text="${student?.name}" ></h1>
                     <table class="table table-hover table-striped">
                         <tbody>
                         <tr>
-                            <th>Student Id</th><th th:text="${student.studentId}"></th>
+                            <th>Student Id</th><th th:text="${student?.studentId}"></th>
                         </tr>
                         <tr>
-                            <th>Gender</th><th th:text="${student.gender}"></th>
+                            <th>Gender</th><th th:text="${student?.gender}"></th>
                         </tr>
                         <tr>
-                            <th>Address</th><th th:text="${student.address}"></th>
+                            <th>Address</th><th th:text="${student?.address}"></th>
                         </tr>
                         <tr>
-                            <th>Parent Name</th><th th:text="${student.parent.name}"></th>
+                            <th>Parent Name</th><th th:text="${student?.parent?.name}"></th>
                         </tr>
                         <tr>
-                            <th>Phone</th><th th:text="${student.parent.phone}"></th>
+                            <th>Phone</th><th th:text="${student?.parent?.phone}"></th>
                         </tr>
                         <tr>
-                            <th>Blood Group</th><th th:text="${student.bloodGroup}"></th>
+                            <th>Blood Group</th><th th:text="${student?.bloodGroup}"></th>
                         </tr>
                         <tr>
-                            <th>Standard</th><th th:text="${student.grade.standard}"></th>
+                            <th>Standard</th><th th:text="${student?.grade?.standard}"></th>
                         </tr>
                         <tr>
-                            <th>Division</th><th th:text="${student.grade.division}"></th>
+                            <th>Division</th><th th:text="${student?.grade?.division}"></th>
                         </tr>
                         <tr>
                             <th>Class Teacher</th><th></th>
@@ -70,7 +71,7 @@
         $(".nav-tabs a").click(function () {
             $(this).tab('show');
         });
-    });
 </script>
+
 </body>
 </html>

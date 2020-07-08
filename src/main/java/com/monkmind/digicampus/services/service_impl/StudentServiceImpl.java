@@ -42,26 +42,6 @@ public class StudentServiceImpl implements StudentService {
     private final RegisterCommandToStudent registerCommandToStudent;
     private final StudentToRegisterCommand studentToRegisterCommand;
     private final UserService userService;
-    @Override
-    public Student addStudent(Student student) {
-//        addParent(student.getParent());
-		System.out.println(student.getParent().getPhone());
-		Parent p = parentRepository.findByPhone(student.getParent().getPhone()).orElse(null);
-		if(p!=null){
-			student.setParent(p);
-		}
-		
-        return studentRepository.save(student);
-    }
-
-    public void addParent(Parent parent){
-        Parent p = parentRepository.findByPhone(parent.getPhone()).orElse(null);
-        if(p==null){
-			parentRepository.save(parent);
-			
-		}
-
-    }
 
     @Override
 	public Student getStudentByStudentId(String student) {
@@ -73,14 +53,6 @@ public class StudentServiceImpl implements StudentService {
 	public void save(Student student) {
 		// TODO Auto-generated method stub
 		studentRepository.save(student);
-	}
-	
-	
-
-	@Override
-	public Student get(long id) {
-		// TODO Auto-generated method stub
-		return studentRepository.findById(id).get();
 	}
 
 	@Override
@@ -99,12 +71,13 @@ public class StudentServiceImpl implements StudentService {
 	@Transactional
 	public RegisterCommand saveRegisterCommand(RegisterCommand command) {
 		// TODO Auto-generated method stub
-		
 		Student detachedStudent=registerCommandToStudent.convert(command);
 		Parent p = parentRepository.findByPhone(detachedStudent.getParent().getPhone()).orElse(null);
 		if(p!=null){
 			detachedStudent.setParent(p);
 		}
+		long parentid = (long) Math.floor(Math.random() * 9000000L) + 100000L;
+		detachedStudent.getParent().setParentId(Long.toString(parentid));
 		Student savedStudent=studentRepository.save(detachedStudent);
 		User user=new User();
 		user.setLoginId(savedStudent.getParent().getParentId());
@@ -117,8 +90,15 @@ public class StudentServiceImpl implements StudentService {
 		studentuser.setPassword(Long.toString(password));
 		studentuser.setUsertype(UserType.STUDENT);
 		userService.saveUser(studentuser);
-		//log.debug("saved studentid :"+ savedStudent.getId());
 		return studentToRegisterCommand.convert(savedStudent) ;
+	}
+
+	@Override
+	@Transactional
+	public RegisterCommand updateRegisterCommand(RegisterCommand command){
+    	Student student=registerCommandToStudent.convert(command);
+    	Student saveStudent=studentRepository.save(student);
+    	return studentToRegisterCommand.convert(saveStudent);
 	}
 
    @Transactional
