@@ -7,12 +7,15 @@
 
 <body>
 <div th:fragment="dc-teacher-add">
-    <div class="container" style="min-width:80%" th:fragment="dc-teacher-form" id="teacher">
+    <div class="container" style="min-width:80%" th:fragment="dc-teacher-form" th:id="add-teacher">
         <h4 align="left" style="font-size: 32px">TeacherForm</h4>
         <div th:replace="fragments/dc-components/dc-dashboard-components/dc-breadcrumb/dc-breadcrumb.html::dc-breadcrumb(active_item='Add Teacher')"></div>
         <div class="dc-form-body" th:id="teacherconfirmbody">
             <div id="errorPanel" class="alert alert-danger" role="alert" style="display: none">
-                Mandatory fields cannot be empty
+                Mandatory fields cannot be empty!
+            </div>
+            <div class="alert alert-warning" role="alert">
+                Teacher ID should be unique for every Teacher!
             </div>
             <div class="alert alert-info" role="alert">
                 * Marked fields are mandatory

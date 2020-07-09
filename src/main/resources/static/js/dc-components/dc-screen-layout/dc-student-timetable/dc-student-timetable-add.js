@@ -13,7 +13,6 @@ $('#grade_input').change(function(){
             });
         }
     });
-
 })
 $(document).ready(function(){
     $(".nav-tabs a").click(function(e){
@@ -22,3 +21,18 @@ $(document).ready(function(){
         $(this).tab('show');
     });
 });
+$(document).ready(function(){
+    $("#timetablesubmit").click(function(e){
+        $.ajax({
+            method: "POST",
+            url: "/saveTimeTable",
+            data: $('#saveTimeTable').serialize(),
+            success: function(status){
+                if(status) {
+                    $("#dc-Student-Timetable").html(status);
+                }
+            }
+        });
+
+    })
+})

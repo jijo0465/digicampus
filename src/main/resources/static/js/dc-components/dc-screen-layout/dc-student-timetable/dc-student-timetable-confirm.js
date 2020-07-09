@@ -11,14 +11,13 @@ $(document).ready(function(){
         });
 
     })
-    $("#addanotherschema").click(function(e){
-        console.log("wekdad")
+    $("#addstudenttimetable").click(function(e){
         $.ajax({
             method: "GET",
-            url: "/addschemas",
+            url: "/addstudenttimetable",
             success: function(status){
                 if(status) {
-                    $("#dc-schema-body").html(status);
+                    $("#dc-studenttimetable-add").html(status);
                 }
             }
         });

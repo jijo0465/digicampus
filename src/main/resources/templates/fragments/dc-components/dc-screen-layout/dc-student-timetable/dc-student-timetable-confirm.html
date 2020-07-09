@@ -5,19 +5,19 @@
     <title>Confirm</title>
 </head>
 <body>
-<div class="container-fluid" style="min-width: 80%" th:fragment="dc-teacher-confirm" id="teacher-confirmpage">
+<div class="container-fluid" style="min-width: 80%" th:fragment="dc-student-timetable-confirm" id="student-timetable-confirmpage">
     <div  th:replace="fragments/dc-components/dc-form-component/dc-alert/dc-alert.html::dc-success-alert
-    (success_text='You have successfully added one new Teacher!')"></div>
+    (success_text='You have successfully added one new Student TimeTable...!')"></div>
     <div style="margin-top: 32px" class="btn-toolbar justify-content-center" role="toolbar" aria-label="Toolbar with button groups">
         <div class="btn-group mr-2" role="group" aria-label="First group">
             <button type="button" class="btn btn-secondary" th:id="back">Back to Home</button>
         </div>
 
         <div class="btn-group" role="group" aria-label="Third group">
-            <button type="button" class="btn btn-primary" th:id="addanotherteacher">Add another Teacher</button>
+            <button type="button" class="btn btn-primary" th:id="addstudenttimetable">Add another Student TimeTable</button>
         </div>
     </div>
-    <script th:src="@{js/dc-components/dc-screen-layout/dc-teacher/dc-teacher-confirm.js}">
+    <script th:src="@{js/dc-components/dc-screen-layout/dc-student-timetable/dc-student-timetable-confirm.js}">
     </script>
 </div>
 </body>

@@ -18,7 +18,7 @@ $(document).ready(function(){
             url: "/teacher",
             success: function(status){
                 if(status) {
-                    $("#dc-teacher-add").html(status);
+                    $("#add-teacher").html(status);
                 }
             }
         });
