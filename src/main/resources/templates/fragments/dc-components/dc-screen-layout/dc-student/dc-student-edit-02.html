@@ -6,13 +6,13 @@
 </head>
 <body>
 <div class="container dc-form-body" th:fragment="dc-student-edit-02" id="updatestudentid" >
-    <form th:action="@{/updatestudent/}" id="updatestudform" method="post" th:object="${studentbyid}">
+    <form th:action="@{/updatestudent/}" id="updatestudform" method="post" th:object="${command}">
         <h3>
             <small class="text-gray">Student Information</small>
         </h3>
         <br/>
         <div class="col-sm-10 ">
-<input type="hidden" th:field="*{id}">
+<input type="hidden" th:value="${studentbyid.id}" th:name="id">
             <div th:replace="fragments/dc-components/dc-form-component/dc-text-input/dc-text-input.html::dc-text-input(label='Admission No *',name='studentId',id='admissionNumber',
                         value='studentbyid.studentId',required=true,readonly=true)"></div>
         </div>
@@ -29,7 +29,7 @@
                 </div>
             </div>
             <div class="col-sm-5">
-                <div th:replace="fragments/dc-components/dc-form-component/dc-form-date/dc-form-date.html::dc-form-date(label='Date of Birth*',id='date',value='studentbyid.dateOfBirth',name='dateOfBirth', required=true)"></div>
+                <div th:replace="fragments/dc-components/dc-form-component/dc-form-date/dc-form-date.html::dc-form-date(label='Date of Birth*',id='date',value='studentbyid.dateOfBirth',name='dob', required=true)"></div>
             </div>
         </div>
         <div class="col-sm-10 ">
@@ -47,31 +47,33 @@
                 <div class="form-group row">
                      <label th:text="Standard" style="text-align: end;" class="col-sm-3 col-form-label"></label>
                      <div class="col dc-input">
-                         <select class="form-control" th:field="*{grade.id}" th:id="grade_input" th:required="true">
+                         <select class="form-control" th:name="gradeid.id" th:id="grade_input" th:required="true">
                              <option value="0">Select class</option>
                              <option th:each="gradeCommand : ${gradeList}" th:value="${gradeCommand.id}"
-                                     th:text="${gradeCommand.standard}+'  '+${gradeCommand.division}"></option>
+                                     th:text="${gradeCommand.standard}+'  '+${gradeCommand.division}"
+                                     th:selected="${gradeCommand}==${studentbyid.grade} ? true : false"></option>
                          </select>
                      </div>
+<!--                    <input type="text" th:value="s">-->
             </div>
         </div>
         <h3>
             <small class="text-gray">Parent Information</small>
         </h3><br/>
-        <input type="hidden" th:field="*{parent.id}">
+        <input type="hidden" th:value="${studentbyid.parent.id}" th:name="parentid.id">
         <!-- <input type="text" th:field = "${command.parentid.pname}"  class="form-control" > -->
         <div class="col-sm-10 ">
-            <div th:replace="fragments/dc-components/dc-form-component/dc-text-input/dc-text-input.html::dc-text-input(label='Parent Name',value='studentbyid.parent.name',name='parent.name',required=true)"></div>
+            <div th:replace="fragments/dc-components/dc-form-component/dc-text-input/dc-text-input.html::dc-text-input(label='Parent Name',value='studentbyid.parent.name',name='parentid.pname',required=true)"></div>
         </div>
         <div class="col-sm-10 ">
-            <div th:replace="fragments/dc-components/dc-form-component/dc-number-input/dc-number-input.html::dc-number-input(label='Phone *',id='phoneParent', value='studentbyid.parent.phone',name='parent.phone',required=true)"></div>
+            <div th:replace="fragments/dc-components/dc-form-component/dc-number-input/dc-number-input.html::dc-number-input(label='Phone *',id='phoneParent', value='studentbyid.parent.phone',name='parentid.pphone',required=true)"></div>
         </div>
         <div class="col-sm-10 ">
-            <div th:replace="fragments/dc-components/dc-form-component/dc-number-input/dc-number-input.html::dc-number-input(label='Phone Secondary',value='studentbyid.parent.altPhone',name='parent.altPhone')"></div>
+            <div th:replace="fragments/dc-components/dc-form-component/dc-number-input/dc-number-input.html::dc-number-input(label='Phone Secondary',value='studentbyid.parent.altPhone',name='parentid.paltPhone')"></div>
         </div>
         <div th:replace="fragments/dc-components/dc-form-component/dc-form-button/dc-form-button.html::dc-form-button(submit_id='studentupdate')"></div>
     </form>
-      <script th:src="@{js/dc-components/dc-screen-layout/dc-student-edit-02.js}">
+      <script th:src="@{js/dc-components/dc-screen-layout/dc-student/dc-student-edit-02.js}">
     </script>
     
 </div>

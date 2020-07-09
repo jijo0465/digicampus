@@ -9,14 +9,18 @@ import com.monkmind.digicampus.models.Grade;
 //import com.monkmind.digicampus.controllers.List;
 import com.monkmind.digicampus.models.Student;
 
+import javax.transaction.Transactional;
+
 public interface StudentService{
-    public Student addStudent(Student student);
-    public Student getStudentByStudentId(String student);
-    public void save(Student student);
-    public Student get(long id);
-	public List<Student> listAll(); 
+	public Student getStudentByStudentId(String student);
+	public void save(Student student);
+	public List<Student> listAll();
 	public void delete(long id);
 	Student findById(long l);
+
+	@Transactional
+	RegisterCommand updateRegisterCommand(RegisterCommand command);
+
 	RegisterCommand findCommandById(long l);
 
 	RegisterCommand saveRegisterCommand(RegisterCommand command);

@@ -25,10 +25,10 @@ public class AuthController {
         this.teacherService=teacherService;
     }
 
-    @GetMapping("/login")
+    @GetMapping({"/login","/"," ","/dashboard"})
     public String getLoginPage(Model model){
         model.addAttribute("logincommand",new LoginCommand());
-        return "fragments/dc-components/dc-screen-layout/dc-login";
+        return "fragments/dc-components/dc-screen-layout/dc-login/dc-login";
     }
 
     @PostMapping(path="/dashboard")
@@ -38,13 +38,12 @@ public class AuthController {
         if (dbUser!=null) {
 
             if (dbUser.getPassword().compareTo(logincommand.getPassword()) == 0){
-                //return "user";
-                //return "fragments/formbutton:: formbutton";
+
 
                 if(dbUser.getUsertype()==UserType.ADMIN) {
 
                     loginval=true;
-                    return "fragments/dc-components/dc-screen-layout/dc-dashboard.html";
+                    return "fragments/dc-components/dc-screen-layout/dc-dashboard/dc-dashboard";
                 }
                 else if(dbUser.getUsertype()==UserType.TEACHER) {
 
@@ -54,16 +53,16 @@ public class AuthController {
 
                     return "fragments/formbutton:: formbutton";
                 }
-                return "fragments/dc-components/dc-screen-layout/dc-login";
+                return "fragments/dc-components/dc-screen-layout/dc-login/dc-login";
             }
             else{
                 model.addAttribute("message","Invalid Password");
-                return "fragments/dc-components/dc-screen-layout/dc-login";
+                return "fragments/dc-components/dc-screen-layout/dc-login/dc-login";
             }
 
         }
         else {
-            return "fragments/dc-components/dc-screen-layout/dc-login";
+            return "fragments/dc-components/dc-screen-layout/dc-login/dc-login";
         }
     }
 
@@ -75,11 +74,11 @@ public class AuthController {
     {
         if(loginval==true)
         {
-            return "fragments/dc-components/dc-screen-layout/dc-dashboard.html";
+            return "fragments/dc-components/dc-screen-layout/dc-dashboard/dc-dashboard";
         }
         else
         {
-            return "fragments/dc-components/dc-screen-layout/dc-login";
+            return "fragments/dc-components/dc-screen-layout/dc-login/dc-login";
         }
     }
 

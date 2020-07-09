@@ -25,6 +25,7 @@ public class SubjectSchema extends BaseEntity{
 	@Column(name="schemaName")
 	private String schemaName;
 
+	@JsonIgnore
 	@ManyToMany
 	private Set<Subject> subjects;
 
@@ -37,7 +38,7 @@ public class SubjectSchema extends BaseEntity{
 	private Set<Student> student;
 
 	@JsonIgnore
-	@OneToOne
+	@OneToOne(cascade = CascadeType.ALL)
 	private StudentTimeTable studentTimetable;
 
 	

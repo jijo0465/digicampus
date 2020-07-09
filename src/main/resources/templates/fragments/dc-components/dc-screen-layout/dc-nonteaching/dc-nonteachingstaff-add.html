@@ -50,10 +50,10 @@
                 <div class="col-sm-10 ">
                     <div th:replace="fragments/dc-components/dc-form-component/dc-text-input/dc-text-input.html::dc-text-input(label='Designation *',name='Designation',id='tid',required=true)"></div>
                 </div>
-                <div th:replace="fragments/dc-components/dc-form-component/dc-form-button/dc-form-button.html::dc-form-button(label='Submit',submit_id='nonteachingsubmit')"></div>
+                <div th:replace="fragments/dc-components/dc-form-component/dc-form-button/dc-form-button.html::dc-form-button(label='Submit',submit_id='nonteachingsubmit',back_id='back')"></div>
             </form>
         </div>
-        <script th:src="@{js/dc-components/dc-screen-layout/dc-nonteachingstaff-add.js}">
+        <script th:src="@{js/dc-components/dc-screen-layout/dc-nonteaching/dc-nonteachingstaff-add.js}">
         </script>
     </div>
 </div>

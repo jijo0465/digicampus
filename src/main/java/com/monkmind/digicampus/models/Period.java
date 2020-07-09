@@ -34,7 +34,7 @@ public class Period extends BaseEntity{
 	private Time endingTime;
 
 	@JsonIgnore
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL)
 	private StudentTimeTable studentTimeTable;
 
 	@JsonIgnore
