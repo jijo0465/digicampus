@@ -46,7 +46,7 @@ public class SubjectSchemaController {
 	public String insertSchema(@ModelAttribute  SubjectSchema subjectSchema)
 	{
 		subjectSchemaService.save(subjectSchema);
-        return "fragments/dc-components/dc-screen-layout/dc-student-confirm.html::dc-student-confirm";
+        return "fragments/dc-components/dc-screen-layout/dc-subject-schema/dc-schema-confirm.html::dc-schema-confirm";
 	}
 	@GetMapping(path="edit/schema")
 	public String schemaClassWise(Model model)
