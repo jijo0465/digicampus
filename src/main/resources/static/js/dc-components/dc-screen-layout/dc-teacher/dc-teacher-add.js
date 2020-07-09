@@ -43,3 +43,17 @@ $(document).ready(function(){
                 $('#'+errorMessageElementId).text(errorMessage);
             });  
         });
+$(document).ready(function(){
+    $("#back").click(function(e){
+        $.ajax({
+            method: "GET",
+            url: "/mydashboard",
+            success: function(status){
+                if(status) {
+                    $("body").html(status);
+                }
+            }
+        });
+
+    })
+})
