@@ -50,10 +50,10 @@ public class StudenttimetableController {
 	    model.addAttribute("studentTimeTable", studentTimeTable);
 	    model.addAttribute("gradeList",gradeservice.listAll());
 	    model.addAttribute("subjectList",subjectService.findall());
-	    return "fragments/dc-components/dc-screen-layout/dc-student-timetable/dc-student-timetable-add.html::dc-schema-add";
+	    return "fragments/dc-components/dc-screen-layout/dc-student-timetable/dc-student-timetable-add.html::dc-student-timetable-add";
 	}
 
-	@RequestMapping("/saveTimeTable")
+	@PostMapping("/saveTimeTable")
 	public String saveTimeTable(@ModelAttribute StudentTimeTable studentTimeTable,Model model) {
 		//System.out.println("HIEHIHIHIEIHI");
 		for(Period p : studentTimeTable.getPeriods()){
@@ -65,10 +65,7 @@ public class StudenttimetableController {
 
 		}
 		studentTimetableService.save(studentTimeTable);
-//	 	System.out.println(studentTimetable.getPeriods().size());
-	   // StudentTimeTable timetable=studentTimetableService.save(studentTimetable);
-	//    model.addAttribute("studentTimetable",timetable);
-		return "fragments/dc-components/dc-screen-layout/dc-student-timetable/dc-student-timetable-add.html::dc-schema-add";
+		return "fragments/dc-components/dc-screen-layout/dc-student-timetable/dc-student-timetable-confirm.html::dc-student-timetable-confirm";
 	}
 	
 	

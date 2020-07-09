@@ -18,9 +18,9 @@
         <label> Password:</label>
         <input type="password" th:name='password'>
         <input type="submit" th:id="loginbutton" value="Login">
+        <strong th:text="${message}"></strong>
     </form>
 
 </div>
-<div th:text="${message}" class="text-center"></div>
 </body>
 </html>
