@@ -195,6 +195,7 @@ $(document).ready(function(){
 	})
 
 $("#searchnonteachingstaff").click(function(e){
+	console.log("hello");
 		e.preventDefault();
 		$.ajax({
 			method: "GET",
