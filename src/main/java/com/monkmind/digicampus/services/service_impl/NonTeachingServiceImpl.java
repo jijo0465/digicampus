@@ -11,6 +11,7 @@ import com.monkmind.digicampus.command.NonTeachingStaffCommand;
 import com.monkmind.digicampus.converters.NonTeachingStaffCommandToNonTeachingStaff;
 import com.monkmind.digicampus.converters.NonTeachingStaffToNonTeachingStaffCommand;
 import com.monkmind.digicampus.models.NonTeachingStaff;
+import com.monkmind.digicampus.models.Student;
 import com.monkmind.digicampus.models.Teacher;
 import com.monkmind.digicampus.repositories.NonTeachingRepository;
 import com.monkmind.digicampus.services.NonTeachinService;
@@ -75,6 +76,18 @@ public class NonTeachingServiceImpl implements NonTeachinService {
 		Optional<NonTeachingStaff> staffoptional=nonTeachingRepository.findById(id);
 		return staffoptional.get();
 	}
+
+	@Override
+	public List<NonTeachingStaff> listAll(String keyword) {
+		// TODO Auto-generated method stub
+		if (keyword != null||keyword !=" ") {
+            return nonTeachingRepository.search(keyword);
+        }
+		else{
+			return nonTeachingRepository.findAll();
+		}
+	}
+	
 
 	
 

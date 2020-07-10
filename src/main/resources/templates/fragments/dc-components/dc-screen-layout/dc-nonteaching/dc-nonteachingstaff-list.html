@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<div class="container dc-form-body" th:fragment="dc-nonteachingstaff-list">
+		<table style="width: 100%" class="table table-condensed">
+			<tr>
+				<th>Name</th>
+				<th>Phone Number</th>
+				<th>Gender</th>
+				<th>Date of Birth</th>
+				<th>StaffId</th>
+				<th>Category</th>
+				<th>Designation</th>
+				<th></th>
+
+			</tr>
+			<tr th:each="nonteachings : ${nonteachings}" th:if="${nonteachings.isDelete}==false">
+                
+                <td th:text="${nonteachings?.name}">
+               <td th:text="${nonteachings?.phone}">
+                <td th:text="${nonteachings?.gender}">
+               	<td th:text="${nonteachings?.dateOfBirth}">
+                <td th:text="${nonteachings?.staffId}">
+                <td th:text="${nonteachings?.category}">
+                <td th:text="${nonteachings?.designation}">
+          
+				<td><a th:href="@{'/deleted/'+ ${nonteachings.id}}"
+					onclick="return confirm('Are you sure want to delete this ?');"
+					id="delete">Delete</a></td>
+
+
+
+			</tr>
+		</table>
+
+	</div>
+</body>
+</html>

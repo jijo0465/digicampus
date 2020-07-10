@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<div class="container" th:fragment="dc-student-search" th:id="dc-form-body">
+<h4 align="left" style="font-size: 32px">SEARCH STAFF</h4>
+<div class="dc-form-body">
+<div th:replace="fragments/dc-components/dc-dashboard-components/dc-breadcrumb/dc-breadcrumb.html::
+			dc-breadcrumb(active_item='Search Student Details')"></div>
+    <form action="#" id="addstaffform" method="post">
+        <div class="col-sm-10">
+        <div class="form-group row">
+            <label style="text-align: end;" class="col-form-label col-sm-5">Enter Name/StaffId</label>
+            <div class="col dc-input">
+        <input type="text" class="form-control" oninput="myFunction()" id="search">
+            </div>
+        </div>
+        </div>
+    </form>
+    <div th:id="dc-search">
+        <table style="width:100%" class="table table-condensed">
+            <tr>
+                
+                <th>Name</th>
+                <th>Phone Number</th>
+                <th>Gender</th>
+                <th>Date of Birth</th>
+                <th>StaffId</th>
+                <th>Category</th>
+                <th>Designation</th>
+            </tr>
+            <tr th:each="nonteachings : ${nonteachings}" th:if="${nonteachings.isDelete}==false">
+                
+                <td th:text="${nonteachings?.name}">
+               <td th:text="${nonteachings?.phone}">
+                <td th:text="${nonteachings?.gender}">
+               	<td th:text="${nonteachings?.dateOfBirth}">
+                <td th:text="${nonteachings?.staffId}">
+                <td th:text="${nonteachings?.category}">
+                <td th:text="${nonteachings?.designation}">
+            </tr>
+        </table>
+    </div>
+
+    <script th:src="@{js/dc-components/dc-screen-layout/dc-nonteaching/dc-nonteachingstaff-search.js}">
+    </script>
+ </div>
+</div>
+</body>
+</html>

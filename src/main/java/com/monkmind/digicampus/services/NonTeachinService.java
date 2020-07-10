@@ -5,6 +5,7 @@ import java.util.List;
 import com.monkmind.digicampus.command.NonTeachingStaffCommand;
 import com.monkmind.digicampus.models.NonTeachingStaff;
 /*Anand A B 18/05/2020*/
+import com.monkmind.digicampus.models.Student;
 
 
 public interface NonTeachinService {
@@ -17,4 +18,5 @@ public interface NonTeachinService {
      NonTeachingStaffCommand saveNonTeachingStaffCommand(NonTeachingStaffCommand staffcommand);
      public NonTeachingStaff getNonTeachingStaffByStaffId(String staffid);
 	//public NonTeachingStaff getByStaffId(Long long1);
+     public List<NonTeachingStaff> listAll(String keyword);
 }

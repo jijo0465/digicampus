@@ -70,5 +70,19 @@ public class NonTeachingController {
 
 	}
 
+	 @GetMapping("/searchnonteaching")
+	    public String searchNonteaching(Model model)
+	    {
+	        model.addAttribute("nonteachings",nonteachingservice.listAll());
+	    	return "fragments/dc-components/dc-screen-layout/dc-nonteaching/dc-nonteachingstaff-search.html::dc-nonteachingstaff-search";
+	    }
+
+	 @GetMapping("/nonteachingstaff/search/{keyword}")
+	    public String nonteachingSearch(@PathVariable String keyword,Model model)
+	    {
+	        model.addAttribute("nonteachings", nonteachingservice.listAll(keyword));
+	        return "fragments/dc-components/dc-screen-layout/dc-nonteaching/dc-nonteachingstaff-list.html::dc-nonteachingstaff-list";
+	    }
+	    
 
 }
