@@ -45,7 +45,7 @@ public class StudentController {
     @PostMapping(path="/addstudent")
     public String Save(@ModelAttribute RegisterCommand command, Model model) {
         studentService.saveRegisterCommand(command);
-        return "fragments/dc-components/dc-screen-layout/dc-student-confirm.html::dc-student-confirm";
+        return "fragments/dc-components/dc-screen-layout/dc-student/dc-student-confirm.html::dc-student-confirm";
     }
    
 
