@@ -40,8 +40,6 @@
                 <td th:text="${student?.parent?.phone}">
                 <td th:text="${student?.gender}">
                 <td th:text="${student?.dateOfBirth}">
-                <td><a th:href="@{'/delete/'+ ${student.id}}" onclick="return confirm('Are you sure want to delete this ?');" id="delete">Delete</a></td>
-
             </tr>
         </table>
     </div>

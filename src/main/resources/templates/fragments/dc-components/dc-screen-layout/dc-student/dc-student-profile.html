@@ -15,45 +15,58 @@
         <div class="col-12 mx-auto">
             <ul class="nav nav-tabs small justify-content-end" role="tablist">
 
-                <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#tab1" role="tab">Basic Info</a></li>
-                <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#tab2" role="tab">School Bus Details</a></li>
+                <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#tab1" role="tab">Basic Info</a>
+                </li>
+                <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#tab2" role="tab">School Bus
+                    Details</a></li>
                 <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#tab3" role="tab">Fee Details</a></li>
             </ul>
             <div class="tab-content py-2">
                 <div id="tab1" class="tab-pane active">
-                    <img src="images/student_img.png" class="rounded float-right py-2" alt="Student Img" width="200" height="200" border="1">
-                    <h1 th:text="${student?.name}" ></h1>
+                    <img src="images/student_img.png" class="rounded float-right py-2" alt="Student Img" width="200"
+                         height="200" border="1">
+                    <h1 th:text="${student?.name}"></h1>
                     <table class="table table-hover table-striped ">
                         <tbody>
                         <tr>
-                            <th>Student Id</th><th th:text="${student?.studentId}"></th>
+                            <th>Student Id</th>
+                            <th th:text="${student?.studentId}"></th>
                         </tr>
                         <tr>
-                            <th>Gender</th><th th:text="${student?.gender}"></th>
+                            <th>Gender</th>
+                            <th th:text="${student?.gender}"></th>
                         </tr>
                         <tr>
-                            <th>Address</th><th th:text="${student?.address}"></th>
+                            <th>Address</th>
+                            <th th:text="${student?.address}"></th>
                         </tr>
                         <tr>
-                            <th>Parent Name</th><th th:text="${student?.parent?.name}"></th>
+                            <th>Parent Name</th>
+                            <th th:text="${student?.parent?.name}"></th>
                         </tr>
                         <tr>
-                            <th>Phone</th><th th:text="${student?.parent?.phone}"></th>
+                            <th>Phone</th>
+                            <th th:text="${student?.parent?.phone}"></th>
                         </tr>
                         <tr>
-                            <th>Blood Group</th><th th:text="${student?.bloodGroup}"></th>
+                            <th>Blood Group</th>
+                            <th th:text="${student?.bloodGroup}"></th>
                         </tr>
                         <tr>
-                            <th>Standard</th><th th:text="${student?.grade?.standard}"></th>
+                            <th>Standard</th>
+                            <th th:text="${student?.grade?.standard}"></th>
                         </tr>
                         <tr>
-                            <th>Division</th><th th:text="${student?.grade?.division}"></th>
+                            <th>Division</th>
+                            <th th:text="${student?.grade?.division}"></th>
                         </tr>
                         <tr>
-                            <th>Class Teacher</th><th></th>
+                            <th>Class Teacher</th>
+                            <th></th>
                         </tr>
                         <tr>
-                            <th>Schema</th><th th:text="${student?.subjectschema?.schemaName}"></th>
+                            <th>Schema</th>
+                            <th th:text="${student?.subjectschema?.schemaName}"></th>
                         </tr>
                         </tbody>
                     </table>
@@ -65,16 +78,13 @@
                     <h1>Fee Details</h1>
                 </div>
             </div>
-                </div>
-            </div>
-
         </div>
-<!--<script th:inline="javascript">-->
-<!--    $(document).ready(function() {-->
-<!--        $(".nav-tabs a").click(function () {-->
-<!--            $(this).tab('show');-->
-<!--        });-->
-<!--</script>-->
-
+    </div>
+    <hr class="solid">
+    <input type="hidden" th:value="${student.id}" th:id="studentid">
+    <p  class="text-right mr-5" th:id="removestudent"><a href="#" onclick="return confirm('Are you sure want to delete this ?');">Remove Student</a></p>
+    <script th:src="@{js/dc-components/dc-screen-layout/dc-student/dc-student-profile.js}">
+    </script>
+</div>
 </body>
 </html>

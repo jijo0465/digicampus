@@ -17,7 +17,7 @@ public interface StudentService{
 	public List<Student> listAll();
 	public void delete(long id);
 	Student findById(long l);
-
+	public void isDelete(Long id);
 	@Transactional
 	RegisterCommand updateRegisterCommand(RegisterCommand command);
 

@@ -17,7 +17,7 @@ import org.springframework.stereotype.Repository;
 public interface StudentRepository extends CrudRepository<Student,Long> {
 
 	Optional<Student> findByStudentId(String student);
-	Optional<Student> findById(Long student);
+	//Optional<Student> findById(Long student);
 	List<Student> findAll();
 	//void save(RegisterCommand registercommand);
 	List<Student> findByGrade(Grade grade);
@@ -26,4 +26,5 @@ public interface StudentRepository extends CrudRepository<Student,Long> {
 	            + " OR p.address LIKE ?1%"
 	            + " OR p.studentId LIKE ?1%")
 	 public List<Student> search(String keyword);
+
 }

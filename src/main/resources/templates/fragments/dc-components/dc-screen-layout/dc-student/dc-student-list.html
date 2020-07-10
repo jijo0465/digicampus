@@ -15,8 +15,6 @@
             <th>Gender</th>
             <th>Date of Birth</th>
             <th></th>
-            <th></th>
-            <th></th>
         </tr>
         <tr th:each="student : ${students}" th:if="${student.isDelete}==false">
             <td th:text="${student.studentId}">
@@ -26,8 +24,6 @@
             <td th:text="${student?.gender}">
             <td th:text="${student?.dateOfBirth}">
             <td><a href="#" th:id="'view'+${student?.id}">View</a></td>
-            <td><a th:href="@{'/delete/'+ ${student.id}}" onclick="return confirm('Are you sure want to delete this ?');" id="delete">Delete</a></td>
-
         </tr>
     </table>
     <script th:src="@{js/dc-components/dc-screen-layout/dc-student/dc-student-list.js}">
