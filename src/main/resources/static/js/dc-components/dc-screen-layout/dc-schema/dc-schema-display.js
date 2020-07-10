@@ -5,7 +5,6 @@ $(document).ready(function(){
             ID.push(this.id);
         }
     });
-    console.log(ID);
     ID.forEach(myFunction);
     function myFunction(value)
     {

@@ -12,7 +12,6 @@ $(document).ready(function(){
 
     })
     $("#addanotherteacher").click(function(e){
-        console.log("wekdad")
         $.ajax({
             method: "GET",
             url: "/teacher",

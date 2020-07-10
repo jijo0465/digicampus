@@ -12,7 +12,6 @@ $(document).ready(function(){
 
     })
     $("#editanotherteacher").click(function(e){
-        console.log("wekdad")
         $.ajax({
             method: "GET",
             url: "/edit/teacher",

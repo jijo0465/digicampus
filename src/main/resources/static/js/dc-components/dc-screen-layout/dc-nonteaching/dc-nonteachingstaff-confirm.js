@@ -12,13 +12,12 @@ $(document).ready(function(){
 
     })
     $("#addanotherstaff").click(function(e){
-        console.log("wekdad")
         $.ajax({
             method: "GET",
             url: "/addnonteaching",
             success: function(status){
                 if(status) {
-                    $("#dc-nonteachingstaff-add").html(status);
+                    $("#teacher").html(status);
                 }
             }
         });

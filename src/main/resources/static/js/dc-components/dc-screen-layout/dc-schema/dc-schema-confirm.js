@@ -12,7 +12,6 @@ $(document).ready(function(){
 
     })
     $("#addanotherschema").click(function(e){
-        console.log("wekdad")
         $.ajax({
             method: "GET",
             url: "/addschemas",
