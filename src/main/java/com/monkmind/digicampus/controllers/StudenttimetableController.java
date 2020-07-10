@@ -112,6 +112,7 @@ public class StudenttimetableController {
 					System.out.println(subject.getName());
 				}
 			}
+			
 		}
 		return("/index");
 	}*/

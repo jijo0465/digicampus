@@ -30,7 +30,7 @@ public class NonTeachingController {
 	@PostMapping(path="/nonteachingstaff")
 	public String createnonteaching(@ModelAttribute NonTeachingStaffCommand nonTeachingStaffCommand,Model model) {
 		nonteachingservice.saveNonTeachingStaffCommand(nonTeachingStaffCommand);
-		return "fragments/dc-components/dc-screen-layout/dc-student-confirm.html::dc-student-confirm";
+		return "fragments/dc-components/dc-screen-layout/dc-nonteaching/dc-nonteachingstaff-confirm.html::dc-nonteaching-confirm";
 	}
 
 	@GetMapping("/nonteachingdisplay")
