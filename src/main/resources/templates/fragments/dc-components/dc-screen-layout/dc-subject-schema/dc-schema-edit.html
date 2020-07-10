@@ -7,7 +7,7 @@
 
 <body>
 <div th:fragment="dc-schemas-add">
-    <div class="container" style="min-width:80%" th:fragment="dc-schema-edit" >
+    <div class="container" style="min-width:80%" th:fragment="dc-schema-edit">
         <h4 align="left" style="font-size: 32px">SCHEME OF STUDIES</h4>
         <div th:replace="fragments/dc-components/dc-dashboard-components/dc-breadcrumb/dc-breadcrumb.html::dc-breadcrumb(active_item='Edit Schemas')"></div>
         <div class="dc-form-body" id="dc-schema-add">
@@ -17,7 +17,7 @@
             <div class="alert alert-info" role="alert">
                 * Marked fields are mandatory
             </div>
-            <form  th:action="@{/updateschema}" id="addschema" method="post" th:object="${subjectSchema}">
+            <form th:action="@{/updateschema}" id="addschema" method="post" th:object="${subjectSchema}">
                 <div class="col-sm-10 ">
                     <div th:replace="fragments/dc-components/dc-form-component/dc-text-input/dc-text-input.html::dc-text-input
                     (label='Schema Name *',name='schemaName',id='name',value='subjectSchema.schemaName',required=true)"></div>
@@ -35,48 +35,24 @@
                         </div>
                     </div>
                 </div>
-                 <input type="hidden" th:field="*{id}">
+                <input type="hidden" th:field="*{id}">
                 <div class="col-sm-10">
-                    <div th:replace="fragments/dc-components/dc-form-component/dc-form-subject-list/dc-form-subject-list.html::dc-subject-list
-                    (label='Subject 1 *',options='subjectList',index='id',text='name',
-                    name='subjects',subtxt='subjectId',group='GROUP_L',subject='subjectSchema.subject1.name',required=true)"></div>
+                    <span th:each="subject,iterStat : ${subjectSchema.subjects}">
+ <div class="form-group row">
+        <label style="text-align: end;" class="col-sm-3 col-form-label" th:text="Subject"></label>
+        <div class="col dc-input">
+            <select class="form-control ui fluid search dropdown" th:name="subjects">
+                <option value="0">select</option>
+                <option th:each="option : ${subjectList}"
+                        th:value="${option.id}"
+                        th:text="${option.name}+' '+${option.subjectId}"
+                        th:selected="${subject.name}==${option.name} ? true : false"></option>
+            </select>
+            <!--             th:if="${option.group}==${T(com.monkmind.digicampus.models.SubjectGroup).}"-->
+        </div>
+    </div>
 
-                </div>
-                <div class="col-sm-10">
-                    <div th:replace="fragments/dc-components/dc-form-component/dc-form-subject-list/dc-form-subject-list.html::dc-subject-list
-                    (label='Subject 2 *',options='subjectList',index='id',text='name',
-                    name='subjects',subtxt='subjectId',group='GROUP_S',subject='subjectSchema.subject2.name',required=true)"></div>
-
-                </div>
-                <div class="col-sm-10">
-                    <div th:replace="fragments/dc-components/dc-form-component/dc-form-subject-list/dc-form-subject-list.html::dc-subject-list
-                    (label='Subject 3 *',options='subjectList',index='id',text='name',
-                    name='subjects',subtxt='subjectId',group='GROUP_S',subject='subjectSchema.subject3.name',required=true)"></div>
-
-                </div>
-                <div class="col-sm-10">
-                    <div th:replace="fragments/dc-components/dc-form-component/dc-form-subject-list/dc-form-subject-list.html::dc-subject-list
-                    (label='Subject 4 *',options='subjectList',index='id',text='name',
-                    name='subjects',subtxt='subjectId',group='GROUP_S',subject='subjectSchema.subject4.name',required=true)"></div>
-
-                </div>
-                <div class="col-sm-10">
-                    <div th:replace="fragments/dc-components/dc-form-component/dc-form-subject-list/dc-form-subject-list.html::dc-subject-list
-                    (label='Subject 5 *',options='subjectList',index='id',text='name',
-                    name='subjects',subtxt='subjectId',group='GROUP_S',subject='subjectSchema.subject5.name',required=true)"></div>
-
-                </div>
-                <div class="col-sm-10">
-                    <div th:replace="fragments/dc-components/dc-form-component/dc-form-subject-list/dc-form-subject-list.html::dc-subject-list
-                    (label='Subject 6 *',options='subjectList',index='id',text='name',
-                    name='subjects',subtxt='subjectId',group='GROUP_S',subject='subjectSchema.subject6.name',required=true)"></div>
-
-                </div>
-                <div class="col-sm-10">
-                    <div th:replace="fragments/dc-components/dc-form-component/dc-form-subject-list/dc-form-subject-list.html::dc-subject-list
-                    (label='Subject 7 *',options='subjectList',index='id',text='name',
-                    name='subjects',subtxt='subjectId',group='GROUP_S',subject='subjectSchema.subject7.name',required=true)"></div>
-
+        </span>
                 </div>
 
 

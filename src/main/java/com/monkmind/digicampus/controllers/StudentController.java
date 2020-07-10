@@ -93,11 +93,9 @@ public class StudentController {
     }
 
 
-    @GetMapping("/delete/{id}")
+    @GetMapping("student/delete/{id}")
     public String deleteStudent(@PathVariable Long id, Model model) {
-        Student student=studentService.findById(id);
-        student.setIsDelete(true);
-        studentService.save(student);
+        studentService.isDelete(id);
         return "redirect:/mydashboard";
 
     }
