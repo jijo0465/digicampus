@@ -7,7 +7,7 @@ $(document).ready(function(){
             success: function(status){
                 if(status) {
                     console.log(status);
-                    $("#updateteacherbody").html(status)
+                    $("#formBody").html(status)
                 }
             }
         });

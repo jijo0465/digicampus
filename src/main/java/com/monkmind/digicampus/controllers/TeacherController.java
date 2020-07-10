@@ -57,9 +57,7 @@ public class TeacherController {
 	@PostMapping(path="/updateteacher")
 	public String Insertteacher(@ModelAttribute Teacher teacher,Model model) {
 	    teacherservice.save(teacher);
-
-
-	    return "fragments/dc-components/dc-screen-layout/dc-teacher/dc-teacher-confirm.html::dc-teacher-confirm";
+	    return "fragments/dc-components/dc-screen-layout/dc-teacher/dc-teacher-edit-confirm.html::dc-teacher-edit-confirm";
 
 	}
 	
