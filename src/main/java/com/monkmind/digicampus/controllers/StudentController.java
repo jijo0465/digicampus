@@ -78,7 +78,7 @@ public class StudentController {
     @PostMapping(path="/updatestudent")
     public String UpdateStudent(@ModelAttribute RegisterCommand command, Model model) {
         studentService.updateRegisterCommand(command);
-        return "fragments/dc-components/dc-screen-layout/dc-student-confirm.html::dc-student-confirm";
+        return "fragments/dc-components/dc-screen-layout/dc-student/dc-student-edit-confirm.html::dc-student-edit-confirm";
     }
 
     @ResponseBody
