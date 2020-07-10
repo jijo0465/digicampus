@@ -26,7 +26,7 @@ $(document).ready(function(){
                     data: $('#nonteachingstaff').serialize(),
                     success: function(status){
                         if(status) {
-                           $(".body").html(status)
+                           $(".dc-form-body").html(status)
                         }
                     }
                 });

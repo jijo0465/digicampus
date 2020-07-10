@@ -2,7 +2,6 @@ $( document ).ready(function() {
     $('#phoneParent_info').text('Previously entered numbers are validated');
     $('#grade_input').change(function(){
         var tcid=$(this).val();
-        console.log(tcid);
         $.ajax({
             method: "GET",
             url: "/classwiseschema/"+$("#grade_input").val(),

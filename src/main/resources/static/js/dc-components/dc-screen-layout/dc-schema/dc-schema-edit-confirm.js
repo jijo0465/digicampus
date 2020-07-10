@@ -11,13 +11,13 @@ $(document).ready(function(){
         });
 
     })
-    $("#editanotherstudent").click(function(e){
+    $("#editanotherschema").click(function(e){
         $.ajax({
             method: "GET",
-            url: "/edit/student",
+            url: "/schema/edit/"+schemaid",
             success: function(status){
                 if(status) {
-                    $("#student").html(status);
+                    $("#dc-schema-body").html(status);
                 }
             }
         });
