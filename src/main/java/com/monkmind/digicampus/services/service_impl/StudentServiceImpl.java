@@ -32,7 +32,6 @@ import javax.transaction.Transactional;
 //import org.apache.commons.logging.Log;
 //import org.hibernate.validator.internal.util.logging.Log;
 import org.springframework.stereotype.Service;
-//import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @AllArgsConstructor
@@ -136,5 +135,11 @@ public class StudentServiceImpl implements StudentService {
 		else{
 			return studentRepository.findAll();
 		}
+	}
+	@Override
+	public void isDelete(Long id){
+    	Optional<Student> student=studentRepository.findById(id);
+    	student.get().setIsDelete(Boolean.TRUE);
+    	studentRepository.save(student.get());
 	}
 }
