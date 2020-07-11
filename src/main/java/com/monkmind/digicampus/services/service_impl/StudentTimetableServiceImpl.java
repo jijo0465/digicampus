@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
+import com.monkmind.digicampus.models.SubjectSchema;
 import org.springframework.stereotype.Service;
 
 import com.monkmind.digicampus.command.StudentTimeTableCommand;
@@ -57,6 +58,10 @@ public class StudentTimetableServiceImpl implements StudentTimetableService{
 		return studentTimeTableToStudentTimeTableCommand.convert(savedStudentTimeTable) ;
 	}
 
+	@Override
+	public StudentTimeTable findBySchemaId(SubjectSchema id) {
+		return studenttimetableRepository.findBySubjectschema(id);
+	}
 
 
 	@Override

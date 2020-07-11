@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Subject Schema Edit</title>
+</head>
+<body>
+<div class="container dc-form-body" th:fragment="dc-student-timetable" th:id="dc-edit-schema">
+    <input type="text" th:value="${studentTimetable.subjectschema.schemaName}"><br>
+<!--            <tr th:each="schemas : ${schemaList}">-->
+<!--                <td th:text="${schemas?.schemaName}">-->
+<!--                <td th:text="${schemas?.grade?.standard}">-->
+<!--                <td>-->
+       <span th:each="period,iterStat : ${studentTimetable.periods}">
+           <input type="text" th:value="${period.weekDay}"><input type="text" th:value="${period.subject.name}"><br>
+        <span/>
+<!--        </span>-->
+<!--                </td>-->
+<!--                <input type="hidden" th:value="${schemas.id}">-->
+<!--                <td><a href="#" th:id="'schemaedit'+${schemas?.id}">Edit</a></td>-->
+<!--                <td><a th:href="@{'/deleted/'+ ${schemas.id}}" onclick="return confirm('Are you sure want to delete this ?');" id="delete">Delete</a></td>-->
+<!--            </tr>-->
+
+
+        <script th:src="@{js/dc-components/dc-screen-layout/dc-schema/dc-schema-display.js}">
+        </script>
+
+</div>
+</body>
+</html>

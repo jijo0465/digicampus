@@ -74,7 +74,7 @@ public class NonTeachingController {
 	    public String searchNonteaching(Model model)
 	    {
 	        model.addAttribute("nonteachings",nonteachingservice.listAll());
-	    	return "fragments/dc-components/dc-screen-layout/dc-nonteaching/dc-nonteachingstaff-search.html::dc-nonteachingstaff-search";
+	    	return "fragments/dc-components/dc-screen-layout/dc-nonteaching/dc-nonteachingstaff-search.html::dc-nonteaching-search";
 	    }
 
 	 @GetMapping("/nonteachingstaff/search/{keyword}")

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>dc-student-timetable</title>
+</head>
+<body>
+<div class="container" th:fragment="dc-student-timetable-display" th:id="dc-studenttimetable-display">
+    <h4 align="left" style="font-size: 32px">STUDENT TIMETABLE</h4>
+    <div th:replace="fragments/dc-components/dc-dashboard-components/dc-breadcrumb/dc-breadcrumb.html::dc-breadcrumb(active_item='Display Timetable')"></div>
+    <div class="dc-form-body" id="dc-Student-Timetable">
+        <div id="errorPanel" class="alert alert-danger" role="alert" style="display: none">
+            Mandatory fields cannot be empty
+        </div>
+        <div class="alert alert-info" role="alert">
+            * Marked fields are mandatory
+        </div>
+        <form  id="saveTimeTable" method="post" th:object="${studentTimeTable}">
+            <div class="col-sm-10 ">
+                <div class="form-group row">
+                    <label th:text="Standard" style="text-align: end;" class="col-sm-3 col-form-label"></label>
+                    <div class="col dc-input">
+                        <select class="form-control" th:id="grade_input" th:required="true" th:name="grade">
+                            <option value="0">Select class</option>
+                            <option th:each="gradeCommand : ${gradeList}" th:value="${gradeCommand.id}"
+                                    th:text="${gradeCommand.standard}+'  '+${gradeCommand.division}"></option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label th:text="Schema" style="text-align: end;" class="col-sm-3 col-form-label"></label>
+                    <div class="col dc-input">
+                        <select class="form-control" th:id="schema_input" th:required="true" th:name="subjectschema">
+                            <option value="0">Select Schema</option>
+                        </select>
+                    </div>
+                </div>
+
+            </div>
+
+        </form>
+        <div th:id="displaytimetable">
+        </div>
+    </div>
+    <script th:src="@{js/dc-components/dc-screen-layout/dc-student-timetable/dc-student-timetable-display.js}">
+    </script>
+</div>
+
+
+</body>
+</html>
