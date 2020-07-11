@@ -5,24 +5,59 @@
     <title>Subject Schema Edit</title>
 </head>
 <body>
-<div class="container dc-form-body" th:fragment="dc-student-timetable" th:id="dc-edit-schema">
-    <input type="text" th:value="${studentTimetable.subjectschema.schemaName}"><br>
-<!--            <tr th:each="schemas : ${schemaList}">-->
-<!--                <td th:text="${schemas?.schemaName}">-->
-<!--                <td th:text="${schemas?.grade?.standard}">-->
-<!--                <td>-->
-       <span th:each="period,iterStat : ${studentTimetable.periods}">
-           <input type="text" th:value="${period.weekDay}"><input type="text" th:value="${period.subject.name}"><br>
-        <span/>
-<!--        </span>-->
-<!--                </td>-->
-<!--                <input type="hidden" th:value="${schemas.id}">-->
-<!--                <td><a href="#" th:id="'schemaedit'+${schemas?.id}">Edit</a></td>-->
-<!--                <td><a th:href="@{'/deleted/'+ ${schemas.id}}" onclick="return confirm('Are you sure want to delete this ?');" id="delete">Delete</a></td>-->
-<!--            </tr>-->
+<div class="container dc-form-body" th:fragment="dc-student-timetable" th:id="dc-update-schema">
+    <form method="post" th:object="${studentTimetable}" th:id="timetableupdate">
+        <input type="hidden" th:field="*{id}">
+        <input type="hidden" th:field="*{subjectschema}">
+    <ul class="nav nav-tabs justify-content-center">
+        <li class="nav-item">
+            <a class="nav-link active" href="#MONDAY">Monday</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#TUESDAY">Tuesday</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#WEDNESDAY">Wednesday</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#THURSDAY">Thursday</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#FRIDAY">Friday</a>
+        </li>
+    </ul>
+    <div class="tab-content py-3">
+        <th:block th:each="day, dayStat : ${weekDays}">
+            <div th:id="${day}" class="tab-pane">
+                <div>
+                    <tr th:each="i : ${#numbers.sequence(0, config.maxPeriod - 1)}">
+                        <td>
 
+                            <div class="col-sm-8 ">
+                                <div class="form-group row" th:with="idx = ${dayStat.index * config.maxPeriod + i}, periodNo=${i+1}">
+                                    <input type="hidden" th:field="*{periods[__${idx}__].id}">
+                                    <input type="hidden" th:field="*{periods[__${idx}__].weekDay}">
+                                    <input type="hidden" th:field="*{periods[__${idx}__].studentTimeTable}">
+                                    <label th:text="Period +' '+${periodNo}" style="text-align: end;" class="col-sm-3 col-form-label"></label>
+                                    <div class="col dc-input">
+                                        <select class="form-control" th:id="subject_input" th:required="true" th:field="*{periods[__${idx}__].subject}">
+                                            <option value="0">Select Subject</option>
+                                            <option th:each="subject : ${subjectList}" th:value="${subject.id}"
+                                                    th:text="${subject.name}+'  '+${subject.subjectId}"></option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </div>
+            </div>
+        </th:block>
+    </div>
+        <div th:replace="fragments/dc-components/dc-form-component/dc-form-button/dc-form-button.html::dc-form-button(submit_id='timetablesubmit')">
+    </form>
 
-        <script th:src="@{js/dc-components/dc-screen-layout/dc-schema/dc-schema-display.js}">
+        <script th:src="@{js/dc-components/dc-screen-layout/dc-student-timetable/dc-student-timetable-edit-02.js}">
         </script>
 
 </div>
