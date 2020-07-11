@@ -218,6 +218,18 @@ $("#searchnonteachingstaff").click(function(e){
 			}
 		});
 	})
+	$("#displaystudenttimetable").click(function(e){
+		e.preventDefault();
+		$.ajax({
+			method: "GET",
+			url: "/display/studenttimetable",
+			success: function(status){
+				if(status) {
+					$("#results").html(status)
+				}
+			}
+		});
+	})
 })
 
 

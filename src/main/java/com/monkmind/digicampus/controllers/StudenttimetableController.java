@@ -76,37 +76,23 @@ public class StudenttimetableController {
 	}
 	
 	@PostMapping(path = "edit/studenttimetable/{id}")
-	public String InsertTimetable(@PathVariable SubjectSchema id,Model model) {
-	 	StudentTimeTable studentTimeTable=studentTimetableService.findBySchemaId(id);
-	 	System.out.println(studentTimeTable.getSubjectschema().getSchemaName());
+	public String updateTimetable(@PathVariable SubjectSchema id,Model model) {
 		model.addAttribute("studentTimetable",studentTimetableService.findBySchemaId(id));
 	    return "fragments/dc-components/dc-screen-layout/dc-student-timetable/dc-student-timetable-edit02::dc-student-timetable";
 	}
 
-	@RequestMapping("/timedele/{id}")
-	public String deleteStudentTimetable(@PathVariable Long id,Model model)
+	@RequestMapping("/display/studenttimetable")
+	public String displayTimetable(Model model)
 	{
-		studentTimetableService.delete(id);
-		return "redirect:/";
-		
+		model.addAttribute("gradeList",gradeservice.listAll());
+		model.addAttribute("subjectList",subjectService.findall());
+		return "fragments/dc-components/dc-screen-layout/dc-student-timetable/dc-student-timetable-display::dc-student-timetable-display";
 	}
-	/*@RequestMapping("/timetable")
-	public String outtimetable() {
-		Long id=(long) 2;
-		Grade savedgrade=gradeservice.getGradeById(id);
-		List<StudentTimeTable> timetable=studentTimetableService.findByGrade(savedgrade);
-		for (StudentTimeTable studentTimeTable : timetable) {
-			System.out.println(studentTimeTable.getDay());
-			List<Period> periods=periodService.getByStudentTimeTable(studentTimeTable);
-			for (Period period : periods) {
-				System.out.println(period.getStartngTime());
-				List<Subject> subjects=subjectService.getByPeriodId(period);
-				for (Subject subject : subjects) {
-					System.out.println(subject.getName());
-				}
-			}
-			
-		}
-		return("/index");
-	}*/
+	@PostMapping(path = "display/studenttimetable/{id}")
+	public String viewTimetable(@PathVariable SubjectSchema id,Model model) {
+		model.addAttribute("studentTimetable",studentTimetableService.findBySchemaId(id));
+		return "fragments/dc-components/dc-screen-layout/dc-student-timetable/dc-student-timetable-display02::dc-student-display";
+	}
+
+
 }
