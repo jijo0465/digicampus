@@ -77,8 +77,27 @@ public class StudenttimetableController {
 	
 	@PostMapping(path = "edit/studenttimetable/{id}")
 	public String updateTimetable(@PathVariable SubjectSchema id,Model model) {
-		model.addAttribute("studentTimetable",studentTimetableService.findBySchemaId(id));
+		StudentTimeTable studentTimeTable=studentTimetableService.findBySchemaId(id);
+		ArrayList<WeekDay> weekDays = new ArrayList<>();
+		weekDays.add(WeekDay.MONDAY);
+		weekDays.add(WeekDay.TUESDAY);
+		weekDays.add(WeekDay.WEDNESDAY);
+		weekDays.add(WeekDay.THURSDAY);
+		weekDays.add(WeekDay.FRIDAY);
+		model.addAttribute("weekDays",weekDays);
+		model.addAttribute("config",new TimeTableConfig());
+		model.addAttribute("subjectList",subjectService.findall());
+		model.addAttribute("studentTimetable",studentTimeTable);
 	    return "fragments/dc-components/dc-screen-layout/dc-student-timetable/dc-student-timetable-edit02::dc-student-timetable";
+	}
+	@PostMapping("/update/studenttimetable")
+	public String updateTimetable(@ModelAttribute StudentTimeTable studentTimeTable,Model model) {
+		for(Period p : studentTimeTable.getPeriods()){
+			p.setStudentTimeTable(studentTimeTable);
+
+		}
+		studentTimetableService.save(studentTimeTable);
+		return "fragments/dc-components/dc-screen-layout/dc-student-timetable/dc-student-timetable-confirm.html::dc-student-timetable-confirm";
 	}
 
 	@RequestMapping("/display/studenttimetable")
