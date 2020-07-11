@@ -3,6 +3,7 @@ package com.monkmind.digicampus.repositories;
 import java.util.List;
 import java.util.Optional;
 
+import com.monkmind.digicampus.models.SubjectSchema;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
@@ -18,7 +19,7 @@ public interface StudentTimetableRepository extends CrudRepository<StudentTimeTa
 	List<StudentTimeTable> findAll();
 	//void save(StudentTimeTableCommand studentTimetable);
 	//StudentTimeTable saveAll(StudentTimeTable studentTimetable);
-	
+	StudentTimeTable findBySubjectschema(SubjectSchema subjectschema);
 	
 	
 }

@@ -195,11 +195,22 @@ $(document).ready(function(){
 	})
 
 $("#searchnonteachingstaff").click(function(e){
-	console.log("hello");
 		e.preventDefault();
 		$.ajax({
 			method: "GET",
 			url: "/searchnonteaching",
+			success: function(status){
+				if(status) {
+					$("#results").html(status)
+				}
+			}
+		});
+	})
+	$("#editstudenttimetable").click(function(e){
+		e.preventDefault();
+		$.ajax({
+			method: "GET",
+			url: "/edit/studenttimetable",
 			success: function(status){
 				if(status) {
 					$("#results").html(status)

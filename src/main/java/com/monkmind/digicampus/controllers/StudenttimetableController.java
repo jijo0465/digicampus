@@ -67,27 +67,20 @@ public class StudenttimetableController {
 		studentTimetableService.save(studentTimeTable);
 		return "fragments/dc-components/dc-screen-layout/dc-student-timetable/dc-student-timetable-confirm.html::dc-student-timetable-confirm";
 	}
-	
-	
-	 @RequestMapping("/studenttimetableformdisplay")
-		public String timetableDisplay(Model model) {
-		 List<StudentTimeTable> timetables=studentTimetableService.findAll();
-		    model.addAttribute("timetables",timetables);
-		    return "studenttimetabledisplay";
-		}
-	@RequestMapping("/e/{id}")
-	public String timetableEdit(@PathVariable String id,Model model) {
-		System.out.println(id);
-	    StudentTimeTable studentTimetable = studentTimetableService.getById(new Long(id));
-	    model.addAttribute("studentTimetable",studentTimetable);
-	     return "updatestudenttimetable";
+
+	@RequestMapping(path = "/edit/studenttimetable")
+	public String timetableEdit(Model model) {
+		model.addAttribute("gradeList",gradeservice.listAll());
+		model.addAttribute("subjectList",subjectService.findall());
+	     return "fragments/dc-components/dc-screen-layout/dc-student-timetable/dc-student-timetable-edit::dc-student-timetable-edit";
 	}
 	
-	@PostMapping
-	@RequestMapping("/updatetimetable/{id}")
-	public String InsertTimetable(@ModelAttribute StudentTimeTable studentTimetable,Model model) {
-		studentTimetableService.save(studentTimetable);
-	    return "index";
+	@PostMapping(path = "edit/studenttimetable/{id}")
+	public String InsertTimetable(@PathVariable SubjectSchema id,Model model) {
+	 	StudentTimeTable studentTimeTable=studentTimetableService.findBySchemaId(id);
+	 	System.out.println(studentTimeTable.getSubjectschema().getSchemaName());
+		model.addAttribute("studentTimetable",studentTimetableService.findBySchemaId(id));
+	    return "fragments/dc-components/dc-screen-layout/dc-student-timetable/dc-student-timetable-edit02::dc-student-timetable";
 	}
 
 	@RequestMapping("/timedele/{id}")
