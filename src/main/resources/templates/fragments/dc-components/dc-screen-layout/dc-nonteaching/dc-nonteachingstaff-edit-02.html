@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
      <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Staff list dispaly</title>
+    <title>Staff list display</title>
 </head>
 <body>
 <div class="container dc-form-body" th:fragment="dc-nonteachingstaff-edit-02" th:id="updatenonteachingstaffbody">
@@ -41,7 +41,7 @@
          <div class="col-sm-10 ">
              <div th:replace="fragments/dc-components/dc-form-component/dc-text-input/dc-text-input.html::dc-text-input(label='Designation *',name='designation',value='nonteachingstaff.designation',id='tid',required=true)"></div>
          </div>
-         <div th:replace="fragments/dc-components/dc-form-component/dc-form-button/dc-form-button.html::dc-form-button(label='Submit',submit_id='nonteachingstaffupdate')"></div>
+         <div th:replace="fragments/dc-components/dc-form-component/dc-form-button/dc-form-button.html::dc-form-button(label='Submit',submit_id='nonteachingstaffupdate',back_id='back')"></div>
      </form>
     <script th:src="@{js/dc-components/dc-screen-layout/dc-nonteaching/dc-nonteachingstaff-edit-02.js}">
     </script>

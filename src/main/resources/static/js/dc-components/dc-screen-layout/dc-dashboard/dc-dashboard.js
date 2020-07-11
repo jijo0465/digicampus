@@ -143,6 +143,19 @@ $(document).ready(function(){
 			}
 		});
 	})
+	$("searchnonteachingstaff").click(function(e){
+		e.preventDefault();
+		$.ajax({
+			method: "GET",
+			url: "/searchnonteaching",
+			success: function(status){
+				if(status) {
+					$("#results").html(status)
+				}
+			}
+		});
+	})
+	
 	$("#addschemas").click(function(e){
 		e.preventDefault();
 		$.ajax({
@@ -194,18 +207,7 @@ $(document).ready(function(){
 		});
 	})
 
-$("#searchnonteachingstaff").click(function(e){
-		e.preventDefault();
-		$.ajax({
-			method: "GET",
-			url: "/searchnonteaching",
-			success: function(status){
-				if(status) {
-					$("#results").html(status)
-				}
-			}
-		});
-	})
+
 })
 
 

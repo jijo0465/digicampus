@@ -7,10 +7,24 @@ $(document).ready(function(){
             success: function(status){
                 if(status) {
                     console.log(status);
-                    $("#updatenonteachingstaffbody").html(status)
+                    $("#formBody").html(status)
                 }
             }
         });
 
     })
 })
+$(document).ready(function(){
+            $("#back").click(function(e){
+                $.ajax({
+                    method: "GET",
+                    url: "/editnonteachingstaff",
+                    success: function(status){
+                        if(status) {
+                            $("body").html(status);
+                        }
+                    }
+                });
+
+            })
+        })

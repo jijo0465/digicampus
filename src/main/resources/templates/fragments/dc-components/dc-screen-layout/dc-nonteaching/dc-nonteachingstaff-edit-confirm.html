@@ -5,7 +5,7 @@
     <title>Confirm</title>
 </head>
 <body>
-<div class="container-fluid" style="min-width: 80%" th:fragment="dc-schema-edit-confirm" id="confirmpage">
+<div class="container-fluid" style="min-width: 80%" th:fragment="dc-nonteachingstaff-edit-confirm" id="confirmpage">
     <div  th:replace="fragments/dc-components/dc-form-component/dc-alert/dc-alert.html::dc-success-alert
     (success_text='You have successfully updated!')"></div>
     <div style="margin-top: 32px" class="btn-toolbar justify-content-center" role="toolbar" aria-label="Toolbar with button groups">
@@ -14,10 +14,10 @@
         </div>
 
         <div class="btn-group" role="group" aria-label="Third group">
-            <button type="button" class="btn btn-primary" th:id="editanotherschema">Edit another Schema</button>
+            <button type="button" class="btn btn-primary"  th:id="editanotherstaff">Edit Another staff</button>
         </div>
     </div>
-    <script th:src="@{js/dc-components/dc-screen-layout/dc-schema/dc-schema-edit-confirm.js}">
+    <script th:src="@{js/dc-components/dc-screen-layout/dc-nonteaching/dc-nonteachingstaff-edit-confirm.js}">
     </script>
 </div>
 </body>

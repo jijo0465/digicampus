@@ -81,8 +81,9 @@
         </div>
     </div>
     <hr class="solid">
-    <input type="hidden" th:value="${student.id}" th:id="studentid">
+    <input type="hidden" th:value="${student.id}" th:id="studentid">  
     <p  class="text-right mr-5" th:id="removestudent"><a href="#" onclick="return confirm('Are you sure want to delete this ?');">Remove Student</a></p>
+   
     <script th:src="@{js/dc-components/dc-screen-layout/dc-student/dc-student-profile.js}">
     </script>
 </div>

@@ -57,7 +57,7 @@ public class NonTeachingController {
 	@PostMapping(path="/updatenonteachingstaff")
 	public String insertNonteaching(@ModelAttribute   NonTeachingStaff nonteachingstaff ,Model model) {
 		nonteachingservice.save(nonteachingstaff);
-		return "fragments/dc-components/dc-screen-layout/dc-student-confirm.html::dc-student-confirm";
+		return "fragments/dc-components/dc-screen-layout/dc-nonteaching/dc-nonteachingstaff-edit-confirm.html::dc-nonteachingstaff-edit-confirm";
 	}
 
 	@GetMapping("/delet/{id}")
