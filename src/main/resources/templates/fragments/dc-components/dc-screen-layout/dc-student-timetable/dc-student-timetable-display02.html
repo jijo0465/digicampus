@@ -6,10 +6,27 @@
 </head>
 <body>
 <div class="container dc-form-body" th:fragment="dc-student-display" th:id="dc-student-display">
-    <table>
-        <tr><td>Days</td></tr>
-        <tr><td>Days</td></tr>
-        <tr><td>Days</td></tr>
+    <table class="table table-hover table-striped">
+        <tr>
+            <th th:text="MONDAY">
+            <td th:each="period,Iterstat : ${studentTimetable.periods}" th:if="${Iterstat.index}<=6" th:text="${period.subject.name}" ></td>
+        </tr>
+        <tr>
+            <th th:text="TUESDAY">
+            <td th:each="period,Iterstat : ${studentTimetable.periods}" th:if="${Iterstat.index}>6 AND ${Iterstat.index}<=13" th:text="${period.subject.name}" ></td>
+        </tr>
+        <tr>
+            <th th:text="WEDNESDAY">
+            <td th:each="period,Iterstat : ${studentTimetable.periods}" th:if="${Iterstat.index}>13 AND ${Iterstat.index}<=20" th:text="${period.subject.name}" ></td>
+        </tr>
+        <tr>
+            <th th:text="THURSDAY">
+            <td th:each="period,Iterstat : ${studentTimetable.periods}" th:if="${Iterstat.index}>20 AND ${Iterstat.index}<=27" th:text="${period.subject.name}" ></td>
+        </tr>
+        <tr>
+            <th th:text="FRIDAY">
+            <td th:each="period,Iterstat : ${studentTimetable.periods}" th:if="${Iterstat.index}>27 AND ${Iterstat.index}<=34" th:text="${period.subject.name}" ></td>
+        </tr>
     </table>
 </div>
 </body>

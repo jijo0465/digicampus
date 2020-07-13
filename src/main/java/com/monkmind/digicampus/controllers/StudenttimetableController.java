@@ -94,7 +94,6 @@ public class StudenttimetableController {
 	public String updateTimetable(@ModelAttribute StudentTimeTable studentTimeTable,Model model) {
 		for(Period p : studentTimeTable.getPeriods()){
 			p.setStudentTimeTable(studentTimeTable);
-
 		}
 		studentTimetableService.save(studentTimeTable);
 		return "fragments/dc-components/dc-screen-layout/dc-student-timetable/dc-student-timetable-confirm.html::dc-student-timetable-confirm";
