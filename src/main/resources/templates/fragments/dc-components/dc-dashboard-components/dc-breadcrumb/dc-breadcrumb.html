@@ -9,10 +9,12 @@
 <h4 class="dc-title" align="left" style="font-size: 32px" th:text="${page_head}"></h4>
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item" id="home"><a href="/mydashboard">Home</a></li>
+            <li class="breadcrumb-item"><a href="#" th:id="breadhome">Home</a></li>
             <li class="breadcrumb-item active" aria-current="page" th:text="${active_item}"></li>
         </ol>
     </nav>
+    <script th:src="@{js/dc-components/dc-dashboard-components/dc-breadcrumb/dc-breadcrumb.js}">
+    </script>
 </div>
 </body>
 </html>
