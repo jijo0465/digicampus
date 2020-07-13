@@ -7,6 +7,24 @@
 <body>
 <div class="container dc-form-body" th:fragment="dc-student-display" th:id="dc-student-display">
     <table class="table table-hover table-striped">
+    <tr>
+    <th>
+    </th>
+    <th th:text="PERIOD_1">
+    </th>
+    <th th:text="PERIOD_2">
+    </th>
+    <th th:text="PERIOD_3">
+    </th>
+    <th th:text="PERIOD_4">
+    </th>
+    <th th:text="PERIOD_5">
+    </th>
+    <th th:text="PERIOD_6">
+    </th>
+    <th th:text="PERIOD_7">
+    </th>
+    </tr>
         <tr>
             <th th:text="MONDAY">
             <td th:each="period,Iterstat : ${studentTimetable.periods}" th:if="${Iterstat.index}<=6" th:text="${period.subject.name}" ></td>
