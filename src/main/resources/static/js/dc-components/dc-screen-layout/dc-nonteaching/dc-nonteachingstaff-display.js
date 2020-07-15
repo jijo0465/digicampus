@@ -10,12 +10,15 @@ $(document).ready(function(){
     function myFunction(value)
     {
         $("#"+value).click(function (e) {
+        	console.log(value);
             var staffid = value.match(/\d+/)[0];
             $.ajax({
-                method: "POST",
+                method:"POST",
                 url: "/nonteachingstaff/profile/"+staffid,
                 success: function (status) {
+                	console.log("hello");
                     if (status) {
+                    	console.log("hello");
                         $("#dc-form-body").html(status)
                     }
                 }

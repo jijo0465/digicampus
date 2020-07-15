@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/4.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <meta charset="UTF-8">
+    <title>Profile</title>
+
+</head>
+<body>
+
+<div class="container py-3" th:fragment="dc-nonteachingstaff-profile" th:id="dc-profile">
+    <div class="row">
+        <div class="col-12 mx-auto">
+            <ul class="nav nav-tabs small justify-content-end" role="tablist">
+
+                <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#tab1" role="tab">Basic Info</a>
+                </li>
+                <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#tab2" role="tab">School Bus
+                    Details</a></li>
+                <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#tab3" role="tab">Fee Details</a></li>
+            </ul>
+            <div class="tab-content py-2">
+                <div id="tab1" class="tab-pane active">
+                    <img src="images/student_img.png" class="rounded float-right py-2" alt="Student Img" width="200"
+                         height="200" border="1">
+                    <h1 th:text="${nonteachingstaff?.name}"></h1>
+                    <table class="table table-hover table-striped ">
+                        <tbody>
+                        <tr>
+                            <th>Student Id</th>
+                            <th th:text="${nonteachingstaff?.staffId}"></th>
+                        </tr>
+                        <tr>
+                            <th>Gender</th>
+                            <th th:text="${nonteachingstaff?.gender}"></th>
+                        </tr>
+                        <tr>
+                            <th>Address</th>
+                            <th th:text="${nonteachingstaff?.address}"></th>
+                        </tr>
+                      <!--    <tr>
+                            <th>Parent Name</th>
+                            <th th:text="${student?.parent?.name}"></th>
+                        </tr>
+                        <tr>
+                            <th>Phone</th>
+                            <th th:text="${student?.parent?.phone}"></th>
+                        </tr>-->
+                        <tr>
+                            <th>Blood Group</th>
+                            <th th:text="${nonteachingstaff?.bloodGroup}"></th>
+                        </tr>
+                        
+                       <!--   <tr>
+                            <th>Division</th>
+                            <th th:text="${student?.grade?.division}"></th>
+                        </tr>
+                        <tr>
+                            <th>Class Teacher</th>
+                            <th></th>
+                        </tr>
+                        <tr>
+                            <th>Schema</th>
+                            <th th:text="${student?.subjectschema?.schemaName}"></th>
+                        </tr>-->
+                        </tbody>
+                    </table>
+                </div>
+                <div id="tab2" class="tab-pane fade">
+                    <h1>School Bus Details</h1>
+                </div>
+                <div id="tab3" class="tab-pane fade">
+                    <h1>Fee Details</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+   <!--   <hr class="solid">
+    <input type="hidden" th:value="${.id}" th:id="staffid">  
+    <p  class="text-right mr-5" th:id="removestaff"><a href="#" onclick="return confirm('Are you sure want to delete this ?');">Remove Staff</a></p>
+   -->
+    <script th:src="@{js/dc-components/dc-screen-layout/dc-nonteaching/dc-nonteaching-profile.js}">
+    </script>
+</div>
+</body>
+</html>

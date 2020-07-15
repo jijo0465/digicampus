@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
      <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Staff list dispaly</title>
+    <title>Staff list display</title>
 </head>
 <body>
 <div class="container dc-form-body" th:fragment="dc-nonteachingstaff-display" >
@@ -26,11 +26,15 @@
       		<td th:text="${listteachings.phone}">  
       		<td th:text="${listteachings.category}">
       		<td th:text="${listteachings.designation}">
-      		<td><a th:href="@{'/delet/'+ ${listteachings.id}}" onclick="return confirm('Are you sure want to delete this ?');" id="delete">Delete</a></td>
-      		
+      	      <td><a href="#" th:id="'view'+${listteachings?.id}">View</a></td>
+      		 </tr>
+      		  </table>
+      		  
+    <script th:src="@{js/dc-components/dc-screen-layout/dc-nonteaching/dc-nonteachingstaff-display.js}">
+    </script>  		
  
- </tr>
-</table>
+
+
 </div>
 </body>
 </html>
